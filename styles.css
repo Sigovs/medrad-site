@@ -4360,23 +4360,45 @@ a.breadcrumb__item:hover {
   margin-top: var(--space-xl);
 }
 
-/* --- 02 Portrait ------------------------------------------ */
+/* --- 02 Portrait with gradient backdrop ------------------- */
 .abt-portrait {
-  padding: 0 var(--container-pad);
+  margin-top: calc(-1 * var(--space-xl));
 }
 
-.abt-portrait__frame {
-  max-width: var(--container-max);
-  margin: 0 auto;
+.abt-portrait__wrap {
+  position: relative;
+}
+
+.abt-portrait__gradient {
+  width: 100%;
+  height: 560px;
   border-radius: var(--radius-md);
-  overflow: hidden;
+  background: linear-gradient(146deg, #BB8D81 16%, #282B37 92%);
 }
 
-.abt-portrait__frame img {
+.abt-portrait__image {
+  position: absolute;
+  bottom: 0;
+  left: 60%;
+  transform: translateX(-50%);
+  max-width: 860px;
+  width: 75%;
+}
+
+.abt-portrait__image img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .abt-portrait__gradient {
+    height: 360px;
+  }
+
+  .abt-portrait__image {
+    width: 90%;
+  }
 }
 
 /* --- 03 Bio (two-column) ---------------------------------- */
