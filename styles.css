@@ -4326,6 +4326,160 @@ a.breadcrumb__item:hover {
 
 
 /* ============================================================
+   About Page
+   ============================================================ */
+
+/* --- 01 Opening ------------------------------------------- */
+.abt-opening {
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-3xl);
+}
+
+.abt-opening__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.abt-opening__headline {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  font-weight: 400;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--color-text);
+  max-width: 820px;
+}
+
+.abt-opening__rule {
+  width: 60px;
+  height: 1px;
+  background: var(--color-text);
+  margin-top: var(--space-xl);
+}
+
+/* --- 02 Portrait ------------------------------------------ */
+.abt-portrait {
+  padding: 0 var(--container-pad);
+}
+
+.abt-portrait__frame {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.abt-portrait__frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* --- 03 Bio (two-column) ---------------------------------- */
+.abt-bio__grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.abt-bio__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+.abt-bio__cred {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.01em;
+}
+
+.abt-bio__role {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: var(--space-sm);
+}
+
+.abt-bio__est {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.abt-bio__right p {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+.abt-bio__right p + p {
+  margin-top: var(--space-md);
+}
+
+/* --- 04 Mission ------------------------------------------- */
+.abt-mission__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.abt-mission__quote {
+  margin: var(--space-lg) 0 0;
+  padding: 0;
+  border: none;
+}
+
+.abt-mission__quote p {
+  font-size: 1.0625rem;
+  color: var(--color-text-light);
+  line-height: 1.85;
+  opacity: 0.8;
+}
+
+.abt-mission__quote p + p {
+  margin-top: var(--space-md);
+}
+
+.abt-mission__motto {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-text-light);
+  margin-top: var(--space-xl);
+  letter-spacing: -0.01em;
+}
+
+/* --- About responsive ------------------------------------- */
+@media (max-width: 768px) {
+  .abt-bio__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .abt-opening__headline {
+    font-size: 1.4rem;
+  }
+}
+
+
+/* ============================================================
    Quiz Widget — Floating popup card, bottom-right
    ============================================================ */
 
