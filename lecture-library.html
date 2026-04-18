@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture Library — MedRad Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MedRad<span>Clinics</span></a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="about.html">About</a>
+
+        <div class="nav__dropdown-wrap" id="navProcDropWrap">
+          <button class="nav__dropdown-trigger" id="navProcTrigger"
+                  aria-expanded="false" aria-haspopup="true" aria-controls="navProcDropdown">
+            Procedures
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown" id="navProcDropdown" role="region" aria-label="Procedures menu">
+            <a href="procedure-ufe.html" class="nav__dropdown-item">Uterine Fibroid Embolization</a>
+            <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
+            <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
+            <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
+            <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          </div>
+        </div>
+
+        <a href="patient-education.html">Patient Education</a>
+        <a href="treatment-cases.html">Treatment Cases</a>
+        <a href="lecture-library.html" class="nav__link--active">Lecture Library</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav__cta nav__cta--filled">Schedule Appointment</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       01 — Hero
+       ============================================================ -->
+  <section class="ll-hero">
+    <div class="container">
+      <div class="ll-hero__inner">
+        <p class="section__label">Members</p>
+        <h1 class="ll-hero__title">Lecture Library</h1>
+        <p class="ll-hero__desc">Recorded lectures, educational presentations, and expert-led video content from Dr. Ekechukwu &mdash; curated for physicians, medical students, and healthcare professionals seeking deeper knowledge in interventional radiology.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       02 — Featured lecture (full-width highlight)
+       ============================================================ -->
+  <section class="section ll-featured">
+    <div class="container">
+      <div class="ll-featured__card">
+        <div class="ll-featured__thumb">
+          <div class="ll-thumb-placeholder ll-thumb-placeholder--lg">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+        </div>
+        <div class="ll-featured__body">
+          <span class="ll-tag">Featured</span>
+          <h2 class="ll-featured__title">Introduction to Interventional Radiology</h2>
+          <p class="ll-featured__text">A comprehensive overview of the field &mdash; what interventional radiologists do, how image-guided procedures work, and why minimally invasive techniques are reshaping modern medicine. Ideal as a starting point for referring physicians and patients new to IR.</p>
+          <div class="ll-meta">
+            <span class="ll-meta__item">Fundamentals</span>
+            <span class="ll-meta__sep">&middot;</span>
+            <span class="ll-meta__item">45 min</span>
+          </div>
+          <a href="#" class="btn btn--primary ll-featured__cta">Watch Lecture</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       03 — Category filter
+       ============================================================ -->
+  <section class="ll-filter">
+    <div class="container">
+      <div class="ll-filter__bar">
+        <button class="ll-filter__btn is-active" data-filter="all">All Lectures</button>
+        <button class="ll-filter__btn" data-filter="procedures">Procedures</button>
+        <button class="ll-filter__btn" data-filter="oncology">Interventional Oncology</button>
+        <button class="ll-filter__btn" data-filter="biopsies">Biopsies &amp; Drainages</button>
+        <button class="ll-filter__btn" data-filter="cases">Case-Based Learning</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       04 — Video grid
+       ============================================================ -->
+  <section class="section ll-grid-section">
+    <div class="container">
+      <div class="ll-grid">
+
+        <!-- Card 1 -->
+        <article class="ll-card" data-category="procedures">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">38 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Embolization</span>
+            <h3 class="ll-card__title">Uterine Fibroid Embolization</h3>
+            <p class="ll-card__desc">The principles of UFE, patient selection, catheter technique, embolic agents, and long-term outcomes. Includes case examples from clinical practice.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="ll-card" data-category="biopsies">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">52 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Biopsies</span>
+            <h3 class="ll-card__title">Percutaneous Biopsy Techniques</h3>
+            <p class="ll-card__desc">Image-guided biopsy under CT, ultrasound, and fluoroscopy. Needle selection, access planning, complication avoidance, and specimen handling.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="ll-card" data-category="procedures">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">41 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Procedures</span>
+            <h3 class="ll-card__title">Vertebroplasty &amp; Kyphoplasty</h3>
+            <p class="ll-card__desc">Percutaneous cement augmentation for vertebral compression fractures. Indications, imaging workup, procedural technique, and pain management outcomes.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="ll-card" data-category="oncology">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">35 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Interventional Oncology</span>
+            <h3 class="ll-card__title">Central Venous Access for Chemotherapy</h3>
+            <p class="ll-card__desc">Port-a-cath placement, tunneled catheter insertion, and PICC line management. Techniques for reliable long-term IV access in oncology patients.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="ll-card" data-category="cases">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">28 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Case-Based</span>
+            <h3 class="ll-card__title">Peripheral Arterial Disease: Case Series</h3>
+            <p class="ll-card__desc">Three cases of lower extremity PAD treated with angioplasty and stenting. Pre-procedural imaging, intra-procedural decision-making, and follow-up.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="ll-card" data-category="procedures">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">44 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Procedures</span>
+            <h3 class="ll-card__title">Hemodialysis Access Management</h3>
+            <p class="ll-card__desc">Creation and maintenance of AV fistulas and grafts. Declotting techniques, surveillance protocols, and when to intervene on a failing access.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 7 -->
+        <article class="ll-card" data-category="biopsies">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">33 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Drainages</span>
+            <h3 class="ll-card__title">Percutaneous Abscess Drainage</h3>
+            <p class="ll-card__desc">Image-guided drainage of abdominal and pelvic fluid collections. Catheter selection, placement technique, and post-procedure management.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 8 -->
+        <article class="ll-card" data-category="cases">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">50 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Case-Based</span>
+            <h3 class="ll-card__title">Biliary Interventions: Decompression &amp; Stenting</h3>
+            <p class="ll-card__desc">Percutaneous transhepatic cholangiography, biliary drainage, and stent placement for malignant and benign biliary obstruction.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Card 9 -->
+        <article class="ll-card" data-category="procedures">
+          <div class="ll-card__thumb">
+            <div class="ll-thumb-placeholder">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="ll-card__duration">30 min</span>
+          </div>
+          <div class="ll-card__body">
+            <span class="ll-tag">Embolization</span>
+            <h3 class="ll-card__title">Principles of Embolotherapy</h3>
+            <p class="ll-card__desc">Embolic agents, catheter systems, and clinical applications of embolization &mdash; from hemorrhage control to tumor devascularization.</p>
+            <a href="#" class="ll-card__cta">Watch Lecture &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="ed-support">
+        <div class="ed-support__text">
+          <p class="section__label">Have a question about a lecture?</p>
+          <h2>Ask Dr. E directly.</h2>
+          <p>If you&rsquo;d like to discuss a case, clarify a technique, or request a topic for a future lecture, we&rsquo;re here.</p>
+        </div>
+        <div class="ed-support__actions">
+          <a href="index.html#ask-dr-e" class="btn btn--primary">Ask Dr. E</a>
+          <a href="index.html#contact" class="btn btn--ghost">Schedule Appointment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__logo">MedRad<span>Clinics</span></p>
+          <p class="footer__tagline">Interventional radiology with subspecialty precision.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Procedures</p>
+          <a href="procedure-ufe.html">Uterine Fibroid Embolization</a>
+          <a href="#">Vertebroplasty &amp; Kyphoplasty</a>
+          <a href="#">Hemodialysis Access</a>
+          <a href="#">Peripheral Arterial Disease</a>
+          <a href="all-procedures.html">View All Procedures</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Patient Education</p>
+          <a href="patient-education.html#biopsies">Biopsies</a>
+          <a href="patient-education.html#drainages">Drainages</a>
+          <a href="patient-education.html#embolization">Embolization</a>
+          <a href="patient-education.html#interventional-oncology">Interventional Oncology</a>
+          <a href="patient-education.html#ir-basics">IR Basics</a>
+          <a href="patient-education.html#patient-preparation">Patient Preparation</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Tools &amp; Resources</p>
+          <a href="index.html#tools">Assess Your Risk</a>
+          <a href="treatment-cases.html">Treatment Cases</a>
+          <a href="lecture-library.html">Lecture Library</a>
+          <a href="index.html#ask-dr-e">Ask Dr. E</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 MedRad Clinics. All rights reserved.</p>
+        <p>This website does not provide medical advice. All content is for informational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+  <script>
+  /* Lecture Library — category filter */
+  (function () {
+    var btns = document.querySelectorAll('.ll-filter__btn');
+    var cards = document.querySelectorAll('.ll-card');
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        btns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        var filter = btn.getAttribute('data-filter');
+
+        cards.forEach(function (card) {
+          if (filter === 'all' || card.getAttribute('data-category') === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+  </script>
+</body>
+</html>
