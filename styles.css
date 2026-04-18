@@ -3081,6 +3081,10 @@ a.breadcrumb__item:hover {
   border-top: 1px solid var(--color-border);
 }
 
+.article-list--full .article-row {
+  grid-template-columns: 1fr;
+}
+
 .article-row {
   display: grid;
   grid-template-columns: 1fr 160px;
@@ -3160,6 +3164,137 @@ a.breadcrumb__item:hover {
 
 .article-row__list--numbered li {
   padding-left: 0.35rem;
+}
+
+
+/* ============================================================
+   Procedure Page — single-column article layout
+   ============================================================ */
+
+.proc-page__container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.proc-page__header {
+  margin-bottom: var(--space-lg);
+}
+
+.proc-page__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+.proc-page__hero {
+  margin-bottom: var(--space-xl);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.proc-page__hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+/* Article body */
+.proc-page__body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
+.proc-page__section {
+  margin-bottom: var(--space-xl);
+}
+
+.proc-page__heading {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.proc-page__body p {
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.proc-page__body p + p {
+  margin-top: 0.75rem;
+}
+
+/* Numbered list */
+.proc-page__list {
+  list-style: decimal;
+  padding-left: 1.25rem;
+  margin: var(--space-sm) 0 0;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+}
+
+.proc-page__list li {
+  padding-left: 0.35rem;
+}
+
+.proc-page__list li + li {
+  margin-top: 0.3rem;
+}
+
+/* Inline figure */
+.proc-page__figure {
+  margin: var(--space-lg) 0;
+}
+
+.proc-page__figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+.proc-page__figure figcaption {
+  font-size: 0.8rem;
+  color: var(--color-text-dim);
+  margin-top: 0.6rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Image gallery — grid of 3 */
+.proc-page__gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.proc-page__gallery .proc-page__figure {
+  margin: 0;
+}
+
+/* Smaller placeholder for inline/gallery images */
+.cat-article__hero-placeholder--sm {
+  height: 200px;
+}
+
+@media (max-width: 640px) {
+  .proc-page__gallery {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .proc-page__title {
+    font-size: 2rem;
+  }
 }
 
 .article-row__right {
