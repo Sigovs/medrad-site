@@ -40,7 +40,7 @@
         <a href="treatment-cases.html">Treatment Cases</a>
         <a href="lecture-library.html">Lecture Library</a>
         <a href="#contact">Contact</a>
-        <a href="#contact" class="nav__cta nav__cta--filled">Schedule Appointment</a>
+        <a href="#contact" class="nav__cta nav__cta--filled">Book Your Visit</a>
       </nav>
 
       <button class="nav__toggle" id="navToggle" aria-label="Open menu">
@@ -69,7 +69,7 @@
         <span class="entry__line entry__line--sub">Minimally invasive procedures guided by precision imaging — no open surgery, faster recovery, same outcomes.</span>
       </h1>
       <div class="entry__actions">
-        <a href="#contact" class="btn btn--primary">Schedule Appointment</a>
+        <a href="#contact" class="btn btn--primary">Book Your Visit</a>
         <a href="#procedures" class="btn btn--ghost">Explore Procedures</a>
       </div>
     </div>
@@ -391,28 +391,56 @@
        ============================================================ -->
   <section class="section section--accent" id="contact">
     <div class="container">
-      <div class="contact__block">
-        <div class="contact__text">
-          <p class="section__label">Schedule an Appointment</p>
-          <h2>Ready to take the next step?</h2>
-          <p>Referrals accepted from all physicians. Self-referral available for select procedures. Contact us to discuss your imaging or treatment needs.</p>
+
+      <div class="contact-header">
+        <p class="section__label">Get in Touch</p>
+        <h2>Choose how you&rsquo;d like to connect.</h2>
+        <p class="contact-header__desc">Referrals accepted from all physicians. Self-referral available for select procedures.</p>
+      </div>
+
+      <div class="contact-paths">
+
+        <!-- Path 1: Call -->
+        <div class="contact-path">
+          <div class="contact-path__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="contact-path__title">Call us directly</h3>
+          <p class="contact-path__desc">Speak with our team now. We can answer questions, verify insurance, and schedule your visit.</p>
+          <a href="tel:+1234567890" class="contact-path__action">+1 (234) 567-890</a>
+          <p class="contact-path__meta">Mon&ndash;Fri &middot; 8:00 AM&ndash;5:00 PM</p>
         </div>
-        <div class="contact__form">
-          <form class="form" id="contactForm">
-            <div class="form__row">
-              <input class="form__input" type="text" placeholder="Your name" required />
-              <input class="form__input" type="email" placeholder="Email address" required />
-            </div>
-            <input class="form__input" type="tel" placeholder="Phone number" />
-            <textarea class="form__input form__textarea" placeholder="Brief reason for inquiry or procedure of interest" rows="3"></textarea>
-            <button type="submit" class="btn btn--primary btn--full">Send Inquiry</button>
+
+        <!-- Path 2: Callback -->
+        <div class="contact-path contact-path--highlight">
+          <div class="contact-path__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3 class="contact-path__title">Request a callback</h3>
+          <p class="contact-path__desc">Leave your name and number. We&rsquo;ll reach out within 24 hours.</p>
+          <form class="contact-path__form" id="contactForm">
+            <input class="form__input" type="text" placeholder="Your name" required />
+            <input class="form__input" type="tel" placeholder="Phone number" required />
+            <button type="submit" class="btn btn--primary btn--full">Request Callback</button>
           </form>
           <div class="form__success" id="formSuccess" style="display:none;">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><circle cx="12" cy="12" r="10"/></svg>
-            <p>Thank you. We will be in touch within one business day.</p>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><circle cx="12" cy="12" r="10"/></svg>
+            <p>Thank you. We&rsquo;ll call you within 24 hours.</p>
           </div>
         </div>
+
+        <!-- Path 3: Ask Dr. E -->
+        <div class="contact-path">
+          <div class="contact-path__icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3 class="contact-path__title">Ask Dr. E first</h3>
+          <p class="contact-path__desc">Not ready to book? Ask a question about your condition, a procedure, or what to expect.</p>
+          <a href="#ask-dr-e" class="btn btn--ghost contact-path__btn">Ask Dr. E &rarr;</a>
+        </div>
+
       </div>
+
     </div>
   </section>
 
