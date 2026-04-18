@@ -77,7 +77,7 @@
           </button>
           <div class="proc-accordion__panel" id="panel-biopsies" role="region">
             <ul class="proc-accordion__list">
-              <li><a href="#">Percutaneous biopsy <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="education-category.html">Percutaneous biopsy <span class="proc-learn">Learn more &rarr;</span></a></li>
             </ul>
           </div>
         </div>
@@ -278,6 +278,233 @@
   </footer>
 
 
+  <!-- ============================================================
+       Sticky Quiz Widget
+       ============================================================ -->
+  <style>
+    .quiz-widget { position: fixed !important; bottom: 24px !important; right: 24px !important; z-index: 9999 !important; }
+  </style>
+  <div class="quiz-widget" id="quizWidget">
+    <!-- Collapsed bar -->
+    <button class="quiz-widget__bar" id="quizToggle" aria-expanded="false" aria-controls="quizPanel">
+      <span class="quiz-widget__bar-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      </span>
+      <span class="quiz-widget__bar-text">Quiz &mdash; Test Your Knowledge</span>
+      <span class="quiz-widget__bar-score" id="quizBarScore"></span>
+      <span class="quiz-widget__bar-chevron">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+      </span>
+    </button>
+
+    <!-- Expanded panel -->
+    <div class="quiz-widget__panel" id="quizPanel" hidden>
+      <div class="quiz-widget__inner">
+        <div class="quiz-widget__header">
+          <span class="quiz-widget__category" id="quizCategory">Anatomy</span>
+          <span class="quiz-widget__progress" id="quizProgress">1 / 10</span>
+        </div>
+
+        <p class="quiz-widget__question" id="quizQuestion">Loading&hellip;</p>
+
+        <div class="quiz-widget__options" id="quizOptions">
+          <!-- Options injected by JS -->
+        </div>
+
+        <div class="quiz-widget__feedback" id="quizFeedback" hidden>
+          <p id="quizFeedbackText"></p>
+        </div>
+
+        <div class="quiz-widget__actions">
+          <button class="btn btn--primary quiz-widget__next" id="quizNext" hidden>Next Question</button>
+        </div>
+
+        <!-- Final score screen -->
+        <div class="quiz-widget__result" id="quizResult" hidden>
+          <p class="quiz-widget__result-score">Your score: <strong id="quizFinalScore">0</strong> / <strong id="quizFinalTotal">0</strong> pts</p>
+          <p class="quiz-widget__result-msg" id="quizResultMsg"></p>
+          <button class="btn btn--ghost" id="quizRestart">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="script.js"></script>
+  <script>
+  /* ============================================================
+     Quiz Widget — self-contained
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    var questions = [
+      { cat: 'Geography', pts: 3, q: 'What percentage of the earth\u2019s surface is covered by water?', opts: ['57%', '62%', '71%'], ans: 2, info: 'Nearly 71% of the earth is covered by water, grouped into 4 oceans. The largest ocean, the Pacific Ocean, covers a third of the earth\u2019s surface.' },
+      { cat: 'Anatomy', pts: 2, q: 'The deep fascia is insensitive.', opts: ['True', 'False'], ans: 1, info: 'The deep fascia is very sensitive. Its nerve supply and of the subcutaneous periosteum is that of the overlying skin.' },
+      { cat: 'Physiology', pts: 3, q: 'Dark-complexioned races have more melanocytes in their skin than fair-skinned races.', opts: ['Correct', 'Incorrect'], ans: 1, info: 'Melanocyte populations are similar in all races. In darker skinned races the melanocytes are more active and produce more pigment.' },
+      { cat: 'Anatomy', pts: 2, q: 'The secretions of apocrine glands are odorless.', opts: ['Correct', 'Incorrect'], ans: 0, info: 'Apocrine glands are large sweat glands. Their secretions are odorless, but acquire a smell through bacterial action.' },
+      { cat: 'Trauma surgery', pts: 3, q: 'According to the \u201Crule of nines\u201D used to guide fluid replacement following burns, what proportion of the total skin surface area does the head represent?', opts: ['1%', '9%', '18%'], ans: 1, info: 'The \u201Crule of nines\u201D assigns: head 9%; upper limb 9%; lower limb 18%; front of thorax and abdomen 18%; back 18%.' },
+      { cat: 'Physiology', pts: 2, q: 'What percentage of the total body water is extracellular?', opts: ['25%', '67%', '33%'], ans: 2, info: 'About a third of the total body water is extracellular; the remaining two-thirds is intracellular.' },
+      { cat: 'Physiology', pts: 3, q: 'Whereas unspecialized sweat glands are innervated by cholinergic fibers and apocrine glands by adrenergic fibers, what influences the behavior of sebaceous glands?', opts: ['Androgens', 'Adrenergic fibers', 'Cholinergic fibers'], ans: 0, info: 'Sebaceous glands produce sebum. They are not innervated and are acted on locally by androgens.' },
+      { cat: 'Geography', pts: 3, q: 'In what continent is the country Chad?', opts: ['Africa', 'Australia', 'Asia'], ans: 0, info: 'Chad is a landlocked country in Central Africa.' },
+      { cat: 'Anatomy', pts: 2, q: 'What type of cartilage is at the articular surface of the mandible?', opts: ['Hyaline cartilage', 'Elastic cartilage', 'Fibrocartilage'], ans: 2, info: 'Fibrocartilage appears in intervertebral discs, menisci, labra, and the articular surface of the mandible.' },
+      { cat: 'Physiology', pts: 2, q: 'Which of these muscle types is multinucleated?', opts: ['Smooth muscle', 'Cardiac muscle', 'Skeletal muscle'], ans: 2, info: 'Cardiac and smooth muscle cells are uninucleated, but skeletal muscle fibers are multinucleated.' },
+      { cat: 'Anatomy', pts: 3, q: 'How many ossification centers form the humerus?', opts: ['5', '8', '6'], ans: 1, info: 'The humerus develops from 8 ossification centers: one primary center for the shaft and seven secondary centers.' },
+      { cat: 'Anatomy', pts: 3, q: 'How many muscles insert into the head of the humerus?', opts: ['7', '8', '5'], ans: 0, info: 'Two tuberosities and a head define the proximal humerus. Seven muscles insert into the proximal humeral region.' },
+      { cat: 'Anatomy', pts: 3, q: 'What structures occupy the radial groove of the humerus?', opts: ['Median nerve, brachial artery, brachial vein', 'Radial nerve and the deep brachial artery', 'Musculocutaneous nerve and the cephalic vein'], ans: 1, info: 'The radial groove is a shallow depression on the posterior mid humerus through which the radial nerve and the deep brachial artery pass.' },
+      { cat: 'Anatomy', pts: 3, q: 'What lies in the intertubercular (formerly bicipital) sulcus of the proximal humerus?', opts: ['The tendon of the long head of biceps muscle', 'The tendon of teres major muscle', 'The tendon of pectoralis major'], ans: 0, info: 'The intertubercular sulcus houses the tendon of the long head of biceps brachii muscle.' },
+      { cat: 'Anatomy', pts: 3, q: 'The ligament of Struthers is related to what bone?', opts: ['The femur', 'The scapula', 'The humerus'], ans: 2, info: 'In about 3% of people a supracondylar process on the anterior humerus is connected to the medial epicondyle by the ligament of Struthers.' },
+      { cat: 'Anatomy', pts: 3, q: 'Red marrow reconversion in response to anemia starts in the appendicular skeleton.', opts: ['True', 'False'], ans: 1, info: 'Marrow reconversion starts in the axial skeleton (vertebrae, pelvis, sternum), not the appendicular skeleton.' },
+      { cat: 'History', pts: 4, q: 'In what year was urea isolated in a laboratory?', opts: ['1776', '1910', '1828'], ans: 2, info: 'In 1828, Friedrich W\u00F6hler synthesized urea from ammonium cyanate, disproving vitalism and founding organic chemistry.' },
+      { cat: 'Anatomy', pts: 3, q: 'The congenital anomaly annular pancreas is due to which of the following?', opts: ['The dorsal pancreatic bud halves grow across the duodenum to fuse with the ventral bud', 'The ventral bud swings leftward to fuse with the dorsal bud', 'The ventral bud halves swing in opposite directions to fuse with the dorsal bud'], ans: 2, info: 'The ventral pancreatic bud normally fuses and rotates rightward. In annular pancreas, the two halves swing in opposite directions, encircling the duodenum.' },
+      { cat: 'Embryology', pts: 4, q: 'In pancreas divisum:', opts: ['The buds fuse but the accessory duct enters at the major papilla', 'The ducts of the dorsal and ventral anlages enter the duodenum independently', 'Ductal arrangement is normal but the dorsal anlage lies inferior to the ventral'], ans: 1, info: 'In pancreas divisum the dorsal and ventral pancreatic buds fail to fuse, so their ducts enter the duodenum independently.' },
+      { cat: 'Physiology', pts: 3, q: 'Sudden damage or destruction of the corticospinal system causes loss of muscle tone and absent or reduced tendon reflexes.', opts: ['True', 'False'], ans: 0, info: 'Sudden corticospinal injury causes neuronal shock: paralysis with initial loss of muscle tone and depressed reflexes.' },
+      { cat: 'Physiology', pts: 4, q: 'A 50-year-old woman with T8 vertebral metastatic disease from breast cancer presents with cord compression starting at what spinal segment?', opts: ['Spinal segment T8', 'Spinal segment T10', 'Spinal segment T11'], ans: 2, info: 'Due to the discrepancy between vertebral and cord levels, T8 vertebral disease compresses the cord at the T11 segment.' },
+      { cat: 'Physiology', pts: 2, q: 'How much CSF is produced in humans daily?', opts: ['350 mL', '450 mL', '600 mL'], ans: 1, info: 'About 450 mL of CSF is produced daily. Normal CSF volume is 150 mL, meaning it is replaced about 3 times a day.' },
+      { cat: 'Physiology', pts: 2, q: 'What is the normal cerebrospinal fluid (CSF) pressure?', opts: ['60\u2013150 mm of CSF', '50\u2013120 mm of Hg', '80\u2013180 mm of H\u2082O'], ans: 0, info: 'Normal lumbar CSF pressure is between 60 and 150 mm of CSF (6 to 15 cm of CSF).' },
+      { cat: 'Oncology', pts: 4, q: 'At what stage is a 48-year-old man with a peripheral 2 cm adenocarcinoma abutting but not invading the chest wall, without nodal disease, effusion, or metastasis?', opts: ['Stage IA', 'Stage IIA', 'Stage IIB'], ans: 0, info: 'A 2 cm non-small cell lung cancer without atelectasis, effusion, nodal spread or metastasis (T1N0M0) is stage IA.' },
+      { cat: 'Radiology', pts: 4, q: 'A 60-year-old smoker has a collapsed right lower lobe and CT cannot distinguish a mass. What test will help?', opts: ['Repeat contrast-enhanced chest CT immediately', 'MRI of the chest with gadolinium', 'Wait 4 weeks for the tumor to grow, then repeat CT'], ans: 1, info: 'MRI with gadolinium can distinguish tumor from atelectatic lung because tumor enhances differently from collapsed lung tissue.' },
+      { cat: 'Trauma surgery', pts: 3, q: 'The lucid interval describes what?', opts: ['The period of clear understanding before memory fades', 'Early-morning lucidity before the day\u2019s events', 'The brief wakefulness after head injury before neurologic deterioration'], ans: 2, info: 'The lucid interval is the deceptive period of wakefulness following head trauma that precedes neurologic deterioration.' },
+      { cat: 'Trauma surgery', pts: 3, q: 'Which of the following forms of brain herniation is commonest?', opts: ['Subfalcine herniation', 'Transtentorial herniation', 'Transforaminal herniation', 'External herniation'], ans: 0, info: 'Subfalcine herniation, where the cingulate gyrus is displaced under the falx cerebri, is the most common form.' },
+      { cat: 'Trauma surgery', pts: 3, q: 'All forms of brain herniation share similar characteristics and prognosis.', opts: ['No, they do not', 'Yes, they do'], ans: 0, info: 'Different forms of brain herniation have very different characteristics and prognoses.' },
+      { cat: 'Radiology', pts: 4, q: 'What is the most sensitive imaging method for the detection of acute ischemia of the brain?', opts: ['Noncontrast CT scan', 'Diffusion-weighted MRI', 'FLAIR MRI', 'T2-weighted MRI'], ans: 1, info: 'Diffusion-weighted imaging detects restricted water diffusion in ischemic cells within minutes of stroke onset.' },
+      { cat: 'Radiology', pts: 4, q: 'What is the possible earliest sign of acute nonhemorrhagic cerebral ischemia on imaging?', opts: ['Insular ribbon sign on CT', 'Light-bulb sign on diffusion-weighted MRI', 'T2 hyperintensity on fast-spin echo MRI', 'Hyperdense artery sign on CT'], ans: 3, info: 'The hyperdense artery sign on noncontrast CT represents the clot within the artery and may be the earliest imaging finding.' },
+      { cat: 'Anatomy', pts: 3, q: 'What cranial nerve lies inside the cavernous sinus?', opts: ['CN III, oculomotor', 'CN IV, trochlear', 'CN V, trigeminal', 'CN VI, abducens'], ans: 3, info: 'The abducens nerve (CN VI) is the only cranial nerve that lies within the cavernous sinus itself.' },
+      { cat: 'Neurology', pts: 2, q: 'A brain infarct measuring 3 cm will cause more residual neurological deficits than an equal-size nontraumatic intraparenchymal hemorrhage.', opts: ['True', 'False'], ans: 0, info: 'Hemorrhages cause more initial mortality but survivors recover better; infarcts cause more residual deficits.' },
+      { cat: 'Radiology', pts: 3, q: 'Which of the following intracranial masses is intra-axial?', opts: ['A mass in the lateral ventricle', 'A mass attached to the meninges', 'An epidural mass', 'None of these masses'], ans: 3, info: 'Intra-axial masses arise from the brain itself. Ventricular, meningeal, and epidural masses are all extra-axial.' },
+      { cat: 'Embryology', pts: 3, q: 'At birth, the skin of a normal baby...', opts: ['Is covered with a thick layer of meconium', 'Is covered with vernix caseosa', 'Has no melanocytes'], ans: 1, info: 'Fetal skin is covered by vernix caseosa, an oily whitish paste from sebaceous glands and degenerated cells.' },
+      { cat: 'Therapeutics', pts: 3, q: 'The presence of cerebral hemorrhage due to intracranial venous thrombosis precludes thrombolysis or anticoagulation.', opts: ['True', 'False'], ans: 1, info: 'Hemorrhage from venous thrombosis does not preclude anticoagulation; treatment of the thrombosis is the priority.' },
+      { cat: 'Physiology', pts: 3, q: 'What percentage of intracranial blood flows through the anterior circulation?', opts: ['80% to 85%', '65% to 75%', '50% to 60%'], ans: 0, info: '80\u201385% of intracranial blood flows through the anterior (internal carotid) circulation.' },
+      { cat: 'Radiology', pts: 3, q: 'Intracranial aneurysms can be familial.', opts: ['False', 'True'], ans: 1, info: '7\u201320% of subarachnoid hemorrhages are due to ruptured familial intracranial aneurysms.' },
+      { cat: 'Radiology', pts: 3, q: 'An intracranial aneurysm measuring 1.5 cm in its widest diameter is a giant aneurysm.', opts: ['True', 'False'], ans: 1, info: 'A giant intracranial aneurysm is one whose widest diameter exceeds 2.5 cm.' },
+      { cat: 'Radiology', pts: 3, q: 'Intracranial aneurysms may be multiple.', opts: ['True', 'False'], ans: 0, info: 'Multiple intracranial aneurysms occur in 25% of patients and are commoner in females.' },
+      { cat: 'Radiology', pts: 3, q: '80% of intracranial aneurysms occur within the circle of Willis.', opts: ['False', 'True'], ans: 1, info: 'About 80% of intracranial aneurysms occur in the anterior circulation within the circle of Willis.' },
+      { cat: 'Radiology', pts: 3, q: 'Intracranial aneurysms are commoner in males than females.', opts: ['False', 'True'], ans: 0, info: 'Intracranial aneurysms are commoner in females than males.' },
+      { cat: 'Anatomy', pts: 3, q: 'Complete obstruction of a lobar bronchus always causes complete collapse of the affected lobe.', opts: ['False', 'True'], ans: 0, info: 'Collateral ventilation through interlobar fissures can prevent complete collapse even with total bronchial obstruction.' },
+      { cat: 'Radiology', pts: 3, q: 'Which method of breast examination is proven to reduce mortality from breast cancer?', opts: ['Clinical and self-examination', 'Mammography', 'Ultrasonography', 'Breast MRI'], ans: 1, info: 'Mammography is the only method proven by large-scale studies to reduce breast cancer mortality.' },
+      { cat: 'Radiology', pts: 2, q: 'The \u201Cfat pad\u201D sign is pathognomonic of a fracture of the elbow joint.', opts: ['False', 'True'], ans: 0, info: 'The fat pad sign indicates a joint effusion but is not pathognomonic of fracture; it can be seen with other causes of effusion.' },
+      { cat: 'Anatomy', pts: 3, q: 'The avascular plane of Brodel is found in what organ?', opts: ['The brain', 'The liver', 'The kidney', 'The spleen'], ans: 2, info: 'The avascular plane of Brodel lies between the territories of the anterior and posterior divisions of the renal artery in the kidney.' }
+    ];
+
+    // Shuffle on load
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = arr[i]; arr[i] = arr[j]; arr[j] = t;
+      }
+      return arr;
+    }
+
+    var pool = shuffle(questions.slice());
+    var idx = 0, score = 0, totalPts = 0, answered = false;
+
+    var widget   = document.getElementById('quizWidget');
+    var toggle   = document.getElementById('quizToggle');
+    var panel    = document.getElementById('quizPanel');
+    var catEl    = document.getElementById('quizCategory');
+    var progEl   = document.getElementById('quizProgress');
+    var qEl      = document.getElementById('quizQuestion');
+    var optsEl   = document.getElementById('quizOptions');
+    var fbEl     = document.getElementById('quizFeedback');
+    var fbText   = document.getElementById('quizFeedbackText');
+    var nextBtn  = document.getElementById('quizNext');
+    var resultEl = document.getElementById('quizResult');
+    var finalSc  = document.getElementById('quizFinalScore');
+    var finalTot = document.getElementById('quizFinalTotal');
+    var resultMsg= document.getElementById('quizResultMsg');
+    var restartBtn = document.getElementById('quizRestart');
+    var barScore = document.getElementById('quizBarScore');
+
+    pool.forEach(function (q) { totalPts += q.pts; });
+
+    function render() {
+      var q = pool[idx];
+      catEl.textContent = q.cat;
+      progEl.textContent = (idx + 1) + ' / ' + pool.length;
+      qEl.textContent = q.q;
+      fbEl.hidden = true;
+      nextBtn.hidden = true;
+      resultEl.hidden = true;
+      answered = false;
+
+      optsEl.innerHTML = '';
+      q.opts.forEach(function (opt, i) {
+        var btn = document.createElement('button');
+        btn.className = 'quiz-widget__opt';
+        btn.textContent = opt;
+        btn.addEventListener('click', function () { choose(i); });
+        optsEl.appendChild(btn);
+      });
+    }
+
+    function choose(i) {
+      if (answered) return;
+      answered = true;
+      var q = pool[idx];
+      var btns = optsEl.querySelectorAll('.quiz-widget__opt');
+
+      btns.forEach(function (b, j) {
+        b.disabled = true;
+        if (j === q.ans) b.classList.add('is-correct');
+        if (j === i && i !== q.ans) b.classList.add('is-wrong');
+      });
+
+      if (i === q.ans) {
+        score += q.pts;
+        fbText.textContent = 'Correct! ' + q.info;
+        fbEl.className = 'quiz-widget__feedback is-correct';
+      } else {
+        fbText.textContent = 'Not quite. ' + q.info;
+        fbEl.className = 'quiz-widget__feedback is-wrong';
+      }
+      fbEl.hidden = false;
+      barScore.textContent = score + ' pts';
+
+      if (idx < pool.length - 1) {
+        nextBtn.hidden = false;
+      } else {
+        setTimeout(showResult, 600);
+      }
+    }
+
+    function showResult() {
+      optsEl.innerHTML = '';
+      qEl.style.display = 'none';
+      fbEl.hidden = true;
+      nextBtn.hidden = true;
+      catEl.textContent = 'Done!';
+      progEl.textContent = pool.length + ' / ' + pool.length;
+      finalSc.textContent = score;
+      finalTot.textContent = totalPts;
+      var pct = Math.round(score / totalPts * 100);
+      resultMsg.textContent = pct >= 80 ? 'Excellent — you really know your stuff.'
+                            : pct >= 50 ? 'Good job — keep learning!'
+                            : 'Room to grow — explore our education materials above.';
+      resultEl.hidden = false;
+    }
+
+    function restart() {
+      pool = shuffle(questions.slice());
+      idx = 0; score = 0;
+      barScore.textContent = '';
+      qEl.style.display = '';
+      resultEl.hidden = true;
+      render();
+    }
+
+    // Toggle open/close
+    toggle.addEventListener('click', function () {
+      var isOpen = panel.hidden;
+      panel.hidden = !isOpen;
+      toggle.setAttribute('aria-expanded', isOpen);
+      widget.classList.toggle('is-open', isOpen);
+    });
+
+    nextBtn.addEventListener('click', function () { idx++; render(); });
+    restartBtn.addEventListener('click', restart);
+
+    render();
+  })();
+  </script>
 </body>
 </html>

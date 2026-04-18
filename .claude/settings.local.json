@@ -5,7 +5,11 @@
       "Bash(node:*)",
       "Bash(python -m http.server 8765)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8765/treatment-cases.html)",
-      "Bash(cmd.exe //c start \"\" \"c:\\\\____WORK\\\\MEDRAD\\\\medrad-site\\\\treatment-cases.html\")"
+      "Bash(cmd.exe //c start \"\" \"c:\\\\____WORK\\\\MEDRAD\\\\medrad-site\\\\treatment-cases.html\")",
+      "WebFetch(domain:www.medradclinics.com)",
+      "Bash(curl -s -L \"https://www.medradclinics.com/?page_id=275\")",
+      "Read(//tmp/**)",
+      "Bash(git -C \"c:/____WORK/MEDRAD/medrad-site\" log --oneline --all -- education-category.html)"
     ]
   }
 }
