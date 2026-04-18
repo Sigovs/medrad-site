@@ -344,15 +344,41 @@ p {
   );
 }
 
+/* Hero image — right side, aligned to container */
+.entry__hero-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--container-max);
+  padding: 0 var(--container-pad);
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.entry__hero-image img {
+  width: 580px;
+  height: auto;
+  display: block;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
 /* Text — overlaid on top of the full-bleed image */
 .entry__content {
   position: relative;
   z-index: 2;
   height: 1080px;
-  max-width: 680px;
+  max-width: var(--container-max);
+  margin: 0 auto;
   padding-top: calc(var(--nav-height) + 18vh);
-  padding-left: clamp(2rem, 7vw, 8rem);
-  padding-right: 3rem;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
   will-change: opacity;
 }
 
@@ -384,7 +410,7 @@ p {
   letter-spacing: -0.03em;
 }
 
-/* Italic sub-line — dramatically smaller, creates scale contrast */
+/* Italic sub-line — matches title width */
 .entry__line--sub {
   font-size: clamp(0.95rem, 1.6vw, 1.3rem);
   font-weight: 400;
@@ -393,6 +419,7 @@ p {
   letter-spacing: 0.01em;
   margin-top: 1.75rem;
   line-height: 1.5;
+  max-width: 480px;
 }
 
 /* Single text-based CTA — not a button */
@@ -4656,11 +4683,6 @@ a.breadcrumb__item:hover {
   width: fit-content;
 }
 
-.ll-tag--open {
-  color: #fff;
-  background: var(--color-accent);
-}
-
 .ll-meta {
   display: flex;
   align-items: center;
@@ -4785,11 +4807,6 @@ a.breadcrumb__item:hover {
 
 .ll-card__badge svg {
   flex-shrink: 0;
-}
-
-.ll-card__badge--open {
-  background: var(--color-accent);
-  color: #fff;
 }
 
 .ll-card__duration {
