@@ -368,38 +368,6 @@ p {
   display: block;
 }
 
-@media (max-width: 640px) {
-  .entry {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .entry__media {
-    position: absolute;
-  }
-
-  .entry__content {
-    order: 1;
-  }
-
-  .entry__hero-image {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    order: 2;
-    z-index: 2;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0 var(--container-pad);
-  }
-
-  .entry__hero-image img {
-    height: auto;
-    width: 75%;
-    max-height: 45vh;
-  }
-}
 
 /* Text — overlaid on top of the full-bleed image */
 .entry__content {
@@ -1425,17 +1393,35 @@ p {
 
   /* Mobile hero */
   .entry {
-    min-height: 100svh;
     height: auto;
+    min-height: auto;
+    overflow: hidden;
   }
 
   .entry__content {
     height: auto;
-    min-height: 100svh;
+    min-height: auto;
     max-width: 100%;
-    padding-top: calc(var(--nav-height) + 8vh);
+    padding-top: calc(var(--nav-height) + 6vh);
+    padding-bottom: var(--space-xl);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .entry__hero-image {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .entry__hero-image img {
+    height: auto;
+    width: 70%;
+    max-width: 360px;
   }
 
   .entry__media {
