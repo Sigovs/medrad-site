@@ -551,46 +551,77 @@ p {
 }
 
 /* ── Universal scroll-reveal ──────────────────────────────────
-   Applied by JS to every eyebrow, heading line, sub, button,
-   procedure item, card, etc. across the whole page.
-   fill-mode: both keeps the element at the from-state during
-   its stagger delay so nothing flashes before its turn.
-   --stagger-i is set inline by JS (0, 1, 2 …) per sibling group.
+   Fade-up on scroll entry. Stagger via --stagger-i (set by JS).
+   Duration: 0.5s  |  Easing: ease-out  |  Stagger: 80ms
 ─────────────────────────────────────────────────────────────── */
-/* ── Bottom-up reveal (all page sections) ─────────────────── */
 .will-reveal {
   opacity: 0;
-  transform: translateY(32px);
+  transform: translateY(24px);
 }
 
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(32px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 .will-reveal.revealed {
-  animation: reveal-up 0.65s cubic-bezier(0.22, 1, 0.36, 1)
-             calc(var(--stagger-i, 0) * 100ms) both;
+  animation: reveal-up 0.5s cubic-bezier(0, 0, 0.2, 1)
+             calc(var(--stagger-i, 0) * 80ms) both;
 }
 
-/* ── Left-slide reveal (hero text only, staircase on load) ── */
+/* ── Left-slide reveal (hero text only) ───────────────────── */
 .will-reveal--left {
   opacity: 0;
-  transform: translateX(-52px);
+  transform: translateX(-40px);
 }
 
 @keyframes reveal-left {
-  from { opacity: 0; transform: translateX(-52px); }
+  from { opacity: 0; transform: translateX(-40px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 
 .will-reveal--left.revealed {
-  animation: reveal-left 0.7s cubic-bezier(0.22, 1, 0.36, 1)
+  animation: reveal-left 0.6s cubic-bezier(0, 0, 0.2, 1)
              calc(var(--stagger-i, 0) * 130ms) both;
 }
 
 [data-parallax="float"] {
   will-change: transform;
+}
+
+/* ── Hover micro-interactions ─────────────────────────────── */
+
+/* Cards: gentle lift */
+.proc-card,
+.edu-preview__card,
+.contact-path,
+.expect-step,
+.article-row,
+.proc-cat-item {
+  transition: transform 0.35s cubic-bezier(0, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0, 0, 0.2, 1),
+              background var(--duration) var(--ease);
+}
+
+.proc-card:hover,
+.edu-preview__card:hover,
+.contact-path:hover,
+.expect-step:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Buttons: restrained scale */
+.btn {
+  transition: background var(--duration) var(--ease),
+              color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform 0.35s cubic-bezier(0, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 
@@ -623,6 +654,23 @@ p {
 
 .section--dark p {
   color: #999999;
+}
+
+.section--refined {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 80% 40%,
+      rgba(242, 239, 233, 0.5) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #FFFFFF 0%,
+      #F7F5F3 35%,
+      #F5F2EE 50%,
+      #F7F5F3 65%,
+      #FFFFFF 100%
+    );
 }
 
 .section--narrow .container {
