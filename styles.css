@@ -344,29 +344,61 @@ p {
   );
 }
 
-/* Hero image — right side, aligned to container */
+/* Hero particle canvas */
+.entry__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Hero image — fixed size, anchored bottom-right, clips on small screens */
 .entry__hero-image {
   position: absolute;
-  top: 0;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: var(--container-max);
-  padding: 0 var(--container-pad);
-  z-index: 1;
+  right: 10%;
+  z-index: 2;
   pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 .entry__hero-image img {
-  width: 580px;
-  height: auto;
+  height: 880px;
+  width: auto;
   display: block;
-  opacity: 0.5;
-  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .entry {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry__media {
+    position: absolute;
+  }
+
+  .entry__content {
+    order: 1;
+  }
+
+  .entry__hero-image {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    order: 2;
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0 var(--container-pad);
+  }
+
+  .entry__hero-image img {
+    height: auto;
+    width: 75%;
+    max-height: 45vh;
+  }
 }
 
 /* Text — overlaid on top of the full-bleed image */
