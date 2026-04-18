@@ -3172,7 +3172,7 @@ a.breadcrumb__item:hover {
    ============================================================ */
 
 .proc-page__container {
-  max-width: 760px;
+  max-width: var(--container-max);
   margin: 0 auto;
 }
 
