@@ -4656,6 +4656,11 @@ a.breadcrumb__item:hover {
   width: fit-content;
 }
 
+.ll-tag--open {
+  color: #fff;
+  background: var(--color-accent);
+}
+
 .ll-meta {
   display: flex;
   align-items: center;
@@ -4780,6 +4785,11 @@ a.breadcrumb__item:hover {
 
 .ll-card__badge svg {
   flex-shrink: 0;
+}
+
+.ll-card__badge--open {
+  background: var(--color-accent);
+  color: #fff;
 }
 
 .ll-card__duration {
