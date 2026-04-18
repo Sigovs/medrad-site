@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venous Interventions — Patient Education — MedRad Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MedRad<span>Clinics</span></a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#about">About</a>
+
+        <div class="nav__dropdown-wrap" id="navProcDropWrap">
+          <button class="nav__dropdown-trigger" id="navProcTrigger"
+                  aria-expanded="false" aria-haspopup="true" aria-controls="navProcDropdown">
+            Procedures
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown" id="navProcDropdown" role="region" aria-label="Procedures menu">
+            <a href="#" class="nav__dropdown-item">Uterine Fibroid Embolization</a>
+            <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
+            <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
+            <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
+            <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          </div>
+        </div>
+
+        <a href="patient-education.html" class="nav__link--active">Patient Education</a>
+        <a href="treatment-cases.html">Treatment Cases</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav__cta nav__cta--filled">Schedule Appointment</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       Breadcrumb
+       ============================================================ -->
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html" class="breadcrumb__item">Home</a>
+        <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+        <a href="patient-education.html" class="breadcrumb__item">Patient Education</a>
+        <span class="breadcrumb__sep" aria-hidden="true">&rsaquo;</span>
+        <span class="breadcrumb__item breadcrumb__item--current" aria-current="page">Venous Interventions</span>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       Category Intro — two-column: overview + article index
+       ============================================================ -->
+  <section class="cat-intro">
+    <div class="container">
+      <div class="cat-intro__grid">
+
+        <div class="cat-intro__main">
+          <p class="section__label">Treatment Area</p>
+          <h1 class="cat-intro__title">Venous<br>Interventions</h1>
+          <p class="cat-intro__desc">The venous system returns blood to the heart — and when veins become diseased, damaged, or obstructed, interventional radiology offers targeted, minimally invasive treatments that restore flow, relieve symptoms, and protect long-term vascular health. This section covers the full spectrum of venous interventional techniques offered at MedRad Clinics.</p>
+          <div class="cat-intro__tags">
+            <span class="cat-tag">Minimally invasive</span>
+            <span class="cat-tag">Image-guided</span>
+            <span class="cat-tag">Outpatient or short stay</span>
+            <span class="cat-tag">No open surgery</span>
+          </div>
+        </div>
+
+        <aside class="cat-intro__aside">
+          <div class="cat-panel">
+            <p class="cat-panel__heading">Articles in this section</p>
+            <ul class="cat-panel__index">
+              <li><a href="#cvo">Central Venous Occlusion</a></li>
+              <li><a href="#ivc-filter">IVC Filters</a></li>
+              <li><a href="#sclerotherapy">Sclerotherapy</a></li>
+              <li><a href="#phlebectomy">Phlebectomy</a></li>
+              <li><a href="#evlt">Endovenous Laser Therapy</a></li>
+              <li><a href="#venous-access">Venous Access for Chemotherapy</a></li>
+              <li><a href="#avf-declot">AV Fistula &amp; Graft Declotting</a></li>
+              <li><a href="#hemodialysis-access">Hemodialysis Access</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn btn--primary btn--full" style="margin-top:1.75rem;">Request a Consultation</a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Sub-Articles — Editorial List
+       ============================================================ -->
+  <section class="section" id="articles">
+    <div class="container">
+
+      <div class="cat-articles__header">
+        <p class="section__label">Educational Articles</p>
+        <h2>Venous Procedures &amp; Treatments</h2>
+      </div>
+
+      <div class="article-list">
+
+        <a href="#" class="article-row" id="cvo">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Revascularization of Central Venous Occlusions</h3>
+            <p class="article-row__desc">When central veins become blocked — often from catheters, clots, or radiation — percutaneous revascularization restores flow and relieves upper-body swelling, arm pain, and port dysfunction.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Procedure Guide</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="ivc-filter">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Inferior Vena Cava (IVC) Filters</h3>
+            <p class="article-row__desc">A small device placed inside the inferior vena cava to intercept blood clots before they reach the lungs. Used when anticoagulation is contraindicated or insufficient to prevent pulmonary embolism.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Procedure Guide</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="sclerotherapy">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Sclerotherapy of Varicose &amp; Spider Veins</h3>
+            <p class="article-row__desc">A sclerosing agent is injected directly into diseased veins, causing them to close and gradually fade. An effective, well-tolerated treatment for varicose veins, spider veins, and venous malformations.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Overview</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="phlebectomy">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Phlebectomy of Varicose Veins</h3>
+            <p class="article-row__desc">Minimally invasive removal of superficial varicose veins through tiny skin punctures — under local anesthesia, with no significant scarring. Most patients return to normal activity within days.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Procedure Guide</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="evlt">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Endovenous Laser Therapy (EVLT)</h3>
+            <p class="article-row__desc">A laser fiber threaded into the diseased vein delivers targeted energy that closes the vein from within. EVLT treats chronic venous insufficiency of the lower extremities with minimal downtime and high long-term success rates.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Long Read</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="venous-access">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Venous Access for Chemotherapy &amp; Long-Term IV Therapy</h3>
+            <p class="article-row__desc">Port-a-caths, PICCs, and tunneled catheters provide reliable, long-term intravenous access for chemotherapy, nutrition, and frequent blood draws — all placed and maintained with image guidance.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Overview</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="avf-declot">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Declotting of AV Fistulas &amp; Grafts</h3>
+            <p class="article-row__desc">For dialysis patients, a clotted arteriovenous fistula or graft can interrupt life-sustaining treatment. Image-guided declotting rapidly restores access through pharmacomechanical thrombolysis — without surgery.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Procedure Guide</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-row" id="hemodialysis-access">
+          <div class="article-row__body">
+            <h3 class="article-row__title">Hemodialysis Access — Creation &amp; Maintenance</h3>
+            <p class="article-row__desc">MedRad Clinics manages the full lifecycle of hemodialysis access — from initial catheter placement through fistula and graft creation, long-term surveillance, and intervention — ensuring uninterrupted treatment for patients with kidney disease.</p>
+          </div>
+          <div class="article-row__right">
+            <span class="article-type">Long Read</span>
+            <span class="article-row__link">Read article &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       What to Expect — Before / During / After
+       ============================================================ -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="cat-expect__header">
+        <p class="section__label">Patient Guidance</p>
+        <h2>What to Expect</h2>
+      </div>
+      <div class="expect-grid">
+
+        <div class="expect-step">
+          <p class="expect-step__phase">Before</p>
+          <h3 class="expect-step__title">Preparation</h3>
+          <p class="expect-step__text">You will receive procedure-specific instructions in advance. This typically includes fasting guidelines, medication adjustments (especially blood thinners), and arranging transport home. Bring a complete list of your current medications.</p>
+        </div>
+
+        <div class="expect-step">
+          <p class="expect-step__phase">During</p>
+          <h3 class="expect-step__title">The Procedure</h3>
+          <p class="expect-step__text">Venous procedures are performed under ultrasound or fluoroscopic guidance with local anesthesia and light sedation. A small skin puncture provides access — no surgical incision required. Most procedures are completed in under two hours.</p>
+        </div>
+
+        <div class="expect-step">
+          <p class="expect-step__phase">After</p>
+          <h3 class="expect-step__title">Recovery</h3>
+          <p class="expect-step__text">Many patients return home the same day. Activity may be restricted for 24–48 hours depending on the specific procedure. Follow-up imaging confirms treatment success. Written aftercare instructions are provided before discharge.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FAQ — Dark background, accordion
+       ============================================================ -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="cat-faq">
+
+        <div class="cat-faq__header">
+          <p class="section__label">Common Questions</p>
+          <h2>Frequently Asked</h2>
+          <p class="cat-faq__subtext">Can't find what you're looking for? Ask Dr. E directly.</p>
+          <a href="index.html#ask-dr-e" class="btn btn--ghost cat-faq__btn" style="margin-top:1.5rem;">Ask Dr. E &rarr;</a>
+        </div>
+
+        <div class="proc-accordion proc-accordion--dark" id="procAccordion">
+
+          <div class="proc-accordion__item is-open">
+            <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="faq-1">
+              <span class="proc-accordion__name">Are venous procedures painful?</span>
+              <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="proc-accordion__panel" id="faq-1" role="region">
+              <p>Most venous interventional procedures are performed under local anesthesia and light sedation. You may feel pressure or a warm sensation during the procedure but significant pain is uncommon. Your care team will monitor your comfort throughout and can adjust sedation as needed.</p>
+            </div>
+          </div>
+
+          <div class="proc-accordion__item">
+            <button class="proc-accordion__trigger" aria-expanded="false" aria-controls="faq-2">
+              <span class="proc-accordion__name">How long does recovery take?</span>
+              <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="proc-accordion__panel" id="faq-2" role="region">
+              <p>Recovery varies by procedure. For sclerotherapy and phlebectomy, most patients resume normal activities within 24–48 hours. More complex procedures such as central vein revascularization or hemodialysis access creation may require a short overnight stay and a few days of restricted activity. Your physician will give you specific guidance based on your procedure.</p>
+            </div>
+          </div>
+
+          <div class="proc-accordion__item">
+            <button class="proc-accordion__trigger" aria-expanded="false" aria-controls="faq-3">
+              <span class="proc-accordion__name">Do I need a referral to be seen at MedRad Clinics?</span>
+              <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="proc-accordion__panel" id="faq-3" role="region">
+              <p>A referral from your primary care physician or specialist is helpful but not always required. We accept self-referrals for consultation. Please bring any relevant imaging studies (ultrasound, CT, MRI) and a list of current medications to your first appointment. Our team will review your case and recommend the most appropriate treatment path.</p>
+            </div>
+          </div>
+
+          <div class="proc-accordion__item">
+            <button class="proc-accordion__trigger" aria-expanded="false" aria-controls="faq-4">
+              <span class="proc-accordion__name">How do I know which venous procedure is right for me?</span>
+              <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="proc-accordion__panel" id="faq-4" role="region">
+              <p>The right procedure depends on the nature and location of the venous problem, your overall health, and your goals. During your consultation, Dr. Ekechukwu will review your imaging and clinical history, explain all applicable options, and make a recommendation. There is no obligation — the consultation is an opportunity to ask questions and make an informed decision.</p>
+            </div>
+          </div>
+
+          <div class="proc-accordion__item">
+            <button class="proc-accordion__trigger" aria-expanded="false" aria-controls="faq-5">
+              <span class="proc-accordion__name">Are these procedures covered by medical aid or insurance?</span>
+              <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="proc-accordion__panel" id="faq-5" role="region">
+              <p>Coverage depends on your specific medical aid scheme and the clinical indication for the procedure. Medically necessary procedures — such as IVC filter placement, AV fistula declotting, or treatment of deep vein thrombosis — are typically covered. Elective or cosmetic procedures such as spider vein sclerotherapy may not be. Our administrative team can assist with pre-authorisation and provide detailed billing codes for your insurer.</p>
+            </div>
+          </div>
+
+        </div><!-- /proc-accordion -->
+      </div><!-- /cat-faq -->
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA — Conversion block
+       ============================================================ -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="ed-support">
+        <div class="ed-support__text">
+          <p class="section__label">Ready to take the next step?</p>
+          <h2>Talk to a specialist.</h2>
+          <p>Our team is available to answer questions, review your imaging, and help you understand your treatment options — before you commit to anything.</p>
+        </div>
+        <div class="ed-support__actions">
+          <a href="index.html#ask-dr-e" class="btn btn--primary">Ask Dr. E</a>
+          <a href="index.html#contact" class="btn btn--ghost">Schedule Appointment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__logo">MedRad<span>Clinics</span></p>
+          <p class="footer__tagline">Interventional radiology with subspecialty precision.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Procedures</p>
+          <a href="#">Uterine Fibroid Embolization</a>
+          <a href="#">Vertebroplasty &amp; Kyphoplasty</a>
+          <a href="#">Hemodialysis Access</a>
+          <a href="#">Peripheral Arterial Disease</a>
+          <a href="all-procedures.html">View All Procedures</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Patient Education</p>
+          <a href="patient-education.html#diagnostic">Biopsies</a>
+          <a href="patient-education.html#therapeutic">Embolization</a>
+          <a href="patient-education.html#treatment-areas">Treatment Areas</a>
+          <a href="patient-education.html#fundamentals">IR Basics</a>
+          <a href="patient-education.html#fundamentals">Patient Preparation</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Tools &amp; Resources</p>
+          <a href="index.html#tools">Assess Your Risk</a>
+          <a href="treatment-cases.html">Treatment Cases</a>
+          <a href="index.html#ask-dr-e">Ask Dr. E</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 MedRad Clinics. All rights reserved.</p>
+        <p>This website does not provide medical advice. All content is for informational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Treatment Cases — MedRad Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MedRad<span>Clinics</span></a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#about">About</a>
+
+        <div class="nav__dropdown-wrap" id="navProcDropWrap">
+          <button class="nav__dropdown-trigger" id="navProcTrigger"
+                  aria-expanded="false" aria-haspopup="true" aria-controls="navProcDropdown">
+            Procedures
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown" id="navProcDropdown" role="region" aria-label="Procedures menu">
+            <a href="#" class="nav__dropdown-item">Uterine Fibroid Embolization</a>
+            <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
+            <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
+            <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
+            <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          </div>
+        </div>
+
+        <a href="patient-education.html">Patient Education</a>
+        <a href="treatment-cases.html" class="nav__link--active">Treatment Cases</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav__cta nav__cta--filled">Schedule Appointment</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       Page Header
+       ============================================================ -->
+  <div class="page-header">
+    <div class="container">
+      <p class="section__label">Clinical Case Library</p>
+      <h1 class="page-header__title">Treatment Cases</h1>
+      <p class="page-header__desc">A curated archive of real interventional radiology cases treated at MedRad Clinics — organized by clinical area, documented by the team, and shared to illustrate the range and precision of image-guided therapy.</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       Featured Case — editorial block on dark
+       ============================================================ -->
+  <section class="tc-featured">
+    <div class="container">
+      <div class="tc-featured__grid">
+
+        <div class="tc-featured__meta">
+          <p class="tc-featured__eyebrow">Featured Case</p>
+          <span class="tc-featured__tag">Peripheral Arterial Interventions</span>
+          <span class="tc-featured__index">09 / 36</span>
+        </div>
+
+        <div class="tc-featured__body">
+          <h2 class="tc-featured__title">Combining atherectomy and angioplasty to heal a diabetic foot ulcer.</h2>
+          <p class="tc-featured__desc">A limb-threatening chronic ulcer — salvaged through an image-guided combination of plaque excision and vessel dilation, restoring perfusion without open surgery and preserving the foot.</p>
+          <a href="#" class="tc-featured__cta">Read the full case <span aria-hidden="true">&rarr;</span></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Toolbar — subtle search + archive meta
+       ============================================================ -->
+  <div class="tc-toolbar" id="tcToolbar">
+    <div class="container">
+      <div class="tc-toolbar__row">
+        <label class="tc-search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><line x1="20" y1="20" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="tcSearch" placeholder="Search the case archive…" aria-label="Search cases" autocomplete="off" />
+        </label>
+        <p class="tc-toolbar__meta">
+          <span id="tcCount">36</span> cases visible
+          <span class="tc-toolbar__dot" aria-hidden="true">·</span>
+          Updated April 2026
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       Archive — sticky side index + editorial category list
+       ============================================================ -->
+  <section class="tc-archive" id="tcArchive">
+    <div class="container">
+      <div class="tc-archive__grid">
+
+        <!-- Sticky / horizontal category index -->
+        <aside class="tc-sidenav" aria-label="Jump to category">
+          <p class="tc-sidenav__label">The Archive</p>
+          <ol class="tc-sidenav__list">
+            <li><a href="#foreign-body-retrieval" class="tc-sidenav__link is-active">
+              <span class="tc-sidenav__num">01</span>
+              <span class="tc-sidenav__name">Foreign Body Retrieval</span>
+              <span class="tc-sidenav__count">3</span>
+            </a></li>
+            <li><a href="#gastrointestinal" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">02</span>
+              <span class="tc-sidenav__name">Gastrointestinal Interventions</span>
+              <span class="tc-sidenav__count">3</span>
+            </a></li>
+            <li><a href="#genitourinary" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">03</span>
+              <span class="tc-sidenav__name">Genitourinary Interventions</span>
+              <span class="tc-sidenav__count">5</span>
+            </a></li>
+            <li><a href="#hemodialysis" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">04</span>
+              <span class="tc-sidenav__name">Hemodialysis Access Management</span>
+              <span class="tc-sidenav__count">6</span>
+            </a></li>
+            <li><a href="#oncology" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">05</span>
+              <span class="tc-sidenav__name">Non-Surgical Treatment of Tumors</span>
+              <span class="tc-sidenav__count">1</span>
+            </a></li>
+            <li><a href="#non-uterine-embolization" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">06</span>
+              <span class="tc-sidenav__name">Non-Uterine Artery Embolization</span>
+              <span class="tc-sidenav__count">1</span>
+            </a></li>
+            <li><a href="#biopsy" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">07</span>
+              <span class="tc-sidenav__name">Percutaneous Biopsy</span>
+              <span class="tc-sidenav__count">1</span>
+            </a></li>
+            <li><a href="#drainage" class="tc-sidenav__link">
+              <span class="tc-sidenav__num">08</span>
+              <span class="tc-sidenav__name">Percutaneous Drainage</span>
+              <span class="tc-sidenav__count">3</span>
+            </a></li>
+            <li><a href="#peripheral-arterial" class="tc-sidenav__link tc-sidenav__link--featured">
+              <span class="tc-sidenav__num">09</span>
+              <span class="tc-sidenav__name">Peripheral Arterial Interventions</span>
+              <span class="tc-sidenav__count">13</span>
+            </a></li>
+          </ol>
+          <p class="tc-sidenav__foot">Scroll to browse all 36 cases.</p>
+        </aside>
+
+        <!-- Main body — categories -->
+        <div class="tc-body" id="tcBody">
+
+          <!-- 01 Foreign Body Retrieval -->
+          <article class="tc-category" id="foreign-body-retrieval" data-cat="Foreign Body Retrieval">
+            <header class="tc-category__head">
+              <span class="tc-category__num">01</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Foreign Body Retrieval</h2>
+                <p class="tc-category__sub">Image-guided recovery of migrated or fractured devices from the vascular system.</p>
+              </div>
+              <span class="tc-category__count">3 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Retrieval of a lost guidewire from the IVC and right atrium</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">Retrieval of a cut central venous catheter from the right atrium</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Retrieval of a broken catheter from the right atrium</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 02 Gastrointestinal Interventions -->
+          <article class="tc-category" id="gastrointestinal" data-cat="Gastrointestinal Interventions">
+            <header class="tc-category__head">
+              <span class="tc-category__num">02</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Gastrointestinal Interventions</h2>
+                <p class="tc-category__sub">Percutaneous biliary and enteric procedures for obstruction, drainage, and nutritional access.</p>
+              </div>
+              <span class="tc-category__count">3 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Bilateral percutaneous biliary drainage for obstructive jaundice due to cholangiocarcinoma</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">Percutaneous decompression of the biliary system</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Percutaneous gastrostomy</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 03 Genitourinary Interventions -->
+          <article class="tc-category" id="genitourinary" data-cat="Genitourinary Interventions">
+            <header class="tc-category__head">
+              <span class="tc-category__num">03</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Genitourinary Interventions</h2>
+                <p class="tc-category__sub">Targeted treatments of the urinary tract and reproductive system — stenting, drainage, and recanalization.</p>
+              </div>
+              <span class="tc-category__count">5 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Internal stenting of the left ureter</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">Bilateral insertion of nephroureteral stents after balloon dilation of malignant obstruction of the distal ureters</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Retrieving a missing intrauterine contraceptive device (IUCD) with fluoroscopic guidance</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 04</span>
+                  <span class="tc-case__title">Percutaneous insertion of a nephrostomy catheter</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 05</span>
+                  <span class="tc-case__title">Transcervical recanalization of obstructed fallopian tubes</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 04 Hemodialysis Access Management -->
+          <article class="tc-category" id="hemodialysis" data-cat="Hemodialysis Access Management">
+            <header class="tc-category__head">
+              <span class="tc-category__num">04</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Hemodialysis Access Management</h2>
+                <p class="tc-category__sub">Creation, maintenance, and salvage of dialysis access — a continuous specialty focus at MedRad.</p>
+              </div>
+              <span class="tc-category__count">6 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Hemodialysis Access, Case 6</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">Hemodialysis Access, Case 5</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Hemodialysis Access Maintenance, Case 4</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 04</span>
+                  <span class="tc-case__title">Hemodialysis Access Maintenance, Case 3</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 05</span>
+                  <span class="tc-case__title">Hemodialysis Access Management, Case 2</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 06</span>
+                  <span class="tc-case__title">Hemodialysis Access Management, Case 1</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 05 Local Non-Surgical Treatment of Tumors -->
+          <article class="tc-category" id="oncology" data-cat="Non-Surgical Treatment of Tumors">
+            <header class="tc-category__head">
+              <span class="tc-category__num">05</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Local Non-Surgical Treatment of Cancer &amp; Other Tumors</h2>
+                <p class="tc-category__sub">Targeted, image-guided tumor control — often delivered in advance of, or instead of, open surgery.</p>
+              </div>
+              <span class="tc-category__count">1 case</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Embolization of left renal cell carcinoma prior to surgical removal</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 06 Non-Uterine Artery Embolization -->
+          <article class="tc-category" id="non-uterine-embolization" data-cat="Non-Uterine Artery Embolization">
+            <header class="tc-category__head">
+              <span class="tc-category__num">06</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Non-Uterine Artery Embolization</h2>
+                <p class="tc-category__sub">Selective vessel occlusion outside the pelvis — for tumors, bleeding, and diagnostic access.</p>
+              </div>
+              <span class="tc-category__count">1 case</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Percutaneous biopsy of vertebral metastasis</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 07 Percutaneous Biopsy -->
+          <article class="tc-category" id="biopsy" data-cat="Percutaneous Biopsy">
+            <header class="tc-category__head">
+              <span class="tc-category__num">07</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Percutaneous Biopsy</h2>
+                <p class="tc-category__sub">Imaging-targeted tissue sampling — precise diagnosis without surgical exposure.</p>
+              </div>
+              <span class="tc-category__count">1 case</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Percutaneous biopsy of a lung (left hilar) mass</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 08 Percutaneous Drainage -->
+          <article class="tc-category" id="drainage" data-cat="Percutaneous Drainage">
+            <header class="tc-category__head">
+              <span class="tc-category__num">08</span>
+              <div class="tc-category__titlewrap">
+                <h2 class="tc-category__title">Percutaneous Drainage</h2>
+                <p class="tc-category__sub">Minimally invasive decompression of obstructed or infected fluid collections under imaging guidance.</p>
+              </div>
+              <span class="tc-category__count">3 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Bilateral percutaneous biliary drainage for obstructive jaundice due to cholangiocarcinoma</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">CT-guided percutaneous drainage of a deep pelvic abscess</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Percutaneous insertion of a nephrostomy catheter</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- 09 Peripheral Arterial Interventions (featured) -->
+          <article class="tc-category tc-category--featured" id="peripheral-arterial" data-cat="Peripheral Arterial Interventions">
+            <header class="tc-category__head">
+              <span class="tc-category__num">09</span>
+              <div class="tc-category__titlewrap">
+                <span class="tc-category__eyebrow">Primary Focus Area</span>
+                <h2 class="tc-category__title">Peripheral Arterial Interventions</h2>
+                <p class="tc-category__sub">The largest set in the archive — limb-salvage, chronic occlusion recanalization, and complex revascularization work performed at MedRad Clinics.</p>
+              </div>
+              <span class="tc-category__count">13 cases</span>
+            </header>
+            <ol class="tc-case-list">
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 01</span>
+                  <span class="tc-case__title">Combining atherectomy and angioplasty to heal diabetic foot ulcer</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 02</span>
+                  <span class="tc-case__title">Re-opening total left SFA obstruction</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 03</span>
+                  <span class="tc-case__title">Left subclavian-vertebral steal syndrome</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 04</span>
+                  <span class="tc-case__title">Re-opening a thrombosed left femoropopliteal bypass graft</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 05</span>
+                  <span class="tc-case__title">Disabling left foot pain from left SFA disease</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 06</span>
+                  <span class="tc-case__title">Thrombosis of a left femoropopliteal bypass</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 07</span>
+                  <span class="tc-case__title">Endovascular restoration of blood flow across total occlusions of the distal aorta and bilateral iliac channels</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 08</span>
+                  <span class="tc-case__title">Simultaneous stenting of ostial stenosis of the common iliac arteries</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 09</span>
+                  <span class="tc-case__title">Treating arterial pseudoaneurysm by percutaneous injection of soluble thrombin</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 10</span>
+                  <span class="tc-case__title">Restoring blood flow across chronic total occlusion of the LSFA</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 11</span>
+                  <span class="tc-case__title">Limb-saving interventions</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 12</span>
+                  <span class="tc-case__title">Stenosis of the left iliac artery</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+              <li class="tc-case">
+                <a href="#" class="tc-case__link">
+                  <span class="tc-case__num">Case 13</span>
+                  <span class="tc-case__title">Blue toe syndrome of the left great toe</span>
+                  <span class="tc-case__cta">View case <span aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Empty search state -->
+          <p class="tc-empty" id="tcEmpty" hidden>No cases match your search. Try a different term.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CTA
+       ============================================================ -->
+  <section class="section section--accent">
+    <div class="container">
+      <div class="ed-support">
+        <div class="ed-support__text">
+          <p class="section__label">Next step</p>
+          <h2>Not sure which procedure relates to your condition?</h2>
+          <p>Every case is different. Speak with the team — send your imaging, describe your symptoms, and we&rsquo;ll help you understand the treatment options that may apply.</p>
+        </div>
+        <div class="ed-support__actions">
+          <a href="index.html#contact" class="btn btn--primary">Schedule Appointment</a>
+          <a href="index.html#ask-dr-e" class="btn btn--ghost">Ask Dr. E</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__logo">MedRad<span>Clinics</span></p>
+          <p class="footer__tagline">Interventional radiology with subspecialty precision.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Procedures</p>
+          <a href="#">Uterine Fibroid Embolization</a>
+          <a href="#">Vertebroplasty &amp; Kyphoplasty</a>
+          <a href="#">Hemodialysis Access</a>
+          <a href="#">Peripheral Arterial Disease</a>
+          <a href="all-procedures.html">View All Procedures</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Treatment Cases</p>
+          <a href="treatment-cases.html#peripheral-arterial">Peripheral Arterial</a>
+          <a href="treatment-cases.html#hemodialysis">Hemodialysis Access</a>
+          <a href="treatment-cases.html#genitourinary">Genitourinary</a>
+          <a href="treatment-cases.html#foreign-body-retrieval">Foreign Body Retrieval</a>
+          <a href="treatment-cases.html">View All Cases</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Tools &amp; Resources</p>
+          <a href="index.html#tools">Assess Your Risk</a>
+          <a href="patient-education.html">Patient Education</a>
+          <a href="index.html#ask-dr-e">Ask Dr. E</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 MedRad Clinics. All rights reserved.</p>
+        <p>This website does not provide medical advice. All content is for informational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

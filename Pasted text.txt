@@ -1,0 +1,414 @@
+● MedRad Clinics — Wireframe-Ready Homepage Structure
+                                                                                                                                                            
+  ---                                                                                                                                                       
+  How to Read This Document                                                                                                                                 
+  
+  Each section is defined in order from top to bottom of the page. Layout logic uses simple column/row language — no code, no framework assumptions.          Interaction notes describe behavior only. Mobile notes describe how the layout shifts on narrow viewports.
+                                                                                                                                                            
+  ---
+  Section 01 — Navigation                                                                                                                                                                                                                                                                                                 Purpose: Global wayfinding. Persistent conversion anchor. Never competes with page content.                                                                                                                                                                                                                             Layout Logic:                                                                                                                                               Single horizontal bar. Full width. Three zones:                                                                                                           
+  - Left: Logo (text or mark, left-aligned)
+  - Center: Four nav links — Services · Procedures · Education · About
+  - Right: Book Appointment — contained button, restrained size, not oversized
+
+  Fixed/sticky — stays at top of viewport on scroll. Thin bar, minimal height. No background shadow until scroll begins, then a subtle lift (very light     
+  shadow or slight background opacity shift).
+
+  Key Content Elements:
+  - MedRad logo
+  - 4 nav links (no dropdowns on hover — links go directly to section or page)
+  - Book Appointment button
+  - No utility nav, no login, no search in primary bar
+
+  Interaction:
+  - On scroll: nav gains a subtle background (white or near-white) to remain legible over page content
+  - Book Appointment button state: default → hover (slight darkening, no animation)
+  - Mobile menu trigger: opens a full-screen or slide-in panel with all nav links + Book CTA
+
+  Mobile:
+  - Logo left, hamburger icon right — no center nav links visible
+  - Book Appointment removed from nav bar on mobile
+  - Persistent bottom bar replaces it: full-width Book Appointment button, fixed to bottom of viewport throughout entire scroll
+  - Mobile menu: full-screen overlay, large tap targets, nav links stacked vertically, Book CTA at bottom of menu panel
+
+  ---
+  Section 02 — First Screen (Entry Experience)
+
+  Purpose: Establish voice, deliver the value proposition, present two entry points. Resolved within 3 seconds. No scrolling required to understand the     
+  page.
+
+  Layout Logic:
+  Full viewport height (100vh). Two content zones stacked vertically on mobile, optionally side-by-side on large desktop:
+
+  Zone A — Statement block
+  Left-aligned or centered. Upper portion of viewport. Generous top padding. Contains the statement and attribution only.
+
+  Zone B — Entry block
+  Below Zone A, vertically separated by meaningful whitespace. Contains the two entry points and the passive permission line.
+
+  No background image required. If imagery is used: single right-side or full-bleed background at low opacity — real clinic environment, soft lighting.     
+  Typography must remain fully legible — no image should compete with the statement.
+
+  Key Content Elements:
+
+  Zone A:
+  - Headline: "Before you book, let's make sure you're booking the right thing."
+  — Largest typographic element on the page. Strong weight. Generous line height.
+  - Attribution: Dr. E — Radiologist, MedRad Clinics
+  — Small. Below headline. Not bold. Treated as a signature, not a subheading.
+
+  Zone B:
+  - Primary entry: Assess Your Risk →
+  — Large. Typographic button or styled link. Dominant visual weight.
+  - Secondary entry: I have a referral — book now
+  — Smaller. Clearly present but visually subordinate. Same line or directly below primary.
+  - Passive permission: Not sure? Scroll to explore.
+  — Smallest text on the screen. Below both entries. No underline, no arrow icon. Quiet.
+
+  Interaction:
+  - Assess Your Risk → — expands the tool inline below (does not navigate away, does not open modal)
+  - I have a referral — book now — navigates to booking flow (separate page or anchor to Section 07)
+  - Scroll to explore — no interaction, purely permissive copy. May have a faint downward indicator if needed, but not required.
+
+  Mobile:
+  - Full-width single column
+  - Headline at top, slightly smaller type size but still dominant
+  - Both entry points stacked vertically, full-width tap targets
+  - Passive permission line centered below
+  - Bottom booking bar already present and fixed — no CTA duplication needed here
+
+  ---
+  Section 03 — Risk Assessment Tool (Inline Expansion)
+
+  Purpose: The tool is not a separate page. It expands within the homepage when triggered. Three questions maximum, one at a time. Outputs a personalized   
+  next step.
+
+  Layout Logic:
+  Expands below the entry block when Assess Your Risk → is selected. Pushes page content down — does not overlay or modal. Clean single-column container,   
+  centered, max-width constrained (not full bleed). Generous padding on all sides.
+
+  One question visible at a time. Previous questions collapse or fade to a minimal answered state above the current question. No visible form. No submit    
+  button until after the final question.
+
+  Key Content Elements:
+
+  Q1 — "Where is the concern?"
+  - 6 region options: Head/Neck · Chest · Abdomen · Spine · Limbs · Other
+  - Layout: 2×3 tap-target grid on mobile, horizontal strip on desktop
+  - No icons — text labels only
+
+  Q2 — "How long has this been present?"
+  - 4 options: Less than a month · 1–6 months · More than 6 months · Not sure
+  - Layout: 2×2 on mobile, horizontal row on desktop
+
+  Q3 (conditional — shown only if no referral detected) — "Have you seen a doctor about this yet?"
+  - 3 options: Yes, with referral · Yes, no referral · Not yet
+  - Layout: stacked on mobile, horizontal on desktop
+
+  Output Block — appears after Q3:
+  - Summary statement (2–3 sentences, calm editorial tone, no diagnosis language)
+  - Dr. E note: 2-sentence contextual remark attributed to Dr. E — same typographic register as the summary, not a callout box
+  - Relevant service: one service name, linked to its inner page
+  - CTA: Book a consultation → — primary weight, same style as the entry point CTA above
+  - Secondary link: Ask Dr. E a question — quiet, below the CTA
+
+  Interaction:
+  - Tap/click a region tile → Q1 collapses to a one-line answered state, Q2 appears with a subtle transition (fade or slide — no bounce, no spring
+  animation, consistent with calm direction)
+  - Same for Q2 → Q3
+  - After Q3: output block appears below with a smooth reveal
+  - No loading state required (no back-end call at this stage unless tool is live)
+  - If user wants to change an answer: answered state is tappable to re-expand that question
+
+  Mobile:
+  - Full-width container, edge-to-edge padding reduced
+  - Tap targets minimum 48px height
+  - One question fully visible without scrolling
+  - Output block stacks vertically: summary → Dr. E note → service → CTA
+
+  ---
+  Section 04 — Differentiator Line
+
+  Purpose: Orient passive scrollers. Communicate what makes MedRad distinct in one statement. Earns the visitor's continued attention before asking for     
+  anything.
+
+  Layout Logic:
+  Full-width typographic block. No background color, no border, no imagery. Centered or left-aligned text. Generous top and bottom padding — this section   
+  breathes. It does not fight for space.
+
+  Key Content Elements:
+  - Single statement: "Most radiology clinics give you an appointment. We help you understand why you need one."
+  - No subtext. No supporting copy. No CTA.
+
+  Interaction: None. Static.
+
+  Mobile:
+  - Same treatment, full-width
+  - Slightly reduced type size but maintained hierarchy
+  - Padding reduced proportionally — still generous relative to surrounding sections
+
+  ---
+  Section 05 — Services by Intent
+
+  Purpose: Route the passive browser to the right place. Organized by visitor intent, not by clinic catalogue. No card grid — structured list format.       
+
+  Layout Logic:
+  Two distinct intent groups, vertically stacked on mobile, optionally side-by-side on desktop with clear visual separation between groups. Each group has a
+   short label and its corresponding items below it. No borders between items, no card containers. Clean list typographically differentiated from the group 
+  label.
+
+  Key Content Elements:
+
+  Group 1 — "Referred for imaging"
+  MRI · CT · Ultrasound · X-Ray · Mammography · PET
+  Each item is a link. No descriptions. No icons.
+
+  Group 2 — "Investigating symptoms"
+  → Assess Your Risk
+  Single link. Brings user back to the tool above (smooth scroll) or re-triggers the tool inline.
+
+  Group 3 — "Following up on results"
+  → Ask Dr. E · → Teaching Files
+  Two links. Brief — one line.
+
+  Interaction:
+  - Each service name links to its individual service/procedure page
+  - Assess Your Risk link scrolls back to Section 03 or re-triggers the tool
+  - Ask Dr. E and Teaching Files link to their respective destination pages
+
+  Mobile:
+  - Three groups stacked vertically, full-width
+  - Service names in Group 1: horizontal wrapping list or 2-column layout
+  - Group 2 and 3: single full-width lines
+  - Tap targets: full row height, not just the text width
+
+  ---
+  Section 06 — Dr. E Authority Layer
+
+  Purpose: Establish a named human voice behind the site. Surface Ask Dr. E and Teaching Files without a dedicated education section. Build personal trust  
+  before the testimonial.
+
+  Layout Logic:
+  Two-column on desktop: photograph left (roughly 40% width), text block right (60%). Stacked on mobile: photo top, text below. Photo is not full-bleed —   
+  contained within its column, vertically centered or top-aligned. Significant whitespace around the entire section.
+
+  Key Content Elements:
+
+  Left column:
+  - Single photograph of Dr. E
+  - Real clinic environment, soft lighting, not posed
+  - No caption, no name overlay on photo
+
+  Right column:
+  - Name: Dr. E — strong typographic weight
+  - One credential line: title, specialization, institution if applicable — small, not bold
+  - Statement (3 sentences maximum, Dr. E's direct voice):
+  "Radiology reports are written for doctors. Most patients leave with results they can't read. Ask Dr. E exists because that gap shouldn't exist."
+  - Two links below, quiet weight, separated by a thin space or soft divider:
+  Ask Dr. E → · Explore Teaching Files →
+
+  Interaction:
+  - Ask Dr. E → navigates to the Ask Dr. E feature page
+  - Explore Teaching Files → navigates to the Teaching Files section
+  - No hover states on the photo
+  - Links: standard hover state (subtle underline or opacity shift)
+
+  Mobile:
+  - Photo: full-width, cropped to square or 4:3, top of section
+  - Text block below, full-width, left-aligned
+  - Both links stacked vertically, full-width tap targets
+
+  ---
+  Section 07 — Patient Narrative
+
+  Purpose: Social proof without a carousel. One real patient voice, editorial weight. Validates trust established by Dr. E layer above.
+
+  Layout Logic:
+  Full-width typographic block. No card border. No background color. No photo. Text only — centered or left-aligned with strong left margin on desktop. The 
+  statement is the visual element. Quotation mark may be used as a large typographic anchor if consistent with visual direction, but not required.
+
+  Key Content Elements:
+  - Patient narrative (4–5 sentences, written in first person):
+  "I came in with a scan referral I didn't understand. Before I called, I used the assessment tool and realized I had questions I hadn't thought to ask. By 
+  the time I arrived, I knew what I was there for."
+  - Attribution line below: Patient name · Procedure type · City — small, restrained
+  - Google aggregate (optional, secondary): 4.9 · 214 Google reviews → — single line, below attribution, linked to Google Business profile
+
+  Interaction:
+  - No carousel controls — this is one static story
+  - Google aggregate is a link — opens Google reviews in new tab
+  - If multiple stories exist: rotate at content level (editorial decision) not UI level — no carousel
+
+  Mobile:
+  - Full-width, generous padding
+  - Attribution and Google line stacked
+  - No layout change required — already single column
+
+  ---
+  Section 08 — Procedures Reference Strip
+
+  Purpose: Surface the Procedures & Tests feature without a full section. Pre-appointment utility for visitors who know they need imaging. Minimal
+  footprint.
+
+  Layout Logic:
+  Single horizontal line on desktop. Preceded by a short label. No section header, no background, no card. Sits between the patient narrative and booking   
+  close as a quiet utility band.
+
+  Key Content Elements:
+  - Label: "Preparing for a scan?" — small, restrained weight
+  - Procedure links on one line: MRI · CT · Ultrasound · Mammogram · PET · X-Ray · Interventional
+  - Each item links to its individual procedure page
+
+  Interaction:
+  - Each procedure name is a link
+  - Hover: subtle underline or color shift only
+
+  Mobile:
+  - Label stacks above
+  - Procedure names: horizontal scroll strip (overflow-x scroll, no wrapping)
+  - Scroll indicator: faint fade on right edge to suggest more content — no scrollbar visible
+
+  ---
+  Section 09 — Booking Close
+
+  Purpose: Convert visitors who have reached the bottom of the page. Re-entry point for those who scrolled without using the tool. Final CTA before the     
+  footer.
+
+  Layout Logic:
+  Two sub-blocks, vertically stacked, full-width. Clean separation from the section above via whitespace only — no divider line needed.
+
+  Sub-block A — CTA:
+  Centered or left-aligned. Short label above the button. One primary action. One secondary action below it.
+
+  Sub-block B — Location/Contact:
+  Below CTA block. Clinic name, address, phone number, operating hours. Simple text layout. No map embed required at wireframe stage — placeholder space    
+  defined.
+
+  Key Content Elements:
+
+  Sub-block A:
+  - Label: "Ready to take the next step?"
+  - Primary CTA: Book an Appointment → — full-width on mobile, constrained width on desktop
+  - Secondary link below: Or start with Assess Your Risk → — quiet, text-link weight
+
+  Sub-block B:
+  - Clinic name
+  - Street address
+  - Phone number
+  - Operating hours (weekday / weekend if different)
+  - Map placeholder (optional at this stage)
+
+  Interaction:
+  - Book an Appointment → navigates to booking flow
+  - Assess Your Risk → scrolls to Section 03 or re-triggers the tool
+  - Phone number: tel: link on mobile (tap to call)
+
+  Mobile:
+  - Both sub-blocks full-width, stacked
+  - CTA button: full-width tap target
+  - Location details: stacked line by line, legible at small size
+  - Bottom booking bar (from nav) overlaps this section — ensure CTA button does not conflict visually with the fixed bar; add bottom padding equal to bar  
+  height
+
+  ---
+  Section 10 — Footer
+
+  Purpose: Navigation safety net. Legal compliance. Secondary access to all features. Login/Register lives here.
+
+  Layout Logic:
+  Multi-column on desktop (3–4 columns). Stacked single column on mobile. Standard footer structure — not a design feature.
+
+  Key Content Elements:
+  - Column 1: Logo + short descriptor line (1 sentence)
+  - Column 2: Site navigation — all primary pages
+  - Column 3: Features — Assess Your Risk · Ask Dr. E · Teaching Files · Case Gallery · Procedures
+  - Column 4: Contact + social links (Instagram, Facebook, Google)
+  - Bottom bar: Copyright · Privacy Policy · Terms · Accessibility · Login / Register
+
+  Interaction: Standard link behavior. No hover effects required beyond underline.
+
+  Mobile:
+  - Columns stack vertically
+  - Each column collapsible (accordion) optional — depends on footer depth
+  - Bottom bar wraps to two lines if needed
+
+  ---
+  Full Page Scroll Map
+
+  ┌─────────────────────────────────────┐
+  │  01  Navigation (sticky)            │
+  ├─────────────────────────────────────┤
+  │  02  First Screen                   │
+  │      Statement + 2 entry points     │
+  ├─────────────────────────────────────┤
+  │  03  Risk Assessment Tool           │
+  │      (inline expansion, hidden      │
+  │       until triggered)              │
+  ├─────────────────────────────────────┤
+  │  04  Differentiator Line            │
+  ├─────────────────────────────────────┤
+  │  05  Services by Intent             │
+  ├─────────────────────────────────────┤
+  │  06  Dr. E Authority Layer          │
+  ├─────────────────────────────────────┤
+  │  07  Patient Narrative              │
+  ├─────────────────────────────────────┤
+  │  08  Procedures Reference Strip     │
+  ├─────────────────────────────────────┤
+  │  09  Booking Close                  │
+  ├─────────────────────────────────────┤
+  │  10  Footer                         │
+  └─────────────────────────────────────┘
+
+  ---
+  Spacing and Sizing Reference (Design-Ready)
+
+  These are not code values — they are proportion guides for the wireframe:
+
+  ┌──────────────────────────┬─────────────┬────────────────────────────────────┐
+  │         Element          │   Desktop   │               Mobile               │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Nav height               │ ~64px       │ ~56px                              │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ First screen             │ 100vh       │ 100vh                              │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Section vertical padding │ 80–120px    │ 48–64px                            │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Max content width        │ 1200–1320px │ Full width – 24px margin each side │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Headline (Section 02)    │ 48–64px     │ 32–40px                            │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Body text                │ 17–18px     │ 16px                               │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Attribution / small text │ 13–14px     │ 12–13px                            │
+  ├──────────────────────────┼─────────────┼────────────────────────────────────┤
+  │ Mobile bottom bar height │ —           │ 64px fixed                         │
+  └──────────────────────────┴─────────────┴────────────────────────────────────┘
+
+  ---
+  What Is Not on This Page (and Where It Lives)
+
+  ┌─────────────────────────────┬────────────────────────────────────┐
+  │           Feature           │            Destination             │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Full Case Gallery           │ Education section / dedicated page │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Full Teaching Files library │ Education hub page                 │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Quiz                        │ Education hub page                 │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Full procedure descriptions │ Individual procedure pages         │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Doctor full biography       │ About page                         │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Full service descriptions   │ Individual service pages           │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Login / Register            │ Footer + login page                │
+  ├─────────────────────────────┼────────────────────────────────────┤
+  │ Blog / articles             │ Resources section                  │
+  └─────────────────────────────┴────────────────────────────────────┘
+
+  ---
+  Ready to move into component-level specs, copy direction, or visual design language.
+
+✻ Crunched for 1m 41s

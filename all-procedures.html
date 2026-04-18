@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Procedures — MedRad Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ============================================================
+       Navigation (same as homepage)
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MedRad<span>Clinics</span></a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="index.html#about">About</a>
+
+        <div class="nav__dropdown-wrap" id="navProcDropWrap">
+          <button class="nav__dropdown-trigger" id="navProcTrigger"
+                  aria-expanded="true" aria-haspopup="true" aria-controls="navProcDropdown">
+            Procedures
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown" id="navProcDropdown" role="region" aria-label="Procedures menu">
+            <a href="#" class="nav__dropdown-item">Uterine Fibroid Embolization</a>
+            <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
+            <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
+            <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
+            <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          </div>
+        </div>
+
+        <a href="patient-education.html">Patient Education</a>
+        <a href="treatment-cases.html">Treatment Cases</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="index.html#contact" class="nav__cta nav__cta--filled">Schedule Appointment</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       Page Header
+       ============================================================ -->
+  <div class="page-header">
+    <div class="container">
+      <p class="section__label">Interventional Radiology</p>
+      <h1 class="page-header__title">All Procedures</h1>
+      <p class="page-header__desc">Browse all minimally invasive treatments offered at MedRad Clinics.</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       Accordion — All Procedure Categories
+       ============================================================ -->
+  <section class="section">
+    <div class="container">
+
+      <div class="proc-accordion" id="procAccordion">
+
+        <!-- Arterial Interventions -->
+        <div class="proc-accordion__item is-open" id="arterial">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-arterial">
+            <span class="proc-accordion__name">Arterial Interventions</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-arterial" role="region">
+            <ul class="proc-accordion__list">
+              <li><a href="#">Stenting <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Atherectomy <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Angioplasty <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Arterial thrombolysis <span class="proc-learn">Learn more &rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Biopsies -->
+        <div class="proc-accordion__item is-open" id="biopsies">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-biopsies">
+            <span class="proc-accordion__name">Biopsies</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-biopsies" role="region">
+            <p class="proc-accordion__empty">Procedure details coming soon.</p>
+          </div>
+        </div>
+
+        <!-- Drainages -->
+        <div class="proc-accordion__item is-open" id="drainages">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-drainages">
+            <span class="proc-accordion__name">Drainages</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-drainages" role="region">
+            <p class="proc-accordion__empty">Procedure details coming soon.</p>
+          </div>
+        </div>
+
+        <!-- Embolotherapy -->
+        <div class="proc-accordion__item is-open" id="embolotherapy">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-embolotherapy">
+            <span class="proc-accordion__name">Embolotherapy</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-embolotherapy" role="region">
+            <ul class="proc-accordion__list">
+              <li><a href="#">All other extra-cranial embolizations including nasopharyngeal embolization for refractory epistaxis <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Uterine Fibroid Embolization <span class="proc-learn">Learn more &rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Interventional Oncology -->
+        <div class="proc-accordion__item is-open" id="oncology">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-oncology">
+            <span class="proc-accordion__name">Interventional Oncology</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-oncology" role="region">
+            <ul class="proc-accordion__list">
+              <li><a href="#">Selective internal radiation therapy <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Chemoembolizations <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Radiofrequency ablations <span class="proc-learn">Learn more &rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Neurointerventions -->
+        <div class="proc-accordion__item is-open" id="neuro">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-neuro">
+            <span class="proc-accordion__name">Neurointerventions</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-neuro" role="region">
+            <ul class="proc-accordion__list">
+              <li><a href="#">Lysis of acute ischemic strokes <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Vertebroplasty <span class="proc-learn">Learn more &rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Venous Interventions -->
+        <div class="proc-accordion__item is-open" id="venous">
+          <button class="proc-accordion__trigger" aria-expanded="true" aria-controls="panel-venous">
+            <span class="proc-accordion__name">Venous Interventions</span>
+            <svg class="proc-accordion__chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="proc-accordion__panel" id="panel-venous" role="region">
+            <ul class="proc-accordion__list">
+              <li><a href="#">Revascularization of central venous occlusions <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Implantation of inferior vena caval filters <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Sclerotherapy of varicose and other veins <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Phlebectomy of varicose veins of the limbs <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Endovenous laser therapy of chronic venous insufficiency of the lower extremities <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Creating and maintaining all other venous accesses including accesses for chemotherapy <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Declotting of occluded arterovenous fistulas and grafts <span class="proc-learn">Learn more &rarr;</span></a></li>
+              <li><a href="#">Creating and maintaining central venous accesses for hemodialysis <span class="proc-learn">Learn more &rarr;</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+      </div><!-- /proc-accordion -->
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__logo">MedRad<span>Clinics</span></p>
+          <p class="footer__tagline">Interventional radiology with subspecialty precision.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Procedures</p>
+          <a href="#">Uterine Fibroid Embolization</a>
+          <a href="#">Vertebroplasty &amp; Kyphoplasty</a>
+          <a href="#">Hemodialysis Access</a>
+          <a href="#">Peripheral Arterial Disease</a>
+          <a href="all-procedures.html">View All Procedures</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Patient Education</p>
+          <a href="index.html#patient-ed">Preparing for a Procedure</a>
+          <a href="index.html#patient-ed">What is Interventional Radiology?</a>
+          <a href="index.html#patient-ed">Recovery &amp; Follow-Up</a>
+          <a href="index.html#ask-dr-e">Ask Dr. E</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Tools &amp; Resources</p>
+          <a href="index.html#tools">Assess Your Risk</a>
+          <a href="treatment-cases.html">Treatment Cases</a>
+          <a href="index.html#dr-block">About Dr. Ekechukwu</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 MedRad Clinics. All rights reserved.</p>
+        <p>This website does not provide medical advice. All content is for informational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

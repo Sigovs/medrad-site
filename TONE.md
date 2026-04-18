@@ -1,0 +1,14 @@
+- not corporate
+- not startup
+- editorial luxury
+- calm authority 
+- calm authority
+- editorial, not corporate
+- intelligent, not simplified
+- direct, not aggressive
+- reassuring, not salesy
+- medically credible, not cold
+- premium and restrained
+- never generic clinic language
+- no startup energy
+- no fluffy marketing lines

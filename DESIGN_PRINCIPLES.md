@@ -1,0 +1,14 @@
+- no generic layouts
+- no carousels
+- strong above-the-fold
+- mobile-first hierarchy
+- no boxed cards for every section
+- no icon overload
+- no service grid with paragraphs
+- no repeated layout patterns across sections
+- use large full-width imagery
+- use asymmetrical layouts where appropriate
+- allow negative space
+- prioritize typography hierarchy
+- keep sections visually distinct
+- each section must earn its presence — different from the one before it
