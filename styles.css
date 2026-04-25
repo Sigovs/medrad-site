@@ -2945,6 +2945,46 @@ p {
   line-height: 1.75;
 }
 
+.page-header--with-media .page-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.page-header__media {
+  justify-self: end;
+  width: 100%;
+  max-width: 520px;
+  animation: page-header-media-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 150ms both;
+}
+
+.page-header__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@keyframes page-header-media-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-header__media { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .page-header--with-media .page-header__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .page-header__media {
+    justify-self: start;
+    max-width: 420px;
+  }
+}
+
 /* Accordion */
 .proc-accordion {
   border: 1px solid var(--color-border);
@@ -3661,6 +3701,99 @@ a.breadcrumb__item:hover {
   .proc-page__title {
     font-size: 2rem;
   }
+}
+
+/* ============================================================
+   Case detail — image series block (3 to 5 figures, auto-fit)
+   ============================================================ */
+.case-series {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.case-series__eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin: 0 0 var(--space-md);
+}
+
+.case-series__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.case-series__item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.case-series__step {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--color-text-dim);
+}
+
+.case-series__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: var(--color-surface, #f5f3ee);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.case-series__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.case-series__caption {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ============================================================
+   Case pager (prev / next + back to category)
+   ============================================================ */
+.case-pager {
+  padding: var(--space-xl) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-pager__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.case-pager__back,
+.case-pager__next {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease);
+}
+
+.case-pager__back:hover,
+.case-pager__next:hover {
+  color: var(--color-text);
+}
+
+.case-pager__next {
+  text-align: right;
 }
 
 .article-row__right {
