@@ -1,0 +1,712 @@
+/* ============================================================
+   styles-v2.css
+   Loaded only by index2.html, on top of styles.css.
+   Adds: parallax visual break, parallax cases background,
+   specialist photo image, redesigned Ask Dr. E card.
+   ============================================================ */
+
+
+/* ============================================================
+   05 — Visual break (parallax full-bleed image)
+   Uses background-attachment: fixed for true parallax — the
+   image stays anchored to the viewport while content scrolls
+   over it. Far more obvious than JS-driven micro-translations.
+   ============================================================ */
+.visual-break {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 420px;
+  max-height: 720px;
+  overflow: hidden;
+  background-color: #1a1a1a;
+  background-image: var(--vb-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* JS hook (kept for compatibility but now invisible — bg lives on the section) */
+.visual-break__bg { display: none; }
+
+/* iOS / mobile fallback: background-attachment: fixed is broken on iOS
+   Safari + drops perf on Android. Switch to scroll behavior. */
+@media (max-width: 1024px), (hover: none) {
+  .visual-break {
+    background-attachment: scroll;
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .visual-break {
+    height: 40vh;
+    min-height: 280px;
+  }
+}
+
+
+/* ============================================================
+   09 — Treatment Cases with parallax background
+   Same approach: background-attachment: fixed on the section
+   itself, with the dark gradient overlay sitting above it.
+   ============================================================ */
+.cases-bg {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: var(--space-3xl) 0;
+  background-image: var(--cb-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.cases-bg__bg { display: none; }
+
+.cases-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 20, 22, 0.78) 0%,
+    rgba(20, 20, 22, 0.85) 50%,
+    rgba(20, 20, 22, 0.92) 100%
+  );
+  z-index: 0;
+}
+
+@media (max-width: 1024px), (hover: none) {
+  .cases-bg {
+    background-attachment: scroll;
+  }
+}
+
+.cases-bg__inner {
+  position: relative;
+  color: var(--color-text-light);
+}
+
+.cases-bg .section__header h2,
+.cases-bg .section__header .section__desc {
+  color: var(--color-text-light);
+}
+
+.cases-bg .section__header .section__label {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cases-bg__bg {
+    transform: none !important;
+    inset: 0;
+  }
+}
+
+
+/* ============================================================
+   10 — Our Specialists (carousel)
+   ============================================================ */
+
+.dr-carousel__header {
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dr-carousel__lede {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-top: var(--space-sm);
+}
+
+/* The carousel: viewport gets full container width, arrows
+   float at the sides so they don't shrink the slide content. */
+.dr-carousel {
+  position: relative;
+}
+
+.dr-carousel__viewport {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.dr-carousel__track {
+  display: flex;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+/* Each slide takes the full viewport width.
+   Internal grid 5fr / 7fr matches the original .dr-block layout
+   so the photo renders at the same size as the original page. */
+.dr-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  padding: var(--space-md) 0;
+}
+
+/* ── Entrance motion for active slide ─────────────────────
+   Inactive slides: faded + slightly scaled-in.
+   Active slide: photo + each text element animate in with
+   a small stagger after the track has finished sliding.
+   Track transition is 600ms — content delays start at 220ms
+   so motion begins as the new slide settles into view.
+   ──────────────────────────────────────────────────────── */
+.dr-slide__photo {
+  opacity: 0.35;
+  transform: scale(0.96);
+  transition: opacity 700ms ease,
+              transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dr-slide__text > * {
+  opacity: 0.25;
+  transform: translateY(14px);
+  transition: opacity 600ms ease,
+              transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dr-slide.is-active .dr-slide__photo {
+  opacity: 1;
+  transform: scale(1);
+  transition-delay: 220ms;
+}
+
+.dr-slide.is-active .dr-slide__text > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger the text on the active slide */
+.dr-slide.is-active .dr-slide__text .dr-slide__name        { transition-delay: 280ms; }
+.dr-slide.is-active .dr-slide__text .dr-slide__title       { transition-delay: 340ms; }
+.dr-slide.is-active .dr-slide__text .dr-slide__credentials { transition-delay: 390ms; }
+.dr-slide.is-active .dr-slide__text .dr-slide__bio         { transition-delay: 450ms; }
+.dr-slide.is-active .dr-slide__text .dr-slide__actions     { transition-delay: 520ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dr-slide__photo,
+  .dr-slide__text > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.dr-slide__photo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dr-slide__photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Placeholder slides (initials) keep a 4:5 portrait frame +
+   tinted background since they have no natural image. */
+.dr-slide__photo--placeholder {
+  aspect-ratio: 4 / 5;
+  background: var(--color-bg-accent);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+}
+
+/* Placeholder photo: tinted bg + serif initials */
+.dr-slide__photo--placeholder {
+  background: linear-gradient(135deg,
+    var(--color-bg-accent) 0%,
+    rgba(78, 113, 142, 0.18) 100%);
+}
+
+.dr-slide__initials {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 9vw, 6.5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  color: var(--color-accent);
+  opacity: 0.5;
+  user-select: none;
+}
+
+.dr-slide__name {
+  font-family: var(--font-serif);
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.dr-slide__title {
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  letter-spacing: 0.01em;
+  margin: 0 0 0.35rem;
+  font-weight: 500;
+}
+
+.dr-slide__credentials {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  margin: 0 0 var(--space-md);
+}
+
+.dr-slide__bio {
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin: 0 0 var(--space-lg);
+  max-width: 56ch;
+}
+
+.dr-slide__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+/* Arrows — float at viewport sides, vertically centered.
+   Negative offsets sit them just outside the viewport edges,
+   inside the container's side padding. */
+.dr-carousel__arrow {
+  position: absolute;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transform: translateY(-50%);
+  transition: background 240ms ease,
+              border-color 240ms ease,
+              color 240ms ease,
+              box-shadow 240ms ease;
+}
+
+.dr-carousel__arrow--prev { left: -22px; }
+.dr-carousel__arrow--next { right: -22px; }
+
+.dr-carousel__arrow:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+  box-shadow: 0 8px 24px -10px rgba(78, 113, 142, 0.4);
+}
+
+.dr-carousel__arrow:active {
+  transform: translateY(-50%) scale(0.94);
+}
+
+.dr-carousel__arrow:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Dots */
+.dr-carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: var(--space-xl);
+}
+
+.dr-carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 240ms ease, transform 240ms ease, width 280ms ease;
+}
+
+.dr-carousel__dot:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.dr-carousel__dot.is-active {
+  background: var(--color-accent);
+  width: 22px;
+  border-radius: 4px;
+}
+
+.dr-carousel__dot:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dr-carousel__track { transition: none; }
+  .dr-carousel__arrow,
+  .dr-carousel__dot { transition: none; }
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .dr-slide {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    padding: 0;
+  }
+
+  .dr-slide__photo {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Pull arrows in slightly so they don't sit beyond the screen edge */
+  .dr-carousel__arrow--prev { left: 4px; }
+  .dr-carousel__arrow--next { right: 4px; }
+  .dr-carousel__arrow {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(6px);
+  }
+}
+
+
+/* ============================================================
+   11 — Ask Dr. E (new card layout per Figma reference)
+   ============================================================ */
+.askdre-section {
+  padding: var(--space-3xl) 0;
+  background-color: var(--color-bg);
+}
+
+.askdre-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: var(--space-2xl) var(--space-2xl) var(--space-xl);
+  box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.12),
+              0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Top-left pill in Bagel Fat One */
+.askdre-pill {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #ffffff;
+  font-family: 'Bagel Fat One', cursive;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1.1rem 0.5rem;
+  border-radius: 999px;
+  margin-bottom: var(--space-xl);
+}
+
+.askdre-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+/* Left column — text */
+.askdre-text__title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.85rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-md);
+}
+
+.askdre-text__lede {
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-lg);
+  max-width: 48ch;
+}
+
+.askdre-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.askdre-list li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.askdre-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.askdre-disclaimer {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+  margin: 0;
+  max-width: 56ch;
+}
+
+.askdre-disclaimer em {
+  font-style: italic;
+}
+
+/* Right column — chat widget */
+.askdre-chat {
+  width: 100%;
+}
+
+/* Slight refinement of chat-widget inside the card */
+.askdre-chat .chat-widget {
+  background: var(--color-bg-accent);
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px -16px rgba(0, 0, 0, 0.1);
+}
+
+
+/* ============================================================
+   12 — Get in Touch — softer card stroke + smoother hover
+   Overrides the shared .contact-path styles for index2 only.
+   ============================================================ */
+.contact-path {
+  border-color: rgba(0, 0, 0, 0.06);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              background 320ms ease;
+}
+
+/* The "highlight" middle card was using --color-text (very dark) — soften it */
+.contact-path--highlight {
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 24px -10px rgba(0, 0, 0, 0.05);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-path:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0.09);
+  }
+
+  .contact-path--highlight:hover {
+    box-shadow: 0 22px 48px -22px rgba(0, 0, 0, 0.14);
+    border-color: rgba(0, 0, 0, 0.13);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-path {
+    transition: border-color 240ms ease, background 240ms ease;
+  }
+  .contact-path:hover {
+    transform: none;
+  }
+}
+
+
+/* ============================================================
+   07 — Assess Your Risk: depth refinements on the canvas widget
+   - ::before  → very subtle radial glow from center (~6%)
+   - ::after   → blurred halo ring sitting behind the main lines
+   - canvas    → barely-perceptible breathing filter (slow)
+   - .__node   → 3 micro nodes with slow opacity/scale pulse
+   Base color: #4E718E (78, 113, 142) — matches the canvas accent.
+   ============================================================ */
+
+/* Radial glow from center, behind the canvas */
+.risk-diagram::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(78, 113, 142, 0.07) 0%,
+    rgba(78, 113, 142, 0.04) 28%,
+    transparent 62%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transform: scale(1);
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 500ms ease;
+}
+
+/* Outer blurred halo — secondary "atmospheric" circle behind */
+.risk-diagram::after {
+  content: '';
+  position: absolute;
+  inset: 4%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at center,
+    transparent 38%,
+    rgba(78, 113, 142, 0.07) 52%,
+    rgba(78, 113, 142, 0.03) 64%,
+    transparent 76%
+  );
+  filter: blur(28px);
+  transform: scale(1.08);
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+              filter 600ms ease;
+}
+
+/* Lift canvas above the two pseudo-element layers */
+.risk-diagram__canvas {
+  z-index: 1;
+  transform: scale(1);
+  transform-origin: center;
+  animation: v2-rd-breathe 5s ease-in-out infinite;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Faster breathing — 0.3px blur, 2.5% brightness, 5s cycle */
+@keyframes v2-rd-breathe {
+  0%, 100% { filter: blur(0) brightness(1); }
+  50%      { filter: blur(0.3px) brightness(1.025); }
+}
+
+/* Micro nodes — barely-there marks layered above the canvas */
+.risk-diagram__node {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(78, 113, 142, 0.5);
+  pointer-events: none;
+  z-index: 2;
+  animation: v2-rd-node 4s ease-in-out infinite;
+  transition: background 400ms ease;
+}
+
+.risk-diagram__node--1 {
+  top: 31%; left: 38%;
+  animation-delay: 0s;
+}
+
+.risk-diagram__node--2 {
+  top: 49%; left: 76%;
+  width: 2.5px; height: 2.5px;
+  animation-delay: 1.4s;
+}
+
+.risk-diagram__node--3 {
+  top: 71%; left: 47%;
+  animation-delay: 2.6s;
+}
+
+@keyframes v2-rd-node {
+  0%, 100% { opacity: 0.22; transform: scale(0.95); }
+  50%      { opacity: 0.55; transform: scale(1.15); }
+}
+
+/* ── HOVER: compress inward, more active motion ─────────── */
+@media (hover: hover) and (pointer: fine) {
+
+  /* Canvas pulls in — like an inhale */
+  .risk-diagram:hover .risk-diagram__canvas {
+    transform: scale(0.94);
+    animation: v2-rd-breathe-hover 2.2s ease-in-out infinite;
+  }
+
+  @keyframes v2-rd-breathe-hover {
+    0%, 100% { filter: blur(0)    brightness(1.02); }
+    50%      { filter: blur(0.5px) brightness(1.06); }
+  }
+
+  /* Halo tightens around the contracted canvas */
+  .risk-diagram:hover::after {
+    transform: scale(0.95);
+    filter: blur(22px);
+  }
+
+  /* Center glow contracts and intensifies slightly */
+  .risk-diagram:hover::before {
+    transform: scale(0.92);
+  }
+
+  /* Nodes pulse faster and tighter */
+  .risk-diagram:hover .risk-diagram__node {
+    animation: v2-rd-node-hover 1.6s ease-in-out infinite;
+    background: rgba(78, 113, 142, 0.75);
+  }
+
+  @keyframes v2-rd-node-hover {
+    0%, 100% { opacity: 0.35; transform: scale(0.85); }
+    50%      { opacity: 0.85; transform: scale(1.25); }
+  }
+}
+
+/* Reduced-motion: keep depth layers, drop the motion */
+@media (prefers-reduced-motion: reduce) {
+  .risk-diagram__canvas { animation: none; transition: none; }
+  .risk-diagram__node { animation: none; opacity: 0.4; }
+  .risk-diagram::before,
+  .risk-diagram::after { transition: none; }
+  .risk-diagram:hover .risk-diagram__canvas,
+  .risk-diagram:hover::before,
+  .risk-diagram:hover::after,
+  .risk-diagram:hover .risk-diagram__node { transform: none; animation: none; }
+}
+
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 860px) {
+  .askdre-card {
+    padding: var(--space-xl) var(--space-lg) var(--space-lg);
+    border-radius: 18px;
+  }
+
+  .askdre-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .askdre-pill {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+@media (max-width: 640px) {
+  .askdre-card {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+    border-radius: 14px;
+  }
+}
