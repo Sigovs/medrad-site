@@ -1197,6 +1197,20 @@
     }
   }
 
+  /* ----------------------------------------------------------
+     11b. Inner expandable items (Stenting, Atherectomy, …)
+     Independent toggles — multiple can be open at once.
+  ---------------------------------------------------------- */
+  var procItemTriggers = document.querySelectorAll('.proc-item__trigger');
+
+  procItemTriggers.forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item   = trigger.closest('.proc-item');
+      var isOpen = item.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
 
 
   /* ----------------------------------------------------------

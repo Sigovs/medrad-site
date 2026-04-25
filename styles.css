@@ -206,6 +206,7 @@ p {
   height: var(--nav-height);
   background-color: var(--color-bg);
   border-bottom: 1px solid transparent;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
   transition: border-color var(--duration) var(--ease),
               box-shadow var(--duration) var(--ease);
 }
@@ -3096,6 +3097,106 @@ p {
   font-size: 0.875rem;
   font-style: italic;
   color: var(--color-text-dim) !important;
+}
+
+/* ============================================================
+   Inner expandable procedure item (Stenting, Atherectomy, …)
+   ============================================================ */
+.proc-item {
+  display: block;
+}
+
+.proc-item__trigger {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  padding: 0.75rem 0.5rem;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  text-align: left;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: color var(--duration) var(--ease);
+}
+
+.proc-item__trigger:hover,
+.proc-item.is-open .proc-item__trigger {
+  color: var(--color-text);
+}
+
+.proc-item__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.proc-item__learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.proc-item__trigger:hover .proc-item__learn {
+  opacity: 0.7;
+}
+
+.proc-item__chevron {
+  transition: transform var(--duration) var(--ease);
+}
+
+.proc-item.is-open .proc-item__chevron {
+  transform: rotate(180deg);
+}
+
+.proc-item__panel {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: var(--color-bg-accent);
+  border-left: 2px solid var(--color-accent);
+  transition: max-height 320ms var(--ease),
+              opacity 240ms var(--ease);
+}
+
+.proc-item.is-open .proc-item__panel {
+  max-height: 320px;
+  opacity: 1;
+}
+
+.proc-item__panel p {
+  margin: 0;
+  padding: 0.95rem 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+.proc-item__panel p + .proc-item__link {
+  padding-top: 0;
+  margin-top: -0.4rem;
+}
+
+.proc-item__link {
+  display: inline-block;
+  padding: 0 1.1rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.proc-item__link:hover {
+  opacity: 0.7;
 }
 
 
