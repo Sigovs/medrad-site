@@ -44,7 +44,12 @@
 
   /* Transitions */
   --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
   --duration: 220ms;
+  --duration-press: 140ms;
+  --duration-hover: 200ms;
 }
 
 /* --- Reset & Base ----------------------------------------- */
@@ -154,23 +159,25 @@ p {
   border-color: var(--color-text);
 }
 
-.btn--primary:hover {
-  background-color: #2a2a2a;
-  border-color: #2a2a2a;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
-}
-
 .btn--ghost {
   background-color: transparent;
   color: var(--color-text);
   border-color: var(--color-text);
 }
 
-.btn--ghost:hover {
-  background-color: var(--color-text);
-  color: var(--color-white);
-  transform: translateY(-1px);
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover {
+    background-color: #2a2a2a;
+    border-color: #2a2a2a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  }
+
+  .btn--ghost:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    transform: translateY(-1px);
+  }
 }
 
 .btn--full {
@@ -598,26 +605,28 @@ p {
 .expect-step,
 .article-row,
 .proc-cat-item {
-  transition: transform 0.35s cubic-bezier(0, 0, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0, 0, 0.2, 1),
+  transition: transform var(--duration-hover) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out),
               background var(--duration) var(--ease);
 }
 
-.proc-card:hover,
-.edu-preview__card:hover,
-.contact-path:hover,
-.expect-step:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+@media (hover: hover) and (pointer: fine) {
+  .proc-card:hover,
+  .edu-preview__card:hover,
+  .contact-path:hover,
+  .expect-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  }
 }
 
-/* Buttons: restrained scale */
+/* Buttons: restrained scale + fast press feedback */
 .btn {
   transition: background var(--duration) var(--ease),
               color var(--duration) var(--ease),
               border-color var(--duration) var(--ease),
-              transform 0.35s cubic-bezier(0, 0, 0.2, 1),
-              box-shadow 0.35s cubic-bezier(0, 0, 0.2, 1);
+              transform var(--duration-press) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out);
 }
 
 .btn:active {
@@ -2478,15 +2487,16 @@ p {
   z-index: 200;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-50%) translateY(-6px);
-  transition: opacity var(--duration) var(--ease),
-              transform var(--duration) var(--ease);
+  transform-origin: top center;
+  transform: translateX(-50%) translateY(-6px) scale(0.97);
+  transition: opacity 180ms var(--ease-out),
+              transform 180ms var(--ease-out);
 }
 
 .nav__dropdown.is-open {
   opacity: 1;
   pointer-events: all;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) scale(1);
 }
 
 .nav__dropdown-item {
@@ -4717,6 +4727,672 @@ a.breadcrumb__item:hover {
 
 
 /* ============================================================
+   Treatment Cases — Archive Meta Band (rx-meta)
+   Replaces sticky tc-toolbar with a data-strip under the featured case.
+   ============================================================ */
+.rx-meta {
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-md) 0;
+  background-color: var(--color-bg);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.rx-meta__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.rx-meta__group {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.rx-meta__k {
+  color: var(--color-text-dim);
+  margin-right: 0.5em;
+}
+
+.rx-meta__v {
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.rx-search {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  min-width: 280px;
+  transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+}
+
+.rx-search:focus-within {
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.06);
+}
+
+.rx-search svg {
+  flex: none;
+  color: var(--color-text-dim);
+}
+
+.rx-search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  color: var(--color-text);
+}
+
+.rx-search input::placeholder {
+  color: var(--color-text-dim);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+
+/* ============================================================
+   Treatment Cases — Editorial Index (va)
+   Chapters of the archive, numbered italics, featured full-bleed band.
+   ============================================================ */
+.va {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+}
+
+.va__intro {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-2xl);
+}
+
+.va__intro-label {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  padding-top: 0.5rem;
+}
+
+.va__intro-body h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(2rem, 3.4vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-md);
+  max-width: 28ch;
+}
+
+.va__intro-body h2 em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.va__intro-body p {
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.va-chapter {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-xl);
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--nav-height) + 24px);
+}
+
+.va-chapter:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.va-chapter__index {
+  position: sticky;
+  top: calc(var(--nav-height) + 2rem);
+  align-self: start;
+}
+
+.va-chapter__num {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 3.5rem;
+  color: var(--color-accent);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.va-chapter__count {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+}
+
+.va-chapter__head {
+  margin-bottom: var(--space-lg);
+}
+
+.va-chapter__eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.va-chapter__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 2.4vw, 2.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin: 0 0 0.6rem;
+  max-width: 24ch;
+}
+
+.va-chapter__sub {
+  color: var(--color-text-muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  max-width: 52ch;
+  margin: 0;
+}
+
+.va-list {
+  list-style: none;
+  margin: var(--space-md) 0 0;
+  padding: 0;
+}
+
+.va-list li {
+  border-top: 1px solid var(--color-border);
+}
+
+.va-list li:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.va-list a {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: var(--space-md);
+  align-items: baseline;
+  padding: 1.15rem 0;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--duration) var(--ease), padding var(--duration) var(--ease);
+}
+
+.va-list a:hover {
+  color: var(--color-accent);
+  padding-left: 0.5rem;
+}
+
+.va-list__num {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  padding-top: 0.25rem;
+}
+
+.va-list__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  max-width: 62ch;
+}
+
+.va-list__arrow {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  opacity: 0;
+  transition: opacity var(--duration) var(--ease), transform var(--duration) var(--ease), color var(--duration) var(--ease);
+}
+
+.va-list a:hover .va-list__arrow {
+  opacity: 1;
+  color: var(--color-accent);
+  transform: translateX(6px);
+}
+
+/* Featured chapter — full-bleed dark band (article sits outside .container) */
+.va-chapter--featured {
+  display: block;
+  grid-template-columns: 1fr;
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  margin: var(--space-2xl) 0 0;
+  padding: var(--space-3xl) 0;
+  border: 0;
+}
+
+.va-chapter--featured .va-chapter__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: var(--space-xl);
+}
+
+.va-chapter--featured .va-chapter__num { color: var(--color-accent-soft); }
+.va-chapter--featured .va-chapter__count,
+.va-chapter--featured .va-list__num { color: #9a968d; }
+.va-chapter--featured .va-chapter__title { color: var(--color-text-light); }
+.va-chapter--featured .va-chapter__sub { color: #b3afa6; }
+.va-chapter--featured .va-chapter__eyebrow { color: var(--color-accent-soft); }
+.va-chapter--featured .va-list li { border-color: #2E2E2E; }
+.va-chapter--featured .va-list li:last-child { border-color: #2E2E2E; }
+.va-chapter--featured .va-list a { color: var(--color-text-light); }
+.va-chapter--featured .va-list a:hover { color: var(--color-accent-soft); }
+.va-chapter--featured .va-list__title { color: var(--color-text-light); }
+.va-chapter--featured .va-list__arrow { color: #9a968d; }
+
+/* Empty search state — reused across layouts */
+.va-empty {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  padding: var(--space-2xl) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* ---- Responsive: ≤ 900px --------------------------------- */
+@media (max-width: 900px) {
+  .rx-meta__row { gap: 0.75rem; }
+  .rx-meta__group { gap: 1.25rem; }
+  .rx-search { min-width: 0; width: 100%; }
+
+  .va { padding: var(--space-2xl) 0 var(--space-xl); }
+  .va__intro { grid-template-columns: 1fr; gap: var(--space-md); padding-bottom: var(--space-xl); margin-bottom: var(--space-xl); }
+
+  .va-chapter { grid-template-columns: 1fr; gap: var(--space-md); padding: var(--space-xl) 0; }
+  .va-chapter__index {
+    position: static;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  .va-chapter__num { font-size: 2.25rem; }
+
+  .va-chapter--featured .va-chapter__inner { grid-template-columns: 1fr; }
+
+  .va-list a { grid-template-columns: 70px 1fr; padding: 1rem 0; }
+  .va-list__title { font-size: 1.1rem; }
+  .va-list__arrow { display: none; }
+}
+
+
+/* ============================================================
+   Treatment Cases — Editorial Journal Layout
+   ============================================================ */
+
+/* --- Opening ---------------------------------------------- */
+.cases-opening {
+  padding: calc(var(--nav-height) + var(--space-3xl)) 0 var(--space-2xl);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cases-opening__title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+.cases-opening__title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-accent);
+}
+
+.cases-opening__desc {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: var(--space-sm);
+}
+
+/* --- Featured case ---------------------------------------- */
+.cases-feature__card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.cases-feature__body {
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cases-feature__label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.cases-feature__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.cases-feature__text {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+}
+
+.cases-feature__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: var(--space-md);
+  font-size: 0.78rem;
+  color: var(--color-text-dim);
+}
+
+.cases-feature__cta {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-top: var(--space-md);
+  transition: color var(--duration) var(--ease);
+}
+
+.cases-feature__cta:hover {
+  color: var(--color-accent);
+}
+
+.cases-feature__visual {
+  position: relative;
+}
+
+.cases-feature__gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #BB8D81 0%, #3D5A80 60%, #282B37 100%);
+  opacity: 0.15;
+}
+
+/* --- Filter bar ------------------------------------------- */
+.cases-filter {
+  padding: var(--space-md) 0 0;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: var(--nav-height);
+  z-index: 20;
+  background: var(--color-bg);
+}
+
+.cases-filter__bar {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.cases-filter__bar::-webkit-scrollbar {
+  display: none;
+}
+
+.cases-filter__btn {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-dim);
+  padding: 0.7rem 1rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--duration) var(--ease);
+}
+
+.cases-filter__btn::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 2px;
+  background: transparent;
+  transition: background var(--duration) var(--ease);
+}
+
+.cases-filter__btn:hover {
+  color: var(--color-text);
+}
+
+.cases-filter__btn.is-active {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.cases-filter__btn.is-active::after {
+  background: var(--color-text);
+}
+
+.cases-filter__count {
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  margin-left: 0.25rem;
+}
+
+/* --- Cases groups ----------------------------------------- */
+.cases-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+.cases-group__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.cases-group__num {
+  font-family: var(--font-serif);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--color-text-dim);
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.cases-group__title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.cases-group__count {
+  font-size: 0.75rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* --- Cases grid ------------------------------------------- */
+/* Note: .cases-grid is defined earlier for the homepage (dark 3-col). */
+/* The card styles below belong to an unused .cases-card variant. */
+.cases-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg) var(--space-lg);
+  background: var(--color-bg);
+  text-decoration: none;
+  transition: background 0.35s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cases-card:hover {
+  background: var(--color-white);
+}
+
+.cases-card__num {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-dim);
+  letter-spacing: 0.02em;
+  margin-bottom: var(--space-xs);
+}
+
+.cases-card__cat {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  display: none;
+}
+
+.cases-card__title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  flex: 1;
+  margin-bottom: var(--space-md);
+  transition: color 0.35s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cases-card:hover .cases-card__title {
+  color: var(--color-accent);
+}
+
+.cases-card__cta {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-text-dim);
+  margin-top: auto;
+  transition: color 0.35s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.cases-card:hover .cases-card__cta {
+  color: var(--color-text);
+}
+
+/* --- CTA -------------------------------------------------- */
+.cases-cta {
+  max-width: 560px;
+}
+
+.cases-cta h2 {
+  margin: var(--space-xs) 0 var(--space-sm);
+  color: var(--color-text-light);
+}
+
+.cases-cta > p {
+  color: #888;
+  line-height: 1.75;
+  margin-bottom: var(--space-lg);
+}
+
+.cases-cta__actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (max-width: 900px) {
+  .cases-feature__card {
+    grid-template-columns: 1fr;
+  }
+
+  .cases-feature__visual {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .cases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cases-opening__title {
+    font-size: 2.5rem;
+  }
+
+  .cases-cta__actions {
+    flex-direction: column;
+  }
+}
+
+
+/* ============================================================
    About Page
    ============================================================ */
 
@@ -5498,6 +6174,53 @@ a.breadcrumb__item:hover {
 
   .quiz-widget__question {
     font-size: 0.98rem;
+  }
+}
+
+
+/* ============================================================
+   Reduced-motion preference
+   Keep opacity + color fades that aid comprehension.
+   Strip position/transform movement that can trigger motion sickness.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Neutralize translate/scale hover lifts */
+  .proc-card:hover,
+  .edu-preview__card:hover,
+  .contact-path:hover,
+  .expect-step:hover,
+  .btn--primary:hover,
+  .btn--ghost:hover {
+    transform: none;
+  }
+
+  /* Dropdowns: fade only, no scale */
+  .nav__dropdown {
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 160ms linear;
+  }
+  .nav__dropdown.is-open {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Cap long content transitions */
+  .va-list a,
+  .tc-case__link,
+  .proc-card,
+  .edu-preview__card,
+  .contact-path,
+  .expect-step,
+  .article-row,
+  .proc-cat-item {
+    transition-duration: 160ms !important;
   }
 }
 

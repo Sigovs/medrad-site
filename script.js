@@ -1273,31 +1273,6 @@
         tcFilter(e.target.value);
       });
     }
-
-    // -- Scroll-spy for sidenav -----------------------------
-    var tcLinks = Array.from(document.querySelectorAll('.tc-sidenav__link'));
-    var tcLinkById = {};
-    tcLinks.forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href && href.charAt(0) === '#') tcLinkById[href.slice(1)] = link;
-    });
-
-    if ('IntersectionObserver' in window && tcCategories.length) {
-      var tcSpy = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var id = entry.target.id;
-            tcLinks.forEach(function (l) { l.classList.remove('is-active'); });
-            if (tcLinkById[id]) tcLinkById[id].classList.add('is-active');
-          }
-        });
-      }, {
-        rootMargin: '-30% 0px -60% 0px',
-        threshold: 0
-      });
-
-      tcCategories.forEach(function (cat) { tcSpy.observe(cat); });
-    }
   }
 
 })();
