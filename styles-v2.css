@@ -385,10 +385,12 @@
     margin: 0 auto;
   }
 
-  /* Pull arrows in slightly so they don't sit beyond the screen edge */
+  /* Pull arrows in slightly so they don't sit beyond the screen edge,
+     and move them up to the photo region so they don't sit on text */
   .dr-carousel__arrow--prev { left: 4px; }
   .dr-carousel__arrow--next { right: 4px; }
   .dr-carousel__arrow {
+    top: 140px;
     background: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(6px);
   }
