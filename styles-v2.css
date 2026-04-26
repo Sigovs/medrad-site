@@ -14,9 +14,9 @@
 .visual-break {
   position: relative;
   width: 100%;
-  height: 70vh;
-  min-height: 420px;
-  max-height: 720px;
+  height: 90vh;
+  min-height: 560px;
+  max-height: 880px;
   overflow: hidden;
   background-color: #1a1a1a;
 }
@@ -34,21 +34,21 @@
   will-change: transform;
 }
 
-/* Video variant — must restate height: 200% explicitly because
-   <video> elements don't honor `top: -50%; bottom: -50%` the way
-   a <div> does (they have intrinsic sizing). object-fit fills it. */
+/* Video variant — fills the section width edge-to-edge and shows
+   the entire video frame (no horizontal cropping). Vertical
+   letterbox blends with the dark section background. */
 .visual-break__bg--video {
   width: 100%;
   height: 200%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   pointer-events: none;
 }
 
 @media (max-width: 768px) {
   .visual-break {
-    height: 40vh;
-    min-height: 280px;
+    height: 60vh;
+    min-height: 420px;
   }
 }
 
