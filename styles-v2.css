@@ -843,10 +843,12 @@
 
 
 /* ============================================================
-   Trust Strip — solid dark surface (#202227)
+   Trust Strip — warm dark surface (#2D2218)
+   Continues the hero's sepia palette so the seam between
+   sections doesn't jump from warm to cool.
    ============================================================ */
 .trust-strip {
-  background-color: #202227;
+  background-color: #2D2218;
   border-bottom-color: rgba(255, 255, 255, 0.08);
 }
 
