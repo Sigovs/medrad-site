@@ -1267,3 +1267,143 @@
     font-size: 2.2rem;
   }
 }
+
+
+/* ============================================================
+   Featured Procedures — hero card variant
+   UFE as a wide hero (image left + text right), then a 3-up
+   row of supporting procedures below.
+   ============================================================ */
+
+/* Drop the original 2x2-grid border treatment */
+.procs-featured--hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* Each card inside the hero variant gets its own card border */
+.procs-featured--hero .proc-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+}
+
+.procs-featured--hero .proc-card:nth-child(2n) {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.procs-featured--hero .proc-card:nth-last-child(-n+2) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Hero card layout: image left, text right */
+.proc-card--hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  align-items: center;
+}
+
+.proc-card--hero .proc-card__media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-accent);
+}
+
+.proc-card--hero .proc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proc-card--hero .proc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.proc-card--hero h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.proc-card--hero .proc-card__cat {
+  margin-bottom: 0.1rem !important;
+}
+
+.proc-card--hero p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin: 0;
+  flex: 0;
+}
+
+/* Meta strip — Time / Setting / Recovery */
+.proc-card--hero .proc-card__meta {
+  list-style: none;
+  padding: var(--space-sm) 0;
+  margin: 0.4rem 0 0.2rem;
+  display: flex;
+  gap: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.proc-card--hero .proc-card__meta-k {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 0.2rem;
+}
+
+.proc-card--hero .proc-card__meta-v {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.proc-card--hero .proc-card__link {
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* 3-up row of supporting procedures */
+.procs-featured__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.procs-featured__row .proc-card {
+  background: #ffffff;
+}
+
+@media (max-width: 900px) {
+  .proc-card--hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+  .procs-featured__row {
+    grid-template-columns: 1fr;
+  }
+  .proc-card--hero .proc-card__meta {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+}
