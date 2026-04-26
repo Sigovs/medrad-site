@@ -50,6 +50,12 @@
     height: 60vh;
     min-height: 420px;
   }
+  /* On mobile the section is narrow and tall — `contain` would
+     leave wide black bars top/bottom. Switch to `cover` so the
+     video fills the frame edge-to-edge. */
+  .visual-break__bg--video {
+    object-fit: cover;
+  }
 }
 
 
