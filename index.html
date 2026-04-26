@@ -158,8 +158,13 @@
   <!-- ============================================================
        05 — Visual Break (parallax full-bleed image)
        ============================================================ -->
-  <section class="visual-break" aria-hidden="true"
-           style="--vb-img: url('assets/images/visual brake_img.jpg');"></section>
+  <section class="visual-break" aria-hidden="true">
+    <video class="visual-break__bg visual-break__bg--video"
+           autoplay muted loop playsinline preload="auto"
+           poster="assets/images/visual%20brake_img.jpg">
+      <source src="assets/videos/video_brake1.mp4" type="video/mp4">
+    </video>
+  </section>
 
 
   <!-- ============================================================
@@ -212,7 +217,7 @@
   <!-- ============================================================
        07 — Interactive Tool (Assess Your Risk)
        ============================================================ -->
-  <section class="section" id="tools">
+  <section class="section section--tools-dark" id="tools">
     <div class="container">
       <div class="split">
         <div class="split__text">
@@ -271,8 +276,8 @@
   <!-- ============================================================
        09 — Treatment Cases (with parallax background)
        ============================================================ -->
-  <section class="cases-bg" id="cases"
-           style="--cb-img: url('assets/images/Treatment Cases_img.jpg');">
+  <section class="cases-bg" id="cases">
+    <div class="cases-bg__bg" style="background-image: url('assets/images/Treatment%20Cases_img.jpg');"></div>
     <div class="cases-bg__overlay" aria-hidden="true"></div>
     <div class="cases-bg__inner">
       <div class="container">
@@ -723,6 +728,61 @@
 
     init();
     observer.observe(canvas.parentElement);
+  })();
+
+
+  /* ============================================================
+     Parallax — visual-break + cases-bg backgrounds
+     ============================================================ */
+  (function () {
+    'use strict';
+
+    var prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduce) return;
+
+    var bgs = document.querySelectorAll('.visual-break__bg, .cases-bg__bg');
+    if (!bgs.length) return;
+
+    var SPEED      = 0.55;  // 0 = static, 1 = scrolls 1:1 with the page
+    var BASE_SCALE = 1.2;   // baseline zoom — image is always 1.2× minimum
+    var ZOOM_RANGE = 0.15;  // additional ±15% on top of the baseline
+    var ticking = false;
+
+    function update() {
+      var vh = window.innerHeight;
+      bgs.forEach(function (bg) {
+        var section = bg.parentElement;
+        var rect = section.getBoundingClientRect();
+        // Skip work when section is well outside viewport
+        if (rect.bottom < -100 || rect.top > vh + 100) return;
+        // Section center relative to viewport center
+        var center = rect.top + rect.height / 2 - vh / 2;
+        // Translate the bg opposite to the section's offset, scaled by SPEED
+        var translate = -center * SPEED;
+        // Progress: +1 = section just entered from bottom, 0 = centered, -1 = just left at top
+        var maxCenter = (vh + rect.height) / 2;
+        var progress  = Math.max(-1, Math.min(1, center / maxCenter));
+        // Scale always stays above 1.0, so the image NEVER shrinks below the
+        // container's dimensions and the section background never shows through.
+        // Range: 1.05 (extreme zoom-out) → 1.35 (extreme zoom-in).
+        var scale = BASE_SCALE + progress * ZOOM_RANGE;
+        bg.style.transform =
+          'translate3d(0, ' + translate.toFixed(1) + 'px, 0) scale(' + scale.toFixed(3) + ')';
+      });
+      ticking = false;
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // Initial position
+    update();
   })();
 
 

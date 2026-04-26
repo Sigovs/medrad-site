@@ -561,11 +561,12 @@
     ];
 
     // [defaultOpacity, activatedOpacity] per depth layer
+    // Boosted for visibility on the dark Interactive Tool gradient.
     var L_OP = [
-      [0.14, 0.07],    // atmosphere — recedes on activation
-      [0.28, 0.40],    // mid
-      [0.56, 0.74],    // foreground
-      [0.65, 0.88]     // core — most defined
+      [0.22, 0.12],    // atmosphere — recedes on activation
+      [0.45, 0.58],    // mid
+      [0.78, 0.90],    // foreground
+      [0.88, 0.96]     // core — most defined
     ];
 
     // Signal nodes: small points on or near specific curve paths.
@@ -593,7 +594,7 @@
       { ci:9, ang:0.62, spd: 2.8e-5, r:1.0, lay:2, pf:8.0e-4, pp:3.1, hov:true  }   // fg          r0=0.12
     ];
 
-    var AR = 78, AG = 113, AB = 142; // base colour: #4E718E
+    var AR = 130, AG = 170, AB = 205; // base colour: lifted blue for dark bg legibility
 
     /* ── Canvas resize ─────────────────────────────────────── */
     function resize() {
