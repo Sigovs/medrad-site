@@ -1211,3 +1211,86 @@
   border-color: var(--color-bg-accent);
   color: var(--color-text);
 }
+
+
+/* ============================================================
+   MOBILE HERO — text + both CTAs, full viewport height
+   Photo + name pill hidden; warm gradient + particles stay.
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .entry {
+    height: auto;
+    min-height: 100svh;        /* small-viewport height — accounts for browser chrome */
+    min-height: 100vh;          /* fallback */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Text content fills the screen, vertically centered */
+  .entry__content {
+    position: relative;
+    z-index: 3;
+    height: auto;
+    min-height: 0;
+    max-width: 100%;
+    padding: calc(var(--nav-height) + 2rem) 1.5rem var(--space-2xl);
+    text-align: left;
+  }
+
+  .entry__label {
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    margin-bottom: 1.25rem;
+  }
+
+  .entry__headline {
+    margin: 0;
+  }
+
+  .entry__line--xl {
+    font-size: clamp(2.5rem, 12vw, 3.4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .entry__line--sub {
+    font-style: italic;
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1.25rem;
+    max-width: 100%;
+  }
+
+  /* Hide the doctor portrait + floating name pill on mobile */
+  .entry__hero-image,
+  .entry__hero-pill {
+    display: none !important;
+  }
+
+  /* CTAs: keep both, full-width column stacked */
+  .entry__actions {
+    margin-top: var(--space-lg);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .entry__actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .entry__line--xl {
+    font-size: 2.2rem;
+  }
+}
