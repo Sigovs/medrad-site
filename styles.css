@@ -6276,6 +6276,13 @@ a.breadcrumb__item:hover {
   min-height: 340px;
 }
 
+/* Folder card thumbnail — warm beige tones, different from the dark
+   video placeholder so folders read as a distinct content type. */
+.ll-thumb-placeholder--folder {
+  background: linear-gradient(135deg, #C9B591 0%, #A88E62 100%);
+  color: rgba(255, 255, 255, 0.55);
+}
+
 /* --- Responsive ------------------------------------------- */
 @media (max-width: 900px) {
   .ll-featured__card {

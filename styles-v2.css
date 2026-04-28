@@ -1740,3 +1740,126 @@
     padding: var(--space-md) var(--space-lg);
   }
 }
+
+
+/* ============================================================
+   Lecture Library — Members-only access modal.
+   Backdrop dims the whole page; panel sits centered on top.
+   ============================================================ */
+.ll-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 220ms ease, visibility 0s linear 220ms;
+}
+
+.ll-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 220ms ease, visibility 0s linear 0s;
+}
+
+.ll-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 18, 24, 0.55);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.ll-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-xl) var(--space-lg);
+  text-align: center;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.45);
+  transform: translateY(8px) scale(0.98);
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ll-modal.is-open .ll-modal__panel {
+  transform: translateY(0) scale(1);
+}
+
+.ll-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.ll-modal__close:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-text);
+}
+
+.ll-modal__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg-accent, #F2EFE7);
+  color: var(--color-accent);
+}
+
+.ll-modal__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.ll-modal__text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-lg);
+}
+
+.ll-modal__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ll-modal__actions .btn {
+  flex: 1 1 140px;
+  min-width: 140px;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .ll-modal__panel {
+    padding: var(--space-lg) var(--space-md) var(--space-md);
+  }
+  .ll-modal__title { font-size: 1.3rem; }
+  .ll-modal__actions { flex-direction: column; }
+  .ll-modal__actions .btn { width: 100%; }
+}
