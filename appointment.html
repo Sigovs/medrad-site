@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment — MedRad Clinics</title>
+  <meta name="description" content="Schedule a procedure or ultrasound exam at MedRad Clinics. Online intake form for patients and referring physicians." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="inner-page">
+
+  <!-- ============================================================
+       Navigation
+       ============================================================ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">MedRad<span>Clinics</span></a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="about.html">About</a>
+
+        <div class="nav__dropdown-wrap" id="navProcDropWrap">
+          <button class="nav__dropdown-trigger" id="navProcTrigger"
+                  aria-expanded="false" aria-haspopup="true" aria-controls="navProcDropdown">
+            Procedures
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="nav__dropdown" id="navProcDropdown" role="region" aria-label="Procedures menu">
+            <a href="procedure-ufe.html" class="nav__dropdown-item">Uterine Fibroid Embolization</a>
+            <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
+            <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
+            <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
+            <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          </div>
+        </div>
+
+        <a href="patient-education.html">Patient Education</a>
+        <a href="treatment-cases.html">Treatment Cases</a>
+        <a href="lecture-library.html">Lecture Library</a>
+        <a href="contact.html" class="nav__cta">Contact</a>
+        <a href="appointment.html" class="nav__cta nav__cta--filled nav__cta--active">Book Appointment</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       Page Header
+       ============================================================ -->
+  <div class="page-header">
+    <div class="container">
+      <p class="section__label">Online Intake</p>
+      <h1 class="page-header__title">Book an Appointment</h1>
+      <p class="page-header__desc">Select the type of service you need below. Whether you're a patient scheduling an exam or a referring physician sending a patient — we'll route your request to the right clinical team.</p>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       Step 1 — Select form type (4 cards)
+       ============================================================ -->
+  <section class="section apt-selector">
+    <div class="container">
+
+      <header class="apt-selector__head">
+        <p class="section__label">Step 1</p>
+        <h2>What do you need?</h2>
+      </header>
+
+      <div class="apt-selector__grid">
+
+        <a href="#form-catheter" class="apt-card">
+          <span class="apt-card__num">01</span>
+          <span class="material-symbols-outlined apt-card__icon" aria-hidden="true">medical_services</span>
+          <h3 class="apt-card__title">Catheter Interventions</h3>
+          <p class="apt-card__desc">Central venous access &middot; angiography &middot; embolization &middot; thrombolysis</p>
+          <span class="apt-card__cta">Open form <span class="btn__arrow" aria-hidden="true">&darr;</span></span>
+        </a>
+
+        <a href="#form-hd" class="apt-card">
+          <span class="apt-card__num">02</span>
+          <span class="material-symbols-outlined apt-card__icon" aria-hidden="true">bloodtype</span>
+          <h3 class="apt-card__title">HD Access</h3>
+          <p class="apt-card__desc">AV fistula &amp; graft creation, declotting, salvage of failing access</p>
+          <span class="apt-card__cta">Open form <span class="btn__arrow" aria-hidden="true">&darr;</span></span>
+        </a>
+
+        <a href="#form-mi" class="apt-card">
+          <span class="apt-card__num">03</span>
+          <span class="material-symbols-outlined apt-card__icon" aria-hidden="true">healing</span>
+          <h3 class="apt-card__title">Minimally-Invasive</h3>
+          <p class="apt-card__desc">Biopsies &middot; drainages &middot; vertebroplasty &middot; uterine fibroid embolization</p>
+          <span class="apt-card__cta">Open form <span class="btn__arrow" aria-hidden="true">&darr;</span></span>
+        </a>
+
+        <a href="#form-us" class="apt-card">
+          <span class="apt-card__num">04</span>
+          <span class="material-symbols-outlined apt-card__icon" aria-hidden="true">radiology</span>
+          <h3 class="apt-card__title">Ultrasound Exam</h3>
+          <p class="apt-card__desc">Abdominal &middot; pelvic &middot; vascular sonography</p>
+          <span class="apt-card__cta">Open form <span class="btn__arrow" aria-hidden="true">&darr;</span></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Step 2 — Forms (one per service type)
+       ============================================================ -->
+  <section class="section apt-forms section--accent">
+    <div class="container">
+
+      <header class="apt-forms__head">
+        <p class="section__label">Step 2</p>
+        <h2 id="aptFormsTitle">Pick a form above to begin</h2>
+      </header>
+
+      <!-- Empty state shown until a form is selected -->
+      <div class="apt-empty" id="aptEmpty">
+        <p>Select one of the four service categories above. The relevant form will appear here.</p>
+      </div>
+
+      <!-- All 4 forms below share the same Patient's Information +
+           Referring Office's Information blocks (matching old site).
+           Procedure-specific fields differ per form. -->
+
+      <!-- ───── Form 1: Catheter Interventions ───── -->
+      <article class="apt-form" id="form-catheter">
+        <header class="apt-form__head">
+          <span class="apt-form__num">01</span>
+          <h3>Catheter Interventions</h3>
+        </header>
+
+        <form class="apt-form__body" novalidate data-form="catheter">
+          <input type="hidden" name="form_type" value="Catheter Interventions" />
+
+          <!-- ── Letterhead -->
+          <header class="apt-letterhead">
+            <div class="apt-letterhead__left">
+              <p class="apt-letterhead__name">MedRad Clinics, S.C.</p>
+              <p class="apt-letterhead__sub">Center for minimally invasive interventions</p>
+              <p class="apt-letterhead__doctor">Kenneth U. Ekechukwu, MBBS, MPH, FACP</p>
+            </div>
+            <div class="apt-letterhead__logo">
+              <img src="assets/images/medrad-logo.png" alt="MedRad Clinics" />
+            </div>
+            <div class="apt-letterhead__right">
+              <p class="apt-letterhead__addr">1225 Harlem Avenue<br>Forest Park, Illinois 60130</p>
+              <p class="apt-letterhead__phones">
+                <span><strong>T</strong> (708) 657-4540</span><br>
+                <span><strong>F</strong> (708) 657-4535</span><br>
+                <a href="https://www.medradclinics.com" target="_blank" rel="noopener">www.medradclinics.com</a>
+              </p>
+            </div>
+          </header>
+
+          <!-- ── Patient's Information (identical across all 4 forms) -->
+          <fieldset class="apt-fieldset">
+            <legend>Patient's Information</legend>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Reason for this order</span>
+              <input class="form__input" type="text" name="reason" />
+            </label>
+
+            <label class="apt-field"><span class="apt-field__label">Name</span>
+              <input class="form__input" type="text" name="name" autocomplete="name" required /></label>
+            <label class="apt-field"><span class="apt-field__label">DOB</span>
+              <input class="form__input" type="date" name="dob" autocomplete="bday" required /></label>
+            <label class="apt-field"><span class="apt-field__label">Ordering Date</span>
+              <input class="form__input" type="date" name="ordering_date" /></label>
+            <label class="apt-field"><span class="apt-field__label">Sex</span>
+              <select class="form__input" name="sex" required>
+                <option value="">—</option><option>Female</option><option>Male</option><option>Other</option>
+              </select></label>
+            <label class="apt-field"><span class="apt-field__label">Age</span>
+              <input class="form__input" type="number" name="age" min="0" max="120" /></label>
+
+            <label class="apt-field apt-field--full"><span class="apt-field__label">Address</span>
+              <input class="form__input" type="text" name="address" autocomplete="street-address" /></label>
+            <label class="apt-field"><span class="apt-field__label">City</span>
+              <input class="form__input" type="text" name="city" autocomplete="address-level2" /></label>
+            <label class="apt-field"><span class="apt-field__label">State</span>
+              <input class="form__input" type="text" name="state" autocomplete="address-level1" /></label>
+            <label class="apt-field"><span class="apt-field__label">Zip Code</span>
+              <input class="form__input" type="text" name="zip" autocomplete="postal-code" /></label>
+
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Home phone</span>
+              <input class="form__input" type="tel" name="home_phone" autocomplete="home tel" inputmode="tel" /></label>
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Mobile Phone</span>
+              <input class="form__input" type="tel" name="mobile_phone" autocomplete="mobile tel" inputmode="tel" /></label>
+
+            <fieldset class="apt-field apt-field--full apt-checks">
+              <legend class="apt-field__label">Check anticoagulation Rx</legend>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Aspirin"> Aspirin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Plavix"> Plavix</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Coumadin"> Coumadin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Other"> Other</label>
+            </fieldset>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Allergies (including iodinated radiocontrast)</span>
+              <input class="form__input" type="text" name="allergies" />
+            </label>
+          </fieldset>
+
+          <!-- ── Referring Office's Information (identical across all 4) -->
+          <fieldset class="apt-fieldset">
+            <legend>Referring Office's Information</legend>
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Name of Practice</span>
+              <input class="form__input" type="text" name="ref_practice" />
+            </label>
+          </fieldset>
+
+          <!-- ── Procedure-specific (Catheter Interventions) -->
+          <div class="apt-detail">
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Indication:</span>
+              <select class="form__input" name="indication">
+                <option value="">— Please choose an option —</option>
+                <option>Need for long-term venous access</option>
+                <option>Vascular obstruction</option>
+                <option>Acute thrombosis</option>
+                <option>Diagnostic angiography</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Type of intervention desired:</span>
+              <select class="form__input" name="intervention">
+                <option value="">— Please choose an option —</option>
+                <option>Central venous catheter insertion</option>
+                <option>Angiography (diagnostic)</option>
+                <option>Embolization</option>
+                <option>Thrombolysis</option>
+                <option>Stent placement</option>
+              </select>
+            </label>
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Type of Central venous catheter insertion:</span>
+              <select class="form__input" name="catheter_type">
+                <option value="">— Please choose an option —</option>
+                <option>PICC line</option>
+                <option>Tunneled (Hickman / Broviac)</option>
+                <option>Port-a-Cath</option>
+                <option>Non-tunneled</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="apt-actions">
+            <button type="submit" class="apt-action apt-action--primary" data-action="submit">
+              <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+              Submit by email
+            </button>
+            <button type="button" class="apt-action" data-action="fax">
+              <span class="material-symbols-outlined" aria-hidden="true">fax</span>
+              Fax to MRC
+            </button>
+            <button type="button" class="apt-action" data-action="print">
+              <span class="material-symbols-outlined" aria-hidden="true">print</span>
+              Print
+            </button>
+          </div>
+        </form>
+      </article>
+
+
+      <!-- ───── Form 2: HD Access ───── -->
+      <article class="apt-form" id="form-hd">
+        <header class="apt-form__head">
+          <span class="apt-form__num">02</span>
+          <h3>Interventions on HD Access</h3>
+        </header>
+
+        <form class="apt-form__body" novalidate data-form="hd-access">
+          <input type="hidden" name="form_type" value="HD Access" />
+
+          <header class="apt-letterhead">
+            <div class="apt-letterhead__left">
+              <p class="apt-letterhead__name">MedRad Clinics, S.C.</p>
+              <p class="apt-letterhead__sub">Center for minimally invasive interventions</p>
+              <p class="apt-letterhead__doctor">Kenneth U. Ekechukwu, MBBS, MPH, FACP</p>
+            </div>
+            <div class="apt-letterhead__logo">
+              <img src="assets/images/medrad-logo.png" alt="MedRad Clinics" />
+            </div>
+            <div class="apt-letterhead__right">
+              <p class="apt-letterhead__addr">1225 Harlem Avenue<br>Forest Park, Illinois 60130</p>
+              <p class="apt-letterhead__phones">
+                <span><strong>T</strong> (708) 657-4540</span><br>
+                <span><strong>F</strong> (708) 657-4535</span><br>
+                <a href="https://www.medradclinics.com" target="_blank" rel="noopener">www.medradclinics.com</a>
+              </p>
+            </div>
+          </header>
+
+          <fieldset class="apt-fieldset">
+            <legend>Patient's Information</legend>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Reason for this order</span>
+              <input class="form__input" type="text" name="reason" />
+            </label>
+
+            <label class="apt-field"><span class="apt-field__label">Name</span>
+              <input class="form__input" type="text" name="name" autocomplete="name" required /></label>
+            <label class="apt-field"><span class="apt-field__label">DOB</span>
+              <input class="form__input" type="date" name="dob" required /></label>
+            <label class="apt-field"><span class="apt-field__label">Ordering Date</span>
+              <input class="form__input" type="date" name="ordering_date" /></label>
+            <label class="apt-field"><span class="apt-field__label">Sex</span>
+              <select class="form__input" name="sex">
+                <option value="">—</option><option>Female</option><option>Male</option><option>Other</option>
+              </select></label>
+            <label class="apt-field"><span class="apt-field__label">Age</span>
+              <input class="form__input" type="number" name="age" min="0" max="120" /></label>
+
+            <label class="apt-field apt-field--full"><span class="apt-field__label">Address</span>
+              <input class="form__input" type="text" name="address" /></label>
+            <label class="apt-field"><span class="apt-field__label">City</span>
+              <input class="form__input" type="text" name="city" /></label>
+            <label class="apt-field"><span class="apt-field__label">State</span>
+              <input class="form__input" type="text" name="state" /></label>
+            <label class="apt-field"><span class="apt-field__label">Zip Code</span>
+              <input class="form__input" type="text" name="zip" /></label>
+
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Home phone</span>
+              <input class="form__input" type="tel" name="home_phone" inputmode="tel" /></label>
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Mobile Phone</span>
+              <input class="form__input" type="tel" name="mobile_phone" inputmode="tel" /></label>
+
+            <fieldset class="apt-field apt-field--full apt-checks">
+              <legend class="apt-field__label">Check anticoagulation Rx</legend>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Aspirin"> Aspirin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Plavix"> Plavix</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Coumadin"> Coumadin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Other"> Other</label>
+            </fieldset>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Allergies (including iodinated radiocontrast)</span>
+              <input class="form__input" type="text" name="allergies" />
+            </label>
+          </fieldset>
+
+          <fieldset class="apt-fieldset">
+            <legend>Referring Office's Information</legend>
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Name of Practice</span>
+              <input class="form__input" type="text" name="ref_practice" />
+            </label>
+          </fieldset>
+
+          <div class="apt-detail">
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Indication:</span>
+              <select class="form__input" name="indication">
+                <option value="">— Please choose an option —</option>
+                <option>New AV fistula creation</option>
+                <option>Failing fistula / graft</option>
+                <option>Acute thrombosis (declotting)</option>
+                <option>Stenosis (angioplasty)</option>
+                <option>Maturation issue</option>
+              </select>
+            </label>
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Type of access:</span>
+              <select class="form__input" name="access_type">
+                <option value="">— Please choose an option —</option>
+                <option>AV fistula</option>
+                <option>AV graft</option>
+                <option>Tunneled catheter</option>
+                <option>Not yet established</option>
+              </select>
+            </label>
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Location of access:</span>
+              <select class="form__input" name="access_location">
+                <option value="">— Please choose an option —</option>
+                <option>Left forearm</option>
+                <option>Right forearm</option>
+                <option>Left upper arm</option>
+                <option>Right upper arm</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="apt-detail__row">
+              <span class="apt-detail__label">Desired intervention:</span>
+              <select class="form__input" name="intervention">
+                <option value="">— Please choose an option —</option>
+                <option>Angioplasty</option>
+                <option>Declotting / thrombectomy</option>
+                <option>Stent placement</option>
+                <option>New access creation</option>
+                <option>Diagnostic fistulogram</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="apt-actions">
+            <button type="submit" class="apt-action apt-action--primary" data-action="submit">
+              <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+              Submit by email
+            </button>
+            <button type="button" class="apt-action" data-action="fax">
+              <span class="material-symbols-outlined" aria-hidden="true">fax</span>
+              Fax to MRC
+            </button>
+            <button type="button" class="apt-action" data-action="print">
+              <span class="material-symbols-outlined" aria-hidden="true">print</span>
+              Print
+            </button>
+          </div>
+        </form>
+      </article>
+
+
+      <!-- ───── Form 3: Minimally-Invasive ───── -->
+      <article class="apt-form" id="form-mi">
+        <header class="apt-form__head">
+          <span class="apt-form__num">03</span>
+          <h3>Minimally-Invasive Interventions</h3>
+        </header>
+
+        <form class="apt-form__body" novalidate data-form="mi">
+          <input type="hidden" name="form_type" value="Minimally-Invasive" />
+
+          <header class="apt-letterhead">
+            <div class="apt-letterhead__left">
+              <p class="apt-letterhead__name">MedRad Clinics, S.C.</p>
+              <p class="apt-letterhead__sub">Center for minimally invasive interventions</p>
+              <p class="apt-letterhead__doctor">Kenneth U. Ekechukwu, MBBS, MPH, FACP</p>
+            </div>
+            <div class="apt-letterhead__logo">
+              <img src="assets/images/medrad-logo.png" alt="MedRad Clinics" />
+            </div>
+            <div class="apt-letterhead__right">
+              <p class="apt-letterhead__addr">1225 Harlem Avenue<br>Forest Park, Illinois 60130</p>
+              <p class="apt-letterhead__phones">
+                <span><strong>T</strong> (708) 657-4540</span><br>
+                <span><strong>F</strong> (708) 657-4535</span><br>
+                <a href="https://www.medradclinics.com" target="_blank" rel="noopener">www.medradclinics.com</a>
+              </p>
+            </div>
+          </header>
+
+          <fieldset class="apt-fieldset">
+            <legend>Patient's Information</legend>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Reason for this order</span>
+              <input class="form__input" type="text" name="reason" />
+            </label>
+
+            <label class="apt-field"><span class="apt-field__label">Name</span>
+              <input class="form__input" type="text" name="name" autocomplete="name" required /></label>
+            <label class="apt-field"><span class="apt-field__label">DOB</span>
+              <input class="form__input" type="date" name="dob" required /></label>
+            <label class="apt-field"><span class="apt-field__label">Ordering Date</span>
+              <input class="form__input" type="date" name="ordering_date" /></label>
+            <label class="apt-field"><span class="apt-field__label">Sex</span>
+              <select class="form__input" name="sex">
+                <option value="">—</option><option>Female</option><option>Male</option><option>Other</option>
+              </select></label>
+            <label class="apt-field"><span class="apt-field__label">Age</span>
+              <input class="form__input" type="number" name="age" min="0" max="120" /></label>
+
+            <label class="apt-field apt-field--full"><span class="apt-field__label">Address</span>
+              <input class="form__input" type="text" name="address" /></label>
+            <label class="apt-field"><span class="apt-field__label">City</span>
+              <input class="form__input" type="text" name="city" /></label>
+            <label class="apt-field"><span class="apt-field__label">State</span>
+              <input class="form__input" type="text" name="state" /></label>
+            <label class="apt-field"><span class="apt-field__label">Zip Code</span>
+              <input class="form__input" type="text" name="zip" /></label>
+
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Home phone</span>
+              <input class="form__input" type="tel" name="home_phone" inputmode="tel" /></label>
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Mobile Phone</span>
+              <input class="form__input" type="tel" name="mobile_phone" inputmode="tel" /></label>
+
+            <fieldset class="apt-field apt-field--full apt-checks">
+              <legend class="apt-field__label">Check anticoagulation Rx</legend>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Aspirin"> Aspirin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Plavix"> Plavix</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Coumadin"> Coumadin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Other"> Other</label>
+            </fieldset>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Allergies (including iodinated radiocontrast)</span>
+              <input class="form__input" type="text" name="allergies" />
+            </label>
+          </fieldset>
+
+          <fieldset class="apt-fieldset">
+            <legend>Referring Office's Information</legend>
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Name of Practice</span>
+              <input class="form__input" type="text" name="ref_practice" />
+            </label>
+          </fieldset>
+
+          <div class="apt-detail">
+            <p class="apt-detail__intro">Type of procedure (select all that apply):</p>
+
+            <ul class="apt-checklist">
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Biopsy"> Biopsy <em>(please specify organ)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Drainage of body fluid"> Drainage of body fluid by catheter insertion <em>(please specify location and side)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="CVC with subcutaneous port"> Insertion of a central venous catheter with a subcutaneous port</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="CVC without subcutaneous port"> Insertion of a central venous catheter without a subcutaneous port</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Peritoneal dialysis catheter"> Insertion of peritoneal dialysis catheter</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Joint aspiration / injection"> Joint aspiration and/or injection <em>(please specify which joint)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Chronic venous hypertension"> Management of chronic venous hypertension</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Pelvic congestion syndrome"> Management of pelvic congestion syndrome</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Peripheral arterial disease"> Management of peripheral arterial disease</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Symptomatic uterine fibroids"> Management of symptomatic uterine fibroids</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Vertebral compression fracture"> Management of vertebral compression fracture <em>(specify level)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Nephrostomy"> Nephrostomy catheter insertion <em>(please specify laterality)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="RFA tumor"> Radiofrequency ablation of a tumor <em>(please specify location and type)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="procedure" value="Other"> Other</label></li>
+            </ul>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Specifications (organ, side, level, joint, or other notes)</span>
+              <textarea class="form__input apt-textarea" name="procedure_spec" rows="3" placeholder="e.g. Liver biopsy · Right L4 vertebroplasty · Left knee aspiration"></textarea>
+            </label>
+          </div>
+
+          <div class="apt-actions">
+            <button type="submit" class="apt-action apt-action--primary" data-action="submit">
+              <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+              Submit by email
+            </button>
+            <button type="button" class="apt-action" data-action="fax">
+              <span class="material-symbols-outlined" aria-hidden="true">fax</span>
+              Fax to MRC
+            </button>
+            <button type="button" class="apt-action" data-action="print">
+              <span class="material-symbols-outlined" aria-hidden="true">print</span>
+              Print
+            </button>
+          </div>
+        </form>
+      </article>
+
+
+      <!-- ───── Form 4: Ultrasound ───── -->
+      <article class="apt-form" id="form-us">
+        <header class="apt-form__head">
+          <span class="apt-form__num">04</span>
+          <h3>Ultrasound Examinations</h3>
+        </header>
+
+        <form class="apt-form__body" novalidate data-form="ultrasound">
+          <input type="hidden" name="form_type" value="Ultrasound" />
+
+          <header class="apt-letterhead">
+            <div class="apt-letterhead__left">
+              <p class="apt-letterhead__name">MedRad Clinics, S.C.</p>
+              <p class="apt-letterhead__sub">Center for minimally invasive interventions</p>
+              <p class="apt-letterhead__doctor">Kenneth U. Ekechukwu, MBBS, MPH, FACP</p>
+            </div>
+            <div class="apt-letterhead__logo">
+              <img src="assets/images/medrad-logo.png" alt="MedRad Clinics" />
+            </div>
+            <div class="apt-letterhead__right">
+              <p class="apt-letterhead__addr">1225 Harlem Avenue<br>Forest Park, Illinois 60130</p>
+              <p class="apt-letterhead__phones">
+                <span><strong>T</strong> (708) 657-4540</span><br>
+                <span><strong>F</strong> (708) 657-4535</span><br>
+                <a href="https://www.medradclinics.com" target="_blank" rel="noopener">www.medradclinics.com</a>
+              </p>
+            </div>
+          </header>
+
+          <fieldset class="apt-fieldset">
+            <legend>Patient's Information</legend>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Reason for this order</span>
+              <input class="form__input" type="text" name="reason" />
+            </label>
+
+            <label class="apt-field"><span class="apt-field__label">Name</span>
+              <input class="form__input" type="text" name="name" autocomplete="name" required /></label>
+            <label class="apt-field"><span class="apt-field__label">DOB</span>
+              <input class="form__input" type="date" name="dob" required /></label>
+            <label class="apt-field"><span class="apt-field__label">Ordering Date</span>
+              <input class="form__input" type="date" name="ordering_date" /></label>
+            <label class="apt-field"><span class="apt-field__label">Sex</span>
+              <select class="form__input" name="sex">
+                <option value="">—</option><option>Female</option><option>Male</option><option>Other</option>
+              </select></label>
+            <label class="apt-field"><span class="apt-field__label">Age</span>
+              <input class="form__input" type="number" name="age" min="0" max="120" /></label>
+
+            <label class="apt-field apt-field--full"><span class="apt-field__label">Address</span>
+              <input class="form__input" type="text" name="address" /></label>
+            <label class="apt-field"><span class="apt-field__label">City</span>
+              <input class="form__input" type="text" name="city" /></label>
+            <label class="apt-field"><span class="apt-field__label">State</span>
+              <input class="form__input" type="text" name="state" /></label>
+            <label class="apt-field"><span class="apt-field__label">Zip Code</span>
+              <input class="form__input" type="text" name="zip" /></label>
+
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Home phone</span>
+              <input class="form__input" type="tel" name="home_phone" inputmode="tel" /></label>
+            <label class="apt-field apt-field--half"><span class="apt-field__label">Mobile Phone</span>
+              <input class="form__input" type="tel" name="mobile_phone" inputmode="tel" /></label>
+
+            <fieldset class="apt-field apt-field--full apt-checks">
+              <legend class="apt-field__label">Check anticoagulation Rx</legend>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Aspirin"> Aspirin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Plavix"> Plavix</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Coumadin"> Coumadin</label>
+              <label class="apt-check"><input type="checkbox" name="anticoag" value="Other"> Other</label>
+            </fieldset>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Allergies (including iodinated radiocontrast)</span>
+              <input class="form__input" type="text" name="allergies" />
+            </label>
+          </fieldset>
+
+          <fieldset class="apt-fieldset">
+            <legend>Referring Office's Information</legend>
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Name of Practice</span>
+              <input class="form__input" type="text" name="ref_practice" />
+            </label>
+          </fieldset>
+
+          <div class="apt-detail">
+            <p class="apt-detail__intro">Type of ultrasound exam (select all that apply):</p>
+
+            <ul class="apt-checklist">
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Abdominal aortic"> Abdominal aortic ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Abdominal"> Abdominal ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Arterial Doppler extremities"> Arterial Doppler ultrasound of the extremities <em>(please specify type and side)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Bladder"> Bladder ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Breast"> Breast ultrasound <em>(please specify type and side)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Carotid"> Carotid ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Gallbladder"> Gallbladder ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Musculoskeletal"> Musculoskeletal ultrasound <em>(please specify type and side)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Obstetric"> Obstetric ultrasound <em>(please specify trimester)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Pelvic"> Pelvic ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Prostate"> Prostate ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Renal"> Renal ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Scrotal"> Scrotal ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Thyroid"> Thyroid ultrasound</label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Venous Doppler extremities"> Venous Doppler ultrasound of the extremities <em>(please specify type and side)</em></label></li>
+              <li><label class="apt-check apt-check--row"><input type="checkbox" name="exam" value="Other"> Other</label></li>
+            </ul>
+
+            <label class="apt-field apt-field--full">
+              <span class="apt-field__label">Specifications (type, side, trimester, or other notes)</span>
+              <textarea class="form__input apt-textarea" name="exam_spec" rows="3" placeholder="e.g. Right carotid · 2nd trimester · bilateral musculoskeletal"></textarea>
+            </label>
+          </div>
+
+          <div class="apt-actions">
+            <button type="submit" class="apt-action apt-action--primary" data-action="submit">
+              <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+              Submit by email
+            </button>
+            <button type="button" class="apt-action" data-action="fax">
+              <span class="material-symbols-outlined" aria-hidden="true">fax</span>
+              Fax to MRC
+            </button>
+            <button type="button" class="apt-action" data-action="print">
+              <span class="material-symbols-outlined" aria-hidden="true">print</span>
+              Print
+            </button>
+          </div>
+        </form>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       Footer
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <p class="footer__logo">MedRad<span>Clinics</span></p>
+          <p class="footer__tagline">Interventional radiology with subspecialty precision.</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Procedures</p>
+          <a href="procedure-ufe.html">Uterine Fibroid Embolization</a>
+          <a href="#">Vertebroplasty &amp; Kyphoplasty</a>
+          <a href="#">Hemodialysis Access</a>
+          <a href="#">Peripheral Arterial Disease</a>
+          <a href="all-procedures.html">View All Procedures</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Patient Education</p>
+          <a href="patient-education.html">Preparing for a Procedure</a>
+          <a href="patient-education.html">What is Interventional Radiology?</a>
+          <a href="patient-education.html">Recovery &amp; Follow-Up</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__heading">Contact</p>
+          <a href="contact.html">1225 Harlem Avenue, Forest Park, IL</a>
+          <a href="tel:+17086574540">(708) 657-4540</a>
+          <a href="appointment.html">Book Appointment</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 MedRad Clinics. All rights reserved.</p>
+        <p>This website does not provide medical advice. All content is for informational purposes only.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+
+      /* ────────────────────────────────────────────────────────
+         Form selection — only the picked form is visible.
+         ──────────────────────────────────────────────────────── */
+      var cards    = document.querySelectorAll('.apt-card');
+      var forms    = document.querySelectorAll('.apt-form');
+      var empty    = document.getElementById('aptEmpty');
+      var titleEl  = document.getElementById('aptFormsTitle');
+
+      function showForm(targetId, cardEl) {
+        // Hide all forms, mark all cards inactive
+        forms.forEach(function (f) { f.classList.remove('is-active'); });
+        cards.forEach(function (c) { c.classList.remove('is-active'); });
+
+        // Show selected form
+        var formEl = document.querySelector(targetId);
+        if (!formEl) return;
+        formEl.classList.add('is-active');
+        if (cardEl) cardEl.classList.add('is-active');
+
+        // Hide empty state, update title
+        if (empty) empty.style.display = 'none';
+        if (titleEl && cardEl) {
+          var name = cardEl.querySelector('.apt-card__title');
+          if (name) titleEl.textContent = 'Complete the form — ' + name.textContent;
+        }
+
+        // Smooth scroll to the form
+        formEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      cards.forEach(function (card) {
+        card.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = card.getAttribute('href');
+          showForm(target, card);
+          // Update URL hash without jumping
+          history.replaceState(null, '', target);
+        });
+      });
+
+      // If page loads with a hash already (deep link), open that form
+      if (location.hash && document.querySelector(location.hash)) {
+        var matchingCard = document.querySelector('.apt-card[href="' + location.hash + '"]');
+        showForm(location.hash, matchingCard);
+      }
+
+
+      /* ────────────────────────────────────────────────────────
+         Form submit / fax / print
+         ──────────────────────────────────────────────────────── */
+      var formBodies = document.querySelectorAll('.apt-form__body');
+      formBodies.forEach(function (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var data = new FormData(form);
+          var lines = ['MedRad Appointment Request', ''];
+          data.forEach(function (val, key) {
+            if (val) lines.push(key + ': ' + val);
+          });
+          var mailto = 'mailto:office@medradclinics.com'
+            + '?subject=' + encodeURIComponent('Appointment Request — ' + (data.get('form_type') || ''))
+            + '&body=' + encodeURIComponent(lines.join('\n'));
+          window.location.href = mailto;
+        });
+
+        var faxBtn = form.querySelector('[data-action="fax"]');
+        if (faxBtn) faxBtn.addEventListener('click', function () {
+          alert('Print this form and fax it to: (708) 657-4535');
+          window.print();
+        });
+
+        var printBtn = form.querySelector('[data-action="print"]');
+        if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+      });
+    })();
+  </script>
+</body>
+</html>
