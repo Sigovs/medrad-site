@@ -1222,11 +1222,16 @@
 
   .entry__headline { margin: 0; }
 
+  /* Rejoin the 3 desktop lines into one flowing block — wraps to ~2 lines */
   .entry__line--xl {
+    display: inline;
     font-size: clamp(2.5rem, 12vw, 3.4rem);
-    line-height: 1;
+    line-height: 1.05;
     letter-spacing: -0.02em;
   }
+
+  .entry__line--xl::after { content: ' '; }
+  .entry__line--xl:last-of-type::after { content: ''; }
 
   .entry__line--sub {
     font-style: italic;
@@ -1238,10 +1243,10 @@
     max-width: 100%;
   }
 
-  /* Doctor portrait — full-bleed, anchored bottom-right, fades into bg at top */
+  /* Doctor portrait — full-bleed, centered, fades into bg at top */
   .entry__hero-image {
     display: flex !important;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: flex-end;
     position: absolute;
     bottom: 0;
@@ -1249,31 +1254,30 @@
     right: 0;
     width: 100%;
     height: auto;
-    max-height: 65vh;
+    max-height: 62vh;
     z-index: 2;
     pointer-events: none;
     overflow: hidden;
   }
 
-  .entry__hero-image img {
+  .entry__hero-image img,
+  .entry__hero-image picture {
     display: block;
-    width: 110%;            /* slightly wider than viewport — crops on right */
+    width: 100%;
     max-width: none;
     height: auto;
-    margin: 0 -8% 0 auto;   /* push to the right edge with overhang */
+    margin: 0 auto;
     object-fit: contain;
-    object-position: right bottom;
+    object-position: center bottom;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
             mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
   }
 
-  /* Name pill — anchored to hero, sits directly above the sticky CTA.
-     position: absolute keeps it inside the hero (scrolls away with hero
-     when user scrolls past). The button below is fixed (always visible). */
+  /* Name pill — sits just above the CTA button */
   .entry__hero-pill {
     display: inline-block !important;
     position: absolute;
-    bottom: 78px;
+    bottom: 64px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
@@ -1281,9 +1285,9 @@
     color: var(--color-text);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: 0.5rem 0.95rem;
+    padding: 0.45rem 0.9rem;
     border-radius: 999px;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 500;
     letter-spacing: 0.01em;
     white-space: nowrap;
