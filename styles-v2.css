@@ -1238,39 +1238,42 @@
     max-width: 100%;
   }
 
-  /* Doctor portrait — full-bleed, anchored bottom, fades into bg at top */
+  /* Doctor portrait — full-bleed, anchored bottom-right, fades into bg at top */
   .entry__hero-image {
-    display: block !important;
+    display: flex !important;
+    justify-content: flex-end;
+    align-items: flex-end;
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     width: 100%;
     height: auto;
-    max-height: 60vh;
+    max-height: 65vh;
     z-index: 2;
     pointer-events: none;
-    text-align: center;
     overflow: hidden;
   }
 
   .entry__hero-image img {
     display: block;
-    width: 100%;
-    max-width: 480px;
+    width: 110%;            /* slightly wider than viewport — crops on right */
+    max-width: none;
     height: auto;
-    margin: 0 auto;
+    margin: 0 -8% 0 auto;   /* push to the right edge with overhang */
     object-fit: contain;
-    object-position: bottom center;
+    object-position: right bottom;
     -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
             mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
   }
 
-  /* Name pill — centered over portrait, sits above the CTA */
+  /* Name pill — anchored to hero, sits directly above the sticky CTA.
+     position: absolute keeps it inside the hero (scrolls away with hero
+     when user scrolls past). The button below is fixed (always visible). */
   .entry__hero-pill {
     display: inline-block !important;
     position: absolute;
-    bottom: 76px;
+    bottom: 78px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
@@ -1285,18 +1288,17 @@
     letter-spacing: 0.01em;
     white-space: nowrap;
     box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.4);
-    /* override any inherited absolute positioning from desktop styles */
     top: auto !important;
     right: auto !important;
   }
 
-  /* CTA: only "Book Your Visit", pinned to bottom edge, full width */
+  /* CTA: anchored to hero bottom only — disappears when user scrolls past */
   .entry__actions {
     position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    right: 1rem;
-    z-index: 10;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    z-index: 5;
     flex-direction: column;
     gap: 0;
     margin: 0;
@@ -1308,12 +1310,13 @@
   .entry__actions .btn--primary {
     width: 100%;
     justify-content: center;
-    padding: 1rem 1.5rem;
+    padding: 1.05rem 1.5rem;
     font-size: 0.95rem;
     background: #111;
     border-color: #111;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 10px;
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.45);
   }
 }
 
