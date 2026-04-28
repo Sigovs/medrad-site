@@ -1203,16 +1203,21 @@
     display: block;
   }
 
-  /* Text content stays at the top */
+  /* Content fills the entire hero so we can pin the sub + CTA to the bottom */
   .entry__content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 3;
     height: auto;
     min-height: 0;
     max-width: 100%;
-    padding: calc(var(--nav-height) + 1.25rem) 1.5rem var(--space-md);
+    padding: calc(var(--nav-height) + 1.25rem) 1.25rem 1.25rem;
     text-align: left;
+    pointer-events: none;
   }
+
+  .entry__content > *,
+  .entry__line--sub { pointer-events: auto; }
 
   .entry__label {
     font-size: 0.7rem;
@@ -1233,14 +1238,21 @@
   .entry__line--xl::after { content: ' '; }
   .entry__line--xl:last-of-type::after { content: ''; }
 
+  /* Subline pinned just above the CTA at the bottom of the hero */
   .entry__line--sub {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: calc(1.25rem + 56px + 16px);
     font-style: italic;
     font-family: var(--font-serif);
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.78);
+    margin: 0;
     max-width: 100%;
+    z-index: 5;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
   }
 
   /* Doctor portrait — full-bleed, centered, fades into bg at top */
@@ -1273,11 +1285,11 @@
             mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
   }
 
-  /* Name pill — sits just above the CTA button */
+  /* Name pill — sits above the subline + CTA stack at the bottom */
   .entry__hero-pill {
     display: inline-block !important;
     position: absolute;
-    bottom: 64px;
+    bottom: 170px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 4;
@@ -1296,16 +1308,18 @@
     right: auto !important;
   }
 
-  /* CTA: anchored to hero bottom only — disappears when user scrolls past */
+  /* CTA pinned to the bottom of the hero */
   .entry__actions {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    right: 12px;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    margin: 0;
     z-index: 5;
     flex-direction: column;
     gap: 0;
-    margin: 0;
+    align-items: stretch;
+    width: auto;
   }
 
   /* Hide the secondary "Explore Procedures" button — single CTA only */
