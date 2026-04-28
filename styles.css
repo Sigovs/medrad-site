@@ -307,13 +307,8 @@ p {
 
 .nav__logo img {
   display: block;
-  height: 38px;
-  width: auto;
-}
-
-/* Homepage logo — larger than inner pages */
-body:not(.inner-page) .nav__logo img {
   height: 53px;
+  width: auto;
 }
 
 .nav__links {
@@ -1739,6 +1734,12 @@ body:not(.inner-page) .nav__logo img {
 
 .footer__logo span {
   color: #7A9EC0;
+}
+
+.footer__logo img {
+  display: block;
+  height: 43px;
+  width: auto;
 }
 
 .footer__tagline {
@@ -7333,7 +7334,7 @@ html { scroll-behavior: smooth; }
 
 .apt-letterhead__logo img {
   display: block;
-  max-height: 88px;
+  max-height: 70px;
   width: auto;
 }
 
@@ -7373,7 +7374,7 @@ html { scroll-behavior: smooth; }
     text-align: center;
   }
   .apt-letterhead__logo { order: -1; }
-  .apt-letterhead__logo img { max-height: 72px; margin: 0 auto; }
+  .apt-letterhead__logo img { max-height: 58px; margin: 0 auto; }
 }
 
 .apt-form:last-child { margin-bottom: 0; }

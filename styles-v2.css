@@ -1238,21 +1238,9 @@
   .entry__line--xl::after { content: ' '; }
   .entry__line--xl:last-of-type::after { content: ''; }
 
-  /* Subline pinned just above the CTA at the bottom of the hero */
+  /* Subline hidden on mobile — headline + portrait + CTA only */
   .entry__line--sub {
-    position: absolute;
-    left: 1.25rem;
-    right: 1.25rem;
-    bottom: calc(1.25rem + 56px + 16px);
-    font-style: italic;
-    font-family: var(--font-serif);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.78);
-    margin: 0;
-    max-width: 100%;
-    z-index: 5;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    display: none;
   }
 
   /* Doctor portrait — full-bleed, centered, fades into bg at top */
