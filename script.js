@@ -594,7 +594,7 @@
       { ci:9, ang:0.62, spd: 2.8e-5, r:1.0, lay:2, pf:8.0e-4, pp:3.1, hov:true  }   // fg          r0=0.12
     ];
 
-    var AR = 130, AG = 170, AB = 205; // base colour: lifted blue for dark bg legibility
+    var AR = 136, AG = 188, AB = 233; // base colour: #88BCE9 — light blue for hover blur
 
     /* ── Canvas resize ─────────────────────────────────────── */
     function resize() {
