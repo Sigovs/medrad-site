@@ -1740,12 +1740,15 @@ p {
   display: block;
   height: 43px;
   width: auto;
+  margin: 0 auto;
 }
 
 .footer__tagline {
   font-size: 0.875rem;
-  color: #666666;
+  color: var(--color-white);
+  font-style: italic;
   line-height: 1.5;
+  text-align: center;
 }
 
 .footer__heading {
