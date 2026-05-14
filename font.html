@@ -346,7 +346,6 @@
     th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
     th { font-size: var(--fs-tag); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--fw-semibold); }
     td.val { color: var(--color-text-muted); }
-    tr.is-reserved td { color: var(--color-text-muted); opacity: 0.7; }
     .chip-color { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--color-border); vertical-align: -2px; margin-right: 0.4rem; }
 
     /* Contrast rating pill */
@@ -637,7 +636,7 @@
               <tr><td><code>--fs-h5</code></td><td class="val">20px</td><td class="val">h5 / nav logo (fallback)</td></tr>
               <tr><td><code>--fs-h6</code></td><td class="val">17px</td><td class="val">h6</td></tr>
               <tr><td><code>--fs-lead</code></td><td class="val">clamp(19px, 1.6vw, 24px)</td><td class="val">.lead / standfirst</td></tr>
-              <tr class="is-reserved"><td><code>--fs-body-lg</code></td><td class="val">18px</td><td class="val">reserved — Phase 2</td></tr>
+              <tr><td><code>--fs-body-lg</code></td><td class="val">18px</td><td class="val">larger body copy / intros</td></tr>
               <tr><td><code>--fs-body</code></td><td class="val">16px</td><td class="val">body / p / inputs</td></tr>
               <tr><td><code>--fs-body-sm</code></td><td class="val">14px</td><td class="val">card text, secondary copy</td></tr>
               <tr><td><code>--fs-caption</code></td><td class="val">13px</td><td class="val">small / .caption / meta</td></tr>
@@ -739,7 +738,7 @@
       </div>
       <div class="row">
         <p class="row__meta">Rule — snap, don't invent</p>
-        <p style="font-size:var(--fs-body-sm);max-width:68ch">Reach for the <strong>nearest token</strong> instead of a fresh pixel value — gaps, margins, padding, section rhythm all pull from this one scale. Two deliberate exceptions are left as-is because snapping them would shift component proportions: <strong>component-internal padding</strong> that lands on 12px (<code>.btn</code> <code>0.75rem&nbsp;1.75rem</code>, <code>.form__input</code>, <code>.review-card__head</code> gap) — 12px sits between <code>--space-xs</code> and <code>--space-sm</code> with no token. If 12 / 32 / 48 start repeating across pages in the Phase-2 rollout, add them then — by data, not upfront.</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">Reach for the <strong>nearest token</strong> instead of a fresh pixel value — gaps, margins, padding, section rhythm all pull from this one scale. Two deliberate exceptions are left as-is because snapping them would shift component proportions: <strong>component-internal padding</strong> that lands on 12px (<code>.btn</code> <code>0.75rem&nbsp;1.75rem</code>, <code>.form__input</code>, <code>.review-card__head</code> gap) — 12px sits between <code>--space-xs</code> and <code>--space-sm</code> with no token. If 12 / 32 / 48 start repeating across pages, add them then — by data, not upfront.</p>
       </div>
       <div class="row">
         <p class="row__meta">Rhythm — eyebrow → heading gap</p>
@@ -955,7 +954,7 @@
     <section class="block" id="cards">
       <span class="block__num">12</span>
       <h2>Cards</h2>
-      <p class="block__intro">Canonical recipe <code>.card</code> <span class="pill">PROPOSED</span> — white surface, 1px <code>--color-border</code>, <code>--radius-md</code>; interactive cards lift 4px into <code>--shadow-lg</code>. The site currently ships four bespoke variants instead: <code>.proc-card</code>, <code>.case-card</code>, <code>.review-card</code>, <code>.contact-path</code> — consolidating them onto <code>.card</code> is a Phase-2 task.</p>
+      <p class="block__intro">Canonical recipe <code>.card</code> <span class="pill">PROPOSED</span> — white surface, 1px <code>--color-border</code>, <code>--radius-md</code>; interactive cards lift 4px into <code>--shadow-lg</code>. The site currently ships four bespoke variants instead: <code>.proc-card</code>, <code>.case-card</code>, <code>.review-card</code>, <code>.contact-path</code> — consolidating them onto <code>.card</code> is still an open item.</p>
       <div class="row">
         <p class="row__meta">.card — static · .card--interactive — hover to lift</p>
         <div class="demo" style="align-items:stretch">
@@ -1071,7 +1070,7 @@
     <section class="block" id="notes">
       <span class="block__num">16</span>
       <h2>Principles &amp; open items</h2>
-      <p class="block__intro">Voice: <strong>editorial, minimal, premium, calm</strong> — generous whitespace, restrained colour, one accent. Below: deliberate deviations and the Phase-2 worklist.</p>
+      <p class="block__intro">Voice: <strong>editorial, minimal, premium, calm</strong> — generous whitespace, restrained colour, one accent. Below: deliberate deviations and the remaining open items.</p>
       <div class="note">
         <strong>Dark surfaces are now one warm family.</strong> The disconnected nav browns
         (<code>#302820</code> / <code>#322A22</code> / <code>#B19981</code>) and the cool
@@ -1101,11 +1100,11 @@
     </section>
 
     <footer>
-      Phase 1 — typography system applied to the homepage + shared components (header, nav, footer,
-      buttons, cards, forms, global sections). Component recipes on this page mirror <code>styles.css</code>;
+      The type / spacing / colour system is applied site-wide — every production page (the homepage and
+      all 10 inner pages) and both stylesheets, plus the page-header consolidation (one <code>.page-header</code>
+      component across all inner pages). Component recipes on this page mirror <code>styles.css</code>;
       where a class name differs the styles.css name is noted, and anything not yet shipped is tagged
-      PROPOSED. Legacy aliases <code>--font-serif</code> / <code>--font-sans</code> still resolve.
-      <code>index_old.html</code> is excluded.
+      PROPOSED. <code>index_old.html</code> is excluded.
     </footer>
 
   </div>
