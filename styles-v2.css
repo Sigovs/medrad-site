@@ -134,7 +134,8 @@
 
 .dr-carousel__lede {
   color: var(--color-text-muted);
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   margin-top: var(--space-sm);
 }
 
@@ -247,9 +248,9 @@
 }
 
 .dr-slide__initials {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(4rem, 9vw, 6.5rem);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.04em;
   color: var(--color-accent);
   opacity: 0.5;
@@ -257,25 +258,25 @@
 }
 
 .dr-slide__name {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: var(--lh-heading);
   color: var(--color-text);
   margin: 0 0 0.5rem;
 }
 
 .dr-slide__title {
-  font-size: 0.95rem;
+  font-size: var(--fs-body-sm);
   color: var(--color-accent);
   letter-spacing: 0.01em;
   margin: 0 0 0.35rem;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 .dr-slide__credentials {
-  font-size: 0.82rem;
+  font-size: var(--fs-caption);
   color: var(--color-text-muted);
   letter-spacing: 0.02em;
   margin: 0 0 var(--space-md);
@@ -283,7 +284,8 @@
 
 .dr-slide__bio {
   color: var(--color-text-muted);
-  line-height: 1.75;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   margin: 0 0 var(--space-lg);
   max-width: 56ch;
 }
@@ -422,14 +424,16 @@
   margin: 0 auto;
 }
 
-/* Top-left pill in Bagel Fat One */
+/* Top-left pill — eyebrow/tag pattern */
 .askdre-pill {
   display: inline-block;
   background: var(--color-accent);
   color: #ffffff;
-  font-family: 'Bagel Fat One', cursive;
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font-body);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   padding: 0.45rem 0.95rem 0.4rem;
   border-radius: 999px;
   margin-bottom: var(--space-md);
@@ -444,18 +448,18 @@
 
 /* Left column — text */
 .askdre-text__title {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.6rem, 3vw, 2.15rem);
-  font-weight: 600;
-  line-height: 1.1;
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
   letter-spacing: -0.025em;
   color: var(--color-text);
   margin: 0 0 0.75rem;
 }
 
 .askdre-text__lede {
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body);
   color: var(--color-text-muted);
   margin: 0 0 var(--space-md);
   max-width: 48ch;
@@ -473,8 +477,8 @@
 .askdre-list li {
   position: relative;
   padding-left: 1rem;
-  font-size: 0.875rem;
-  line-height: 1.55;
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body);
   color: var(--color-text);
 }
 
@@ -490,8 +494,8 @@
 }
 
 .askdre-disclaimer {
-  font-size: 0.78rem;
-  line-height: 1.6;
+  font-size: var(--fs-caption);
+  line-height: var(--lh-body);
   color: var(--color-text-dim);
   margin: 0;
   max-width: 56ch;
@@ -1220,7 +1224,7 @@
   .entry__line--sub { pointer-events: auto; }
 
   .entry__label {
-    font-size: 0.7rem;
+    font-size: var(--fs-tag);
     letter-spacing: 0.16em;
     margin-bottom: 1.1rem;
   }
@@ -1287,8 +1291,8 @@
     -webkit-backdrop-filter: blur(8px);
     padding: 0.45rem 0.9rem;
     border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 500;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
     letter-spacing: 0.01em;
     white-space: nowrap;
     box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.4);
@@ -1393,11 +1397,11 @@
 }
 
 .proc-card--hero h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.7rem, 2.6vw, 2.15rem);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: var(--lh-heading);
   color: var(--color-text);
   margin: 0;
 }
@@ -1407,8 +1411,8 @@
 }
 
 .proc-card--hero p {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text-muted);
   margin: 0;
   flex: 0;
@@ -1427,7 +1431,7 @@
 
 .proc-card--hero .proc-card__meta-k {
   display: block;
-  font-size: 0.68rem;
+  font-size: var(--fs-tag);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-text-dim);
@@ -1435,14 +1439,14 @@
 }
 
 .proc-card--hero .proc-card__meta-v {
-  font-family: var(--font-serif);
-  font-size: 1rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
   color: var(--color-text);
 }
 
 .proc-card--hero .proc-card__link {
   margin-top: 0.4rem;
-  font-size: 0.9rem;
+  font-size: var(--fs-body-sm);
 }
 
 /* 3-up row of supporting procedures */
@@ -1481,7 +1485,7 @@
   overflow: hidden;
   /* Tighten — kill flex stretch & loose line-height, drop the gap before the link */
   flex: none;
-  line-height: 1.55;
+  line-height: var(--lh-body);
   margin-bottom: 0.7rem !important;
 }
 
@@ -1649,28 +1653,29 @@
   gap: 0.4rem;
 }
 
+/* Status eyebrow */
 .dx-imaging__status {
-  font-size: 0.7rem;
+  font-size: var(--fs-tag);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-accent);
-  font-weight: 500;
+  font-weight: var(--fw-semibold);
   margin: 0;
 }
 
 .dx-imaging__card h3 {
-  font-family: var(--font-serif);
+  font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.4vw, 1.85rem);
-  font-weight: 600;
+  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: var(--lh-heading);
   color: var(--color-text);
   margin: 0;
 }
 
 .dx-imaging__card p {
-  font-size: 0.95rem;
-  line-height: 1.7;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--color-text-muted);
   margin: 0;
   max-width: 56ch;
@@ -1683,7 +1688,7 @@
 
 .dx-imaging__note {
   margin: var(--space-md) 0 0;
-  font-size: 0.85rem;
+  font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
   text-align: left;
   font-style: italic;
@@ -1693,7 +1698,7 @@
   color: var(--color-accent);
   text-decoration: none;
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--fw-medium);
 }
 
 .dx-imaging__note a:hover { text-decoration: underline; }

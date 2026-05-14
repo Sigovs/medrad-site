@@ -3,19 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Typography Specimen — MedRad Clinics</title>
+  <title>Typography System — MedRad Clinics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Exactly the families + weights the site loads in production -->
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet" />
 
   <style>
+    /* ════════════════════════════════════════════════════════════
+       TYPOGRAPHY TOKENS
+       Mirror of the :root block in styles.css — keep the two in sync.
+       styles.css is the runtime source of truth; this page is the
+       visual specimen / documentation of it.
+       ════════════════════════════════════════════════════════════ */
     :root {
-      --serif: 'Playfair Display', Georgia, serif;
-      --sans:  'Inter', system-ui, -apple-system, sans-serif;
-      --display: 'Bagel Fat One', system-ui;
+      /* Font families */
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+      --font-icon:    'Material Symbols Outlined';
 
+      /* Type scale — display + headings */
+      --fs-display: clamp(56px, 7vw, 112px);
+      --fs-h1:      clamp(44px, 5vw, 76px);
+      --fs-h2:      clamp(34px, 4vw, 56px);
+      --fs-h3:      clamp(28px, 3vw, 40px);
+      --fs-h4:      clamp(22px, 2vw, 28px);
+      --fs-h5:      20px;
+      --fs-h6:      17px;
+
+      /* Type scale — body + UI */
+      --fs-lead:    clamp(19px, 1.6vw, 24px);
+      --fs-body-lg: 18px;
+      --fs-body:    16px;
+      --fs-body-sm: 14px;
+      --fs-caption: 13px;
+      --fs-tag:     12px;
+      --fs-nav:     14px;
+      --fs-cta:     14px;
+
+      /* Line heights */
+      --lh-display: 0.95;
+      --lh-heading: 1.08;
+      --lh-body:    1.65;
+      --lh-ui:      1.25;
+
+      /* Font weights */
+      --fw-light:    300;
+      --fw-regular:  400;
+      --fw-medium:   500;
+      --fw-semibold: 600;
+      --fw-bold:     700;
+
+      /* Specimen-page palette (mirrors the site's neutrals) */
       --bg:        #F8F7F5;
       --bg-card:   #FFFFFF;
       --ink:       #302820;
@@ -26,429 +66,394 @@
       --border:    #E2DED8;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* ──────────────────────────────────────────────────────────────
+       GLOBAL ELEMENT + UTILITY RULES
+       Mirror of the typography system block in styles.css.
+       ────────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: var(--sans);
-      background: var(--bg);
-      color: var(--ink);
-      line-height: 1.6;
+    html, body {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      font-weight: var(--fw-regular);
       -webkit-font-smoothing: antialiased;
-      padding: clamp(1.5rem, 5vw, 5rem);
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+    body { background: var(--bg); color: var(--ink); padding: clamp(1.5rem, 5vw, 5rem); }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: var(--fw-regular);
+      letter-spacing: -0.03em;
+    }
+    h4, h5, h6 {
+      font-family: var(--font-body);
+      font-weight: var(--fw-semibold);
+      letter-spacing: -0.02em;
+    }
+    h1 { font-size: var(--fs-h1); line-height: var(--lh-display); }
+    h2 { font-size: var(--fs-h2); line-height: var(--lh-heading); }
+    h3 { font-size: var(--fs-h3); line-height: var(--lh-heading); }
+    h4 { font-size: var(--fs-h4); line-height: var(--lh-heading); }
+    h5 { font-size: var(--fs-h5); line-height: var(--lh-ui); }
+    h6 { font-size: var(--fs-h6); line-height: var(--lh-ui); }
+
+    p { color: var(--muted); font-size: var(--fs-body); line-height: var(--lh-body); }
+
+    .lead { font-size: var(--fs-lead); line-height: 1.5; }
+    small, .caption, .text-small { font-size: var(--fs-caption); line-height: var(--lh-ui); }
+
+    .eyebrow, .kicker, .tag {
+      font-family: var(--font-body);
+      font-size: var(--fs-tag);
+      line-height: var(--lh-ui);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
+    blockquote {
+      font-family: var(--font-display);
+      font-size: var(--fs-h3);
+      line-height: var(--lh-heading);
+      font-weight: var(--fw-regular);
+    }
+
+    .nav-link { font-size: var(--fs-nav); line-height: var(--lh-ui); font-weight: var(--fw-medium); }
+    .btn, .cta, .cta-text { font-size: var(--fs-cta); line-height: var(--lh-ui); font-weight: var(--fw-semibold); }
+
+    /* ──────────────────────────────────────────────────────────────
+       Specimen-page chrome (not part of the system)
+       ────────────────────────────────────────────────────────────── */
     .wrap { max-width: 940px; margin: 0 auto; }
 
-    /* ---- Page header ---- */
     .page-head {
       border-bottom: 1px solid var(--border);
       padding-bottom: 2rem;
       margin-bottom: 3.5rem;
     }
-    .page-head .eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .page-head h1 {
-      font-family: var(--serif);
-      font-weight: 600;
-      font-size: clamp(2rem, 5vw, 3rem);
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-    }
-    .page-head p {
-      margin-top: 0.75rem;
-      color: var(--muted);
-      font-size: 0.95rem;
-      max-width: 56ch;
-    }
+    .page-head h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.5rem; }
+    .page-head p { max-width: 60ch; }
 
-    /* ---- Font block ---- */
-    .font {
+    section.block {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: clamp(1.5rem, 3vw, 2.5rem);
       margin-bottom: 2rem;
-      overflow: hidden;
     }
-
-    .font__head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 0.5rem 1.5rem;
-      padding-bottom: 1.5rem;
+    section.block > h2 {
+      font-size: 1.5rem;
+      font-weight: var(--fw-semibold);
+      margin-bottom: 0.25rem;
+    }
+    section.block > .block__intro {
+      font-size: var(--fs-body-sm);
       margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--border);
     }
-    .font__name {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-    .font__var {
-      font-family: var(--sans);
-      font-size: 0.8rem;
+
+    /* Spec rows */
+    .row { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+    .row:first-of-type { border-top: none; }
+    .row__meta {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: var(--muted);
+      margin-bottom: 0.55rem;
     }
-    .font__var code {
+    .row__meta code {
+      text-transform: none;
+      letter-spacing: 0;
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: 5px;
-      padding: 0.15em 0.5em;
-      font-size: 0.78rem;
+      padding: 0.1em 0.45em;
+      font-size: 0.92em;
       color: var(--ink-soft);
     }
+    .sample { color: var(--ink); }
 
-    .meta {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 0.4rem 1.25rem;
-      font-size: 0.85rem;
-      margin-bottom: 2rem;
-    }
-    .meta dt { color: var(--muted); }
-    .meta dd { color: var(--ink); }
-    .chip {
-      display: inline-block;
+    /* Token table */
+    table { width: 100%; border-collapse: collapse; font-size: var(--fs-body-sm); }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: baseline; }
+    th { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: var(--fw-semibold); }
+    td code {
       background: var(--bg);
       border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 0.1rem 0.65rem;
-      font-size: 0.78rem;
-      margin: 0 0.3rem 0.3rem 0;
+      border-radius: 5px;
+      padding: 0.1em 0.45em;
+      font-size: 0.92em;
+      color: var(--ink-soft);
     }
-
-    /* ---- Specimen rows ---- */
-    .row { padding: 1rem 0; border-top: 1px solid var(--border); }
-    .row:first-of-type { border-top: none; }
-    .row__label {
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-    }
-    .sample { color: var(--ink); line-height: 1.15; }
-
-    /* Serif samples */
-    .s-serif       { font-family: var(--serif); }
-    .s-display-xl  { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 600; letter-spacing: -0.03em; }
-    .s-h1          { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; letter-spacing: -0.01em; }
-    .s-h2          { font-size: 2rem; font-weight: 600; }
-    .s-h3          { font-size: 1.25rem; font-weight: 600; }
-    .s-serif-it    { font-size: 1.5rem; font-weight: 400; font-style: italic; color: var(--muted); }
-    .s-serif-400   { font-size: 1.5rem; font-weight: 400; }
-
-    /* Sans samples */
-    .s-sans        { font-family: var(--sans); }
-    .s-lead        { font-size: 1.25rem; font-weight: 300; line-height: 1.6; color: var(--muted); }
-    .s-body        { font-size: 0.9375rem; font-weight: 400; line-height: 1.75; color: var(--muted); }
-    .s-ui          { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em; }
-    .s-eyebrow     { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
-
-    /* Display font */
-    .s-bagel {
-      font-family: var(--display);
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 400;
-      letter-spacing: 0.02em;
-    }
-    .bagel-pill {
-      display: inline-block;
-      background: var(--accent-bg);
-      color: #fff;
-      font-family: var(--display);
-      font-size: 1.1rem;
-      letter-spacing: 0.02em;
-      padding: 0.5rem 1rem 0.55rem;
-      border-radius: 8px;
-      transform: rotate(-2deg);
-    }
+    td.val { color: var(--muted); }
 
     /* Weight ladder */
-    .ladder { display: flex; flex-direction: column; gap: 0.35rem; }
     .ladder > div {
-      font-size: 1.6rem;
+      font-size: 1.7rem;
       display: flex;
       align-items: baseline;
       gap: 1rem;
+      padding: 0.15rem 0;
     }
-    .ladder > div span:first-child {
-      font-family: var(--sans);
+    .ladder > div > span:first-child {
+      font-family: var(--font-body);
       font-size: 0.7rem;
       color: var(--muted);
-      width: 90px;
+      width: 130px;
       flex: none;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
 
-    /* Glyph grid */
-    .glyphs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      font-family: var(--serif);
-      font-size: 1.4rem;
-    }
-    .glyphs.is-sans { font-family: var(--sans); }
-    .glyphs span {
-      width: 2.4rem;
-      height: 2.4rem;
-      display: grid;
-      place-items: center;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-    }
+    /* Font cards */
+    .fonts { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .fontcard { border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
+    .fontcard__name { font-size: 1.35rem; margin-bottom: 0.15rem; }
+    .fontcard__role { font-size: var(--fs-caption); color: var(--muted); }
+    .fontcard__sample { margin-top: 0.85rem; font-size: 1.6rem; color: var(--ink); }
 
-    /* Material icons */
+    /* Icon grid */
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined';
-      font-weight: normal;
-      font-style: normal;
-      line-height: 1;
-      letter-spacing: normal;
-      text-transform: none;
-      display: inline-block;
-      white-space: nowrap;
-      word-wrap: normal;
-      direction: ltr;
-      -webkit-font-feature-settings: 'liga';
-      -webkit-font-smoothing: antialiased;
+      font-weight: normal; font-style: normal;
+      line-height: 1; letter-spacing: normal; text-transform: none;
+      display: inline-block; white-space: nowrap; direction: ltr;
+      -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
     }
-    .icon-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.25rem;
+    .icon-grid { display: flex; flex-wrap: wrap; gap: 1.1rem; }
+    .icon-grid figure { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 96px; text-align: center; }
+    .icon-grid .material-symbols-outlined { font-size: 2rem; color: var(--ink-soft); }
+    .icon-grid figcaption { font-size: 0.66rem; color: var(--muted); }
+
+    /* Notes / deviations */
+    .note {
+      background: #FBF3E9;
+      border: 1px solid #E8D4BC;
+      border-radius: 10px;
+      padding: 1.1rem 1.35rem;
+      font-size: var(--fs-body-sm);
+      color: #6B5536;
     }
-    .icon-grid figure {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      width: 92px;
-      text-align: center;
-    }
-    .icon-grid .material-symbols-outlined {
-      font-size: 2rem;
-      color: var(--ink-soft);
-    }
-    .icon-grid figcaption {
-      font-size: 0.68rem;
-      color: var(--muted);
-      letter-spacing: 0.02em;
-    }
+    .note strong { color: var(--ink); }
+    .note + .note { margin-top: 0.75rem; }
+
+    .demo-eyebrow { color: var(--accent); }
+    blockquote.demo { border-left: 3px solid var(--accent); padding-left: 1.25rem; color: var(--ink); }
+    ul.demo, ol.demo { padding-left: 1.25em; color: var(--muted); font-size: var(--fs-body); }
+    ul.demo li, ol.demo li { margin-bottom: 0.35em; }
 
     footer {
       margin-top: 3rem;
       padding-top: 2rem;
       border-top: 1px solid var(--border);
-      font-size: 0.8rem;
+      font-size: var(--fs-caption);
       color: var(--muted);
     }
-    footer code {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 0.1em 0.45em;
-      font-size: 0.76rem;
-    }
+    footer code { background: var(--bg-card); border: 1px solid var(--border); border-radius: 5px; padding: 0.1em 0.45em; }
   </style>
 </head>
 <body>
   <div class="wrap">
 
     <header class="page-head">
-      <p class="eyebrow">MedRad Clinics</p>
-      <h1>Typography Specimen</h1>
-      <p>Every typeface in use across the site, with the weights loaded, the
-         CSS token that references it, and where it appears. Reference for
-         auditing and fixing type.</p>
+      <p class="eyebrow">MedRad Clinics · Design System</p>
+      <h1>Typography System</h1>
+      <p>The single source of truth for type on the site. Tokens live in
+         <code>styles.css :root</code>; this page mirrors them as a visual
+         specimen. Two fonts carry the whole site — Playfair Display for
+         editorial headings, Inter for everything else. Material Symbols is
+         icon-only.</p>
     </header>
 
-    <!-- ============================================================
-         1 — Playfair Display
-         ============================================================ -->
-    <section class="font">
-      <div class="font__head">
-        <span class="font__name">Playfair Display</span>
-        <span class="font__var">token <code>--font-serif</code> &nbsp;·&nbsp; <code>'Playfair Display', Georgia, serif</code></span>
-      </div>
-
-      <dl class="meta">
-        <dt>Role</dt>
-        <dd>Headings &amp; display — h1–h4, hero headline, section titles, card titles</dd>
-        <dt>Weights</dt>
-        <dd>
-          <span class="chip">400 Regular</span>
-          <span class="chip">600 SemiBold</span>
-          <span class="chip">400 Italic</span>
-        </dd>
-        <dt>Loaded on</dt>
-        <dd>All pages</dd>
-      </dl>
-
-      <div class="row">
-        <p class="row__label">Hero display — 600 · clamp(3.75rem → 7rem)</p>
-        <div class="sample s-serif s-display-xl">Treatment, not just imaging.</div>
-      </div>
-      <div class="row">
-        <p class="row__label">H1 — 600 · clamp(2.25rem → 3.5rem)</p>
-        <div class="sample s-serif s-h1">Image-guided care, minimally invasive</div>
-      </div>
-      <div class="row">
-        <p class="row__label">H2 — 600 · clamp(1.75rem → 2.5rem)</p>
-        <div class="sample s-serif s-h2">Procedures &amp; treatment cases</div>
-      </div>
-      <div class="row">
-        <p class="row__label">H3 — 600 · 1.25rem</p>
-        <div class="sample s-serif s-h3">Uterine Fibroid Embolization</div>
-      </div>
-      <div class="row">
-        <p class="row__label">Regular — 400</p>
-        <div class="sample s-serif s-serif-400">The quick brown fox jumps over the lazy dog</div>
-      </div>
-      <div class="row">
-        <p class="row__label">Italic — 400 · used for hero sub-line</p>
-        <div class="sample s-serif s-serif-it">Minimally invasive procedures guided by precision imaging.</div>
-      </div>
-      <div class="row">
-        <p class="row__label">Glyphs</p>
-        <div class="glyphs">
-          <span>A</span><span>a</span><span>B</span><span>g</span><span>Q</span>
-          <span>R</span><span>1</span><span>2</span><span>3</span><span>&amp;</span>
-          <span>?</span><span>—</span>
+    <!-- ════════════════ FONT FAMILIES ════════════════ -->
+    <section class="block">
+      <h2>Font families</h2>
+      <p class="block__intro">Three families, each with one job. Bagel Fat One was removed — it was loaded but never rendered.</p>
+      <div class="fonts">
+        <div class="fontcard">
+          <p class="fontcard__name" style="font-family:var(--font-display)">Playfair Display</p>
+          <p class="fontcard__role"><code>--font-display</code> · display &amp; editorial headings (h1–h3, blockquote)</p>
+          <p class="fontcard__sample" style="font-family:var(--font-display)">Treatment, not just imaging</p>
+        </div>
+        <div class="fontcard">
+          <p class="fontcard__name" style="font-family:var(--font-body)">Inter</p>
+          <p class="fontcard__role"><code>--font-body</code> · body, UI, nav, buttons, cards, labels, h4–h6</p>
+          <p class="fontcard__sample" style="font-family:var(--font-body)">Image-guided, minimally invasive care</p>
+        </div>
+        <div class="fontcard">
+          <p class="fontcard__name"><span class="material-symbols-outlined">radiology</span> Material Symbols</p>
+          <p class="fontcard__role"><code>--font-icon</code> · icons only (Outlined)</p>
+          <p class="fontcard__sample">
+            <span class="material-symbols-outlined">stethoscope</span>
+            <span class="material-symbols-outlined">favorite</span>
+            <span class="material-symbols-outlined">schedule</span>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         2 — Inter
-         ============================================================ -->
-    <section class="font">
-      <div class="font__head">
-        <span class="font__name">Inter</span>
-        <span class="font__var">token <code>--font-sans</code> &nbsp;·&nbsp; <code>'Inter', system-ui, -apple-system, sans-serif</code></span>
-      </div>
-
-      <dl class="meta">
-        <dt>Role</dt>
-        <dd>Body copy, UI — paragraphs, buttons, nav, labels, forms, footer</dd>
-        <dt>Weights</dt>
-        <dd>
-          <span class="chip">300 Light</span>
-          <span class="chip">400 Regular</span>
-          <span class="chip">500 Medium</span>
-        </dd>
-        <dt>Loaded on</dt>
-        <dd>All pages</dd>
-      </dl>
+    <!-- ════════════════ TOKEN REFERENCE ════════════════ -->
+    <section class="block">
+      <h2>Tokens</h2>
+      <p class="block__intro">Every value below maps 1:1 to a CSS custom property in <code>styles.css</code>.</p>
 
       <div class="row">
-        <p class="row__label">Eyebrow / label — 500 · 0.75rem · uppercase · tracked</p>
-        <div class="sample s-sans s-eyebrow">Interventional Radiology &amp; Image-Guided Treatment</div>
+        <p class="row__meta">Type scale — <code>--fs-*</code></p>
+        <table>
+          <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
+          <tbody>
+            <tr><td><code>--fs-display</code></td><td class="val">clamp(56px, 7vw, 112px)</td><td class="val">Hero headline</td></tr>
+            <tr><td><code>--fs-h1</code></td><td class="val">clamp(44px, 5vw, 76px)</td><td class="val">h1</td></tr>
+            <tr><td><code>--fs-h2</code></td><td class="val">clamp(34px, 4vw, 56px)</td><td class="val">h2 / section titles</td></tr>
+            <tr><td><code>--fs-h3</code></td><td class="val">clamp(28px, 3vw, 40px)</td><td class="val">h3 / blockquote</td></tr>
+            <tr><td><code>--fs-h4</code></td><td class="val">clamp(22px, 2vw, 28px)</td><td class="val">h4</td></tr>
+            <tr><td><code>--fs-h5</code></td><td class="val">20px</td><td class="val">h5 / logo wordmark</td></tr>
+            <tr><td><code>--fs-h6</code></td><td class="val">17px</td><td class="val">h6</td></tr>
+            <tr><td><code>--fs-lead</code></td><td class="val">clamp(19px, 1.6vw, 24px)</td><td class="val">.lead / standfirst</td></tr>
+            <tr><td><code>--fs-body-lg</code></td><td class="val">18px</td><td class="val">larger body</td></tr>
+            <tr><td><code>--fs-body</code></td><td class="val">16px</td><td class="val">body / p / inputs</td></tr>
+            <tr><td><code>--fs-body-sm</code></td><td class="val">14px</td><td class="val">card text, captions</td></tr>
+            <tr><td><code>--fs-caption</code></td><td class="val">13px</td><td class="val">small / .caption / meta</td></tr>
+            <tr><td><code>--fs-tag</code></td><td class="val">12px</td><td class="val">.eyebrow / .kicker / .tag</td></tr>
+            <tr><td><code>--fs-nav</code></td><td class="val">14px</td><td class="val">nav links</td></tr>
+            <tr><td><code>--fs-cta</code></td><td class="val">14px</td><td class="val">buttons / CTAs</td></tr>
+          </tbody>
+        </table>
       </div>
+
       <div class="row">
-        <p class="row__label">Lead — 300 · 1.25rem</p>
-        <div class="sample s-sans s-lead">No open surgery, faster recovery, the same outcomes — delivered through precision imaging.</div>
+        <p class="row__meta">Line height — <code>--lh-*</code></p>
+        <table>
+          <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
+          <tbody>
+            <tr><td><code>--lh-display</code></td><td class="val">0.95</td><td class="val">h1 / hero</td></tr>
+            <tr><td><code>--lh-heading</code></td><td class="val">1.08</td><td class="val">h2–h4 / blockquote</td></tr>
+            <tr><td><code>--lh-body</code></td><td class="val">1.65</td><td class="val">body / p / lists</td></tr>
+            <tr><td><code>--lh-ui</code></td><td class="val">1.25</td><td class="val">h5–h6 / nav / buttons / labels</td></tr>
+          </tbody>
+        </table>
       </div>
+
       <div class="row">
-        <p class="row__label">Body — 400 · 0.9375rem · line-height 1.75</p>
-        <div class="sample s-sans s-body">Interventional radiology treats conditions through tiny incisions, using imaging to guide instruments precisely to the source. Patients go home sooner and recover faster than with traditional open surgery.</div>
-      </div>
-      <div class="row">
-        <p class="row__label">UI / button — 500 · 0.875rem</p>
-        <div class="sample s-sans s-ui">Book Appointment&nbsp;&nbsp;·&nbsp;&nbsp;Explore Procedures&nbsp;&nbsp;·&nbsp;&nbsp;Contact</div>
-      </div>
-      <div class="row">
-        <p class="row__label">Weight ladder</p>
-        <div class="ladder s-sans">
-          <div><span>300 Light</span> Precision imaging</div>
-          <div><span>400 Regular</span> Precision imaging</div>
-          <div><span>500 Medium</span> Precision imaging</div>
-        </div>
-      </div>
-      <div class="row">
-        <p class="row__label">Glyphs</p>
-        <div class="glyphs is-sans">
-          <span>A</span><span>a</span><span>B</span><span>g</span><span>Q</span>
-          <span>R</span><span>1</span><span>2</span><span>3</span><span>&amp;</span>
-          <span>?</span><span>@</span>
+        <p class="row__meta">Font weight — <code>--fw-*</code></p>
+        <div class="ladder">
+          <div><span><code>--fw-light</code> 300</span><span style="font-weight:300">Precision imaging</span></div>
+          <div><span><code>--fw-regular</code> 400</span><span style="font-weight:400">Precision imaging</span></div>
+          <div><span><code>--fw-medium</code> 500</span><span style="font-weight:500">Precision imaging</span></div>
+          <div><span><code>--fw-semibold</code> 600</span><span style="font-weight:600">Precision imaging</span></div>
+          <div><span><code>--fw-bold</code> 700</span><span style="font-weight:700">Precision imaging</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============================================================
-         3 — Bagel Fat One
-         ============================================================ -->
-    <section class="font">
-      <div class="font__head">
-        <span class="font__name">Bagel Fat One</span>
-        <span class="font__var">hard-coded &nbsp;·&nbsp; <code>'Bagel Fat One', cursive</code></span>
-      </div>
-
-      <dl class="meta">
-        <dt>Role</dt>
-        <dd>Playful accent — the “Ask Dr. E” pill / title only (<code>.ask-dre__title</code>, <code>.askdre-pill</code>)</dd>
-        <dt>Weights</dt>
-        <dd><span class="chip">400 (single weight)</span></dd>
-        <dt>Loaded on</dt>
-        <dd>index.html only</dd>
-      </dl>
+    <!-- ════════════════ HEADINGS ════════════════ -->
+    <section class="block">
+      <h2>Headings</h2>
+      <p class="block__intro">h1–h3 are Playfair at <code>--fw-regular</code>; h4–h6 are Inter at <code>--fw-semibold</code>. Sizes are fluid <code>clamp()</code> — resize the window to see them scale.</p>
 
       <div class="row">
-        <p class="row__label">Display</p>
-        <div class="sample s-bagel">Ask Dr. E</div>
+        <p class="row__meta">Display — <code>.entry__line--xl</code> · <code>--fs-display</code> / <code>--lh-display</code></p>
+        <div class="sample" style="font-family:var(--font-display);font-size:var(--fs-display);line-height:var(--lh-display);font-weight:var(--fw-regular);letter-spacing:-0.03em">Treatment.</div>
+      </div>
+      <div class="row"><p class="row__meta">h1 — <code>--fs-h1</code> / <code>--lh-display</code></p><h1>Image-guided care</h1></div>
+      <div class="row"><p class="row__meta">h2 — <code>--fs-h2</code> / <code>--lh-heading</code></p><h2>Procedures &amp; treatment cases</h2></div>
+      <div class="row"><p class="row__meta">h3 — <code>--fs-h3</code> / <code>--lh-heading</code></p><h3>Uterine Fibroid Embolization</h3></div>
+      <div class="row"><p class="row__meta">h4 — <code>--fs-h4</code> · Inter / <code>--fw-semibold</code></p><h4>What to expect on the day</h4></div>
+      <div class="row"><p class="row__meta">h5 — <code>--fs-h5</code> · Inter</p><h5>Before your appointment</h5></div>
+      <div class="row"><p class="row__meta">h6 — <code>--fs-h6</code> · Inter</p><h6>Insurance &amp; referrals</h6></div>
+    </section>
+
+    <!-- ════════════════ BODY + UTILITIES ════════════════ -->
+    <section class="block">
+      <h2>Body &amp; utility classes</h2>
+      <p class="block__intro">Custom classes are kept only where they name a reusable content pattern.</p>
+
+      <div class="row">
+        <p class="row__meta">.eyebrow / .kicker / .tag — <code>--fs-tag</code> · uppercase · <code>--fw-semibold</code></p>
+        <p class="eyebrow demo-eyebrow">Interventional Radiology</p>
       </div>
       <div class="row">
-        <p class="row__label">As used — accent pill</p>
-        <div class="bagel-pill">Ask Dr. E</div>
+        <p class="row__meta">.lead — <code>--fs-lead</code> · standfirst paragraph</p>
+        <p class="lead sample">No open surgery, faster recovery, the same outcomes — delivered through precision imaging.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">p — <code>--fs-body</code> / <code>--lh-body</code> · default body copy</p>
+        <p>Interventional radiology treats conditions through tiny incisions, using imaging to guide instruments precisely to the source. Patients go home sooner and recover faster than with traditional open surgery.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">small / .caption / .text-small — <code>--fs-caption</code></p>
+        <p><small>This website does not provide medical advice. All content is for informational purposes only.</small></p>
+      </div>
+      <div class="row">
+        <p class="row__meta">strong &amp; em — inline emphasis</p>
+        <p class="sample">Heavy periods and pelvic pain, <strong>treated without surgery</strong> — <em>preserving the uterus</em> and avoiding general anaesthesia.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">blockquote — Playfair · <code>--fs-h3</code></p>
+        <blockquote class="demo">Every patient is seen, assessed, and treated personally by an attending physician.</blockquote>
+      </div>
+      <div class="row">
+        <p class="row__meta">ul / ol / li</p>
+        <ul class="demo">
+          <li>Uterine Fibroid Embolization</li>
+          <li>Vertebroplasty &amp; Kyphoplasty</li>
+          <li>Peripheral Arterial Disease</li>
+        </ul>
+      </div>
+      <div class="row">
+        <p class="row__meta">.nav-link &amp; .btn / .cta — <code>--fs-nav</code> / <code>--fs-cta</code></p>
+        <p class="sample">
+          <span class="nav-link">About</span> &nbsp;·&nbsp;
+          <span class="nav-link">Procedures</span> &nbsp;·&nbsp;
+          <span class="btn">Book Appointment</span>
+        </p>
       </div>
     </section>
 
-    <!-- ============================================================
-         4 — Material Symbols Outlined
-         ============================================================ -->
-    <section class="font">
-      <div class="font__head">
-        <span class="font__name">Material Symbols Outlined</span>
-        <span class="font__var">icon font &nbsp;·&nbsp; <code>opsz 24, wght 300, FILL 0, GRAD 0</code></span>
+    <!-- ════════════════ ICONS ════════════════ -->
+    <section class="block">
+      <h2>Material Symbols</h2>
+      <p class="block__intro">Icon font only — never used for text. Loaded with <code>opsz 24, wght 300, FILL 0, GRAD 0</code>.</p>
+      <div class="icon-grid">
+        <figure><span class="material-symbols-outlined">calendar_month</span><figcaption>calendar_month</figcaption></figure>
+        <figure><span class="material-symbols-outlined">call</span><figcaption>call</figcaption></figure>
+        <figure><span class="material-symbols-outlined">mail</span><figcaption>mail</figcaption></figure>
+        <figure><span class="material-symbols-outlined">schedule</span><figcaption>schedule</figcaption></figure>
+        <figure><span class="material-symbols-outlined">school</span><figcaption>school</figcaption></figure>
+        <figure><span class="material-symbols-outlined">star</span><figcaption>star</figcaption></figure>
+        <figure><span class="material-symbols-outlined">home</span><figcaption>home</figcaption></figure>
+        <figure><span class="material-symbols-outlined">radiology</span><figcaption>radiology</figcaption></figure>
+        <figure><span class="material-symbols-outlined">stethoscope</span><figcaption>stethoscope</figcaption></figure>
+        <figure><span class="material-symbols-outlined">monitor_heart</span><figcaption>monitor_heart</figcaption></figure>
       </div>
+    </section>
 
-      <dl class="meta">
-        <dt>Role</dt>
-        <dd>UI icons</dd>
-        <dt>Loaded on</dt>
-        <dd>index.html, appointment.html, contact.html</dd>
-      </dl>
-
-      <div class="row">
-        <p class="row__label">Sample glyphs</p>
-        <div class="icon-grid">
-          <figure><span class="material-symbols-outlined">calendar_month</span><figcaption>calendar_month</figcaption></figure>
-          <figure><span class="material-symbols-outlined">call</span><figcaption>call</figcaption></figure>
-          <figure><span class="material-symbols-outlined">mail</span><figcaption>mail</figcaption></figure>
-          <figure><span class="material-symbols-outlined">location_on</span><figcaption>location_on</figcaption></figure>
-          <figure><span class="material-symbols-outlined">schedule</span><figcaption>schedule</figcaption></figure>
-          <figure><span class="material-symbols-outlined">stethoscope</span><figcaption>stethoscope</figcaption></figure>
-          <figure><span class="material-symbols-outlined">favorite</span><figcaption>favorite</figcaption></figure>
-          <figure><span class="material-symbols-outlined">arrow_forward</span><figcaption>arrow_forward</figcaption></figure>
-        </div>
+    <!-- ════════════════ DEVIATIONS ════════════════ -->
+    <section class="block">
+      <h2>Implementation notes</h2>
+      <p class="block__intro">Two deliberate deviations from the original token spec, made to honour "don't change layout/spacing".</p>
+      <div class="note">
+        <strong>--font-icon is <code>Material Symbols Outlined</code></strong>, not "Rounded" — the
+        site already loads Outlined everywhere; switching families would change every icon glyph.
+      </div>
+      <div class="note">
+        <strong>No global <code>p { margin-bottom }</code> / <code>ul,ol { padding-left }</code> / <code>li { margin-bottom }</code>.</strong>
+        This site spaces paragraphs and lists with flex <code>gap</code> and explicit margins; adding
+        global block margins would shift many existing layouts. Lists keep <code>list-style: none</code>.
+        Revisit when rolling the system out to the remaining pages (Phase 2).
       </div>
     </section>
 
     <footer>
-      Fonts are loaded via Google Fonts <code>&lt;link&gt;</code> tags in each page’s
-      <code>&lt;head&gt;</code>. Serif and sans are mapped to the CSS tokens
-      <code>--font-serif</code> / <code>--font-sans</code> in <code>styles.css</code>.
+      Phase 1 — homepage + shared components (header, nav, footer, buttons, cards, forms, global
+      sections). Legacy aliases <code>--font-serif</code> / <code>--font-sans</code> still resolve to
+      <code>--font-display</code> / <code>--font-body</code> so unmigrated pages keep working.
       <code>index_old.html</code> is excluded.
     </footer>
 
