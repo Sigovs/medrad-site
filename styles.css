@@ -3453,17 +3453,38 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   align-items: center;
 }
 
+/* Fixed media box — locks every --with-media header to one height
+   regardless of the source image's aspect ratio. */
 .page-header__media {
   justify-self: end;
   width: 100%;
   max-width: 520px;
+  height: 260px;
   animation: page-header-media-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 150ms both;
 }
 
 .page-header__media img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Placeholder fill — used until a real image is supplied */
+.page-header__media--placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-accent);
+  border: 1px solid var(--color-border);
+}
+
+.page-header__media--placeholder span {
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
 }
 
 @keyframes page-header-media-in {
@@ -3483,6 +3504,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   .page-header__media {
     justify-self: start;
     max-width: 420px;
+    height: 200px;
   }
 }
 
