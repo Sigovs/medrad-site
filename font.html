@@ -3,27 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Typography System — MedRad Clinics</title>
+  <title>Design System — MedRad Clinics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Exactly the families + weights the site loads in production -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet" />
 
   <style>
     /* ════════════════════════════════════════════════════════════
-       TYPOGRAPHY TOKENS
-       Mirror of the :root block in styles.css — keep the two in sync.
+       MEDRAD DESIGN SYSTEM — living style guide
+       Mirrors the tokens + component recipes in styles.css.
        styles.css is the runtime source of truth; this page is the
-       visual specimen / documentation of it.
+       visual specimen. CLASS NAMES: real ones match styles.css;
+       anything proposed/not-yet-shipped is tagged .is-proposed.
        ════════════════════════════════════════════════════════════ */
     :root {
-      /* Font families */
+      /* ── Colour ───────────────────────────────────────────── */
+      --color-bg:          #F8F7F5;
+      --color-bg-accent:   #F2EFE9;
+      --color-bg-dark:     #1A1A1A;
+      --color-text:        #111111;
+      --color-text-muted:  #555555;
+      --color-text-light:  #E8E5DF;
+      --color-text-dim:    #888888;
+      --color-accent:      #3D5A80;
+      --color-accent-soft: #5A7BA0;
+      --color-border:      #E2DED8;
+      --color-border-dark: #2E2E2E;
+      --color-white:       #FFFFFF;
+
+      /* ── Font families ────────────────────────────────────── */
       --font-display: 'Playfair Display', Georgia, serif;
       --font-body:    'Inter', system-ui, -apple-system, sans-serif;
       --font-icon:    'Material Symbols Outlined';
 
-      /* Type scale — display + headings */
+      /* ── Type scale ───────────────────────────────────────── */
       --fs-display: clamp(56px, 7vw, 112px);
       --fs-h1:      clamp(44px, 5vw, 76px);
       --fs-h2:      clamp(34px, 4vw, 56px);
@@ -31,8 +46,6 @@
       --fs-h4:      clamp(22px, 2vw, 28px);
       --fs-h5:      20px;
       --fs-h6:      17px;
-
-      /* Type scale — body + UI */
       --fs-lead:    clamp(19px, 1.6vw, 24px);
       --fs-body-lg: 18px;
       --fs-body:    16px;
@@ -42,33 +55,55 @@
       --fs-nav:     14px;
       --fs-cta:     14px;
 
-      /* Line heights */
+      /* ── Line height ──────────────────────────────────────── */
       --lh-display: 0.95;
       --lh-heading: 1.08;
       --lh-body:    1.65;
       --lh-ui:      1.25;
 
-      /* Font weights */
+      /* ── Font weight (only weights the <link> loads) ──────── */
       --fw-light:    300;
       --fw-regular:  400;
       --fw-medium:   500;
       --fw-semibold: 600;
-      --fw-bold:     700;
 
-      /* Specimen-page palette (mirrors the site's neutrals) */
-      --bg:        #F8F7F5;
-      --bg-card:   #FFFFFF;
-      --ink:       #302820;
-      --ink-soft:  #322A22;
-      --muted:     #6B6258;
-      --accent:    #B19981;
-      --accent-bg: #3D5A80;
-      --border:    #E2DED8;
+      /* ── Spacing ──────────────────────────────────────────── */
+      --space-xs:  0.5rem;
+      --space-sm:  1rem;
+      --space-md:  1.5rem;
+      --space-lg:  2.5rem;
+      --space-xl:  4rem;
+      --space-2xl: 6rem;
+      --space-3xl: 8rem;
+
+      /* ── Radius ───────────────────────────────────────────── */
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+
+      /* ── Motion ───────────────────────────────────────────── */
+      --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --ease-out:    cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+      --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+      --duration:       220ms;
+      --duration-press: 140ms;
+      --duration-hover: 200ms;
+
+      /* ── PROPOSED — not yet in styles.css ─────────────────── */
+      --shadow-sm:    0 6px 24px -10px rgba(0, 0, 0, 0.05);
+      --shadow-md:    0 12px 32px -16px rgba(0, 0, 0, 0.10);
+      --shadow-lg:    0 18px 38px -16px rgba(0, 0, 0, 0.18);
+      --shadow-focus: 0 0 0 3px rgba(61, 90, 128, 0.10);
+
+      /* Doc-page note callout */
+      --note-bg:     #FBF3E9;
+      --note-border: #E8D4BC;
+      --note-ink:    #6B5536;
     }
 
     /* ──────────────────────────────────────────────────────────────
-       GLOBAL ELEMENT + UTILITY RULES
-       Mirror of the typography system block in styles.css.
+       GLOBAL ELEMENT + UTILITY RULES — mirror of styles.css
        ────────────────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -81,18 +116,10 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
     }
-    body { background: var(--bg); color: var(--ink); padding: clamp(1.5rem, 5vw, 5rem); }
+    body { background: var(--color-bg); color: var(--color-text); }
 
-    h1, h2, h3 {
-      font-family: var(--font-display);
-      font-weight: var(--fw-regular);
-      letter-spacing: -0.03em;
-    }
-    h4, h5, h6 {
-      font-family: var(--font-body);
-      font-weight: var(--fw-semibold);
-      letter-spacing: -0.02em;
-    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: var(--fw-regular); letter-spacing: -0.03em; }
+    h4, h5, h6 { font-family: var(--font-body); font-weight: var(--fw-semibold); }  /* no tracking — see Typography note */
     h1 { font-size: var(--fs-h1); line-height: var(--lh-display); }
     h2 { font-size: var(--fs-h2); line-height: var(--lh-heading); }
     h3 { font-size: var(--fs-h3); line-height: var(--lh-heading); }
@@ -100,360 +127,926 @@
     h5 { font-size: var(--fs-h5); line-height: var(--lh-ui); }
     h6 { font-size: var(--fs-h6); line-height: var(--lh-ui); }
 
-    p { color: var(--muted); font-size: var(--fs-body); line-height: var(--lh-body); }
+    p { color: var(--color-text-muted); font-size: var(--fs-body); line-height: var(--lh-body); }
 
     .lead { font-size: var(--fs-lead); line-height: 1.5; }
-    small, .caption, .text-small { font-size: var(--fs-caption); line-height: var(--lh-ui); }
+    small, .caption { font-size: var(--fs-caption); line-height: var(--lh-ui); }
 
-    .eyebrow, .kicker, .tag {
-      font-family: var(--font-body);
-      font-size: var(--fs-tag);
-      line-height: var(--lh-ui);
-      font-weight: var(--fw-semibold);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
+    .eyebrow, .kicker, .tag, .section__label {
+      font-family: var(--font-body); font-size: var(--fs-tag); line-height: var(--lh-ui);
+      font-weight: var(--fw-semibold); letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-accent);
     }
-
     blockquote {
-      font-family: var(--font-display);
-      font-size: var(--fs-h3);
-      line-height: var(--lh-heading);
-      font-weight: var(--fw-regular);
+      font-family: var(--font-display); font-size: var(--fs-h3);
+      line-height: var(--lh-heading); font-weight: var(--fw-regular);
     }
 
-    .nav-link { font-size: var(--fs-nav); line-height: var(--lh-ui); font-weight: var(--fw-medium); }
-    .btn, .cta, .cta-text { font-size: var(--fs-cta); line-height: var(--lh-ui); font-weight: var(--fw-semibold); }
+    /* ── Components — mirror of styles.css recipes ──────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      font-family: var(--font-body); font-size: var(--fs-cta); line-height: var(--lh-ui);
+      font-weight: var(--fw-semibold);
+      padding: 0.75rem 1.75rem; border-radius: var(--radius-sm);
+      border: 1.5px solid transparent; white-space: nowrap; cursor: pointer;
+      transition: background var(--duration) var(--ease), color var(--duration) var(--ease),
+                  border-color var(--duration) var(--ease), transform var(--duration) var(--ease),
+                  box-shadow var(--duration) var(--ease);
+    }
+    .btn--primary { background: var(--color-text); color: var(--color-white); border-color: var(--color-text); }
+    .btn--ghost   { background: transparent; color: var(--color-text); border-color: var(--color-text); }
+    .btn--full    { width: 100%; }
+    .btn[disabled] { opacity: 0.4; cursor: not-allowed; }
+    .btn__arrow   { display: inline-block; margin-left: 0.15rem; transition: transform 260ms var(--ease-out); }
+    .btn:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+    @media (hover: hover) {
+      .btn--primary:hover:not([disabled]) { background: #2a2a2a; border-color: #2a2a2a; transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(0,0,0,0.28); }
+      .btn--ghost:hover:not([disabled])   { background: var(--color-text); color: var(--color-white); border-color: var(--color-text); transform: translateY(-2px); box-shadow: 0 10px 24px -8px rgba(0,0,0,0.18); }
+      .btn:hover:not([disabled]) .btn__arrow { transform: translateX(5px); }
+    }
+    /* .nav__cta — compact bordered button used in the header (real class) */
+    .nav__cta {
+      display: inline-flex; align-items: center; font-family: var(--font-body);
+      font-size: var(--fs-nav); font-weight: var(--fw-medium); color: var(--color-text);
+      border: 1.5px solid var(--color-border); padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-sm); cursor: pointer; background: none;
+      transition: border-color var(--duration) var(--ease), background var(--duration) var(--ease), color var(--duration) var(--ease);
+    }
+    .nav__cta:hover { background: var(--color-text); color: var(--color-white); border-color: var(--color-text); }
+    /* .btn--icon — PROPOSED unified icon-only button (site has bespoke .dr-carousel__arrow etc.) */
+    .btn--icon {
+      width: 44px; height: 44px; padding: 0; border-radius: 50%;
+      border: 1px solid var(--color-border); background: var(--color-white);
+      color: var(--color-text); display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: border-color var(--duration) var(--ease), background var(--duration) var(--ease);
+    }
+    .btn--icon:hover { border-color: var(--color-text); background: var(--color-bg-accent); }
+
+    .text-link {
+      font-size: var(--fs-body-sm); font-weight: var(--fw-medium);
+      color: var(--color-accent); text-decoration: none;
+      transition: opacity var(--duration) var(--ease);
+    }
+    .text-link:hover { opacity: 0.7; }
+    /* nav link — site selector is `.nav__links a` */
+    .nav-link {
+      font-size: var(--fs-nav); line-height: var(--lh-ui); font-weight: var(--fw-medium);
+      color: var(--color-text-muted); text-decoration: none; position: relative;
+      transition: color var(--duration) var(--ease);
+    }
+    .nav-link::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px;
+      background: var(--color-accent); border-radius: 1px;
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 280ms cubic-bezier(0.16,1,0.3,1);
+    }
+    .nav-link:hover { color: var(--color-text); }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    /* Form — real classes */
+    .form__input {
+      width: 100%; padding: 0.75rem 1rem;
+      font-family: var(--font-body); font-size: var(--fs-body);
+      color: var(--color-text); background: var(--color-white);
+      border: 1.5px solid var(--color-border); border-radius: var(--radius-sm); outline: none;
+      transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+    }
+    .form__input:focus { border-color: var(--color-accent); box-shadow: var(--shadow-focus); }
+    .form__input::placeholder { color: var(--color-text-dim); }
+    .form__textarea { resize: vertical; min-height: 100px; }
+    .form__success {
+      display: flex; align-items: center; gap: var(--space-sm);
+      padding: var(--space-md); background: rgba(61,90,128,0.08);
+      border: 1px solid rgba(61,90,128,0.2); border-radius: var(--radius-sm);
+      color: var(--color-accent); font-size: var(--fs-body-sm);
+    }
+
+    /* PROPOSED components — not in styles.css yet */
+    .badge {
+      display: inline-block; font-family: var(--font-body); font-size: var(--fs-tag);
+      font-weight: var(--fw-semibold); letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.3rem 0.65rem; border-radius: 999px;
+      background: var(--color-bg-accent); color: var(--color-accent);
+    }
+    .badge--solid { background: var(--color-accent); color: var(--color-white); }
+    .card {
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-radius: var(--radius-md); padding: var(--space-md);
+      transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
+    }
+    @media (hover: hover) { .card--interactive:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); } }
+    .card h4 { margin-bottom: 0.35rem; }
+    .card p  { font-size: var(--fs-body-sm); line-height: var(--lh-body); }
+
+    /* Icon-in-circle — real pattern from .contact-path__icon */
+    .icon-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--color-bg-accent); color: var(--color-accent);
+    }
+
+    /* ════════════ DOC-ONLY — forces a state for the specimen ════════════ */
+    .is-hover.btn--primary { background:#2a2a2a; border-color:#2a2a2a; transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(0,0,0,0.28); }
+    .is-hover.btn--ghost   { background:var(--color-text); color:var(--color-white); border-color:var(--color-text); transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(0,0,0,0.18); }
+    .is-focus              { box-shadow: var(--shadow-focus); }
+    .is-focus.form__input  { border-color: var(--color-accent); }
 
     /* ──────────────────────────────────────────────────────────────
-       Specimen-page chrome (not part of the system)
+       SPECIMEN-PAGE CHROME — every size routes through a token
        ────────────────────────────────────────────────────────────── */
-    .wrap { max-width: 940px; margin: 0 auto; }
+    body { padding: clamp(1.25rem, 5vw, 4.5rem); }
+    .wrap { max-width: 980px; margin: 0 auto; }
 
-    .page-head {
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 2rem;
-      margin-bottom: 3.5rem;
+    code {
+      font-size: var(--fs-tag); letter-spacing: 0; text-transform: none;
+      background: var(--color-bg); border: 1px solid var(--color-border);
+      border-radius: 5px; padding: 0.12em 0.45em; color: var(--color-text);
     }
-    .page-head h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.5rem; }
-    .page-head p { max-width: 60ch; }
 
+    /* ── Editorial cover ──────────────────────────────────── */
+    .cover { padding: 2rem 0 2.5rem; margin-bottom: 2rem; }
+    .cover__eyebrow { color: var(--color-accent); margin-bottom: 1.25rem; }
+    .cover__title {
+      font-family: var(--font-display); font-weight: var(--fw-regular);
+      font-size: var(--fs-display); line-height: var(--lh-display);
+      letter-spacing: -0.03em; color: var(--color-text);
+    }
+    .cover__rule { height: 1px; background: var(--color-border); margin: 1.75rem 0; }
+    .cover__principles {
+      display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; margin-bottom: 1.5rem;
+    }
+    .cover__principles span {
+      font-family: var(--font-body); font-size: var(--fs-tag); font-weight: var(--fw-semibold);
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-text-muted);
+    }
+    .cover__intro { max-width: 64ch; font-size: var(--fs-body-lg); color: var(--color-text-muted); line-height: var(--lh-body); }
+
+    /* ── In-page nav ──────────────────────────────────────── */
+    .toc { display: flex; flex-wrap: wrap; gap: 0.4rem 0.45rem; margin-bottom: 2.5rem; }
+    .toc a {
+      font-size: var(--fs-tag); font-weight: var(--fw-medium);
+      letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--color-text-muted); text-decoration: none;
+      padding: 0.35rem 0.7rem; border: 1px solid var(--color-border);
+      border-radius: 999px; background: var(--color-white);
+      transition: color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+    }
+    .toc a:hover { color: var(--color-text); border-color: var(--color-text-dim); }
+
+    /* ── Section blocks ───────────────────────────────────── */
     section.block {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: clamp(1.5rem, 3vw, 2.5rem);
-      margin-bottom: 2rem;
+      background: var(--color-white); border: 1px solid var(--color-border);
+      border-radius: 14px; padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 1.5rem; scroll-margin-top: 1.5rem;
     }
-    section.block > h2 {
-      font-size: 1.5rem;
-      font-weight: var(--fw-semibold);
-      margin-bottom: 0.25rem;
+    section.block--dark { background: var(--color-bg-dark); border-color: var(--color-border-dark); }
+    section.block--dark h2, section.block--dark h3, section.block--dark h4 { color: var(--color-text-light); }
+    section.block--dark p { color: var(--color-text-dim); }
+    section.block--dark .block__intro { border-color: var(--color-border-dark); }
+    section.block--dark .row { border-color: var(--color-border-dark); }
+    section.block--dark .row__meta { color: var(--color-text-dim); }
+    section.block--dark code { background: #262626; border-color: var(--color-border-dark); color: var(--color-text-light); }
+
+    section.block > h2 { font-size: var(--fs-h4); font-weight: var(--fw-semibold); margin-bottom: 0.25rem; }
+    .block__num {
+      font-family: var(--font-body); font-size: var(--fs-tag); font-weight: var(--fw-semibold);
+      letter-spacing: 0.1em; color: var(--color-text-dim); display: block; margin-bottom: 0.5rem;
     }
     section.block > .block__intro {
-      font-size: var(--fs-body-sm);
-      margin-bottom: 1.75rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-body-sm); color: var(--color-text-muted);
+      margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--color-border);
+      max-width: 70ch;
     }
 
-    /* Spec rows */
-    .row { padding: 1.1rem 0; border-top: 1px solid var(--border); }
+    .row { padding: 1rem 0; border-top: 1px solid var(--color-border); }
     .row:first-of-type { border-top: none; }
+    .row--display { padding-top: 1.75rem; }
     .row__meta {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.55rem;
+      font-family: var(--font-body); font-size: var(--fs-tag); line-height: var(--lh-ui);
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--color-text-muted); margin-bottom: 0.65rem;
     }
-    .row__meta code {
-      text-transform: none;
-      letter-spacing: 0;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 0.1em 0.45em;
-      font-size: 0.92em;
-      color: var(--ink-soft);
+    .row__meta .pill {
+      letter-spacing: 0.04em; padding: 0.05rem 0.4rem; border-radius: 4px;
+      background: var(--note-bg); color: var(--note-ink); border: 1px solid var(--note-border);
+      margin-left: 0.35rem;
     }
-    .sample { color: var(--ink); }
+    .sample { color: var(--color-text); }
 
-    /* Token table */
-    table { width: 100%; border-collapse: collapse; font-size: var(--fs-body-sm); }
-    th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); vertical-align: baseline; }
-    th { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: var(--fw-semibold); }
-    td code {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 0.1em 0.45em;
-      font-size: 0.92em;
-      color: var(--ink-soft);
+    .demo { display: flex; flex-wrap: wrap; gap: 0.85rem; align-items: center; }
+    .demo--col { flex-direction: column; align-items: stretch; max-width: 380px; }
+    .demo--dark { background: var(--color-bg-dark); border-radius: var(--radius-md); padding: var(--space-md); }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { width: 100%; border-collapse: collapse; font-size: var(--fs-body-sm); min-width: 460px; }
+    th, td { text-align: left; padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--color-border); vertical-align: top; }
+    th { font-size: var(--fs-tag); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-muted); font-weight: var(--fw-semibold); }
+    td.val { color: var(--color-text-muted); }
+    tr.is-reserved td { color: var(--color-text-muted); opacity: 0.7; }
+    .chip-color { display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--color-border); vertical-align: -2px; margin-right: 0.4rem; }
+
+    /* Contrast rating pill */
+    .cr {
+      display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: var(--fw-semibold);
+      letter-spacing: 0.02em; padding: 0.1rem 0.4rem; border-radius: 4px; white-space: nowrap;
     }
-    td.val { color: var(--muted); }
+    .cr--aaa  { background: #E4EFE6; color: #2F6B3C; }
+    .cr--aa   { background: #E7EDF4; color: #355A86; }
+    .cr--warn { background: #FBF0DF; color: #8A6111; }
+
+    /* Colour swatches */
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.75rem; }
+    .swatch__chip { height: 60px; border-radius: 8px 8px 0 0; border: 1px solid var(--color-border); border-bottom: none; }
+    .swatch__body { border: 1px solid var(--color-border); border-radius: 0 0 8px 8px; padding: 0.5rem 0.6rem; }
+    .swatch__name { font-size: var(--fs-caption); font-weight: var(--fw-medium); color: var(--color-text); }
+    .swatch__hex  { font-size: var(--fs-tag); color: var(--color-text-muted); }
+
+    /* Spacing scale */
+    .scale-row { display: flex; align-items: center; gap: 1rem; padding: 0.3rem 0; }
+    .scale-row__label { width: 120px; flex: none; font-size: var(--fs-tag); color: var(--color-text-muted); letter-spacing: 0.04em; }
+    .scale-row__bar { height: 16px; background: var(--color-accent); border-radius: 3px; }
+    .scale-row__val { font-size: var(--fs-tag); color: var(--color-text-dim); }
+
+    /* Tiles — radius / elevation */
+    .tiles { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .tile { width: 132px; }
+    .tile__box { height: 84px; background: var(--color-white); border: 1px solid var(--color-border); }
+    .tile__label { margin-top: 0.5rem; font-size: var(--fs-tag); color: var(--color-text-muted); }
+    .tile__val { font-size: var(--fs-tag); color: var(--color-text-dim); }
+
+    .motion-demo {
+      width: 100%; max-width: 360px; height: 44px;
+      background: var(--color-bg-accent); border-radius: var(--radius-sm);
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .motion-demo__dot {
+      position: absolute; top: 6px; left: 6px; width: 32px; height: 32px;
+      border-radius: 50%; background: var(--color-accent);
+    }
+    .motion-demo:hover .motion-demo__dot { left: calc(100% - 38px); }
 
     /* Weight ladder */
-    .ladder > div {
-      font-size: 1.7rem;
-      display: flex;
-      align-items: baseline;
-      gap: 1rem;
-      padding: 0.15rem 0;
-    }
+    .ladder > div { font-size: var(--fs-h4); display: flex; align-items: baseline; gap: 1rem; padding: 0.25rem 0; }
     .ladder > div > span:first-child {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      color: var(--muted);
-      width: 130px;
-      flex: none;
-      letter-spacing: 0.03em;
+      font-family: var(--font-body); font-size: var(--fs-tag); line-height: var(--lh-ui);
+      letter-spacing: 0.08em; color: var(--color-text-muted); width: 150px; flex: none;
     }
 
     /* Font cards */
     .fonts { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .fontcard { border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; }
-    .fontcard__name { font-size: 1.35rem; margin-bottom: 0.15rem; }
-    .fontcard__role { font-size: var(--fs-caption); color: var(--muted); }
-    .fontcard__sample { margin-top: 0.85rem; font-size: 1.6rem; color: var(--ink); }
+    .fontcard { border: 1px solid var(--color-border); border-radius: 10px; padding: 1.25rem; }
+    .fontcard__name { font-size: var(--fs-h5); margin-bottom: 0.25rem; display: flex; align-items: center; gap: 0.4rem; }
+    .fontcard__role { font-size: var(--fs-caption); color: var(--color-text-muted); }
+    .fontcard__sample { margin-top: 0.75rem; font-size: var(--fs-h4); color: var(--color-text); }
 
-    /* Icon grid */
+    /* Composed lockups */
+    .lockup { text-align: center; max-width: 540px; margin: 0 auto; }
+    .lockup .eyebrow { display: block; margin-bottom: var(--space-xs); }
+    .lockup h2 { margin-bottom: var(--space-sm); }
+    .lockup .lead { color: var(--color-text-muted); }
+    .hero-lockup {
+      background: var(--color-bg-dark); border-radius: var(--radius-md);
+      padding: clamp(1.75rem, 4vw, 3rem); color: var(--color-white);
+    }
+    .hero-lockup .eyebrow { color: rgba(255,255,255,0.55); letter-spacing: 0.14em; display:block; margin-bottom: 1.25rem; }
+    .hero-lockup__title {
+      font-family: var(--font-display); font-weight: var(--fw-regular);
+      font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: var(--lh-display);
+      letter-spacing: -0.03em; color: var(--color-white);
+    }
+    .hero-lockup__sub {
+      font-family: var(--font-display); font-style: italic; font-weight: var(--fw-regular);
+      font-size: var(--fs-lead); line-height: 1.5; color: rgba(255,255,255,0.62);
+      margin-top: 1.5rem; max-width: 480px;
+    }
+    .measure-demo { max-width: 56ch; }
+    .measure-demo__edge { border-left: 2px solid var(--color-accent); border-right: 2px solid var(--color-accent); padding: 0 1rem; }
+
+    /* Icons */
     .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined';
-      font-weight: normal; font-style: normal;
+      font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal;
       line-height: 1; letter-spacing: normal; text-transform: none;
       display: inline-block; white-space: nowrap; direction: ltr;
       -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased;
     }
-    .icon-grid { display: flex; flex-wrap: wrap; gap: 1.1rem; }
-    .icon-grid figure { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; width: 96px; text-align: center; }
-    .icon-grid .material-symbols-outlined { font-size: 2rem; color: var(--ink-soft); }
-    .icon-grid figcaption { font-size: 0.66rem; color: var(--muted); }
+    .icon-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .icon-grid figure { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; width: 96px; text-align: center; }
+    .icon-grid .material-symbols-outlined { font-size: 32px; color: var(--color-text); }
+    .icon-grid figcaption { font-size: var(--fs-tag); color: var(--color-text-muted); }
+    .icon-sizes { display: flex; align-items: flex-end; gap: 1.5rem; }
+    .icon-sizes figure { text-align: center; }
+    .icon-sizes figcaption { font-size: var(--fs-tag); color: var(--color-text-dim); margin-top: 0.35rem; }
 
-    /* Notes / deviations */
-    .note {
-      background: #FBF3E9;
-      border: 1px solid #E8D4BC;
-      border-radius: 10px;
-      padding: 1.1rem 1.35rem;
-      font-size: var(--fs-body-sm);
-      color: #6B5536;
+    /* Do / Don't */
+    .dodont { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .dodont__card { border: 1px solid var(--color-border); border-radius: 10px; padding: 1.1rem 1.25rem; }
+    .dodont__tag {
+      font-family: var(--font-body); font-size: var(--fs-tag); font-weight: var(--fw-semibold);
+      letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.35rem;
     }
-    .note strong { color: var(--ink); }
+    .dodont__do .dodont__tag   { color: #2F6B3C; }
+    .dodont__dont .dodont__tag { color: #A23B3B; }
+    .dodont__card p { font-size: var(--fs-body-sm); }
+
+    /* Notes */
+    .note {
+      background: var(--note-bg); border: 1px solid var(--note-border);
+      border-radius: 10px; padding: 1rem 1.25rem;
+      font-size: var(--fs-body-sm); color: var(--note-ink);
+    }
+    .note strong { color: var(--color-text); }
     .note + .note { margin-top: 0.75rem; }
 
-    .demo-eyebrow { color: var(--accent); }
-    blockquote.demo { border-left: 3px solid var(--accent); padding-left: 1.25rem; color: var(--ink); }
-    ul.demo, ol.demo { padding-left: 1.25em; color: var(--muted); font-size: var(--fs-body); }
-    ul.demo li, ol.demo li { margin-bottom: 0.35em; }
+    blockquote.demo-bq { display: block; border-left: 3px solid var(--color-accent); padding-left: 1.25rem; color: var(--color-text); }
+    ul.demo-list { padding-left: 1.25em; color: var(--color-text-muted); font-size: var(--fs-body); }
+    ul.demo-list li { margin-bottom: 0.375em; }
 
     footer {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      font-size: var(--fs-caption);
-      color: var(--muted);
+      margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border);
+      font-size: var(--fs-caption); color: var(--color-text-muted);
     }
-    footer code { background: var(--bg-card); border: 1px solid var(--border); border-radius: 5px; padding: 0.1em 0.45em; }
+
+    @media (max-width: 560px) {
+      .dodont { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
 
-    <header class="page-head">
-      <p class="eyebrow">MedRad Clinics · Design System</p>
-      <h1>Typography System</h1>
-      <p>The single source of truth for type on the site. Tokens live in
-         <code>styles.css :root</code>; this page mirrors them as a visual
-         specimen. Two fonts carry the whole site — Playfair Display for
-         editorial headings, Inter for everything else. Material Symbols is
-         icon-only.</p>
+    <!-- ════════════════ COVER ════════════════ -->
+    <header class="cover">
+      <p class="eyebrow cover__eyebrow">MedRad Clinics</p>
+      <h1 class="cover__title">Design System</h1>
+      <div class="cover__rule"></div>
+      <div class="cover__principles">
+        <span>Editorial</span><span>Minimal</span><span>Premium</span><span>Calm</span>
+      </div>
+      <p class="cover__intro">The single source of truth for the site's visual language — colour,
+        type, space, and the components built on them. Tokens live in <code>styles.css :root</code>;
+        this page is the working specimen. Real class names match <code>styles.css</code>; anything
+        not yet shipped is marked <span class="pill" style="font-size:11px;font-weight:600;letter-spacing:0.04em;padding:0.05rem 0.4rem;border-radius:4px;background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-border)">PROPOSED</span>.</p>
     </header>
 
-    <!-- ════════════════ FONT FAMILIES ════════════════ -->
-    <section class="block">
-      <h2>Font families</h2>
-      <p class="block__intro">Three families, each with one job. Bagel Fat One was removed — it was loaded but never rendered.</p>
-      <div class="fonts">
-        <div class="fontcard">
-          <p class="fontcard__name" style="font-family:var(--font-display)">Playfair Display</p>
-          <p class="fontcard__role"><code>--font-display</code> · display &amp; editorial headings (h1–h3, blockquote)</p>
-          <p class="fontcard__sample" style="font-family:var(--font-display)">Treatment, not just imaging</p>
+    <nav class="toc">
+      <a href="#color">01 Colour</a>
+      <a href="#semantic">02 Semantic</a>
+      <a href="#type">03 Typography</a>
+      <a href="#spacing">04 Spacing</a>
+      <a href="#radius">05 Radius</a>
+      <a href="#elevation">06 Elevation</a>
+      <a href="#motion">07 Motion</a>
+      <a href="#buttons">08 Buttons</a>
+      <a href="#links">09 Links</a>
+      <a href="#forms">10 Forms</a>
+      <a href="#tags">11 Tags</a>
+      <a href="#cards">12 Cards</a>
+      <a href="#icons">13 Icons</a>
+      <a href="#dark">14 Dark surfaces</a>
+      <a href="#notes">15 Notes</a>
+    </nav>
+
+    <!-- ════════════════ 01 · COLOUR ════════════════ -->
+    <section class="block" id="color">
+      <span class="block__num">01</span>
+      <h2>Colour — palette</h2>
+      <p class="block__intro">Warm off-white canvas, near-black ink, a single muted-blue accent. Raw tokens: <code>--color-*</code>. The semantic layer (next section) maps these to roles.</p>
+
+      <div class="row">
+        <p class="row__meta">Core palette — tokenised in <code>:root</code></p>
+        <div class="swatches">
+          <div><div class="swatch__chip" style="background:#F8F7F5"></div><div class="swatch__body"><div class="swatch__name">bg</div><div class="swatch__hex">#F8F7F5</div></div></div>
+          <div><div class="swatch__chip" style="background:#F2EFE9"></div><div class="swatch__body"><div class="swatch__name">bg-accent</div><div class="swatch__hex">#F2EFE9</div></div></div>
+          <div><div class="swatch__chip" style="background:#1A1A1A"></div><div class="swatch__body"><div class="swatch__name">bg-dark</div><div class="swatch__hex">#1A1A1A</div></div></div>
+          <div><div class="swatch__chip" style="background:#FFFFFF"></div><div class="swatch__body"><div class="swatch__name">white</div><div class="swatch__hex">#FFFFFF</div></div></div>
+          <div><div class="swatch__chip" style="background:#111111"></div><div class="swatch__body"><div class="swatch__name">text</div><div class="swatch__hex">#111111</div></div></div>
+          <div><div class="swatch__chip" style="background:#555555"></div><div class="swatch__body"><div class="swatch__name">text-muted</div><div class="swatch__hex">#555555</div></div></div>
+          <div><div class="swatch__chip" style="background:#888888"></div><div class="swatch__body"><div class="swatch__name">text-dim</div><div class="swatch__hex">#888888</div></div></div>
+          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body"><div class="swatch__name">text-light</div><div class="swatch__hex">#E8E5DF</div></div></div>
+          <div><div class="swatch__chip" style="background:#3D5A80"></div><div class="swatch__body"><div class="swatch__name">accent</div><div class="swatch__hex">#3D5A80</div></div></div>
+          <div><div class="swatch__chip" style="background:#5A7BA0"></div><div class="swatch__body"><div class="swatch__name">accent-soft</div><div class="swatch__hex">#5A7BA0</div></div></div>
+          <div><div class="swatch__chip" style="background:#E2DED8"></div><div class="swatch__body"><div class="swatch__name">border</div><div class="swatch__hex">#E2DED8</div></div></div>
+          <div><div class="swatch__chip" style="background:#2E2E2E"></div><div class="swatch__body"><div class="swatch__name">border-dark</div><div class="swatch__hex">#2E2E2E</div></div></div>
         </div>
-        <div class="fontcard">
-          <p class="fontcard__name" style="font-family:var(--font-body)">Inter</p>
-          <p class="fontcard__role"><code>--font-body</code> · body, UI, nav, buttons, cards, labels, h4–h6</p>
-          <p class="fontcard__sample" style="font-family:var(--font-body)">Image-guided, minimally invasive care</p>
-        </div>
-        <div class="fontcard">
-          <p class="fontcard__name"><span class="material-symbols-outlined">radiology</span> Material Symbols</p>
-          <p class="fontcard__role"><code>--font-icon</code> · icons only (Outlined)</p>
-          <p class="fontcard__sample">
-            <span class="material-symbols-outlined">stethoscope</span>
-            <span class="material-symbols-outlined">favorite</span>
-            <span class="material-symbols-outlined">schedule</span>
-          </p>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">Warm neutrals — used by the nav <span class="pill">NOT TOKENISED</span></p>
+        <div class="swatches">
+          <div><div class="swatch__chip" style="background:#302820"></div><div class="swatch__body"><div class="swatch__name">nav surface</div><div class="swatch__hex">#302820</div></div></div>
+          <div><div class="swatch__chip" style="background:#322A22"></div><div class="swatch__body"><div class="swatch__name">dropdown surface</div><div class="swatch__hex">#322A22</div></div></div>
+          <div><div class="swatch__chip" style="background:#B19981"></div><div class="swatch__body"><div class="swatch__name">dropdown text</div><div class="swatch__hex">#B19981</div></div></div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ TOKEN REFERENCE ════════════════ -->
-    <section class="block">
-      <h2>Tokens</h2>
-      <p class="block__intro">Every value below maps 1:1 to a CSS custom property in <code>styles.css</code>.</p>
+    <!-- ════════════════ 02 · SEMANTIC ════════════════ -->
+    <section class="block" id="semantic">
+      <span class="block__num">02</span>
+      <h2>Colour — semantic roles &amp; contrast</h2>
+      <p class="block__intro">What each colour is <em>for</em>, split by surface, with measured WCAG contrast. <span class="cr cr--aaa">AAA</span> ≥ 7:1 · <span class="cr cr--aa">AA</span> ≥ 4.5:1 · <span class="cr cr--warn">AA-LARGE</span> ≥ 3:1 only.</p>
+
+      <div class="row">
+        <p class="row__meta">On light surfaces — <code>bg</code> / <code>white</code> / <code>bg-accent</code></p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Role</th><th>Token</th><th>On bg</th><th>Contrast</th></tr></thead>
+            <tbody>
+              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#111"></span><code>--color-text</code></td><td class="val">body, headings</td><td><span class="cr cr--aaa">AAA · ~18:1</span></td></tr>
+              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#555"></span><code>--color-text-muted</code></td><td class="val">body copy, captions</td><td><span class="cr cr--aaa">AAA · ~7.2:1</span></td></tr>
+              <tr><td>Text — tertiary / meta</td><td><span class="chip-color" style="background:#888"></span><code>--color-text-dim</code></td><td class="val">timestamps, fine print</td><td><span class="cr cr--warn">~3.3:1 — large text only</span></td></tr>
+              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#3D5A80"></span><code>--color-accent</code></td><td class="val">links, eyebrows, focus</td><td><span class="cr cr--aa">AA · ~6.6:1</span></td></tr>
+              <tr><td>Border / divider</td><td><span class="chip-color" style="background:#E2DED8"></span><code>--color-border</code></td><td class="val">card edges, rules, inputs</td><td class="val">non-text</td></tr>
+              <tr><td>Surface — base / raised / tinted</td><td><span class="chip-color" style="background:#F8F7F5"></span><code>bg</code> / <code>white</code> / <code>bg-accent</code></td><td class="val">page / cards / soft fills</td><td class="val">—</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">On dark surfaces — <code>bg-dark</code> / footer <code>text</code> / nav warm</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Role</th><th>Token</th><th>On dark</th><th>Contrast</th></tr></thead>
+            <tbody>
+              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#E8E5DF"></span><code>--color-text-light</code></td><td class="val">headings, body on dark</td><td><span class="cr cr--aaa">AAA · ~14:1</span></td></tr>
+              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#888"></span><code>--color-text-dim</code></td><td class="val">muted copy on dark</td><td><span class="cr cr--aa">AA · ~4.8:1</span></td></tr>
+              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#5A7BA0"></span><code>--color-accent-soft</code></td><td class="val">links, accents on dark</td><td><span class="cr cr--aa">AA · ~4.7:1</span></td></tr>
+              <tr><td>Border / divider</td><td><span class="chip-color" style="background:#2E2E2E"></span><code>--color-border-dark</code></td><td class="val">dividers on dark</td><td class="val">non-text</td></tr>
+              <tr><td>Nav — warm text on warm surface</td><td><span class="chip-color" style="background:#B19981"></span><code>#B19981</code> on <code>#322A22</code></td><td class="val">dropdown items</td><td><span class="cr cr--aa">AA · ~5.2:1</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 03 · TYPOGRAPHY ════════════════ -->
+    <section class="block" id="type">
+      <span class="block__num">03</span>
+      <h2>Typography</h2>
+      <p class="block__intro">Playfair Display for editorial headings (h1–h3); Inter for everything else; Material Symbols icon-only. Composed lockups below show how the atoms combine in practice.</p>
+
+      <div class="row">
+        <p class="row__meta">Families</p>
+        <div class="fonts">
+          <div class="fontcard">
+            <p class="fontcard__name" style="font-family:var(--font-display)">Playfair Display</p>
+            <p class="fontcard__role"><code>--font-display</code> · h1–h3, blockquote. Loaded: 400, 600.</p>
+            <p class="fontcard__sample" style="font-family:var(--font-display)">Treatment, not just imaging</p>
+          </div>
+          <div class="fontcard">
+            <p class="fontcard__name" style="font-family:var(--font-body)">Inter</p>
+            <p class="fontcard__role"><code>--font-body</code> · body, UI, h4–h6. Loaded: 300, 400, 500, 600.</p>
+            <p class="fontcard__sample" style="font-family:var(--font-body)">Image-guided, minimally invasive</p>
+          </div>
+          <div class="fontcard">
+            <p class="fontcard__name"><span class="material-symbols-outlined" style="font-size:1.4em">radiology</span> Material Symbols</p>
+            <p class="fontcard__role"><code>--font-icon</code> · icons only (Outlined)</p>
+            <p class="fontcard__sample">
+              <span class="material-symbols-outlined">stethoscope</span>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">schedule</span>
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div class="row">
         <p class="row__meta">Type scale — <code>--fs-*</code></p>
-        <table>
-          <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
-          <tbody>
-            <tr><td><code>--fs-display</code></td><td class="val">clamp(56px, 7vw, 112px)</td><td class="val">Hero headline</td></tr>
-            <tr><td><code>--fs-h1</code></td><td class="val">clamp(44px, 5vw, 76px)</td><td class="val">h1</td></tr>
-            <tr><td><code>--fs-h2</code></td><td class="val">clamp(34px, 4vw, 56px)</td><td class="val">h2 / section titles</td></tr>
-            <tr><td><code>--fs-h3</code></td><td class="val">clamp(28px, 3vw, 40px)</td><td class="val">h3 / blockquote</td></tr>
-            <tr><td><code>--fs-h4</code></td><td class="val">clamp(22px, 2vw, 28px)</td><td class="val">h4</td></tr>
-            <tr><td><code>--fs-h5</code></td><td class="val">20px</td><td class="val">h5 / logo wordmark</td></tr>
-            <tr><td><code>--fs-h6</code></td><td class="val">17px</td><td class="val">h6</td></tr>
-            <tr><td><code>--fs-lead</code></td><td class="val">clamp(19px, 1.6vw, 24px)</td><td class="val">.lead / standfirst</td></tr>
-            <tr><td><code>--fs-body-lg</code></td><td class="val">18px</td><td class="val">larger body</td></tr>
-            <tr><td><code>--fs-body</code></td><td class="val">16px</td><td class="val">body / p / inputs</td></tr>
-            <tr><td><code>--fs-body-sm</code></td><td class="val">14px</td><td class="val">card text, captions</td></tr>
-            <tr><td><code>--fs-caption</code></td><td class="val">13px</td><td class="val">small / .caption / meta</td></tr>
-            <tr><td><code>--fs-tag</code></td><td class="val">12px</td><td class="val">.eyebrow / .kicker / .tag</td></tr>
-            <tr><td><code>--fs-nav</code></td><td class="val">14px</td><td class="val">nav links</td></tr>
-            <tr><td><code>--fs-cta</code></td><td class="val">14px</td><td class="val">buttons / CTAs</td></tr>
-          </tbody>
-        </table>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
+            <tbody>
+              <tr><td><code>--fs-display</code></td><td class="val">clamp(56px, 7vw, 112px)</td><td class="val">Hero headline</td></tr>
+              <tr><td><code>--fs-h1</code></td><td class="val">clamp(44px, 5vw, 76px)</td><td class="val">h1</td></tr>
+              <tr><td><code>--fs-h2</code></td><td class="val">clamp(34px, 4vw, 56px)</td><td class="val">h2 / section titles</td></tr>
+              <tr><td><code>--fs-h3</code></td><td class="val">clamp(28px, 3vw, 40px)</td><td class="val">h3 / blockquote</td></tr>
+              <tr><td><code>--fs-h4</code></td><td class="val">clamp(22px, 2vw, 28px)</td><td class="val">h4</td></tr>
+              <tr><td><code>--fs-h5</code></td><td class="val">20px</td><td class="val">h5 / nav logo (fallback)</td></tr>
+              <tr><td><code>--fs-h6</code></td><td class="val">17px</td><td class="val">h6</td></tr>
+              <tr><td><code>--fs-lead</code></td><td class="val">clamp(19px, 1.6vw, 24px)</td><td class="val">.lead / standfirst</td></tr>
+              <tr class="is-reserved"><td><code>--fs-body-lg</code></td><td class="val">18px</td><td class="val">reserved — Phase 2</td></tr>
+              <tr><td><code>--fs-body</code></td><td class="val">16px</td><td class="val">body / p / inputs</td></tr>
+              <tr><td><code>--fs-body-sm</code></td><td class="val">14px</td><td class="val">card text, secondary copy</td></tr>
+              <tr><td><code>--fs-caption</code></td><td class="val">13px</td><td class="val">small / .caption / meta</td></tr>
+              <tr><td><code>--fs-tag</code></td><td class="val">12px</td><td class="val">.eyebrow / .kicker / .tag</td></tr>
+              <tr><td><code>--fs-nav</code></td><td class="val">14px</td><td class="val">nav links</td></tr>
+              <tr><td><code>--fs-cta</code></td><td class="val">14px</td><td class="val">buttons / CTAs</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="row">
-        <p class="row__meta">Line height — <code>--lh-*</code></p>
-        <table>
-          <thead><tr><th>Token</th><th>Value</th><th>Used by</th></tr></thead>
-          <tbody>
-            <tr><td><code>--lh-display</code></td><td class="val">0.95</td><td class="val">h1 / hero</td></tr>
-            <tr><td><code>--lh-heading</code></td><td class="val">1.08</td><td class="val">h2–h4 / blockquote</td></tr>
-            <tr><td><code>--lh-body</code></td><td class="val">1.65</td><td class="val">body / p / lists</td></tr>
-            <tr><td><code>--lh-ui</code></td><td class="val">1.25</td><td class="val">h5–h6 / nav / buttons / labels</td></tr>
-          </tbody>
-        </table>
+        <p class="row__meta">Line height &amp; letter-spacing</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Context</th><th>Line height</th><th>Letter-spacing</th></tr></thead>
+            <tbody>
+              <tr><td>Display / h1</td><td class="val"><code>--lh-display</code> 0.95</td><td class="val">−0.03em</td></tr>
+              <tr><td>h2 / h3 / blockquote</td><td class="val"><code>--lh-heading</code> 1.08</td><td class="val">−0.03em</td></tr>
+              <tr><td>h4 / h5 / h6</td><td class="val"><code>--lh-heading</code> · <code>--lh-ui</code></td><td class="val">normal</td></tr>
+              <tr><td>Body / p / lists / buttons</td><td class="val"><code>--lh-body</code> · <code>--lh-ui</code></td><td class="val">normal</td></tr>
+              <tr><td>.eyebrow / .kicker / .tag / kickers</td><td class="val"><code>--lh-ui</code> 1.25</td><td class="val">+0.08em</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="row">
-        <p class="row__meta">Font weight — <code>--fw-*</code></p>
+        <p class="row__meta">Rule — when to track</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">Letter-spacing is a <strong>correction, not a default</strong>. Apply it in exactly two cases: <strong>tighten</strong> the large Playfair display tier (h1–h3, hero) at <code>−0.03em</code> so the big serif doesn't read loose; <strong>open up</strong> small uppercase labels (eyebrows, kickers, tags) at <code>+0.08em</code> so the caps don't read cramped. Everywhere else — body, leads, buttons, h4–h6 — leave it <code>normal</code> and trust the font's own metric.</p>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">Font weight — only weights the <code>&lt;link&gt;</code> loads</p>
         <div class="ladder">
           <div><span><code>--fw-light</code> 300</span><span style="font-weight:300">Precision imaging</span></div>
           <div><span><code>--fw-regular</code> 400</span><span style="font-weight:400">Precision imaging</span></div>
           <div><span><code>--fw-medium</code> 500</span><span style="font-weight:500">Precision imaging</span></div>
           <div><span><code>--fw-semibold</code> 600</span><span style="font-weight:600">Precision imaging</span></div>
-          <div><span><code>--fw-bold</code> 700</span><span style="font-weight:700">Precision imaging</span></div>
+        </div>
+      </div>
+
+      <div class="row row--display">
+        <p class="row__meta">Composed — hero lockup · display + italic standfirst, as on the homepage</p>
+        <div class="hero-lockup">
+          <span class="eyebrow">Interventional Radiology &amp; Image-Guided Treatment</span>
+          <div class="hero-lockup__title">Treatment,<br>not just imaging.</div>
+          <p class="hero-lockup__sub">Minimally invasive procedures guided by precision imaging — no open surgery, faster recovery, same outcomes.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">Composed — section-header lockup · eyebrow + h2 + lead (used 8× on the site)</p>
+        <div class="lockup">
+          <span class="eyebrow">Featured Procedures</span>
+          <h2>What we treat</h2>
+          <p class="lead">Minimally invasive, image-guided procedures for conditions once managed only with open surgery.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">Body at measure — target 56–66 characters per line</p>
+        <div class="measure-demo measure-demo__edge">
+          <p>Interventional radiology treats conditions through tiny incisions, using imaging to guide instruments precisely to the source. Patients go home sooner and recover faster than with traditional open surgery.</p>
+        </div>
+      </div>
+
+      <div class="row"><p class="row__meta">h1</p><h1>Image-guided care</h1></div>
+      <div class="row"><p class="row__meta">h2</p><h2>Procedures &amp; treatment cases</h2></div>
+      <div class="row"><p class="row__meta">h3</p><h3>Uterine Fibroid Embolization</h3></div>
+      <div class="row"><p class="row__meta">h4 · Inter / semibold</p><h4>What to expect on the day</h4></div>
+      <div class="row"><p class="row__meta">h5 · Inter</p><h5>Before your appointment</h5></div>
+      <div class="row"><p class="row__meta">h6 · Inter</p><h6>Insurance &amp; referrals</h6></div>
+      <div class="row"><p class="row__meta">.lead — standfirst paragraph</p><p class="lead sample">No open surgery, faster recovery, the same outcomes — delivered through precision imaging.</p></div>
+      <div class="row"><p class="row__meta">small / .caption · strong / em — inline emphasis</p>
+        <p><small>This website does not provide medical advice.</small></p>
+        <p class="sample" style="margin-top:0.5rem">Pelvic pain, <strong>treated without surgery</strong> — <em>preserving the uterus</em>.</p>
+      </div>
+      <div class="row"><p class="row__meta">blockquote — Playfair / <code>--fs-h3</code></p><blockquote class="demo-bq">Every patient is seen, assessed, and treated personally by an attending physician.</blockquote></div>
+      <div class="row"><p class="row__meta">ul / ol / li</p>
+        <ul class="demo-list"><li>Uterine Fibroid Embolization</li><li>Vertebroplasty &amp; Kyphoplasty</li><li>Peripheral Arterial Disease</li></ul>
+      </div>
+    </section>
+
+    <!-- ════════════════ 04 · SPACING ════════════════ -->
+    <section class="block" id="spacing">
+      <span class="block__num">04</span>
+      <h2>Spacing</h2>
+      <p class="block__intro">An 8-step, 8px-based scale, <code>--space-*</code>, in <code>rem</code> (scales with the user's font size). Drives padding, gaps, margins, and section rhythm. Bar = real size.</p>
+      <div class="row">
+        <div class="scale-row"><span class="scale-row__label">--space-2xs</span><span class="scale-row__bar" style="width:4px"></span><span class="scale-row__val">0.25rem · 4px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-xs</span><span class="scale-row__bar" style="width:8px"></span><span class="scale-row__val">0.5rem · 8px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-sm</span><span class="scale-row__bar" style="width:16px"></span><span class="scale-row__val">1rem · 16px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-md</span><span class="scale-row__bar" style="width:24px"></span><span class="scale-row__val">1.5rem · 24px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-lg</span><span class="scale-row__bar" style="width:40px"></span><span class="scale-row__val">2.5rem · 40px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-xl</span><span class="scale-row__bar" style="width:64px"></span><span class="scale-row__val">4rem · 64px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-2xl</span><span class="scale-row__bar" style="width:96px"></span><span class="scale-row__val">6rem · 96px</span></div>
+        <div class="scale-row"><span class="scale-row__label">--space-3xl</span><span class="scale-row__bar" style="width:128px"></span><span class="scale-row__val">8rem · 128px</span></div>
+      </div>
+      <div class="row">
+        <p class="row__meta">Rule — snap, don't invent</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">Reach for the <strong>nearest token</strong> instead of a fresh pixel value — gaps, margins, padding, section rhythm all pull from this one scale. Two deliberate exceptions are left as-is because snapping them would shift component proportions: <strong>component-internal padding</strong> that lands on 12px (<code>.btn</code> <code>0.75rem&nbsp;1.75rem</code>, <code>.form__input</code>, <code>.review-card__head</code> gap) — 12px sits between <code>--space-xs</code> and <code>--space-sm</code> with no token. If 12 / 32 / 48 start repeating across pages in the Phase-2 rollout, add them then — by data, not upfront.</p>
+      </div>
+    </section>
+
+    <!-- ════════════════ 05 · RADIUS ════════════════ -->
+    <section class="block" id="radius">
+      <span class="block__num">05</span>
+      <h2>Radius</h2>
+      <p class="block__intro">Three corner radii, <code>--radius-*</code>. Pills use <code>999px</code> directly.</p>
+      <div class="row">
+        <div class="tiles">
+          <div class="tile"><div class="tile__box" style="border-radius:6px"></div><div class="tile__label">--radius-sm</div><div class="tile__val">6px · buttons, inputs</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:12px"></div><div class="tile__label">--radius-md</div><div class="tile__val">12px · cards</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:20px"></div><div class="tile__label">--radius-lg</div><div class="tile__val">20px · large panels</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:999px"></div><div class="tile__label">pill</div><div class="tile__val">999px · tags, toggles</div></div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════ HEADINGS ════════════════ -->
-    <section class="block">
-      <h2>Headings</h2>
-      <p class="block__intro">h1–h3 are Playfair at <code>--fw-regular</code>; h4–h6 are Inter at <code>--fw-semibold</code>. Sizes are fluid <code>clamp()</code> — resize the window to see them scale.</p>
-
+    <!-- ════════════════ 06 · ELEVATION ════════════════ -->
+    <section class="block" id="elevation">
+      <span class="block__num">06</span>
+      <h2>Elevation <span class="pill" style="font-size:11px;font-weight:600;letter-spacing:0.04em;padding:0.05rem 0.4rem;border-radius:4px;background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-border);vertical-align:3px">PROPOSED</span></h2>
+      <p class="block__intro">A 3-step shadow scale + focus ring — consolidates the ~15 ad-hoc <code>box-shadow</code> values currently in <code>styles.css</code>. Only <code>--shadow-focus</code> is in use today.</p>
       <div class="row">
-        <p class="row__meta">Display — <code>.entry__line--xl</code> · <code>--fs-display</code> / <code>--lh-display</code></p>
-        <div class="sample" style="font-family:var(--font-display);font-size:var(--fs-display);line-height:var(--lh-display);font-weight:var(--fw-regular);letter-spacing:-0.03em">Treatment.</div>
-      </div>
-      <div class="row"><p class="row__meta">h1 — <code>--fs-h1</code> / <code>--lh-display</code></p><h1>Image-guided care</h1></div>
-      <div class="row"><p class="row__meta">h2 — <code>--fs-h2</code> / <code>--lh-heading</code></p><h2>Procedures &amp; treatment cases</h2></div>
-      <div class="row"><p class="row__meta">h3 — <code>--fs-h3</code> / <code>--lh-heading</code></p><h3>Uterine Fibroid Embolization</h3></div>
-      <div class="row"><p class="row__meta">h4 — <code>--fs-h4</code> · Inter / <code>--fw-semibold</code></p><h4>What to expect on the day</h4></div>
-      <div class="row"><p class="row__meta">h5 — <code>--fs-h5</code> · Inter</p><h5>Before your appointment</h5></div>
-      <div class="row"><p class="row__meta">h6 — <code>--fs-h6</code> · Inter</p><h6>Insurance &amp; referrals</h6></div>
-    </section>
-
-    <!-- ════════════════ BODY + UTILITIES ════════════════ -->
-    <section class="block">
-      <h2>Body &amp; utility classes</h2>
-      <p class="block__intro">Custom classes are kept only where they name a reusable content pattern.</p>
-
-      <div class="row">
-        <p class="row__meta">.eyebrow / .kicker / .tag — <code>--fs-tag</code> · uppercase · <code>--fw-semibold</code></p>
-        <p class="eyebrow demo-eyebrow">Interventional Radiology</p>
-      </div>
-      <div class="row">
-        <p class="row__meta">.lead — <code>--fs-lead</code> · standfirst paragraph</p>
-        <p class="lead sample">No open surgery, faster recovery, the same outcomes — delivered through precision imaging.</p>
-      </div>
-      <div class="row">
-        <p class="row__meta">p — <code>--fs-body</code> / <code>--lh-body</code> · default body copy</p>
-        <p>Interventional radiology treats conditions through tiny incisions, using imaging to guide instruments precisely to the source. Patients go home sooner and recover faster than with traditional open surgery.</p>
-      </div>
-      <div class="row">
-        <p class="row__meta">small / .caption / .text-small — <code>--fs-caption</code></p>
-        <p><small>This website does not provide medical advice. All content is for informational purposes only.</small></p>
-      </div>
-      <div class="row">
-        <p class="row__meta">strong &amp; em — inline emphasis</p>
-        <p class="sample">Heavy periods and pelvic pain, <strong>treated without surgery</strong> — <em>preserving the uterus</em> and avoiding general anaesthesia.</p>
-      </div>
-      <div class="row">
-        <p class="row__meta">blockquote — Playfair · <code>--fs-h3</code></p>
-        <blockquote class="demo">Every patient is seen, assessed, and treated personally by an attending physician.</blockquote>
-      </div>
-      <div class="row">
-        <p class="row__meta">ul / ol / li</p>
-        <ul class="demo">
-          <li>Uterine Fibroid Embolization</li>
-          <li>Vertebroplasty &amp; Kyphoplasty</li>
-          <li>Peripheral Arterial Disease</li>
-        </ul>
-      </div>
-      <div class="row">
-        <p class="row__meta">.nav-link &amp; .btn / .cta — <code>--fs-nav</code> / <code>--fs-cta</code></p>
-        <p class="sample">
-          <span class="nav-link">About</span> &nbsp;·&nbsp;
-          <span class="nav-link">Procedures</span> &nbsp;·&nbsp;
-          <span class="btn">Book Appointment</span>
-        </p>
+        <div class="tiles">
+          <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-sm)"></div><div class="tile__label">--shadow-sm</div><div class="tile__val">resting card</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-md)"></div><div class="tile__label">--shadow-md</div><div class="tile__val">raised / hover</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-lg)"></div><div class="tile__label">--shadow-lg</div><div class="tile__val">focal / modal</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:6px;box-shadow:var(--shadow-focus)"></div><div class="tile__label">--shadow-focus</div><div class="tile__val">focus ring · in use</div></div>
+        </div>
       </div>
     </section>
 
-    <!-- ════════════════ ICONS ════════════════ -->
-    <section class="block">
-      <h2>Material Symbols</h2>
-      <p class="block__intro">Icon font only — never used for text. Loaded with <code>opsz 24, wght 300, FILL 0, GRAD 0</code>.</p>
-      <div class="icon-grid">
-        <figure><span class="material-symbols-outlined">calendar_month</span><figcaption>calendar_month</figcaption></figure>
-        <figure><span class="material-symbols-outlined">call</span><figcaption>call</figcaption></figure>
-        <figure><span class="material-symbols-outlined">mail</span><figcaption>mail</figcaption></figure>
-        <figure><span class="material-symbols-outlined">schedule</span><figcaption>schedule</figcaption></figure>
-        <figure><span class="material-symbols-outlined">school</span><figcaption>school</figcaption></figure>
-        <figure><span class="material-symbols-outlined">star</span><figcaption>star</figcaption></figure>
-        <figure><span class="material-symbols-outlined">home</span><figcaption>home</figcaption></figure>
-        <figure><span class="material-symbols-outlined">radiology</span><figcaption>radiology</figcaption></figure>
-        <figure><span class="material-symbols-outlined">stethoscope</span><figcaption>stethoscope</figcaption></figure>
-        <figure><span class="material-symbols-outlined">monitor_heart</span><figcaption>monitor_heart</figcaption></figure>
+    <!-- ════════════════ 07 · MOTION ════════════════ -->
+    <section class="block" id="motion">
+      <span class="block__num">07</span>
+      <h2>Motion</h2>
+      <p class="block__intro">Easing curves + durations. Default interactive transition: <code>220ms var(--ease)</code>. Hover the track to preview <code>--ease-out</code>. All motion respects <code>prefers-reduced-motion</code>.</p>
+      <div class="row">
+        <div class="motion-demo"><span class="motion-demo__dot" style="transition:left 600ms var(--ease-out)"></span></div>
+      </div>
+      <div class="row">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Token</th><th>Value</th><th>Used for</th></tr></thead>
+            <tbody>
+              <tr><td><code>--ease</code></td><td class="val">cubic-bezier(0.25, 0.46, 0.45, 0.94)</td><td class="val">default — colour, border, transform</td></tr>
+              <tr><td><code>--ease-out</code></td><td class="val">cubic-bezier(0.23, 1, 0.32, 1)</td><td class="val">entrances, dropdowns, lifts</td></tr>
+              <tr><td><code>--ease-in-out</code></td><td class="val">cubic-bezier(0.77, 0, 0.175, 1)</td><td class="val">symmetrical moves</td></tr>
+              <tr><td><code>--ease-drawer</code></td><td class="val">cubic-bezier(0.32, 0.72, 0, 1)</td><td class="val">drawers / overlays</td></tr>
+              <tr><td><code>--duration</code></td><td class="val">220ms</td><td class="val">default</td></tr>
+              <tr><td><code>--duration-hover</code></td><td class="val">200ms</td><td class="val">hover feedback</td></tr>
+              <tr><td><code>--duration-press</code></td><td class="val">140ms</td><td class="val">active / press</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- ════════════════ DEVIATIONS ════════════════ -->
-    <section class="block">
-      <h2>Implementation notes</h2>
-      <p class="block__intro">Two deliberate deviations from the original token spec, made to honour "don't change layout/spacing".</p>
+    <!-- ════════════════ 08 · BUTTONS ════════════════ -->
+    <section class="block" id="buttons">
+      <span class="block__num">08</span>
+      <h2>Buttons</h2>
+      <p class="block__intro">Base class <code>.btn</code> + a modifier. 14px Inter semibold, <code>--radius-sm</code>, 1.5px border. Hover lifts 2px into a shadow. Hover &amp; focus below are live; the forced-state row is labelled.</p>
+
+      <div class="row">
+        <p class="row__meta">.btn--primary — solid · one primary action per view</p>
+        <div class="demo">
+          <button class="btn btn--primary">Book Your Visit</button>
+          <button class="btn btn--primary">Send <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+          <button class="btn btn--primary" disabled>Disabled</button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">.btn--ghost — outlined · secondary actions</p>
+        <div class="demo">
+          <button class="btn btn--ghost">Explore Procedures</button>
+          <button class="btn btn--ghost">View directory <span class="btn__arrow" aria-hidden="true">&rarr;</span></button>
+          <button class="btn btn--ghost" disabled>Disabled</button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">Sizes — <code>.btn</code> default · <code>.nav__cta</code> compact (header) · <code>.btn--full</code> block</p>
+        <div class="demo">
+          <button class="btn btn--primary">Default · .btn</button>
+          <button class="nav__cta">Compact · .nav__cta</button>
+        </div>
+        <div class="demo demo--col" style="margin-top:0.85rem">
+          <button class="btn btn--primary btn--full">Full width · .btn--full</button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">.btn--icon — icon-only <span class="pill">PROPOSED</span> · unifies bespoke <code>.dr-carousel__arrow</code> / <code>.nav__toggle</code></p>
+        <div class="demo">
+          <button class="btn--icon" aria-label="Previous"><span class="material-symbols-outlined" style="font-size:20px">arrow_back</span></button>
+          <button class="btn--icon" aria-label="Next"><span class="material-symbols-outlined" style="font-size:20px">arrow_forward</span></button>
+          <button class="btn--icon" aria-label="Close"><span class="material-symbols-outlined" style="font-size:20px">close</span></button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">States — default · hover · focus-visible · disabled <span class="pill">forced for reference — hover &amp; focus also work live</span></p>
+        <div class="demo">
+          <button class="btn btn--primary">Default</button>
+          <button class="btn btn--primary is-hover">Hover</button>
+          <button class="btn btn--primary is-focus">Focus</button>
+          <button class="btn btn--primary" disabled>Disabled</button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">Usage</p>
+        <div class="dodont">
+          <div class="dodont__card dodont__do">
+            <p class="dodont__tag"><span class="material-symbols-outlined" style="font-size:16px">check</span> Do</p>
+            <p>One <code>.btn--primary</code> per view — the single most important action. Pair it with a <code>.btn--ghost</code> for the alternative.</p>
+          </div>
+          <div class="dodont__card dodont__dont">
+            <p class="dodont__tag"><span class="material-symbols-outlined" style="font-size:16px">close</span> Don't</p>
+            <p>Don't stack two solid buttons side by side, and don't use a button where a <code>.text-link</code> belongs (inline, low-emphasis navigation).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 09 · LINKS ════════════════ -->
+    <section class="block" id="links">
+      <span class="block__num">09</span>
+      <h2>Links</h2>
+      <p class="block__intro">Two link patterns beyond a raw <code>&lt;a&gt;</code>.</p>
+      <div class="row">
+        <p class="row__meta">.text-link — inline accent link, fades on hover</p>
+        <div class="demo"><a href="#links" class="text-link">Read the full procedure &rarr;</a></div>
+      </div>
+      <div class="row">
+        <p class="row__meta">nav link — header navigation, animated underline on hover <span class="pill">site selector: .nav__links a</span></p>
+        <div class="demo" style="gap:1.75rem">
+          <a href="#links" class="nav-link">About</a>
+          <a href="#links" class="nav-link">Procedures</a>
+          <a href="#links" class="nav-link">Treatment Cases</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 10 · FORMS ════════════════ -->
+    <section class="block" id="forms">
+      <span class="block__num">10</span>
+      <h2>Form fields</h2>
+      <p class="block__intro">Real classes: <code>.form__input</code>, <code>.form__textarea</code>, <code>.form__success</code>. 1.5px border, <code>--radius-sm</code>, accent focus ring. Focus row is forced; clicking a field also shows it live.</p>
+      <div class="row">
+        <p class="row__meta">.form__input — default · focus · with value</p>
+        <div class="demo demo--col">
+          <input class="form__input" type="text" placeholder="Your name" />
+          <input class="form__input is-focus" type="email" placeholder="Email — focus state" />
+          <input class="form__input" type="tel" value="(708) 657-4540" />
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">.form__textarea — vertically resizable, min-height 100px</p>
+        <div class="demo demo--col">
+          <textarea class="form__input form__textarea" placeholder="Your question" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">.form__success — accent-tinted confirmation block</p>
+        <div class="demo demo--col">
+          <div class="form__success">
+            <span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+            <span>Thank you. We&rsquo;ll call you within 24 hours.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 11 · TAGS ════════════════ -->
+    <section class="block" id="tags">
+      <span class="block__num">11</span>
+      <h2>Tags &amp; eyebrows</h2>
+      <p class="block__intro"><code>.eyebrow</code> (real — also <code>.section__label</code>, <code>.kicker</code>, <code>.tag</code>) sits above a heading. <code>.badge</code> is a standalone pill.</p>
+      <div class="row">
+        <p class="row__meta">.eyebrow / .kicker / .tag — <code>--fs-tag</code>, uppercase, semibold, 0.08em</p>
+        <p class="eyebrow">Interventional Radiology</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">.badge — pill, soft &amp; solid <span class="pill">PROPOSED</span></p>
+        <div class="demo">
+          <span class="badge">Available now</span>
+          <span class="badge">Outpatient</span>
+          <span class="badge badge--solid">Signature Procedure</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 12 · CARDS ════════════════ -->
+    <section class="block" id="cards">
+      <span class="block__num">12</span>
+      <h2>Cards</h2>
+      <p class="block__intro">Canonical recipe <code>.card</code> <span class="pill">PROPOSED</span> — white surface, 1px <code>--color-border</code>, <code>--radius-md</code>; interactive cards lift 4px into <code>--shadow-lg</code>. The site currently ships four bespoke variants instead: <code>.proc-card</code>, <code>.case-card</code>, <code>.review-card</code>, <code>.contact-path</code> — consolidating them onto <code>.card</code> is a Phase-2 task.</p>
+      <div class="row">
+        <p class="row__meta">.card — static · .card--interactive — hover to lift</p>
+        <div class="demo" style="align-items:stretch">
+          <div class="card" style="max-width:300px">
+            <p class="eyebrow" style="margin-bottom:0.4rem">Venous Interventions</p>
+            <h4>Hemodialysis Access</h4>
+            <p>Creation, maintenance, and salvage of vascular access for long-term hemodialysis.</p>
+          </div>
+          <a href="#cards" class="card card--interactive" style="max-width:300px;text-decoration:none;display:block">
+            <p class="eyebrow" style="margin-bottom:0.4rem">Embolotherapy</p>
+            <h4>Uterine Fibroid Embolization</h4>
+            <p>Shrinks fibroids by blocking their blood supply — no surgery, no general anaesthesia.</p>
+            <span class="text-link" style="margin-top:0.6rem;display:inline-block">Read more &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 13 · ICONS ════════════════ -->
+    <section class="block" id="icons">
+      <span class="block__num">13</span>
+      <h2>Icons</h2>
+      <p class="block__intro">Material Symbols Outlined — icon font only, never for text. Loaded with <code>opsz 24, wght 300, FILL 0, GRAD 0</code>. Colour follows the surrounding text colour.</p>
+
+      <div class="row">
+        <p class="row__meta">Sizing — 20px inline / in buttons · 24px default UI · 32px feature (e.g. trust strip)</p>
+        <div class="icon-sizes">
+          <figure><span class="material-symbols-outlined" style="font-size:20px;color:var(--color-text)">stethoscope</span><figcaption>20px</figcaption></figure>
+          <figure><span class="material-symbols-outlined" style="font-size:24px;color:var(--color-text)">stethoscope</span><figcaption>24px</figcaption></figure>
+          <figure><span class="material-symbols-outlined" style="font-size:32px;color:var(--color-text)">stethoscope</span><figcaption>32px</figcaption></figure>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">In context — with text · in a button · in a circle (<code>.icon-circle</code>, from <code>.contact-path__icon</code>)</p>
+        <div class="demo">
+          <span style="display:inline-flex;align-items:center;gap:0.4rem;color:var(--color-text-muted);font-size:var(--fs-body-sm)"><span class="material-symbols-outlined" style="font-size:18px">schedule</span> Mon–Fri · 8–5</span>
+          <button class="btn btn--ghost"><span class="material-symbols-outlined" style="font-size:18px">call</span> Call us</button>
+          <span class="icon-circle"><span class="material-symbols-outlined" style="font-size:24px">mail</span></span>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">Common glyphs</p>
+        <div class="icon-grid">
+          <figure><span class="material-symbols-outlined">calendar_month</span><figcaption>calendar_month</figcaption></figure>
+          <figure><span class="material-symbols-outlined">call</span><figcaption>call</figcaption></figure>
+          <figure><span class="material-symbols-outlined">mail</span><figcaption>mail</figcaption></figure>
+          <figure><span class="material-symbols-outlined">schedule</span><figcaption>schedule</figcaption></figure>
+          <figure><span class="material-symbols-outlined">school</span><figcaption>school</figcaption></figure>
+          <figure><span class="material-symbols-outlined">star</span><figcaption>star</figcaption></figure>
+          <figure><span class="material-symbols-outlined">home</span><figcaption>home</figcaption></figure>
+          <figure><span class="material-symbols-outlined">radiology</span><figcaption>radiology</figcaption></figure>
+          <figure><span class="material-symbols-outlined">stethoscope</span><figcaption>stethoscope</figcaption></figure>
+          <figure><span class="material-symbols-outlined">monitor_heart</span><figcaption>monitor_heart</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 14 · DARK SURFACES ════════════════ -->
+    <section class="block block--dark" id="dark">
+      <span class="block__num">14</span>
+      <h2>Dark surfaces</h2>
+      <p class="block__intro">The site has major dark sections — Treatment Cases, the risk-assessment tool, the footer, the nav. Type switches to <code>--color-text-light</code>; the accent switches to <code>--color-accent-soft</code> for contrast.</p>
+      <div class="row">
+        <p class="row__meta">Type on dark</p>
+        <span class="eyebrow" style="color:var(--color-accent-soft)">Treatment Cases</span>
+        <h3 style="margin:0.4rem 0 0.6rem">Cases from our practice</h3>
+        <p>A selection of real interventional radiology cases demonstrating procedural expertise across treatment categories.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">Buttons on dark — primary inverts to white, ghost takes a light border</p>
+        <div class="demo">
+          <button class="btn" style="background:#fff;color:#111;border-color:#fff">Book Appointment</button>
+          <button class="btn" style="background:transparent;color:#fff;border-color:rgba(255,255,255,0.55)">Learn more</button>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">Dark surface tokens</p>
+        <div class="swatches">
+          <div><div class="swatch__chip" style="background:#1A1A1A"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">bg-dark</div><div class="swatch__hex" style="color:#888">#1A1A1A</div></div></div>
+          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">text-light</div><div class="swatch__hex" style="color:#888">#E8E5DF</div></div></div>
+          <div><div class="swatch__chip" style="background:#5A7BA0"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">accent-soft</div><div class="swatch__hex" style="color:#888">#5A7BA0</div></div></div>
+          <div><div class="swatch__chip" style="background:#2E2E2E"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">border-dark</div><div class="swatch__hex" style="color:#888">#2E2E2E</div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════ 15 · NOTES ════════════════ -->
+    <section class="block" id="notes">
+      <span class="block__num">15</span>
+      <h2>Principles &amp; open items</h2>
+      <p class="block__intro">Voice: <strong>editorial, minimal, premium, calm</strong> — generous whitespace, restrained colour, one accent. Below: deliberate deviations and the Phase-2 worklist.</p>
       <div class="note">
-        <strong>--font-icon is <code>Material Symbols Outlined</code></strong>, not "Rounded" — the
-        site already loads Outlined everywhere; switching families would change every icon glyph.
+        <strong>Two dark colours coexist.</strong> <code>--color-text</code> (#111) drives body text,
+        buttons, and the footer; the nav uses a separate warm <code>#302820</code> / <code>#322A22</code> /
+        <code>#B19981</code> set that isn't tokenised. Consolidate, or formalise as brand-warm tokens.
       </div>
       <div class="note">
-        <strong>No global <code>p { margin-bottom }</code> / <code>ul,ol { padding-left }</code> / <code>li { margin-bottom }</code>.</strong>
-        This site spaces paragraphs and lists with flex <code>gap</code> and explicit margins; adding
-        global block margins would shift many existing layouts. Lists keep <code>list-style: none</code>.
-        Revisit when rolling the system out to the remaining pages (Phase 2).
+        <strong>text-dim fails AA for body text.</strong> <code>--color-text-dim</code> (#888) is ~3.3:1 on
+        the light canvas — restrict it to large text and non-essential meta, never body copy.
+      </div>
+      <div class="note">
+        <strong>Elevation isn't tokenised.</strong> ~15 one-off <code>box-shadow</code> values exist in
+        <code>styles.css</code>; the <code>--shadow-sm/md/lg</code> scale here is a proposal to replace them.
+      </div>
+      <div class="note">
+        <strong>Card variants aren't unified.</strong> <code>.proc-card</code>, <code>.case-card</code>,
+        <code>.review-card</code>, <code>.contact-path</code> each re-implement the card recipe — fold them
+        onto a single <code>.card</code> + modifiers.
+      </div>
+      <div class="note">
+        <strong>--font-icon is <code>Material Symbols Outlined</code></strong> (not "Rounded"); <strong>no
+        <code>--fw-bold</code> (700)</strong> token — neither family loads 700; <strong>no global
+        <code>p</code>/<code>ul</code>/<code>li</code> block-margins</strong> — the site spaces with flex
+        <code>gap</code>.
       </div>
     </section>
 
     <footer>
-      Phase 1 — homepage + shared components (header, nav, footer, buttons, cards, forms, global
-      sections). Legacy aliases <code>--font-serif</code> / <code>--font-sans</code> still resolve to
-      <code>--font-display</code> / <code>--font-body</code> so unmigrated pages keep working.
+      Phase 1 — typography system applied to the homepage + shared components (header, nav, footer,
+      buttons, cards, forms, global sections). Component recipes on this page mirror <code>styles.css</code>;
+      where a class name differs the styles.css name is noted, and anything not yet shipped is tagged
+      PROPOSED. Legacy aliases <code>--font-serif</code> / <code>--font-sans</code> still resolve.
       <code>index_old.html</code> is excluded.
     </footer>
 
