@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typography Specimen — MedRad Clinics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Exactly the families + weights the site loads in production -->
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet" />
+
+  <style>
+    :root {
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, -apple-system, sans-serif;
+      --display: 'Bagel Fat One', system-ui;
+
+      --bg:        #F8F7F5;
+      --bg-card:   #FFFFFF;
+      --ink:       #302820;
+      --ink-soft:  #322A22;
+      --muted:     #6B6258;
+      --accent:    #B19981;
+      --accent-bg: #3D5A80;
+      --border:    #E2DED8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: clamp(1.5rem, 5vw, 5rem);
+    }
+
+    .wrap { max-width: 940px; margin: 0 auto; }
+
+    /* ---- Page header ---- */
+    .page-head {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2rem;
+      margin-bottom: 3.5rem;
+    }
+    .page-head .eyebrow {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+    .page-head h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .page-head p {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 56ch;
+    }
+
+    /* ---- Font block ---- */
+    .font {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      margin-bottom: 2rem;
+      overflow: hidden;
+    }
+
+    .font__head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.5rem 1.5rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .font__name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .font__var {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .font__var code {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.15em 0.5em;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 0.4rem 1.25rem;
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .meta dt { color: var(--muted); }
+    .meta dd { color: var(--ink); }
+    .chip {
+      display: inline-block;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.1rem 0.65rem;
+      font-size: 0.78rem;
+      margin: 0 0.3rem 0.3rem 0;
+    }
+
+    /* ---- Specimen rows ---- */
+    .row { padding: 1rem 0; border-top: 1px solid var(--border); }
+    .row:first-of-type { border-top: none; }
+    .row__label {
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .sample { color: var(--ink); line-height: 1.15; }
+
+    /* Serif samples */
+    .s-serif       { font-family: var(--serif); }
+    .s-display-xl  { font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 600; letter-spacing: -0.03em; }
+    .s-h1          { font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 600; letter-spacing: -0.01em; }
+    .s-h2          { font-size: 2rem; font-weight: 600; }
+    .s-h3          { font-size: 1.25rem; font-weight: 600; }
+    .s-serif-it    { font-size: 1.5rem; font-weight: 400; font-style: italic; color: var(--muted); }
+    .s-serif-400   { font-size: 1.5rem; font-weight: 400; }
+
+    /* Sans samples */
+    .s-sans        { font-family: var(--sans); }
+    .s-lead        { font-size: 1.25rem; font-weight: 300; line-height: 1.6; color: var(--muted); }
+    .s-body        { font-size: 0.9375rem; font-weight: 400; line-height: 1.75; color: var(--muted); }
+    .s-ui          { font-size: 0.875rem; font-weight: 500; letter-spacing: 0.01em; }
+    .s-eyebrow     { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+
+    /* Display font */
+    .s-bagel {
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+    .bagel-pill {
+      display: inline-block;
+      background: var(--accent-bg);
+      color: #fff;
+      font-family: var(--display);
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      padding: 0.5rem 1rem 0.55rem;
+      border-radius: 8px;
+      transform: rotate(-2deg);
+    }
+
+    /* Weight ladder */
+    .ladder { display: flex; flex-direction: column; gap: 0.35rem; }
+    .ladder > div {
+      font-size: 1.6rem;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+    }
+    .ladder > div span:first-child {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      color: var(--muted);
+      width: 90px;
+      flex: none;
+      letter-spacing: 0.04em;
+    }
+
+    /* Glyph grid */
+    .glyphs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      font-family: var(--serif);
+      font-size: 1.4rem;
+    }
+    .glyphs.is-sans { font-family: var(--sans); }
+    .glyphs span {
+      width: 2.4rem;
+      height: 2.4rem;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    /* Material icons */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .icon-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+    }
+    .icon-grid figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      width: 92px;
+      text-align: center;
+    }
+    .icon-grid .material-symbols-outlined {
+      font-size: 2rem;
+      color: var(--ink-soft);
+    }
+    .icon-grid figcaption {
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    footer code {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.1em 0.45em;
+      font-size: 0.76rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="page-head">
+      <p class="eyebrow">MedRad Clinics</p>
+      <h1>Typography Specimen</h1>
+      <p>Every typeface in use across the site, with the weights loaded, the
+         CSS token that references it, and where it appears. Reference for
+         auditing and fixing type.</p>
+    </header>
+
+    <!-- ============================================================
+         1 — Playfair Display
+         ============================================================ -->
+    <section class="font">
+      <div class="font__head">
+        <span class="font__name">Playfair Display</span>
+        <span class="font__var">token <code>--font-serif</code> &nbsp;·&nbsp; <code>'Playfair Display', Georgia, serif</code></span>
+      </div>
+
+      <dl class="meta">
+        <dt>Role</dt>
+        <dd>Headings &amp; display — h1–h4, hero headline, section titles, card titles</dd>
+        <dt>Weights</dt>
+        <dd>
+          <span class="chip">400 Regular</span>
+          <span class="chip">600 SemiBold</span>
+          <span class="chip">400 Italic</span>
+        </dd>
+        <dt>Loaded on</dt>
+        <dd>All pages</dd>
+      </dl>
+
+      <div class="row">
+        <p class="row__label">Hero display — 600 · clamp(3.75rem → 7rem)</p>
+        <div class="sample s-serif s-display-xl">Treatment, not just imaging.</div>
+      </div>
+      <div class="row">
+        <p class="row__label">H1 — 600 · clamp(2.25rem → 3.5rem)</p>
+        <div class="sample s-serif s-h1">Image-guided care, minimally invasive</div>
+      </div>
+      <div class="row">
+        <p class="row__label">H2 — 600 · clamp(1.75rem → 2.5rem)</p>
+        <div class="sample s-serif s-h2">Procedures &amp; treatment cases</div>
+      </div>
+      <div class="row">
+        <p class="row__label">H3 — 600 · 1.25rem</p>
+        <div class="sample s-serif s-h3">Uterine Fibroid Embolization</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Regular — 400</p>
+        <div class="sample s-serif s-serif-400">The quick brown fox jumps over the lazy dog</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Italic — 400 · used for hero sub-line</p>
+        <div class="sample s-serif s-serif-it">Minimally invasive procedures guided by precision imaging.</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Glyphs</p>
+        <div class="glyphs">
+          <span>A</span><span>a</span><span>B</span><span>g</span><span>Q</span>
+          <span>R</span><span>1</span><span>2</span><span>3</span><span>&amp;</span>
+          <span>?</span><span>—</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         2 — Inter
+         ============================================================ -->
+    <section class="font">
+      <div class="font__head">
+        <span class="font__name">Inter</span>
+        <span class="font__var">token <code>--font-sans</code> &nbsp;·&nbsp; <code>'Inter', system-ui, -apple-system, sans-serif</code></span>
+      </div>
+
+      <dl class="meta">
+        <dt>Role</dt>
+        <dd>Body copy, UI — paragraphs, buttons, nav, labels, forms, footer</dd>
+        <dt>Weights</dt>
+        <dd>
+          <span class="chip">300 Light</span>
+          <span class="chip">400 Regular</span>
+          <span class="chip">500 Medium</span>
+        </dd>
+        <dt>Loaded on</dt>
+        <dd>All pages</dd>
+      </dl>
+
+      <div class="row">
+        <p class="row__label">Eyebrow / label — 500 · 0.75rem · uppercase · tracked</p>
+        <div class="sample s-sans s-eyebrow">Interventional Radiology &amp; Image-Guided Treatment</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Lead — 300 · 1.25rem</p>
+        <div class="sample s-sans s-lead">No open surgery, faster recovery, the same outcomes — delivered through precision imaging.</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Body — 400 · 0.9375rem · line-height 1.75</p>
+        <div class="sample s-sans s-body">Interventional radiology treats conditions through tiny incisions, using imaging to guide instruments precisely to the source. Patients go home sooner and recover faster than with traditional open surgery.</div>
+      </div>
+      <div class="row">
+        <p class="row__label">UI / button — 500 · 0.875rem</p>
+        <div class="sample s-sans s-ui">Book Appointment&nbsp;&nbsp;·&nbsp;&nbsp;Explore Procedures&nbsp;&nbsp;·&nbsp;&nbsp;Contact</div>
+      </div>
+      <div class="row">
+        <p class="row__label">Weight ladder</p>
+        <div class="ladder s-sans">
+          <div><span>300 Light</span> Precision imaging</div>
+          <div><span>400 Regular</span> Precision imaging</div>
+          <div><span>500 Medium</span> Precision imaging</div>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__label">Glyphs</p>
+        <div class="glyphs is-sans">
+          <span>A</span><span>a</span><span>B</span><span>g</span><span>Q</span>
+          <span>R</span><span>1</span><span>2</span><span>3</span><span>&amp;</span>
+          <span>?</span><span>@</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3 — Bagel Fat One
+         ============================================================ -->
+    <section class="font">
+      <div class="font__head">
+        <span class="font__name">Bagel Fat One</span>
+        <span class="font__var">hard-coded &nbsp;·&nbsp; <code>'Bagel Fat One', cursive</code></span>
+      </div>
+
+      <dl class="meta">
+        <dt>Role</dt>
+        <dd>Playful accent — the “Ask Dr. E” pill / title only (<code>.ask-dre__title</code>, <code>.askdre-pill</code>)</dd>
+        <dt>Weights</dt>
+        <dd><span class="chip">400 (single weight)</span></dd>
+        <dt>Loaded on</dt>
+        <dd>index.html only</dd>
+      </dl>
+
+      <div class="row">
+        <p class="row__label">Display</p>
+        <div class="sample s-bagel">Ask Dr. E</div>
+      </div>
+      <div class="row">
+        <p class="row__label">As used — accent pill</p>
+        <div class="bagel-pill">Ask Dr. E</div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4 — Material Symbols Outlined
+         ============================================================ -->
+    <section class="font">
+      <div class="font__head">
+        <span class="font__name">Material Symbols Outlined</span>
+        <span class="font__var">icon font &nbsp;·&nbsp; <code>opsz 24, wght 300, FILL 0, GRAD 0</code></span>
+      </div>
+
+      <dl class="meta">
+        <dt>Role</dt>
+        <dd>UI icons</dd>
+        <dt>Loaded on</dt>
+        <dd>index.html, appointment.html, contact.html</dd>
+      </dl>
+
+      <div class="row">
+        <p class="row__label">Sample glyphs</p>
+        <div class="icon-grid">
+          <figure><span class="material-symbols-outlined">calendar_month</span><figcaption>calendar_month</figcaption></figure>
+          <figure><span class="material-symbols-outlined">call</span><figcaption>call</figcaption></figure>
+          <figure><span class="material-symbols-outlined">mail</span><figcaption>mail</figcaption></figure>
+          <figure><span class="material-symbols-outlined">location_on</span><figcaption>location_on</figcaption></figure>
+          <figure><span class="material-symbols-outlined">schedule</span><figcaption>schedule</figcaption></figure>
+          <figure><span class="material-symbols-outlined">stethoscope</span><figcaption>stethoscope</figcaption></figure>
+          <figure><span class="material-symbols-outlined">favorite</span><figcaption>favorite</figcaption></figure>
+          <figure><span class="material-symbols-outlined">arrow_forward</span><figcaption>arrow_forward</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Fonts are loaded via Google Fonts <code>&lt;link&gt;</code> tags in each page’s
+      <code>&lt;head&gt;</code>. Serif and sans are mapped to the CSS tokens
+      <code>--font-serif</code> / <code>--font-sans</code> in <code>styles.css</code>.
+      <code>index_old.html</code> is excluded.
+    </footer>
+
+  </div>
+</body>
+</html>
