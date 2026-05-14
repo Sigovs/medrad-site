@@ -505,9 +505,10 @@
       <a href="#forms">10 Forms</a>
       <a href="#tags">11 Tags</a>
       <a href="#cards">12 Cards</a>
-      <a href="#icons">13 Icons</a>
-      <a href="#dark">14 Dark surfaces</a>
-      <a href="#notes">15 Notes</a>
+      <a href="#page-header">13 Page header</a>
+      <a href="#icons">14 Icons</a>
+      <a href="#dark">15 Dark surfaces</a>
+      <a href="#notes">16 Notes</a>
     </nav>
 
     <!-- ════════════════ 01 · COLOUR ════════════════ -->
@@ -742,7 +743,7 @@
       </div>
       <div class="row">
         <p class="row__meta">Rhythm — eyebrow → heading gap</p>
-        <p style="font-size:var(--fs-body-sm);max-width:68ch">The <code>.eyebrow</code> / kicker that sits above a heading uses one of <strong>two</strong> gaps, never an ad-hoc value: <strong><code>--space-xs</code> (8px)</strong> for a tight lockup — section headers, card kickers (<code>.section__label</code>, <code>.proc-card__cat</code>, <code>.case-card__cat</code>); <strong><code>--space-md</code> (24px)</strong> for an airy lockup — hero and page openings (<code>.entry__label</code>, <code>.abt-opening__label</code>, <code>.askdre-pill</code>). On mobile the airy gap may tighten to <code>--space-sm</code>.</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">The <code>.eyebrow</code> / kicker that sits above a heading uses one of <strong>two</strong> gaps, never an ad-hoc value: <strong><code>--space-xs</code> (8px)</strong> for a tight lockup — section headers, card kickers, and every inner-page <code>.page-header</code> (<code>.section__label</code>, <code>.proc-card__cat</code>, <code>.case-card__cat</code>); <strong><code>--space-md</code> (24px)</strong> for an airy lockup — the homepage hero and Ask-Dr-E pill (<code>.entry__label</code>, <code>.askdre-pill</code>). On mobile the airy gap may tighten to <code>--space-sm</code>.</p>
       </div>
       <div class="row">
         <p class="row__meta">Rhythm — stacked content (vertical rhythm)</p>
@@ -972,9 +973,33 @@
       </div>
     </section>
 
-    <!-- ════════════════ 13 · ICONS ════════════════ -->
-    <section class="block" id="icons">
+    <!-- ════════════════ 13 · PAGE HEADER ════════════════ -->
+    <section class="block" id="page-header">
       <span class="block__num">13</span>
+      <h2>Page header</h2>
+      <p class="block__intro">Every inner page opens with the <strong>same</strong> component — <code>.page-header</code>. One padding, one title size (<code>--fs-h2</code>, Playfair, <code>--fw-semibold</code>, <code>-0.03em</code>), one eyebrow gap (<code>.section__label</code>, tight). Before consolidation each page reinvented its own top (<code>.ll-hero</code>, <code>.abt-opening</code>, <code>.proc-page__title</code>, <code>.cat-intro__title</code>) — different heights, different fonts. The homepage is the one exception: it uses <code>.entry</code>, the landing hero, on purpose.</p>
+      <div class="row">
+        <p class="row__meta">.page-header — eyebrow + title + optional desc, inside <code>.container</code></p>
+        <div class="demo" style="display:block;background:var(--color-bg-accent);border-radius:var(--radius-md);padding:var(--space-xl)">
+          <p class="section__label" style="color:var(--color-accent);margin-bottom:var(--space-xs)">Members</p>
+          <h2 style="font-size:var(--fs-h2);font-weight:var(--fw-semibold);letter-spacing:-0.03em;margin:0 0 var(--space-sm)">Lecture Library</h2>
+          <p style="font-size:var(--fs-body);color:var(--color-text-muted);max-width:600px">Recorded lectures, educational presentations, and expert-led video content — curated for physicians and medical students.</p>
+        </div>
+      </div>
+      <div class="row">
+        <p class="row__meta">--with-media — image beside the text (<code>.page-header__inner</code> grid · <code>.page-header__text</code> + <code>.page-header__media</code>); used on All Procedures, Patient Education, Treatment Cases</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">--statement — long-sentence headline at <code>--fw-regular</code> / <code>1.45</code> line-height (About page); drops the bottom divider so it flows into the next section</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">Article pages — procedure / case / education-category reuse <code>.page-header__title</code> inside their own column header wrapper, so the title matches site-wide without the full header band</p>
+      </div>
+    </section>
+
+    <!-- ════════════════ 14 · ICONS ════════════════ -->
+    <section class="block" id="icons">
+      <span class="block__num">14</span>
       <h2>Icons</h2>
       <p class="block__intro">Material Symbols Outlined — icon font only, never for text. Loaded with <code>opsz 24, wght 300, FILL 0, GRAD 0</code>. Colour follows the surrounding text colour.</p>
 
@@ -1011,9 +1036,9 @@
       </div>
     </section>
 
-    <!-- ════════════════ 14 · DARK SURFACES ════════════════ -->
+    <!-- ════════════════ 15 · DARK SURFACES ════════════════ -->
     <section class="block block--dark" id="dark">
-      <span class="block__num">14</span>
+      <span class="block__num">15</span>
       <h2>Dark surfaces</h2>
       <p class="block__intro">The site has major dark sections — Treatment Cases, the risk-assessment tool, the footer, the nav. Type switches to <code>--color-text-light</code>; the accent switches to <code>--color-accent-soft</code> for contrast.</p>
       <div class="row">
@@ -1041,9 +1066,9 @@
       </div>
     </section>
 
-    <!-- ════════════════ 15 · NOTES ════════════════ -->
+    <!-- ════════════════ 16 · NOTES ════════════════ -->
     <section class="block" id="notes">
-      <span class="block__num">15</span>
+      <span class="block__num">16</span>
       <h2>Principles &amp; open items</h2>
       <p class="block__intro">Voice: <strong>editorial, minimal, premium, calm</strong> — generous whitespace, restrained colour, one accent. Below: deliberate deviations and the Phase-2 worklist.</p>
       <div class="note">
