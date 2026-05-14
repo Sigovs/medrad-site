@@ -19,19 +19,22 @@
        anything proposed/not-yet-shipped is tagged .is-proposed.
        ════════════════════════════════════════════════════════════ */
     :root {
-      /* ── Colour ───────────────────────────────────────────── */
-      --color-bg:          #F8F7F5;
-      --color-bg-accent:   #F2EFE9;
-      --color-bg-dark:     #1A1A1A;
-      --color-text:        #111111;
-      --color-text-muted:  #555555;
-      --color-text-light:  #E8E5DF;
-      --color-text-dim:    #888888;
-      --color-accent:      #3D5A80;
-      --color-accent-soft: #5A7BA0;
-      --color-border:      #E2DED8;
-      --color-border-dark: #2E2E2E;
-      --color-white:       #FFFFFF;
+      /* ── Colour — refined editorial-medical palette ──────── */
+      --color-bg:           #F8F7F5;
+      --color-bg-accent:    #F2EFE9;
+      --color-sand:         #ECE4D6;
+      --color-stone:        #D6CFC3;
+      --color-text:         #14130F;
+      --color-bg-dark:      #1F1D19;
+      --color-surface-dark: #2A2825;
+      --color-text-muted:   #56534C;
+      --color-text-dim:     #8B867D;
+      --color-text-light:   #E8E5DF;
+      --color-accent:       #4A5F70;
+      --color-accent-soft:  #7E94A4;
+      --color-border:       #E2DED8;
+      --color-border-dark:  #2A2824;
+      --color-white:        #FFFFFF;
 
       /* ── Font families ────────────────────────────────────── */
       --font-display: 'Playfair Display', Georgia, serif;
@@ -511,32 +514,38 @@
     <section class="block" id="color">
       <span class="block__num">01</span>
       <h2>Colour — palette</h2>
-      <p class="block__intro">Warm off-white canvas, near-black ink, a single muted-blue accent. Raw tokens: <code>--color-*</code>. The semantic layer (next section) maps these to roles.</p>
+      <p class="block__intro">Warm off-white canvas, warm-graphite darks, one muted mineral blue-gray accent, two restrained warm neutrals. Every value is a <code>--color-*</code> token — the warm browns the nav used before are gone. The semantic layer (next section) maps these to roles.</p>
 
       <div class="row">
-        <p class="row__meta">Core palette — tokenised in <code>:root</code></p>
+        <p class="row__meta">Surfaces — light</p>
         <div class="swatches">
           <div><div class="swatch__chip" style="background:#F8F7F5"></div><div class="swatch__body"><div class="swatch__name">bg</div><div class="swatch__hex">#F8F7F5</div></div></div>
           <div><div class="swatch__chip" style="background:#F2EFE9"></div><div class="swatch__body"><div class="swatch__name">bg-accent</div><div class="swatch__hex">#F2EFE9</div></div></div>
-          <div><div class="swatch__chip" style="background:#1A1A1A"></div><div class="swatch__body"><div class="swatch__name">bg-dark</div><div class="swatch__hex">#1A1A1A</div></div></div>
+          <div><div class="swatch__chip" style="background:#ECE4D6"></div><div class="swatch__body"><div class="swatch__name">sand</div><div class="swatch__hex">#ECE4D6</div></div></div>
+          <div><div class="swatch__chip" style="background:#D6CFC3"></div><div class="swatch__body"><div class="swatch__name">stone</div><div class="swatch__hex">#D6CFC3</div></div></div>
           <div><div class="swatch__chip" style="background:#FFFFFF"></div><div class="swatch__body"><div class="swatch__name">white</div><div class="swatch__hex">#FFFFFF</div></div></div>
-          <div><div class="swatch__chip" style="background:#111111"></div><div class="swatch__body"><div class="swatch__name">text</div><div class="swatch__hex">#111111</div></div></div>
-          <div><div class="swatch__chip" style="background:#555555"></div><div class="swatch__body"><div class="swatch__name">text-muted</div><div class="swatch__hex">#555555</div></div></div>
-          <div><div class="swatch__chip" style="background:#888888"></div><div class="swatch__body"><div class="swatch__name">text-dim</div><div class="swatch__hex">#888888</div></div></div>
-          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body"><div class="swatch__name">text-light</div><div class="swatch__hex">#E8E5DF</div></div></div>
-          <div><div class="swatch__chip" style="background:#3D5A80"></div><div class="swatch__body"><div class="swatch__name">accent</div><div class="swatch__hex">#3D5A80</div></div></div>
-          <div><div class="swatch__chip" style="background:#5A7BA0"></div><div class="swatch__body"><div class="swatch__name">accent-soft</div><div class="swatch__hex">#5A7BA0</div></div></div>
-          <div><div class="swatch__chip" style="background:#E2DED8"></div><div class="swatch__body"><div class="swatch__name">border</div><div class="swatch__hex">#E2DED8</div></div></div>
-          <div><div class="swatch__chip" style="background:#2E2E2E"></div><div class="swatch__body"><div class="swatch__name">border-dark</div><div class="swatch__hex">#2E2E2E</div></div></div>
         </div>
       </div>
 
       <div class="row">
-        <p class="row__meta">Warm neutrals — used by the nav <span class="pill">NOT TOKENISED</span></p>
+        <p class="row__meta">Surfaces — dark · one warm undertone, progressively lifted</p>
         <div class="swatches">
-          <div><div class="swatch__chip" style="background:#302820"></div><div class="swatch__body"><div class="swatch__name">nav surface</div><div class="swatch__hex">#302820</div></div></div>
-          <div><div class="swatch__chip" style="background:#322A22"></div><div class="swatch__body"><div class="swatch__name">dropdown surface</div><div class="swatch__hex">#322A22</div></div></div>
-          <div><div class="swatch__chip" style="background:#B19981"></div><div class="swatch__body"><div class="swatch__name">dropdown text</div><div class="swatch__hex">#B19981</div></div></div>
+          <div><div class="swatch__chip" style="background:#14130F"></div><div class="swatch__body"><div class="swatch__name">text</div><div class="swatch__hex">#14130F</div></div></div>
+          <div><div class="swatch__chip" style="background:#1F1D19"></div><div class="swatch__body"><div class="swatch__name">bg-dark</div><div class="swatch__hex">#1F1D19</div></div></div>
+          <div><div class="swatch__chip" style="background:#2A2825"></div><div class="swatch__body"><div class="swatch__name">surface-dark</div><div class="swatch__hex">#2A2825</div></div></div>
+          <div><div class="swatch__chip" style="background:#2A2824"></div><div class="swatch__body"><div class="swatch__name">border-dark</div><div class="swatch__hex">#2A2824</div></div></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <p class="row__meta">Text &amp; accent</p>
+        <div class="swatches">
+          <div><div class="swatch__chip" style="background:#56534C"></div><div class="swatch__body"><div class="swatch__name">text-muted</div><div class="swatch__hex">#56534C</div></div></div>
+          <div><div class="swatch__chip" style="background:#8B867D"></div><div class="swatch__body"><div class="swatch__name">text-dim</div><div class="swatch__hex">#8B867D</div></div></div>
+          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body"><div class="swatch__name">text-light</div><div class="swatch__hex">#E8E5DF</div></div></div>
+          <div><div class="swatch__chip" style="background:#4A5F70"></div><div class="swatch__body"><div class="swatch__name">accent</div><div class="swatch__hex">#4A5F70</div></div></div>
+          <div><div class="swatch__chip" style="background:#7E94A4"></div><div class="swatch__body"><div class="swatch__name">accent-soft</div><div class="swatch__hex">#7E94A4</div></div></div>
+          <div><div class="swatch__chip" style="background:#E2DED8"></div><div class="swatch__body"><div class="swatch__name">border</div><div class="swatch__hex">#E2DED8</div></div></div>
         </div>
       </div>
     </section>
@@ -551,30 +560,31 @@
         <p class="row__meta">On light surfaces — <code>bg</code> / <code>white</code> / <code>bg-accent</code></p>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Role</th><th>Token</th><th>On bg</th><th>Contrast</th></tr></thead>
+            <thead><tr><th>Role</th><th>Token</th><th>Use</th><th>Contrast on bg</th></tr></thead>
             <tbody>
-              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#111"></span><code>--color-text</code></td><td class="val">body, headings</td><td><span class="cr cr--aaa">AAA · ~18:1</span></td></tr>
-              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#555"></span><code>--color-text-muted</code></td><td class="val">body copy, captions</td><td><span class="cr cr--aaa">AAA · ~7.2:1</span></td></tr>
-              <tr><td>Text — tertiary / meta</td><td><span class="chip-color" style="background:#888"></span><code>--color-text-dim</code></td><td class="val">timestamps, fine print</td><td><span class="cr cr--warn">~3.3:1 — large text only</span></td></tr>
-              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#3D5A80"></span><code>--color-accent</code></td><td class="val">links, eyebrows, focus</td><td><span class="cr cr--aa">AA · ~6.6:1</span></td></tr>
+              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#14130F"></span><code>--color-text</code></td><td class="val">body, headings</td><td><span class="cr cr--aaa">AAA · ~17:1</span></td></tr>
+              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#56534C"></span><code>--color-text-muted</code></td><td class="val">body copy, captions</td><td><span class="cr cr--aaa">AAA · ~7:1</span></td></tr>
+              <tr><td>Text — tertiary / meta</td><td><span class="chip-color" style="background:#8B867D"></span><code>--color-text-dim</code></td><td class="val">timestamps, fine print</td><td><span class="cr cr--warn">~3.3:1 — large text only</span></td></tr>
+              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#4A5F70"></span><code>--color-accent</code></td><td class="val">links, eyebrows, focus</td><td><span class="cr cr--aa">AA · ~6.2:1</span></td></tr>
               <tr><td>Border / divider</td><td><span class="chip-color" style="background:#E2DED8"></span><code>--color-border</code></td><td class="val">card edges, rules, inputs</td><td class="val">non-text</td></tr>
               <tr><td>Surface — base / raised / tinted</td><td><span class="chip-color" style="background:#F8F7F5"></span><code>bg</code> / <code>white</code> / <code>bg-accent</code></td><td class="val">page / cards / soft fills</td><td class="val">—</td></tr>
+              <tr><td>Surface — warm neutrals</td><td><span class="chip-color" style="background:#ECE4D6"></span><code>sand</code> / <code>stone</code></td><td class="val">layered surfaces, tags, dividers, hover fills</td><td class="val">—</td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
       <div class="row">
-        <p class="row__meta">On dark surfaces — <code>bg-dark</code> / footer <code>text</code> / nav warm</p>
+        <p class="row__meta">On dark surfaces — <code>text</code> (footer) / <code>bg-dark</code> / <code>surface-dark</code> (nav)</p>
         <div class="table-wrap">
           <table>
-            <thead><tr><th>Role</th><th>Token</th><th>On dark</th><th>Contrast</th></tr></thead>
+            <thead><tr><th>Role</th><th>Token</th><th>Use</th><th>Contrast on dark</th></tr></thead>
             <tbody>
-              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#E8E5DF"></span><code>--color-text-light</code></td><td class="val">headings, body on dark</td><td><span class="cr cr--aaa">AAA · ~14:1</span></td></tr>
-              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#888"></span><code>--color-text-dim</code></td><td class="val">muted copy on dark</td><td><span class="cr cr--aa">AA · ~4.8:1</span></td></tr>
-              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#5A7BA0"></span><code>--color-accent-soft</code></td><td class="val">links, accents on dark</td><td><span class="cr cr--aa">AA · ~4.7:1</span></td></tr>
-              <tr><td>Border / divider</td><td><span class="chip-color" style="background:#2E2E2E"></span><code>--color-border-dark</code></td><td class="val">dividers on dark</td><td class="val">non-text</td></tr>
-              <tr><td>Nav — warm text on warm surface</td><td><span class="chip-color" style="background:#B19981"></span><code>#B19981</code> on <code>#322A22</code></td><td class="val">dropdown items</td><td><span class="cr cr--aa">AA · ~5.2:1</span></td></tr>
+              <tr><td>Text — primary</td><td><span class="chip-color" style="background:#E8E5DF"></span><code>--color-text-light</code></td><td class="val">headings, body, nav items</td><td><span class="cr cr--aaa">AAA · ~14:1</span></td></tr>
+              <tr><td>Text — secondary</td><td><span class="chip-color" style="background:#8B867D"></span><code>--color-text-dim</code></td><td class="val">muted copy on dark</td><td><span class="cr cr--aa">AA · ~4.9:1</span></td></tr>
+              <tr><td>Interactive / link</td><td><span class="chip-color" style="background:#7E94A4"></span><code>--color-accent-soft</code></td><td class="val">links, accents on dark</td><td><span class="cr cr--aa">AA · ~5.5:1</span></td></tr>
+              <tr><td>Border / divider</td><td><span class="chip-color" style="background:#2A2824"></span><code>--color-border-dark</code></td><td class="val">dividers on dark</td><td class="val">non-text</td></tr>
+              <tr><td>Surface — deep / lifted</td><td><span class="chip-color" style="background:#1F1D19"></span><code>bg-dark</code> / <code>surface-dark</code></td><td class="val">dark sections / nav · dropdown</td><td class="val">—</td></tr>
             </tbody>
           </table>
         </div>
@@ -729,6 +739,25 @@
       <div class="row">
         <p class="row__meta">Rule — snap, don't invent</p>
         <p style="font-size:var(--fs-body-sm);max-width:68ch">Reach for the <strong>nearest token</strong> instead of a fresh pixel value — gaps, margins, padding, section rhythm all pull from this one scale. Two deliberate exceptions are left as-is because snapping them would shift component proportions: <strong>component-internal padding</strong> that lands on 12px (<code>.btn</code> <code>0.75rem&nbsp;1.75rem</code>, <code>.form__input</code>, <code>.review-card__head</code> gap) — 12px sits between <code>--space-xs</code> and <code>--space-sm</code> with no token. If 12 / 32 / 48 start repeating across pages in the Phase-2 rollout, add them then — by data, not upfront.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">Rhythm — eyebrow → heading gap</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">The <code>.eyebrow</code> / kicker that sits above a heading uses one of <strong>two</strong> gaps, never an ad-hoc value: <strong><code>--space-xs</code> (8px)</strong> for a tight lockup — section headers, card kickers (<code>.section__label</code>, <code>.proc-card__cat</code>, <code>.case-card__cat</code>); <strong><code>--space-md</code> (24px)</strong> for an airy lockup — hero and page openings (<code>.entry__label</code>, <code>.abt-opening__label</code>, <code>.askdre-pill</code>). On mobile the airy gap may tighten to <code>--space-sm</code>.</p>
+      </div>
+      <div class="row">
+        <p class="row__meta">Rhythm — stacked content (vertical rhythm)</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Relationship</th><th>Section-level</th><th>Card-level</th></tr></thead>
+            <tbody>
+              <tr><td>heading / title → body or lead</td><td class="val"><code>--space-sm</code> · 16px</td><td class="val"><code>--space-xs</code> · 8px</td></tr>
+              <tr><td>body → body (paragraph to paragraph)</td><td class="val"><code>--space-md</code> · 24px</td><td class="val"><code>--space-md</code> · 24px</td></tr>
+              <tr><td>heading → list</td><td class="val"><code>--space-sm</code> · 16px</td><td class="val">—</td></tr>
+              <tr><td>last content element → CTA / action</td><td class="val"><code>--space-lg</code> · 40px</td><td class="val"><code>--space-md</code> · 24px</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch;margin-top:0.85rem">Same logic as eyebrow→heading — <strong>tighter inside cards, airier at section level</strong>. No global <code>* + *</code> flow selector: the site already spaces with flex <code>gap</code> and explicit margins, so a blanket owl-selector would double up. These are the standard values components follow.</p>
       </div>
     </section>
 
@@ -1001,12 +1030,13 @@
         </div>
       </div>
       <div class="row">
-        <p class="row__meta">Dark surface tokens</p>
+        <p class="row__meta">Dark surface tokens — one warm undertone, progressively lifted</p>
         <div class="swatches">
-          <div><div class="swatch__chip" style="background:#1A1A1A"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">bg-dark</div><div class="swatch__hex" style="color:#888">#1A1A1A</div></div></div>
-          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">text-light</div><div class="swatch__hex" style="color:#888">#E8E5DF</div></div></div>
-          <div><div class="swatch__chip" style="background:#5A7BA0"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">accent-soft</div><div class="swatch__hex" style="color:#888">#5A7BA0</div></div></div>
-          <div><div class="swatch__chip" style="background:#2E2E2E"></div><div class="swatch__body" style="background:#262626;border-color:#2E2E2E"><div class="swatch__name" style="color:#E8E5DF">border-dark</div><div class="swatch__hex" style="color:#888">#2E2E2E</div></div></div>
+          <div><div class="swatch__chip" style="background:#14130F"></div><div class="swatch__body" style="background:#262422;border-color:#2A2824"><div class="swatch__name" style="color:#E8E5DF">text</div><div class="swatch__hex" style="color:#8B867D">#14130F</div></div></div>
+          <div><div class="swatch__chip" style="background:#1F1D19"></div><div class="swatch__body" style="background:#262422;border-color:#2A2824"><div class="swatch__name" style="color:#E8E5DF">bg-dark</div><div class="swatch__hex" style="color:#8B867D">#1F1D19</div></div></div>
+          <div><div class="swatch__chip" style="background:#2A2825"></div><div class="swatch__body" style="background:#262422;border-color:#2A2824"><div class="swatch__name" style="color:#E8E5DF">surface-dark</div><div class="swatch__hex" style="color:#8B867D">#2A2825</div></div></div>
+          <div><div class="swatch__chip" style="background:#E8E5DF"></div><div class="swatch__body" style="background:#262422;border-color:#2A2824"><div class="swatch__name" style="color:#E8E5DF">text-light</div><div class="swatch__hex" style="color:#8B867D">#E8E5DF</div></div></div>
+          <div><div class="swatch__chip" style="background:#7E94A4"></div><div class="swatch__body" style="background:#262422;border-color:#2A2824"><div class="swatch__name" style="color:#E8E5DF">accent-soft</div><div class="swatch__hex" style="color:#8B867D">#7E94A4</div></div></div>
         </div>
       </div>
     </section>
@@ -1017,12 +1047,14 @@
       <h2>Principles &amp; open items</h2>
       <p class="block__intro">Voice: <strong>editorial, minimal, premium, calm</strong> — generous whitespace, restrained colour, one accent. Below: deliberate deviations and the Phase-2 worklist.</p>
       <div class="note">
-        <strong>Two dark colours coexist.</strong> <code>--color-text</code> (#111) drives body text,
-        buttons, and the footer; the nav uses a separate warm <code>#302820</code> / <code>#322A22</code> /
-        <code>#B19981</code> set that isn't tokenised. Consolidate, or formalise as brand-warm tokens.
+        <strong>Dark surfaces are now one warm family.</strong> The disconnected nav browns
+        (<code>#302820</code> / <code>#322A22</code> / <code>#B19981</code>) and the cool
+        <code>#1A1A1A</code>/<code>#111</code> are gone — <code>--color-text</code> →
+        <code>--color-bg-dark</code> → <code>--color-surface-dark</code> share a single warm
+        graphite undertone, progressively lifted.
       </div>
       <div class="note">
-        <strong>text-dim fails AA for body text.</strong> <code>--color-text-dim</code> (#888) is ~3.3:1 on
+        <strong>text-dim fails AA for body text.</strong> <code>--color-text-dim</code> (#8B867D) is ~3.3:1 on
         the light canvas — restrict it to large text and non-essential meta, never body copy.
       </div>
       <div class="note">
