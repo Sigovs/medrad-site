@@ -1002,8 +1002,13 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   margin-bottom: var(--space-xs);
 }
 
+/* Dark sections: the eyebrow colour is softer and the empty space
+   below it reads as a larger void on a dark surface. Tighten the
+   eyebrow → heading gap one step so the lockup *reads* as tight as
+   it does on light sections. (Optical correction — see font.html.) */
 .section--dark .section__label {
   color: var(--color-accent-soft);
+  margin-bottom: var(--space-2xs);
 }
 
 .section__header h2 {

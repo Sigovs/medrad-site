@@ -926,8 +926,12 @@
 }
 
 /* Text contrast overrides for the dark surface */
+/* Dark-section eyebrow: softer colour + dark void below reads looser
+   than the same gap on a light section. Tighten one step so the
+   lockup reads consistent. (Optical correction — see font.html.) */
 .section--tools-dark .section__label {
   color: rgba(255, 255, 255, 0.65);
+  margin-bottom: var(--space-2xs);
 }
 
 .section--tools-dark h2 {
