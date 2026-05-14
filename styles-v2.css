@@ -1602,9 +1602,8 @@
   margin: 0 0 var(--space-md);
 }
 
-.dx-imaging__head h2 {
-  margin-top: var(--space-xs);
-}
+/* Eyebrow → heading gap comes from .section__label's margin-bottom
+   (--space-xs), same as every other section — no per-section override. */
 
 .dx-imaging__card {
   background: rgba(255, 255, 255, 0.55);
