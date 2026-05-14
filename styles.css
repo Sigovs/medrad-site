@@ -3987,8 +3987,9 @@ a.breadcrumb__item:hover {
 }
 
 /* Article + Sticky Sidebar layout */
+/* Matches .proc-page — same gap from the breadcrumb bar to the title. */
 .cat-article-section {
-  padding-top: var(--space-lg);
+  padding-top: var(--space-2xl);
 }
 
 .cat-article__grid {
@@ -4193,6 +4194,12 @@ a.breadcrumb__item:hover {
 /* ============================================================
    Procedure Page — single-column article layout
    ============================================================ */
+
+/* Breadcrumb article pages share one gap from the breadcrumb bar to
+   the page title — kept in sync with .cat-article-section. */
+.proc-page {
+  padding-top: var(--space-2xl);
+}
 
 .proc-page__container {
   max-width: var(--container-max);
