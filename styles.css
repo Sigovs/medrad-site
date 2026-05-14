@@ -3446,11 +3446,14 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   max-width: 820px;
 }
 
+/* Top-align both columns: the eyebrow + title start at the same line
+   on every page, regardless of how long the description runs.
+   (Centring made shorter-text pages float down.) */
 .page-header--with-media .page-header__inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
   gap: var(--space-2xl);
-  align-items: center;
+  align-items: start;
 }
 
 /* Fixed media box — locks every --with-media header to one height
