@@ -224,7 +224,7 @@
       color: var(--color-accent); font-size: var(--fs-body-sm);
     }
 
-    /* PROPOSED components — not in styles.css yet */
+    /* .badge — PROPOSED, not in styles.css yet */
     .badge {
       display: inline-block; font-family: var(--font-body); font-size: var(--fs-tag);
       font-weight: var(--fw-semibold); letter-spacing: 0.06em; text-transform: uppercase;
@@ -232,12 +232,9 @@
       background: var(--color-bg-accent); color: var(--color-accent);
     }
     .badge--solid { background: var(--color-accent); color: var(--color-white); }
-    .card {
-      background: var(--color-white); border: 1px solid var(--color-border);
-      border-radius: var(--radius-md); padding: var(--space-md);
-      transition: transform var(--duration) var(--ease-out), box-shadow var(--duration) var(--ease-out);
-    }
-    @media (hover: hover) { .card--interactive:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); } }
+    /* .card / .card--interactive ship in styles.css; the specimen only
+       adds padding (real cards set their own) + demo child styling. */
+    .card { padding: var(--space-md); }
     .card h4 { margin-bottom: 0.35rem; }
     .card p  { font-size: var(--fs-body-sm); line-height: var(--lh-body); }
 
@@ -954,7 +951,7 @@
     <section class="block" id="cards">
       <span class="block__num">12</span>
       <h2>Cards</h2>
-      <p class="block__intro">Canonical recipe <code>.card</code> <span class="pill">PROPOSED</span> — white surface, 1px <code>--color-border</code>, <code>--radius-md</code>; interactive cards lift 4px into <code>--shadow-lg</code>. The site currently ships four bespoke variants instead: <code>.proc-card</code>, <code>.case-card</code>, <code>.review-card</code>, <code>.contact-path</code> — consolidating them onto <code>.card</code> is still an open item.</p>
+      <p class="block__intro">Canonical recipe <code>.card</code> — white surface, thin border, <code>--radius-md</code>; add <code>.card--interactive</code> for the standard 4px hover-lift into <code>--shadow-lg</code>. <code>.review-card</code> and <code>.contact-path</code> build on this shared surface. <code>.proc-card</code> (a borderless grid cell) and <code>.case-card</code> (dark) are deliberately separate components — not part of the recipe.</p>
       <div class="row">
         <p class="row__meta">.card — static · .card--interactive — hover to lift</p>
         <div class="demo" style="align-items:stretch">
@@ -1083,9 +1080,10 @@
         the light canvas — restrict it to large text and non-essential meta, never body copy.
       </div>
       <div class="note">
-        <strong>Card variants aren't unified.</strong> <code>.proc-card</code>, <code>.case-card</code>,
-        <code>.review-card</code>, <code>.contact-path</code> each re-implement the card recipe — fold them
-        onto a single <code>.card</code> + modifiers.
+        <strong>Two card families, on purpose.</strong> <code>.review-card</code> and
+        <code>.contact-path</code> share the <code>.card</code> surface recipe. <code>.proc-card</code>
+        (a borderless grid cell) and <code>.case-card</code> (a dark card) are separate components —
+        not cards in the <code>.card</code> sense.
       </div>
       <div class="note">
         <strong>--font-icon is <code>Material Symbols Outlined</code></strong> (not "Rounded"); <strong>no
