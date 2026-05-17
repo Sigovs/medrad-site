@@ -93,7 +93,7 @@
       --duration-press: 140ms;
       --duration-hover: 200ms;
 
-      /* ── PROPOSED — not yet in styles.css ─────────────────── */
+      /* ── Elevation (mirrors styles.css :root) ────────────── */
       --shadow-sm:    0 6px 24px -10px rgba(0, 0, 0, 0.05);
       --shadow-md:    0 12px 32px -16px rgba(0, 0, 0, 0.10);
       --shadow-lg:    0 18px 38px -16px rgba(0, 0, 0, 0.18);
@@ -780,14 +780,14 @@
     <!-- ════════════════ 06 · ELEVATION ════════════════ -->
     <section class="block" id="elevation">
       <span class="block__num">06</span>
-      <h2>Elevation <span class="pill" style="font-size:11px;font-weight:600;letter-spacing:0.04em;padding:0.05rem 0.4rem;border-radius:4px;background:var(--note-bg);color:var(--note-ink);border:1px solid var(--note-border);vertical-align:3px">PROPOSED</span></h2>
-      <p class="block__intro">A 3-step shadow scale + focus ring — consolidates the ~15 ad-hoc <code>box-shadow</code> values currently in <code>styles.css</code>. Only <code>--shadow-focus</code> is in use today.</p>
+      <h2>Elevation</h2>
+      <p class="block__intro">A 3-step shadow scale + focus ring. Every <code>box-shadow</code> value across <code>styles.css</code> and <code>styles-v2.css</code> now resolves to one of these tokens — no ad-hoc shadows.</p>
       <div class="row">
         <div class="tiles">
           <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-sm)"></div><div class="tile__label">--shadow-sm</div><div class="tile__val">resting card</div></div>
           <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-md)"></div><div class="tile__label">--shadow-md</div><div class="tile__val">raised / hover</div></div>
           <div class="tile"><div class="tile__box" style="border-radius:12px;box-shadow:var(--shadow-lg)"></div><div class="tile__label">--shadow-lg</div><div class="tile__val">focal / modal</div></div>
-          <div class="tile"><div class="tile__box" style="border-radius:6px;box-shadow:var(--shadow-focus)"></div><div class="tile__label">--shadow-focus</div><div class="tile__val">focus ring · in use</div></div>
+          <div class="tile"><div class="tile__box" style="border-radius:6px;box-shadow:var(--shadow-focus)"></div><div class="tile__label">--shadow-focus</div><div class="tile__val">focus ring</div></div>
         </div>
       </div>
     </section>
@@ -1081,10 +1081,6 @@
       <div class="note">
         <strong>text-dim fails AA for body text.</strong> <code>--color-text-dim</code> (#8B867D) is ~3.3:1 on
         the light canvas — restrict it to large text and non-essential meta, never body copy.
-      </div>
-      <div class="note">
-        <strong>Elevation isn't tokenised.</strong> ~15 one-off <code>box-shadow</code> values exist in
-        <code>styles.css</code>; the <code>--shadow-sm/md/lg</code> scale here is a proposal to replace them.
       </div>
       <div class="note">
         <strong>Card variants aren't unified.</strong> <code>.proc-card</code>, <code>.case-card</code>,
