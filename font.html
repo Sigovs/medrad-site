@@ -757,6 +757,21 @@
         </div>
         <p style="font-size:var(--fs-body-sm);max-width:68ch;margin-top:0.85rem">Same logic as eyebrow→heading — <strong>tighter inside cards, airier at section level</strong>. No global <code>* + *</code> flow selector: the site already spaces with flex <code>gap</code> and explicit margins, so a blanket owl-selector would double up. These are the standard values components follow.</p>
       </div>
+      <div class="row">
+        <p class="row__meta">Hierarchy — section levels</p>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch">A page must not set every section at one volume. Three levels, applied as modifiers on <code>.section</code>:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Level</th><th>Padding</th><th>Section heading</th><th>Use</th></tr></thead>
+            <tbody>
+              <tr><td><code>.section--major</code></td><td class="val"><code>--space-3xl</code></td><td class="val"><code>--fs-h1</code></td><td>the page's primary section — pair with a <code>.section__lead</code></td></tr>
+              <tr><td><code>.section</code> (standard)</td><td class="val"><code>--space-3xl</code></td><td class="val"><code>--fs-h2</code></td><td>the default middle</td></tr>
+              <tr><td><code>.section--minor</code></td><td class="val"><code>--space-2xl</code></td><td class="val"><code>--fs-h3</code></td><td>supporting / secondary — directories, "also offered"</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:var(--fs-body-sm);max-width:68ch;margin-top:0.85rem"><strong><code>.section__lead</code></strong> — the focus paragraph under a major heading: <code>--fs-lead</code> at full-strength <code>--color-text</code> (vs the muted <code>.section__desc</code>). Focus comes from size + a clear lead line, not from heavier heading weight. One eyebrow rule too: a kicker earns its place only when it adds a category the heading doesn't — drop it when it just echoes the heading.</p>
+      </div>
     </section>
 
     <!-- ════════════════ 05 · RADIUS ════════════════ -->
@@ -820,6 +835,7 @@
       <span class="block__num">08</span>
       <h2>Buttons</h2>
       <p class="block__intro">Base class <code>.btn</code> + a modifier. 14px Inter semibold, <code>--radius-sm</code>, 1.5px border. Hover lifts 2px into a shadow. Hover &amp; focus below are live; the forced-state row is labelled.</p>
+      <p class="block__intro" style="margin-top:-0.4rem"><strong>One <code>.btn--primary</code> per page</strong> carries the page's primary action — every other CTA is <code>--ghost</code> or a text link. Form submit buttons are scoped to their own form and don't count against it; a dark feature section may carry its own local action.</p>
 
       <div class="row">
         <p class="row__meta">.btn--primary — solid · one primary action per view</p>

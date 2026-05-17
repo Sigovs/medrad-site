@@ -867,6 +867,22 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   padding: var(--space-3xl) 0;
 }
 
+/* Section levels — a page shouldn't set every section at one volume.
+   .section--major leads (larger heading, room for a lead line);
+   .section--minor recedes (tighter block, smaller heading); plain
+   .section is the standard middle. See font.html. */
+.section--major .section__header h2 {
+  font-size: var(--fs-h1);
+}
+
+.section--minor {
+  padding: var(--space-2xl) 0;
+}
+
+.section--minor .section__header h2 {
+  font-size: var(--fs-h3);
+}
+
 /* First section after hero — clean panel that rises over the sticky image */
 #patient {
   position: relative;
@@ -953,6 +969,15 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .section__desc {
   font-size: var(--fs-body);
   color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+/* Lead — the focus paragraph under a major heading: one step up in
+   size, full-strength text colour (vs the muted .section__desc).
+   Used sparingly — it marks the page's primary section. */
+.section__lead {
+  font-size: var(--fs-lead);
+  color: var(--color-text);
   line-height: var(--lh-body);
 }
 
