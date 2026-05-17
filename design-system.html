@@ -592,7 +592,7 @@
     <section class="block" id="type">
       <span class="block__num">03</span>
       <h2>Typography</h2>
-      <p class="block__intro">Playfair Display for editorial headings (h1–h3); Inter for everything else; Material Symbols icon-only. Composed lockups below show how the atoms combine in practice.</p>
+      <p class="block__intro">Playfair Display for editorial headings (h1–h3); Inter for everything else; Material Symbols icon-only. Every fixed text size resolves to a <code>--fs-*</code> token — see Notes for the two sanctioned exceptions. Composed lockups below show how the atoms combine in practice.</p>
 
       <div class="row">
         <p class="row__meta">Families</p>
@@ -1100,6 +1100,14 @@
         <code>.contact-path</code> share the <code>.card</code> surface recipe. <code>.proc-card</code>
         (a borderless grid cell) and <code>.case-card</code> (a dark card) are separate components —
         not cards in the <code>.card</code> sense.
+      </div>
+      <div class="note">
+        <strong>Type sizes are tokens — with two sanctioned exceptions.</strong> Every fixed UI / body
+        size resolves to a <code>--fs-*</code> token. Exceptions: responsive <em>display</em> headings
+        use component-level <code>clamp()</code> when the standard <code>--fs-h*</code> tiers don't fit;
+        icon glyphs are sized in <code>px</code> (see Icons). Component-internal <em>padding</em> is
+        likewise tuned per component, not snapped to <code>--space-*</code> — the scale governs layout
+        rhythm. Nav link sizing (<code>1.1–1.2rem</code>) predates the scale — a known one-off.
       </div>
       <div class="note">
         <strong>--font-icon is <code>Material Symbols Outlined</code></strong> (not "Rounded"); <strong>no
