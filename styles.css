@@ -8,7 +8,7 @@
   /* ── Colour — refined editorial-medical palette ──────────
      Warm off-white canvas · warm graphite darks · one muted
      mineral blue-gray accent · restrained warm neutrals.
-     Specimen + contrast: font.html */
+     Specimen + contrast: design-system.html */
 
   /* Surfaces — light */
   --color-bg:           #F8F7F5;  /* warm off-white canvas */
@@ -37,7 +37,7 @@
   --color-white:        #FFFFFF;
 
   /* ── Typography system ────────────────────────────────────
-     Single source of truth. Specimen: font.html
+     Single source of truth. Specimen: design-system.html
      Font families */
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, -apple-system, sans-serif;
@@ -168,7 +168,7 @@ input, textarea, select {
 
 /* ============================================================
    TYPOGRAPHY SYSTEM — global element + utility rules
-   Tokens defined in :root. Specimen / docs: font.html
+   Tokens defined in :root. Specimen / docs: design-system.html
    ============================================================ */
 
 /* Display + editorial headings — Playfair */
@@ -870,7 +870,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 /* Section levels — a page shouldn't set every section at one volume.
    .section--major leads (larger heading, room for a lead line);
    .section--minor recedes (tighter block, smaller heading); plain
-   .section is the standard middle. See font.html. */
+   .section is the standard middle. See design-system.html. */
 .section--major .section__header h2 {
   font-size: var(--fs-h1);
 }
@@ -956,7 +956,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 /* Dark sections: the eyebrow colour is softer and the empty space
    below it reads as a larger void on a dark surface. Tighten the
    eyebrow → heading gap one step so the lockup *reads* as tight as
-   it does on light sections. (Optical correction — see font.html.) */
+   it does on light sections. (Optical correction — see design-system.html.) */
 .section--dark .section__label {
   color: var(--color-accent-soft);
   margin-bottom: var(--space-2xs);
