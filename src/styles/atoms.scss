@@ -1,0 +1,81 @@
+// ============================================================
+// Atoms — small reusable building blocks: container, text-link,
+// card, and layout utility classes (display / flex / alignment).
+// Composed from tokens only. Buttons + form controls -> forms.scss.
+// ============================================================
+
+/* --- Container -------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* --- Text link -------------------------------------------- */
+.text-link {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.text-link:hover {
+  opacity: 0.7;
+}
+
+/* --- Card ------------------------------------------------- */
+.card,
+.review-card {
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-hover) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out),
+              border-color var(--duration-hover) var(--ease-out),
+              background-color var(--duration) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card--interactive:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* --- Layout utilities ------------------------------------- */
+/* display */
+.block        { display: block; }
+.inline-block { display: inline-block; }
+.inline       { display: inline; }
+.flex         { display: flex; }
+.inline-flex  { display: inline-flex; }
+.grid         { display: grid; }
+.hidden       { display: none; }
+
+/* flex direction + wrap */
+.flex-row  { flex-direction: row; }
+.flex-col  { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1    { flex: 1; }
+
+/* justify-content */
+.justify-start   { justify-content: flex-start; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around  { justify-content: space-around; }
+
+/* align-items */
+.items-start   { align-items: flex-start; }
+.items-center  { align-items: center; }
+.items-end     { align-items: flex-end; }
+.items-stretch { align-items: stretch; }
+
+/* text-align */
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }

@@ -1,0 +1,26 @@
+// ============================================================
+// Radius — corner-radius tokens.
+//   var(--radius-sm) / radius(sm) / .radius-sm
+// ============================================================
+@use 'sass:map';
+
+$radius: (
+  sm: 6px,
+  md: 12px,
+  lg: 20px,
+);
+
+@function radius($name) {
+  @return map.get($radius, $name);
+}
+
+:root {
+  --radius-sm: #{map.get($radius, sm)};
+  --radius-md: #{map.get($radius, md)};
+  --radius-lg: #{map.get($radius, lg)};
+}
+
+// --- Utility classes -----------------------------------------
+@each $name in map.keys($radius) {
+  .radius-#{$name} { border-radius: var(--radius-#{$name}); }
+}

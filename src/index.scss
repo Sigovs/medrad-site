@@ -4,15 +4,16 @@
 // Watch:    sass --watch src/index.scss:src/styles.css
 //
 // Single source of truth — one partial per section, no v1/v2.
-// foundation = globals; partials @use'd after so their rules win.
 // ============================================================
 
-// --- Tokens / mixins (breakpoints emits no CSS) ---
+// --- Mixins (breakpoints emits no CSS) ---
 @use 'styles/breakpoints';
 
-// --- Foundation (globals: reset, container, buttons,
-//     section base, card, shared responsive, utilities) ---
-@use 'styles/foundation';
+// --- Reset + foundation + forms ---
+@use 'styles/reset';         // browser normalisation
+@use 'styles/foundation';    // :root (layout, legacy space, type tokens),
+                             // section base, responsive, utilities
+@use 'styles/forms';         // form controls + buttons — styled by element
 
 // --- Typography (font() mixin + global type scale) ---
 @use 'styles/typography';
@@ -35,9 +36,12 @@
 @use 'sections/home/contact/contact';
 @use 'sections/home/assess-overlay/assess-overlay';
 
-// --- Colour + spacing: :root tokens AND utility classes ---
-// Loaded last so the .text-*/.bg-*/.p-*/.m-* utilities win the
-// cascade over component rules. :root tokens resolve regardless
-// of position.
+// --- Atoms + token files: components, :root vars, utility classes ---
+// Loaded last so the utility classes win the cascade over
+// component rules. :root tokens resolve regardless of position.
+@use 'styles/atoms';         // container, text-link, card + layout utilities
 @use 'styles/colors';
 @use 'styles/spacing';
+@use 'styles/radius';
+@use 'styles/shadow';
+@use 'styles/transitions';

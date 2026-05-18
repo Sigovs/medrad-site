@@ -33,7 +33,12 @@
       "Bash(sed -i \"s#/../shared/head\\\\.php#/../shared/head/head.php#g; s#src/shared/#src/styles/#g\" src/preview/index.php src/preview/typography.php src/preview/colors.php src/preview/spacing.php)",
       "Bash(~/scoop/shims/php -l src/index.php)",
       "PowerShell(foreach \\($u in @\\('/','/styles.css','/preview/','/preview/typography.php','/preview/colors.php','/preview/spacing.php'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\)\" } catch { \"$u -> FAIL\" } })",
-      "Bash(git -c core.autocrlf=false commit -m 'Organize shared/ into per-component folders; fix preview page links' -m '- shared/<name>/<name>.php\\(.scss\\) — head, header, footer each in own folder *)"
+      "Bash(git -c core.autocrlf=false commit -m 'Organize shared/ into per-component folders; fix preview page links' -m '- shared/<name>/<name>.php\\(.scss\\) — head, header, footer each in own folder *)",
+      "Bash(sed -i '14,83d' src/styles/atoms.scss)",
+      "Bash(sed -i '1,2c\\\\// Atoms — container, text-link, card \\(+ contact-path surfaces\\).\\\\n// Composed from tokens only. Buttons + form controls -> forms.scss.' src/styles/atoms.scss)",
+      "PowerShell(foreach \\($u in @\\('/','/styles.css','/preview/'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\) \\($\\($r.Content.Length\\)b\\)\" } catch { \"$u -> FAIL\" } })",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/' -UseBasicParsing; \"/ -> $\\($r.StatusCode\\)\" } catch { \"FAIL\" })",
+      "Bash(git -c core.autocrlf=false commit -m 'Add radius/shadow/transition tokens + forms.scss; reorganize atoms' -m '- new token files: radius.scss, shadow.scss, transitions.scss \\(moved out of foundation\\) *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

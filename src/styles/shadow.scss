@@ -1,0 +1,29 @@
+// ============================================================
+// Shadow — elevation scale + focus ring.
+//   sm = resting · md = raised/hover · lg = focal/overlay
+//   var(--shadow-sm) / shadow(sm) / .shadow-sm
+// ============================================================
+@use 'sass:map';
+
+$shadow: (
+  sm:    0 6px 24px -10px rgba(0, 0, 0, 0.05),
+  md:    0 12px 32px -16px rgba(0, 0, 0, 0.10),
+  lg:    0 18px 38px -16px rgba(0, 0, 0, 0.18),
+  focus: 0 0 0 3px rgba(61, 90, 128, 0.10),
+);
+
+@function shadow($name) {
+  @return map.get($shadow, $name);
+}
+
+:root {
+  --shadow-sm:    #{map.get($shadow, sm)};
+  --shadow-md:    #{map.get($shadow, md)};
+  --shadow-lg:    #{map.get($shadow, lg)};
+  --shadow-focus: #{map.get($shadow, focus)};
+}
+
+// --- Utility classes -----------------------------------------
+@each $name in (sm, md, lg) {
+  .shadow-#{$name} { box-shadow: var(--shadow-#{$name}); }
+}

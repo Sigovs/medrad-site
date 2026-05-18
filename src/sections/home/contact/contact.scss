@@ -213,3 +213,114 @@
 }
 
 
+
+
+/* === Contact paths (moved from atoms.scss — contact-section-specific) === */
+.contact-paths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.contact-path {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  align-items: center;
+  position: relative;
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-hover) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out),
+              border-color var(--duration-hover) var(--ease-out),
+              background-color var(--duration) var(--ease);
+}
+
+.contact-path__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg-accent);
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.contact-path__title {
+  font-family: var(--font-display);
+  font-size: 21.6px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-path__desc {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+
+.contact-path__action {
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color var(--duration) var(--ease);
+}
+
+.contact-path__action:hover {
+  color: var(--color-accent);
+}
+
+.contact-path__meta {
+  font-size: var(--fs-tag);
+  color: var(--color-text-dim);
+  margin-top: var(--space-xs);
+}
+
+.contact-path__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.contact-path__form .contact-path__textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.5;
+  padding-top: 10px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.contact-path__form .btn {
+  margin-top: var(--space-xs);
+}
+
+.contact-path__btn {
+  margin-top: auto;
+}
+
+.contact-path .form__success {
+  flex-direction: column;
+  text-align: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+}
+
+@media (max-width: 900px) {
+  .contact-paths {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}

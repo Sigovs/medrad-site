@@ -1,0 +1,110 @@
+// ============================================================
+// Forms — form controls + buttons, styled by element / component.
+//
+// No typography here — font size/family/weight come from
+// typography.scss (the single source of truth for type).
+// Field & button spacing (margins): use the spacing utility
+// classes in the markup. All values are px, from the token files.
+// ============================================================
+
+// --- Text-like controls --------------------------------------
+// Excludes checkbox / radio / button-like inputs.
+input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']):not([type='file']):not([type='range']):not([type='color']),
+textarea,
+select {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-focus);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-dim);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+// --- Buttons -------------------------------------------------
+// Type (size / weight) comes from the `button, .btn` rule in typography.scss.
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 12px 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  transition: background var(--duration) var(--ease),
+              color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+// Arrow inside a btn — shifts right on hover
+.btn__arrow {
+  display: inline-block;
+  margin-left: var(--space-2xs);
+  transition: transform var(--duration) var(--ease-out);
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover {
+    background-color: var(--color-surface-dark);
+    border-color: var(--color-surface-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn--ghost:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    border-color: var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn:hover .btn__arrow {
+    transform: translateX(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn__arrow { transition: none; }
+}
+
+.btn--full {
+  width: 100%;
+}
