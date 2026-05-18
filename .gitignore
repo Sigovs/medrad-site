@@ -7,3 +7,11 @@ src/script.js
 # Compiled CSS — build output of `sass src/index.scss`
 src/styles.css
 src/styles.css.map
+
+# Generated — npm dependencies (restore with `npm install`)
+node_modules/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
