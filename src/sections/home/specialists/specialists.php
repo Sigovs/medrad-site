@@ -7,7 +7,7 @@
     <header class="dr-carousel__header text-center mb-128">
       <p class="section__label">Our Specialists</p>
       <h2>Meet the team</h2>
-      <p class="dr-carousel__lede">A small, subspecialty-focused team &mdash; every patient is treated personally by an attending physician.</p>
+      <p class="dr-carousel__lede text-text-muted mt-16">A small, subspecialty-focused team &mdash; every patient is treated personally by an attending physician.</p>
     </header>
 
     <div class="dr-carousel" id="drCarousel">
@@ -26,9 +26,9 @@
             </div>
             <div class="dr-slide__text">
               <h3 class="dr-slide__name"><strong>Dr. Kenneth U. Ekechukwu, MD, MPH</strong></h3>
-              <p class="dr-slide__title p2">Founder &middot; Interventional Radiologist</p>
-              <p class="dr-slide__credentials p2">Board Certified &middot; Fellowship-Trained</p>
-              <p class="dr-slide__bio">Fellowship-trained interventional radiologist with over 18 years of clinical practice. Particular focus on vascular interventions, embolotherapy, and interventional oncology. Every patient is seen, assessed, and treated personally.</p>
+              <p class="dr-slide__title p2 text-accent">Founder &middot; Interventional Radiologist</p>
+              <p class="dr-slide__credentials p2 text-text-muted mb-32">Board Certified &middot; Fellowship-Trained</p>
+              <p class="dr-slide__bio text-text-muted mb-32">Fellowship-trained interventional radiologist with over 18 years of clinical practice. Particular focus on vascular interventions, embolotherapy, and interventional oncology. Every patient is seen, assessed, and treated personally.</p>
               <div class="dr-slide__actions flex items-center gap-32 flex-wrap">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>
               </div>
@@ -42,9 +42,9 @@
             </div>
             <div class="dr-slide__text">
               <h3 class="dr-slide__name"><strong>Dr. Margaret L. Whitfield, MD, PhD</strong></h3>
-              <p class="dr-slide__title p2">Director of Vascular Imaging</p>
-              <p class="dr-slide__credentials p2">Board Certified &middot; Dual-Trained, IR + Vascular Medicine</p>
-              <p class="dr-slide__bio">Dr. Whitfield leads the practice's complex vascular access program. Her clinical interest centers on hemodialysis access salvage and limb-preservation work in chronic peripheral arterial disease.</p>
+              <p class="dr-slide__title p2 text-accent">Director of Vascular Imaging</p>
+              <p class="dr-slide__credentials p2 text-text-muted mb-32">Board Certified &middot; Dual-Trained, IR + Vascular Medicine</p>
+              <p class="dr-slide__bio text-text-muted mb-32">Dr. Whitfield leads the practice's complex vascular access program. Her clinical interest centers on hemodialysis access salvage and limb-preservation work in chronic peripheral arterial disease.</p>
               <div class="dr-slide__actions flex items-center gap-32 flex-wrap">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>
               </div>
@@ -58,9 +58,9 @@
             </div>
             <div class="dr-slide__text">
               <h3 class="dr-slide__name"><strong>Dr. Marcus T. Ridgeway, DO, MSc</strong></h3>
-              <p class="dr-slide__title p2">Lead Interventional Oncologist</p>
-              <p class="dr-slide__credentials p2">Board Certified &middot; Sub-Fellowship in Interventional Oncology</p>
-              <p class="dr-slide__bio">Dr. Ridgeway focuses on percutaneous tumor ablation, transarterial chemoembolization, and selective internal radiation therapy. Directs the practice's multidisciplinary tumor board collaboration.</p>
+              <p class="dr-slide__title p2 text-accent">Lead Interventional Oncologist</p>
+              <p class="dr-slide__credentials p2 text-text-muted mb-32">Board Certified &middot; Sub-Fellowship in Interventional Oncology</p>
+              <p class="dr-slide__bio text-text-muted mb-32">Dr. Ridgeway focuses on percutaneous tumor ablation, transarterial chemoembolization, and selective internal radiation therapy. Directs the practice's multidisciplinary tumor board collaboration.</p>
               <div class="dr-slide__actions flex items-center gap-32 flex-wrap">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>
               </div>

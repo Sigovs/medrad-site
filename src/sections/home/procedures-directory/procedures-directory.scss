@@ -24,7 +24,6 @@
 }
 
 .proc-cat-item__name {
-  color: var(--color-text);
   letter-spacing: -0.01em;
   transition: color var(--duration) var(--ease);
 }
@@ -34,8 +33,6 @@
 }
 
 .proc-cat-item__arrow {
-  color: var(--color-text-muted);
-  flex-shrink: 0;
   transition: color var(--duration) var(--ease),
               transform var(--duration) var(--ease);
 }
@@ -44,10 +41,3 @@
   color: var(--color-text-light);
   transform: translateX(4px);
 }
-
-.proc-cats__cta {
-  text-align: center;
-  padding-top: var(--space-32);
-}
-
-

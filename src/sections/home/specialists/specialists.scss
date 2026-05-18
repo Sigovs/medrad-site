@@ -53,11 +53,6 @@
   margin-right: auto;
 }
 
-.dr-carousel__lede {
-  color: var(--color-text-muted);
-  margin-top: var(--space-16);
-}
-
 /* The carousel: viewport gets full container width, arrows
    float at the sides so they don't shrink the slide content. */
 .dr-carousel {
@@ -183,19 +178,11 @@
 }
 
 .dr-slide__title {
-  color: var(--color-accent);
   margin: 0 0 0.35rem;
   font-weight: 500;
 }
 
-.dr-slide__credentials {
-  color: var(--color-text-muted);
-  margin: 0 0 var(--space-32);
-}
-
 .dr-slide__bio {
-  color: var(--color-text-muted);
-  margin: 0 0 var(--space-32);
   max-width: 56ch;
 }
 

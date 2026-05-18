@@ -20,12 +20,9 @@
   background-color: var(--color-surface-dark);
 }
 
-/* Category kicker — eyebrow pattern, card-scale */
+/* Category kicker — eyebrow, uppercase, color, mb via markup */
 .case-card__cat {
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-accent-soft);
-  margin-bottom: var(--space-8);
 }
 
 .case-card h4 {
@@ -40,9 +37,6 @@
 }
 
 .case-card__link {
-  color: var(--color-accent-soft);
-  margin-top: auto;
-  display: inline-block;
   transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1),
               color var(--duration) var(--ease);
 }
@@ -90,11 +84,6 @@
   z-index: 1;
 }
 
-.cases-bg__inner {
-  position: relative;
-  z-index: 2;
-  color: var(--color-text-light);
-}
 
 .cases-bg .section__header h2,
 .cases-bg .section__header .section__desc {

@@ -39,12 +39,6 @@
 }
 
 /* --- Featured Procedures ---------------------------------- */
-#procedures {
-  position: relative;
-  z-index: 5;
-  background-color: var(--color-bg);
-}
-
 .procs-section__decor {
   position: absolute;
   right: 0;
@@ -80,11 +74,6 @@
 }
 
 .proc-card {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-64) var(--space-32);
-  background-color: var(--color-bg);
-  text-decoration: none;
   border-right: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   transition: background var(--duration) var(--ease);
