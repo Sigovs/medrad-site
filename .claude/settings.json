@@ -20,7 +20,11 @@
       "PowerShell($css = \\(Invoke-WebRequest -Uri 'http://localhost:8000/src/styles.css' -UseBasicParsing\\).Content; \"reviews-summary__stars svg: $\\(if \\($css -match 'reviews-summary__stars svg'\\) {'present'} else {'MISSING'}\\)\"; \"review-card__stars svg: $\\(if \\($css -match 'review-card__stars svg'\\) {'present'} else {'MISSING'}\\)\"; \"reviews-section: $\\(if \\($css -match '\\\\.reviews-section'\\) {'present'} else {'MISSING'}\\)\")",
       "Bash(sed -n '170,172p;246,250p' src/shared/foundation.scss)",
       "Bash(sed -i '171,248d' src/shared/foundation.scss)",
-      "Bash(sed -n '167,173p' src/shared/foundation.scss)"
+      "Bash(sed -n '167,173p' src/shared/foundation.scss)",
+      "Bash(grep -E '^\\(lead|caption|text-small|eyebrow|kicker|tag|cta|nav-link|p1|p2|h1|h2|h3|h4|h5|h6|btn|section__label|footer__heading\\)$')",
+      "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; php -l \"C:\\\\____WORK\\\\MEDRAD\\\\medrad-site\\\\src\\\\typography.php\" 2>&1 | Select-Object -Last 1; try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/typography.php' -UseBasicParsing; \"typography.php -> $\\($r.StatusCode\\), has table: $\\($r.Content -match 'type-table'\\)\" } catch { \"FAIL: $_\" })",
+      "Bash(git rm *)",
+      "Bash(git -c core.autocrlf=false commit -m 'Refine typography module; stop tracking compiled CSS' -m '- typography.scss: one element + one reusable class per rule *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

@@ -3,3 +3,7 @@
 # src/script.js = hard link        → ../script.js
 src/assets
 src/script.js
+
+# Compiled CSS — build output of `sass src/index.scss`
+src/styles.css
+src/styles.css.map

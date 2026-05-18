@@ -2,9 +2,11 @@
 // Typography — single source of truth for type.
 //
 // font($family, $size, $line-height, $weight) mixin + global
-// element/utility type rules. Values mirror the homepage design
-// tokens in foundation.scss :root.
+// element type rules. Values mirror the homepage design tokens
+// in foundation.scss :root.
 //
+// Each rule pairs the element with one reusable class
+// (e.g. h1, .h1) so the style can be applied without the element.
 // Preview specimen:  /typography.php
 // ============================================================
 @use 'sass:map';
@@ -79,25 +81,25 @@ p, .p1 {
 }
 
 // Lead / standfirst paragraph
-.lead, .p-lead {
+.lead {
   @include font(body, 19px, 1.5, 400);
   @include desktop { @include font(body, 24px, 1.5, 400); }
 }
 
 // Small / caption / fine print
-.p2, small, .caption, .text-small {
+small, .p2 {
   @include font(body, 13px, 1.25, 400);
 }
 
-// --- Labels — eyebrow / kicker / tag -------------------------
-.eyebrow, .kicker, .tag, .section__label, .footer__heading {
+// --- Eyebrow / kicker label ----------------------------------
+.eyebrow, .section__label, .footer__heading {
   @include font(body, 12px, 1.25, 600);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 // --- Quote ---------------------------------------------------
-blockquote {
+blockquote, .blockquote {
   @include font(display, 28px, 1.08, 400);
   @include desktop { @include font(display, 40px, 1.08, 400); }
 }
@@ -107,7 +109,7 @@ nav, .nav-link {
   @include font(body, 14px, 1.25, 500);
 }
 
-button, .btn, .cta, .cta-text {
+button, .btn {
   @include font(body, 14px, 1.25, 600);
 }
 
