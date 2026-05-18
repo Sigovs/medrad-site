@@ -24,7 +24,8 @@
       "Bash(grep -E '^\\(lead|caption|text-small|eyebrow|kicker|tag|cta|nav-link|p1|p2|h1|h2|h3|h4|h5|h6|btn|section__label|footer__heading\\)$')",
       "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; php -l \"C:\\\\____WORK\\\\MEDRAD\\\\medrad-site\\\\src\\\\typography.php\" 2>&1 | Select-Object -Last 1; try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/typography.php' -UseBasicParsing; \"typography.php -> $\\($r.StatusCode\\), has table: $\\($r.Content -match 'type-table'\\)\" } catch { \"FAIL: $_\" })",
       "Bash(git rm *)",
-      "Bash(git -c core.autocrlf=false commit -m 'Refine typography module; stop tracking compiled CSS' -m '- typography.scss: one element + one reusable class per rule *)"
+      "Bash(git -c core.autocrlf=false commit -m 'Refine typography module; stop tracking compiled CSS' -m '- typography.scss: one element + one reusable class per rule *)",
+      "Bash(git -c core.autocrlf=false commit -m 'Add colour, spacing & breakpoint token system + utility classes' -m '- colors.scss: palette map, color\\(\\) fn, :root vars, .text-/.bg-/.border- utilities *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

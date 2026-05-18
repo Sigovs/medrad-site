@@ -7,7 +7,10 @@
 // foundation = globals; partials @use'd after so their rules win.
 // ============================================================
 
-// --- Foundation (globals: vars, reset, container, buttons,
+// --- Tokens / mixins (breakpoints emits no CSS) ---
+@use 'shared/breakpoints';
+
+// --- Foundation (globals: reset, container, buttons,
 //     section base, card, shared responsive, utilities) ---
 @use 'shared/foundation';
 
@@ -31,3 +34,10 @@
 @use 'home/specialists';
 @use 'home/contact';
 @use 'home/assess-overlay';
+
+// --- Colour + spacing: :root tokens AND utility classes ---
+// Loaded last so the .text-*/.bg-*/.p-*/.m-* utilities win the
+// cascade over component rules. :root tokens resolve regardless
+// of position.
+@use 'shared/colors';
+@use 'shared/spacing';

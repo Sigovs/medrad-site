@@ -7,36 +7,7 @@
 
 /* --- Custom Properties ------------------------------------ */
 :root {
-  /* ── Colour — refined editorial-medical palette ──────────
-     Warm off-white canvas · warm graphite darks · one muted
-     mineral blue-gray accent · restrained warm neutrals.
-     Specimen + contrast: design-system.html */
-
-  /* Surfaces — light */
-  --color-bg:           #F8F7F5;  /* warm off-white canvas */
-  --color-bg-accent:    #F2EFE9;  /* soft warm surface */
-  --color-sand:         #ECE4D6;  /* warm parchment — layered surfaces, soft cards */
-  --color-stone:        #D6CFC3;  /* warm stone — tags, dividers, hover fills */
-
-  /* Surfaces — dark (single warm undertone, progressively lifted) */
-  --color-text:         #14130F;  /* warm near-black — text, buttons, footer */
-  --color-bg-dark:      #1F1D19;  /* warm soft-black — full-bleed dark sections */
-  --color-surface-dark: #2A2825;  /* warm graphite — lifted dark: nav, dropdown */
-
-  /* Text */
-  --color-text-muted:   #56534C;  /* warm grey — body copy, captions */
-  --color-text-dim:     #8B867D;  /* warm dim — meta, fine print (large text only) */
-  --color-text-light:   #E8E5DF;  /* warm light — text on dark surfaces */
-
-  /* Accent — muted mineral blue-gray */
-  --color-accent:       #4A5F70;  /* links, eyebrows, focus */
-  --color-accent-soft:  #7E94A4;  /* lighter accent — on dark surfaces */
-
-  /* Lines */
-  --color-border:       #E2DED8;  /* warm hairline border */
-  --color-border-dark:  #2A2824;  /* warm border on dark */
-
-  --color-white:        #FFFFFF;
+  /* Colour tokens live in shared/colors.scss — single source of truth. */
 
   /* ── Typography system ────────────────────────────────────
      Single source of truth. Specimen: design-system.html

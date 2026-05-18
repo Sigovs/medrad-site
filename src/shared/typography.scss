@@ -10,19 +10,13 @@
 // Preview specimen:  /typography.php
 // ============================================================
 @use 'sass:map';
+@use 'breakpoints' as *;   // desktop() mixin — see shared/breakpoints.scss
 
 // --- Font families -------------------------------------------
 $fonts: (
   display: ('Playfair Display', Georgia, serif),        // editorial headings
   body:    ('Inter', system-ui, -apple-system, sans-serif),
 );
-
-// --- Responsive breakpoint -----------------------------------
-$bp-desktop: 1024px;
-
-@mixin desktop {
-  @media (min-width: $bp-desktop) { @content; }
-}
 
 // --- font(family, size, line-height, weight) -----------------
 // `family` is a key of $fonts (display | body) — or a raw stack.

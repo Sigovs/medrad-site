@@ -1,0 +1,91 @@
+// ============================================================
+// Spacing — geometric scale + responsive spacing mixin.
+//
+// Scale: 4px base, 8px next, then each step ×2, capped at 256.
+//   4 · 8 · 16 · 32 · 64 · 128 · 256
+//
+// Exposed three ways:
+//   · CSS custom properties  ->  var(--space-32)
+//   · sp($step) function     ->  sp(32)
+//   · space() mixin          ->  responsive, per-breakpoint
+//
+// Preview specimen:  /spacing.php
+// ============================================================
+@use 'sass:map';
+@use 'breakpoints' as bp;
+
+// --- Spacing scale (SCSS) ------------------------------------
+$space: (
+  4:   4px,
+  8:   8px,
+  16:  16px,
+  32:  32px,
+  64:  64px,
+  128: 128px,
+  256: 256px,
+);
+
+// sp(step) — fetch a scale value in SCSS
+@function sp($step) {
+  @return map.get($space, $step);
+}
+
+// --- CSS custom properties -----------------------------------
+:root {
+  --space-4:   4px;
+  --space-8:   8px;
+  --space-16:  16px;
+  --space-32:  32px;
+  --space-64:  64px;
+  --space-128: 128px;
+  --space-256: 256px;
+}
+
+// --- space() — responsive spacing ----------------------------
+// Apply a spacing property with one value per resolution.
+// Tablet/desktop are optional; omit to inherit the smaller step.
+// The breakpoint media queries are encapsulated in breakpoints.scss.
+//
+//   @include space(padding, 16px);                 // all sizes
+//   @include space(margin-top, 32px, 64px);        // mobile / tablet+
+//   @include space(gap, sp(16), sp(32), sp(64));   // mobile / tablet / desktop
+@mixin space($property, $mobile, $tablet: null, $desktop: null) {
+  #{$property}: $mobile;
+
+  @if $tablet != null {
+    @include bp.tablet { #{$property}: $tablet; }
+  }
+  @if $desktop != null {
+    @include bp.desktop { #{$property}: $desktop; }
+  }
+}
+
+// --- Utility classes -----------------------------------------
+// margin / padding (all + t r b l x y) and gap, one per scale step.
+// $suffix appends the resolution variant, e.g. -tablet / -desktop.
+@mixin spacing-utilities($suffix: '') {
+  @each $step, $val in $space {
+    .m-#{$step}#{$suffix}   { margin: $val; }
+    .mt-#{$step}#{$suffix}  { margin-top: $val; }
+    .mr-#{$step}#{$suffix}  { margin-right: $val; }
+    .mb-#{$step}#{$suffix}  { margin-bottom: $val; }
+    .ml-#{$step}#{$suffix}  { margin-left: $val; }
+    .mx-#{$step}#{$suffix}  { margin-left: $val; margin-right: $val; }
+    .my-#{$step}#{$suffix}  { margin-top: $val; margin-bottom: $val; }
+
+    .p-#{$step}#{$suffix}   { padding: $val; }
+    .pt-#{$step}#{$suffix}  { padding-top: $val; }
+    .pr-#{$step}#{$suffix}  { padding-right: $val; }
+    .pb-#{$step}#{$suffix}  { padding-bottom: $val; }
+    .pl-#{$step}#{$suffix}  { padding-left: $val; }
+    .px-#{$step}#{$suffix}  { padding-left: $val; padding-right: $val; }
+    .py-#{$step}#{$suffix}  { padding-top: $val; padding-bottom: $val; }
+
+    .gap-#{$step}#{$suffix} { gap: $val; }
+  }
+}
+
+// Base = all resolutions; -tablet wins >= 768px; -desktop wins >= 1340px.
+@include spacing-utilities();
+@include bp.tablet  { @include spacing-utilities('-tablet'); }
+@include bp.desktop { @include spacing-utilities('-desktop'); }

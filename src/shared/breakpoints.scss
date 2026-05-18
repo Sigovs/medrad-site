@@ -1,0 +1,28 @@
+// ============================================================
+// Breakpoints — responsive resolution mixins.
+//
+//   Mobile   < 768px
+//   Tablet   >= 768px
+//   Desktop  >= 1340px
+//
+// All @media queries live here — components @include the mixin
+// instead of writing raw media queries.
+// ============================================================
+
+$bp-tablet:  768px;
+$bp-desktop: 1340px;
+
+// Mobile — below the tablet breakpoint  ( < 768px )
+@mixin mobile {
+  @media (max-width: #{$bp-tablet - 1px}) { @content; }
+}
+
+// Tablet and up  ( >= 768px )
+@mixin tablet {
+  @media (min-width: $bp-tablet) { @content; }
+}
+
+// Desktop and up  ( >= 1340px )
+@mixin desktop {
+  @media (min-width: $bp-desktop) { @content; }
+}

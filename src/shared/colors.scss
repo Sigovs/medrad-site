@@ -1,0 +1,79 @@
+// ============================================================
+// Colors — the project palette.
+//
+// Single source of truth for colour. Exposed two ways:
+//   · CSS custom properties on :root  ->  var(--color-accent)
+//   · SCSS map + color() function     ->  color(accent)
+//
+// Palette: warm off-white canvas · warm graphite darks · one
+// muted mineral blue-gray accent · restrained warm neutrals.
+// Preview specimen:  /colors.php
+// ============================================================
+@use 'sass:map';
+
+// --- Palette map (SCSS) --------------------------------------
+$colors: (
+  // Surfaces — light
+  bg:           #F8F7F5,   // warm off-white canvas
+  bg-accent:    #F2EFE9,   // soft warm surface
+  sand:         #ECE4D6,   // warm parchment — layered surfaces, soft cards
+  stone:        #D6CFC3,   // warm stone — tags, dividers, hover fills
+
+  // Surfaces — dark
+  text:         #14130F,   // warm near-black — text, buttons, footer
+  bg-dark:      #1F1D19,   // warm soft-black — full-bleed dark sections
+  surface-dark: #2A2825,   // warm graphite — lifted dark: nav, dropdown
+
+  // Text
+  text-muted:   #56534C,   // warm grey — body copy, captions
+  text-dim:     #8B867D,   // warm dim — meta, fine print
+  text-light:   #E8E5DF,   // warm light — text on dark surfaces
+
+  // Accent — muted mineral blue-gray
+  accent:       #4A5F70,   // links, eyebrows, focus
+  accent-soft:  #7E94A4,   // lighter accent — on dark surfaces
+
+  // Lines
+  border:       #E2DED8,   // warm hairline border
+  border-dark:  #2A2824,   // warm border on dark
+
+  white:        #FFFFFF,
+);
+
+// color(name) — fetch a palette value in SCSS
+@function color($name) {
+  @return map.get($colors, $name);
+}
+
+// --- CSS custom properties -----------------------------------
+:root {
+  --color-bg:           #{map.get($colors, bg)};
+  --color-bg-accent:    #{map.get($colors, bg-accent)};
+  --color-sand:         #{map.get($colors, sand)};
+  --color-stone:        #{map.get($colors, stone)};
+
+  --color-text:         #{map.get($colors, text)};
+  --color-bg-dark:      #{map.get($colors, bg-dark)};
+  --color-surface-dark: #{map.get($colors, surface-dark)};
+
+  --color-text-muted:   #{map.get($colors, text-muted)};
+  --color-text-dim:     #{map.get($colors, text-dim)};
+  --color-text-light:   #{map.get($colors, text-light)};
+
+  --color-accent:       #{map.get($colors, accent)};
+  --color-accent-soft:  #{map.get($colors, accent-soft)};
+
+  --color-border:       #{map.get($colors, border)};
+  --color-border-dark:  #{map.get($colors, border-dark)};
+
+  --color-white:        #{map.get($colors, white)};
+}
+
+// --- Utility classes -----------------------------------------
+// One set per colour:  .text-<name>  .bg-<name>  .border-<name>
+@each $name in map.keys($colors) {
+  $n: "" + $name;  // coerce to string — the `white` key is a colour keyword
+  .text-#{$n}   { color: var(--color-#{$n}); }
+  .bg-#{$n}     { background-color: var(--color-#{$n}); }
+  .border-#{$n} { border-color: var(--color-#{$n}); }
+}

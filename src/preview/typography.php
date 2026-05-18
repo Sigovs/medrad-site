@@ -7,7 +7,7 @@ $pageTitle = 'Typography — MedRad Clinics';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include __DIR__ . '/shared/head.php'; ?>
+<?php include __DIR__ . '/../shared/head.php'; ?>
 <body>
 
   <style>
