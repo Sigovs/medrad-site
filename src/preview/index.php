@@ -6,9 +6,9 @@
 $pageTitle = 'Design System — MedRad Clinics';
 
 $previews = [
-  ['typography.php', 'Typography', 'Type scale, the font() mixin, headings, body, labels.'],
-  ['colors.php',     'Colours',    'The project palette — surfaces, text, accent, lines.'],
-  ['spacing.php',    'Spacing & Breakpoints', 'Geometric spacing scale, breakpoints, the space() mixin.'],
+  ['/preview/typography.php', 'Typography', 'Type scale, the font() mixin, headings, body, labels.'],
+  ['/preview/colors.php',     'Colours',    'The project palette — surfaces, text, accent, lines.'],
+  ['/preview/spacing.php',    'Spacing & Breakpoints', 'Geometric spacing scale, breakpoints, the space() mixin.'],
 ];
 ?>
 <!DOCTYPE html>

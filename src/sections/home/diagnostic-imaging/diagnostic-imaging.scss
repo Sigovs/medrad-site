@@ -1,17 +1,8 @@
 // Home — Diagnostic Imaging (.dx-imaging)
 
-/* ============================================================
-   Diagnostic Imaging — supporting service section.
-   Section: light blue radial gradient bg.
-   Layout: heading centered above, card centered/right with frosted
-   glass, sonographer photo on the left grounded to section bottom
-   (positioned absolutely so it never affects the row height or
-   gets clipped by grid sizing).
-   ============================================================ */
 .dx-imaging {
-  position: relative;
   overflow: hidden;
-  padding: var(--space-64) 0;
+  padding: 0;
   background:
     radial-gradient(ellipse 90% 70% at 25% 100%,
       rgba(174, 197, 222, 0.55) 0%,
@@ -22,40 +13,33 @@
     linear-gradient(180deg, #EEF2F7 0%, #DDE5EE 100%);
 }
 
-/* Photo: absolutely positioned so it doesn't drive any layout sizing.
-   Aligned with the container's content-left edge on wide screens
-   (matching where the safe zone starts). */
+/* Two-column grid: photo bottom-aligned left, content centered right */
+.dx-imaging__wrap {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: var(--space-64);
+}
+
 .dx-imaging__media {
-  position: absolute;
-  bottom: 0;
-  /* (50vw - container-max/2) + container-pad — i.e. the safe zone left edge */
-  left: max(var(--container-pad), calc(50vw - 546px));
-  width: clamp(364px, 34vw, 494px);
-  pointer-events: none;
-  z-index: 1;
+  align-self: end;
+  overflow: hidden;
 }
 
 .dx-imaging__media img {
   display: block;
   width: 100%;
   height: auto;
+  margin-top: -50px; /* remove empty whitespace above head */
 }
 
-/* Inner content sits to the right of the photo. Lower bound (340px)
-   guarantees enough space for image + gap even on narrow desktops. */
 .dx-imaging__inner {
-  position: relative;
-  z-index: 2;
-  padding-left: clamp(420px, 36vw, 560px);
+  align-self: center;
+  padding: var(--space-64) 0;
 }
 
 .dx-imaging__head {
-  text-align: left;
   margin: 0 0 var(--space-32);
 }
-
-/* Eyebrow → heading gap comes from .section__label's margin-bottom
-   (--space-xs), same as every other section — no per-section override. */
 
 .dx-imaging__card {
   background: rgba(255, 255, 255, 0.55);
@@ -92,7 +76,6 @@
   gap: var(--space-8);
 }
 
-/* Status eyebrow */
 .dx-imaging__status {
   color: var(--color-accent);
   margin: 0;
@@ -118,7 +101,6 @@
 .dx-imaging__note {
   margin: var(--space-32) 0 0;
   color: var(--color-text-muted);
-  text-align: left;
   font-style: italic;
 }
 
@@ -132,34 +114,26 @@
 .dx-imaging__note a:hover { text-decoration: underline; }
 
 @media (max-width: 900px) {
-  /* Use flex to reorder: content (heading + card + note) first, image below */
-  .dx-imaging {
-    display: flex;
-    flex-direction: column;
+  .dx-imaging__wrap {
+    grid-template-columns: 1fr;
   }
-  .dx-imaging__inner {
-    order: 1;
-    padding-left: var(--container-pad);
-  }
-  .dx-imaging__head { text-align: center; }
-  .dx-imaging__note { text-align: center; }
+
   .dx-imaging__media {
     order: 2;
-    position: static;
-    width: auto;
-    margin: var(--space-64) auto 0;
-    display: flex;
-    justify-content: center;
-  }
-  .dx-imaging__media img {
     max-width: 364px;
+    margin: var(--space-64) auto 0;
   }
+
+  .dx-imaging__inner {
+    order: 1;
+  }
+
+  .dx-imaging__head { text-align: center; }
+  .dx-imaging__note { text-align: center; }
 }
 
 @media (max-width: 720px) {
   .dx-imaging__card {
-    padding: var(--space-32) var(--space-32);
+    padding: var(--space-32);
   }
 }
-
-

@@ -134,6 +134,16 @@ $pageTitle = 'Typography — MedRad Clinics';
           <td><span class="type-sample"><i>Italic emphasis</i></span></td>
           <td class="spec">&mdash;</td><td class="spec">&mdash;</td><td class="spec">&mdash;</td><td class="spec">&mdash;</td>
         </tr>
+        <tr>
+          <td class="selector">.font-display</td>
+          <td><span class="font-display type-sample">Playfair Display family utility</span></td>
+          <td class="spec">Playfair</td><td class="spec">inherited</td><td class="spec">inherited</td><td class="spec">inherited</td>
+        </tr>
+        <tr>
+          <td class="selector">.font-body</td>
+          <td><span class="font-body type-sample">Inter family utility</span></td>
+          <td class="spec">Inter</td><td class="spec">inherited</td><td class="spec">inherited</td><td class="spec">inherited</td>
+        </tr>
       </tbody>
     </table>
 
