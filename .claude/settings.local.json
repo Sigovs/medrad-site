@@ -9,7 +9,23 @@
       "WebFetch(domain:www.medradclinics.com)",
       "Bash(curl -s -L \"https://www.medradclinics.com/?page_id=275\")",
       "Read(//tmp/**)",
-      "Bash(git -C \"c:/____WORK/MEDRAD/medrad-site\" log --oneline --all -- education-category.html)"
+      "Bash(git -C \"c:/____WORK/MEDRAD/medrad-site\" log --oneline --all -- education-category.html)",
+      "Bash(brew --version)",
+      "Bash(brew list *)",
+      "Bash(grep -E \"^\\(bison|re2c|autoconf|openssl|libxml2|libzip|libjpeg|libpng|libwebp|oniguruma|pkg-config|libiconv\\)$\")",
+      "Bash(brew install *)",
+      "Bash(export PHPENV_ROOT=\"$HOME/.phpenv\")",
+      "Bash(export PATH=\"$PHPENV_ROOT/bin:$PATH\")",
+      "Bash(brew --prefix openssl@3)",
+      "Bash(brew --prefix libxml2)",
+      "Bash(brew --prefix bison)",
+      "Bash(~/.phpenv/plugins/php-build/bin/php-build --list)",
+      "Bash(~/.phpenv/plugins/php-build/bin/php-build --definitions)",
+      "Bash(brew info *)",
+      "Bash(brew tap *)",
+      "Bash(node_modules/.bin/sass --version)",
+      "Bash(node_modules/.bin/concurrently --version)",
+      "Bash(ln -s ../assets /Users/max/projects/medrad-site/src/assets)"
     ]
   }
 }

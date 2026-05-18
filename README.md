@@ -8,40 +8,91 @@ The remaining pages are still standalone static HTML at the project root.
 
 | Tool | Version | Install |
 |------|---------|---------|
-| PHP  | 8.5+    | `scoop install php` (Scoop: https://get.scoop.sh) |
+| PHP  | 8.3+    | see platform notes below |
 | Sass | 1.99+   | `npm install -g sass` |
 
-## Run the site
+### Windows
 
-The PHP built-in server uses **`src/` as the document root**.
-
-```bash
-# from the project root
-php -S localhost:8000 -t src
+```bat
+scoop install php
 ```
 
-Then open **http://localhost:8000/** (serves `src/index.php`).
+([Scoop](https://get.scoop.sh) must be installed first.)
 
-> `src/assets` is a junction to the project `assets/` folder, and
-> `src/script.js` is a hard link to the root `script.js`, so both resolve
-> under the `src/` document root. If either link is missing, recreate them:
+### macOS (phpenv + Homebrew)
+
+Install phpenv and the php-build plugin:
+
+```bash
+git clone https://github.com/phpenv/phpenv.git ~/.phpenv
+git clone https://github.com/php-build/php-build ~/.phpenv/plugins/php-build
+```
+
+Add phpenv to your shell (`~/.zshrc` or `~/.bash_profile`):
+
+```bash
+export PHPENV_ROOT="$HOME/.phpenv"
+export PATH="$PHPENV_ROOT/bin:$PATH"
+eval "$(phpenv init -)"
+```
+
+Install PHP 8.3 via the shivammathur pre-built tap (no source compile needed):
+
+```bash
+brew tap shivammathur/php
+brew install shivammathur/php/php@8.3
+
+# link it into phpenv
+ln -sf $(brew --prefix php@8.3) ~/.phpenv/versions/8.3.31
+phpenv global 8.3.31
+```
+
+Open a new terminal, then verify:
+
+```bash
+php --version   # should print PHP 8.3.x
+```
+
+To install additional PHP versions later, repeat the `brew install` + `ln -sf` steps with a different version (e.g. `php@8.2`) and switch with `phpenv global` or `phpenv local`.
+
+## Dev environment
+
+Install dependencies first:
+
+```bash
+npm install
+```
+
+Then start the full dev environment (PHP server + Sass watcher) in one command:
+
+```bash
+npm run dev
+```
+
+This runs concurrently:
+- **PHP** — built-in server at **http://localhost:8080/** (`src/` as document root)
+- **Sass** — watches `src/index.scss` → `src/styles.css`, rebuilds on every change
+
+You can also run each individually:
+
+```bash
+npm run dev:php    # PHP server only
+npm run dev:sass   # Sass watcher only
+```
+
+> `src/assets` must be a symlink to the project `assets/` folder so the PHP
+> server can serve images. These links are not committed to git — create them
+> once after cloning:
 >
-> ```bat
-> mklink /J  src\assets     ..\assets
-> mklink /H  src\script.js  ..\script.js
+> **macOS / Linux**
+> ```bash
+> ln -s ../assets src/assets
 > ```
-
-## Build the CSS
-
-SCSS lives next to each PHP partial. `src/index.scss` bundles everything.
-
-```bash
-# one-off build
-sass src/index.scss src/styles.css
-
-# rebuild on every change (run while developing)
-sass --watch src/index.scss:src/styles.css
-```
+>
+> **Windows**
+> ```bat
+> mklink /J  src\assets  ..\assets
+> ```
 
 ## Project structure (`src/`)
 
@@ -80,7 +131,6 @@ the cascade.
 
 ## Editing workflow
 
-1. Run `sass --watch src/index.scss:src/styles.css` in one terminal.
-2. Run `php -S localhost:8000 -t src` in another.
-3. Edit the `.php` partial for markup, the matching `.scss` partial for styles.
-4. Refresh the browser.
+1. Run `npm run dev` — starts PHP + Sass watcher together.
+2. Edit the `.php` partial for markup, the matching `.scss` partial for styles.
+3. Refresh the browser.

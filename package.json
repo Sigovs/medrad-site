@@ -1,9 +1,18 @@
 {
+  "scripts": {
+    "dev": "concurrently --names \"php,sass\" --prefix-colors \"cyan,magenta\" \"npm run dev:php\" \"npm run dev:sass\"",
+    "dev:php": "php -S localhost:8080 -t src",
+    "dev:sass": "sass --watch src/index.scss:src/styles.css --style=expanded"
+  },
   "dependencies": {
     "@lottiefiles/dotlottie-web": "^0.71.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.15.0",
     "lottie-web": "^5.13.0",
     "shadergradient": "^1.3.5"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "sass": "^1.99.0"
   }
 }
