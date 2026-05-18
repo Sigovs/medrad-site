@@ -141,7 +141,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   height: 100%;
   max-width: none;
   margin: 0;
-  padding: 0 var(--space-xl);
+  padding: 0 var(--space-64);
 }
 
 .nav__logo {
@@ -169,7 +169,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .nav__links {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-32);
 }
 
 .nav__links a {
@@ -220,7 +220,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   font-weight: var(--fw-medium) !important;
   color: var(--color-text) !important;
   border: 1.5px solid var(--color-border);
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-8) var(--space-16);
   border-radius: var(--radius-sm);
   transition: border-color var(--duration) var(--ease),
               background var(--duration) var(--ease),
@@ -240,7 +240,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   gap: 5px;
   width: 32px;
   height: 32px;
-  padding: var(--space-2xs);
+  padding: var(--space-4);
   cursor: pointer;
   background: none;
   border: none;

@@ -4,16 +4,16 @@
 .contact__block {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
+  gap: var(--space-128);
   align-items: start;
 }
 
 .contact__text .section__label {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .contact__text h2 {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
 }
 
 .contact__text p {
@@ -25,12 +25,12 @@
 .contact-header {
   text-align: center;
   max-width: 540px;
-  margin: 0 auto var(--space-2xl);
+  margin: 0 auto var(--space-128);
 }
 
 .contact-header h2 {
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-sm);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-16);
 }
 
 .contact-header__desc {
@@ -48,10 +48,10 @@
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
-  gap: var(--space-2xl);
+  gap: var(--space-128);
   align-items: center;
   text-align: left;
-  padding: var(--space-xl) var(--space-2xl);
+  padding: var(--space-64) var(--space-128);
   /* Focal: solid white + soft lifted shadow */
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.05);
@@ -62,11 +62,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-xs);
+  gap: var(--space-8);
 }
 
 .contact-paths--stacked .contact-path--wide .contact-path__icon {
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .contact-paths--stacked .contact-path--wide .contact-path__title {
@@ -81,13 +81,13 @@
 /* Wide form: name+email on one row, then textarea, then button */
 .contact-path__form--wide {
   width: 100%;
-  gap: var(--space-xs);
+  gap: var(--space-8);
 }
 
 .contact-path__form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xs);
+  gap: var(--space-8);
 }
 
 .contact-path__form--wide .form__input {
@@ -113,8 +113,8 @@
   }
   .contact-paths--stacked .contact-path--wide {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    padding: var(--space-xl);
+    gap: var(--space-32);
+    padding: var(--space-64);
     text-align: center;
   }
   .contact-paths--stacked .contact-path--wide .contact-path__intro {
@@ -136,13 +136,13 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-16);
 }
 
 .form__row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm);
+  gap: var(--space-16);
 }
 
 .form__input {
@@ -175,8 +175,8 @@
 .form__success {
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
+  gap: var(--space-16);
+  padding: var(--space-32);
   background-color: rgba(74, 95, 112, 0.08);
   border: 1px solid rgba(74, 95, 112, 0.2);
   border-radius: var(--radius-sm);
@@ -219,13 +219,13 @@
 .contact-paths {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
+  gap: var(--space-32);
 }
 
 .contact-path {
   display: flex;
   flex-direction: column;
-  padding: var(--space-xl) var(--space-lg);
+  padding: var(--space-64) var(--space-32);
   text-align: center;
   align-items: center;
   position: relative;
@@ -247,7 +247,7 @@
   border-radius: 50%;
   background: var(--color-bg-accent);
   color: var(--color-accent);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
 }
 
 .contact-path__title {
@@ -255,14 +255,14 @@
   font-size: 21.6px;
   font-weight: var(--fw-semibold);
   color: var(--color-text);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .contact-path__desc {
   font-size: var(--fs-body-sm);
   color: var(--color-text-muted);
   line-height: var(--lh-body);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
   flex: 1;
 }
 
@@ -282,13 +282,13 @@
 .contact-path__meta {
   font-size: var(--fs-tag);
   color: var(--color-text-dim);
-  margin-top: var(--space-xs);
+  margin-top: var(--space-8);
 }
 
 .contact-path__form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-8);
   width: 100%;
 }
 
@@ -303,7 +303,7 @@
 }
 
 .contact-path__form .btn {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-8);
 }
 
 .contact-path__btn {
@@ -313,8 +313,8 @@
 .contact-path .form__success {
   flex-direction: column;
   text-align: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm);
+  gap: var(--space-8);
+  padding: var(--space-16);
 }
 
 @media (max-width: 900px) {

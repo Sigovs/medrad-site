@@ -8,7 +8,7 @@
     <div class="container">
       <div class="section__header section__header--light" data-parallax="float">
         <h2>Cases from our practice</h2>
-        <p class="section__desc">A selection of real interventional radiology cases demonstrating procedural expertise across treatment categories.</p>
+        <p>A selection of real interventional radiology cases demonstrating procedural expertise across treatment categories.</p>
       </div>
       <div class="cases-grid">
         <a href="treatment-cases.html#foreign-body-retrieval" class="case-card">

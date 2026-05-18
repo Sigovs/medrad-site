@@ -30,11 +30,11 @@ $palette = [
 <body>
 
   <style>
-    .ds-table { width: 100%; border-collapse: collapse; margin-top: var(--space-lg); }
+    .ds-table { width: 100%; border-collapse: collapse; margin-top: var(--space-32); }
     .ds-table th,
     .ds-table td {
       text-align: left; vertical-align: middle;
-      padding: var(--space-sm);
+      padding: var(--space-16);
       border-bottom: 1px solid var(--color-border);
     }
     .ds-table thead th {
@@ -57,11 +57,11 @@ $palette = [
       font: 600 12px/1.25 'Inter', sans-serif;
       letter-spacing: 0.08em; text-transform: uppercase;
       color: var(--color-text-dim);
-      padding-top: var(--space-md);
+      padding-top: var(--space-32);
     }
   </style>
 
-  <main class="container" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
+  <main class="container" style="padding-top: var(--space-128); padding-bottom: var(--space-128);">
 
     <p class="eyebrow" style="color: var(--color-accent);">Design System</p>
     <h1>Colours</h1>

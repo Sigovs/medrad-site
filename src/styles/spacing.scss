@@ -16,10 +16,14 @@
 
 // --- Spacing scale (SCSS) ------------------------------------
 $space: (
+  0:   0,
+  2:   2px,
   4:   4px,
   8:   8px,
   16:  16px,
+  24:  24px,
   32:  32px,
+  48:  48px,
   64:  64px,
   128: 128px,
   256: 256px,
@@ -32,10 +36,14 @@ $space: (
 
 // --- CSS custom properties -----------------------------------
 :root {
+  --space-0:   0;
+  --space-2:   2px;
   --space-4:   4px;
   --space-8:   8px;
   --space-16:  16px;
+  --space-24:  24px;
   --space-32:  32px;
+  --space-48:  48px;
   --space-64:  64px;
   --space-128: 128px;
   --space-256: 256px;

@@ -5,14 +5,14 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   overflow: hidden;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-32);
 }
 
 .proc-cat-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-32) var(--space-32);
   background-color: var(--color-bg);
   text-decoration: none;
   border-bottom: 1px solid var(--color-border);
@@ -54,7 +54,7 @@
 
 .proc-cats__cta {
   text-align: center;
-  padding-top: var(--space-md);
+  padding-top: var(--space-32);
 }
 
 

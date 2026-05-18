@@ -88,7 +88,7 @@
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-8) var(--space-16);
   border-radius: 50px;
   white-space: nowrap;
   pointer-events: none;
@@ -99,7 +99,7 @@
     position: relative;
     right: auto;
     bottom: auto;
-    margin-top: var(--space-sm);
+    margin-top: var(--space-16);
     font-size: var(--fs-tag);
   }
 }
@@ -127,7 +127,7 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
 }
 
 .entry__headline {
@@ -163,8 +163,8 @@
 .entry__cta {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-lg);
+  gap: var(--space-8);
+  margin-top: var(--space-32);
   font-family: var(--font-body);
   font-size: var(--fs-tag);
   font-weight: var(--fw-medium);
@@ -173,7 +173,7 @@
   color: var(--color-text);
   text-decoration: none;
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--space-2xs);
+  padding-bottom: var(--space-4);
   transition: border-color var(--duration) var(--ease);
 }
 
@@ -261,9 +261,9 @@
 /* --- Hero: dual CTA actions ------------------------------- */
 .entry__actions {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-32);
   align-items: center;
-  margin-top: var(--space-lg);
+  margin-top: var(--space-32);
   flex-wrap: wrap;
 }
 
@@ -316,7 +316,7 @@
 
   .entry__label {
     font-size: var(--fs-tag);
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-16);
   }
 
   .entry__headline { margin: 0; }
@@ -379,7 +379,7 @@
     color: var(--color-text);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-8) var(--space-16);
     border-radius: 999px;
     font-size: var(--fs-caption);
     font-weight: var(--fw-medium);
@@ -409,7 +409,7 @@
   .entry__actions .btn--primary {
     width: 100%;
     justify-content: center;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-16) var(--space-32);
     font-size: 0.95rem;
     background: var(--color-text);
     border-color: var(--color-text);

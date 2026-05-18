@@ -38,7 +38,10 @@
       "Bash(sed -i '1,2c\\\\// Atoms — container, text-link, card \\(+ contact-path surfaces\\).\\\\n// Composed from tokens only. Buttons + form controls -> forms.scss.' src/styles/atoms.scss)",
       "PowerShell(foreach \\($u in @\\('/','/styles.css','/preview/'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\) \\($\\($r.Content.Length\\)b\\)\" } catch { \"$u -> FAIL\" } })",
       "PowerShell(try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/' -UseBasicParsing; \"/ -> $\\($r.StatusCode\\)\" } catch { \"FAIL\" })",
-      "Bash(git -c core.autocrlf=false commit -m 'Add radius/shadow/transition tokens + forms.scss; reorganize atoms' -m '- new token files: radius.scss, shadow.scss, transitions.scss \\(moved out of foundation\\) *)"
+      "Bash(git -c core.autocrlf=false commit -m 'Add radius/shadow/transition tokens + forms.scss; reorganize atoms' -m '- new token files: radius.scss, shadow.scss, transitions.scss \\(moved out of foundation\\) *)",
+      "PowerShell(foreach \\($u in @\\('/','/styles.css','/preview/','/preview/typography.php','/preview/colors.php','/preview/spacing.php'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\) \\($\\($r.Content.Length\\)b\\)\" } catch { \"$u -> FAIL\" } })",
+      "Bash(cd \"c:/____WORK/MEDRAD/medrad-site\" && rm src/styles/foundation.scss && echo \"foundation.scss deleted\" && sass src/index.scss src/styles.css 2>&1 | head -15 && echo \"=== compiled OK ===\")",
+      "Bash(git -c core.autocrlf=false commit -m 'Dissolve foundation.scss; snap spacing scale; tokenise sections' -m '- foundation.scss removed: typography tokens -> typography.scss, layout *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

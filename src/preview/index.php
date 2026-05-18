@@ -17,19 +17,19 @@ $previews = [
 <body>
 
   <style>
-    .ds-list { list-style: none; margin: var(--space-lg) 0 0; padding: 0; }
+    .ds-list { list-style: none; margin: var(--space-32) 0 0; padding: 0; }
     .ds-list li { border-bottom: 1px solid var(--color-border); }
     .ds-card {
       display: block;
-      padding: var(--space-md) 0;
+      padding: var(--space-32) 0;
       transition: padding-left 200ms var(--ease, ease);
     }
-    .ds-card:hover { padding-left: var(--space-xs); }
+    .ds-card:hover { padding-left: var(--space-8); }
     .ds-card h3 { margin: 0; }
-    .ds-card p  { margin: var(--space-2xs) 0 0; }
+    .ds-card p  { margin: var(--space-4) 0 0; }
   </style>
 
-  <main class="container" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl); max-width: 720px;">
+  <main class="container" style="padding-top: var(--space-128); padding-bottom: var(--space-128); max-width: 720px;">
 
     <p class="eyebrow" style="color: var(--color-accent);">MedRad Clinics</p>
     <h1>Design System</h1>

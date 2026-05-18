@@ -4,7 +4,7 @@
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
+  gap: var(--space-128);
   align-items: center;
 }
 
@@ -17,22 +17,22 @@
 }
 
 .split__text h2 {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-16);
 }
 
 .split__text p {
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
 }
 
 .split__text p:last-of-type {
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-32);
 }
 
 .feature-list {
-  margin: var(--space-md) 0 var(--space-lg);
+  margin: var(--space-32) 0 var(--space-32);
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: var(--space-8);
 }
 
 .feature-list li {
@@ -66,7 +66,7 @@
   background-color: var(--color-white);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  padding: var(--space-32);
   min-height: 320px;
   display: flex;
   flex-direction: column;
@@ -78,8 +78,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
+  gap: var(--space-16);
+  padding: var(--space-32);
 }
 
 .assessment-icon {
@@ -91,7 +91,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-accent);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .assessment-widget__label {
@@ -111,13 +111,13 @@
 .assessment-widget__form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-32);
 }
 
 .assessment-step {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-16);
 }
 
 .assessment-step__num {
@@ -139,7 +139,7 @@
 .assessment-options {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-xs);
+  gap: var(--space-8);
 }
 
 .assessment-options--check {
@@ -199,8 +199,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm);
+  gap: var(--space-16);
+  padding: var(--space-16);
 }
 
 .assessment-result__icon {
@@ -212,7 +212,7 @@
   align-items: center;
   justify-content: center;
   color: var(--color-accent);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .assessment-result__title {
@@ -227,11 +227,11 @@
   color: var(--color-text-muted) !important;
   max-width: 300px;
   line-height: 1.65 !important;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .assessment-restart {
-  margin-top: var(--space-xs);
+  margin-top: var(--space-8);
   font-size: var(--fs-caption);
   background: none;
   border: none;
@@ -247,7 +247,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md) 0;
+  padding: var(--space-32) 0;
   user-select: none;
 }
 
@@ -553,7 +553,7 @@
    lockup reads consistent. (Optical correction — see design-system.html.) */
 .section--tools-dark .section__label {
   color: rgba(255, 255, 255, 0.65);
-  margin-bottom: var(--space-2xs);
+  margin-bottom: var(--space-4);
 }
 
 .section--tools-dark h2 {

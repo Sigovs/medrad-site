@@ -4,7 +4,7 @@
 .dr-block {
   display: grid;
   grid-template-columns: 5fr 7fr;
-  gap: var(--space-3xl);
+  gap: var(--space-128);
   align-items: center;
 }
 
@@ -29,20 +29,20 @@
   font-size: var(--fs-body-sm) !important;
   color: var(--color-accent) !important;
   font-style: italic;
-  margin-bottom: var(--space-lg) !important;
+  margin-bottom: var(--space-32) !important;
 }
 
 .dr-block__text p:not(.section__label):not(.dr-block__credentials) {
   font-size: var(--fs-body-sm);
   line-height: 1.75;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-32);
 }
 
 .dr-block__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-lg);
-  margin-top: var(--space-lg);
+  gap: var(--space-32);
+  margin-top: var(--space-32);
 }
 
 
@@ -51,7 +51,7 @@
    ============================================================ */
 
 .dr-carousel__header {
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-128);
   text-align: center;
   max-width: 680px;
   margin-left: auto;
@@ -62,7 +62,7 @@
   color: var(--color-text-muted);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  margin-top: var(--space-sm);
+  margin-top: var(--space-16);
 }
 
 /* The carousel: viewport gets full container width, arrows
@@ -91,9 +91,9 @@
   min-width: 0;
   display: grid;
   grid-template-columns: 5fr 7fr;
-  gap: var(--space-3xl);
+  gap: var(--space-128);
   align-items: center;
-  padding: var(--space-md) 0;
+  padding: var(--space-32) 0;
 }
 
 /* ── Entrance motion for active slide ─────────────────────
@@ -190,7 +190,7 @@
   letter-spacing: -0.02em;
   line-height: var(--lh-heading);
   color: var(--color-text);
-  margin: 0 0 var(--space-xs);
+  margin: 0 0 var(--space-8);
 }
 
 .dr-slide__title {
@@ -203,21 +203,21 @@
 .dr-slide__credentials {
   font-size: var(--fs-caption);
   color: var(--color-text-muted);
-  margin: 0 0 var(--space-md);
+  margin: 0 0 var(--space-32);
 }
 
 .dr-slide__bio {
   color: var(--color-text-muted);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
-  margin: 0 0 var(--space-lg);
+  margin: 0 0 var(--space-32);
   max-width: 56ch;
 }
 
 .dr-slide__actions {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-32);
   flex-wrap: wrap;
 }
 
@@ -268,8 +268,8 @@
 .dr-carousel__dots {
   display: flex;
   justify-content: center;
-  gap: var(--space-xs);
-  margin-top: var(--space-xl);
+  gap: var(--space-8);
+  margin-top: var(--space-64);
 }
 
 .dr-carousel__dot {
@@ -308,7 +308,7 @@
 @media (max-width: 860px) {
   .dr-slide {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: var(--space-64);
     padding: 0;
   }
 

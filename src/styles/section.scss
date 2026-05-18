@@ -1,0 +1,96 @@
+// Section — the .section layout system (levels, headers, labels).
+
+/* --- Section Base ----------------------------------------- */
+.section {
+  padding: var(--space-128) 0;
+}
+
+/* Section levels: heading volume is set with a heading class
+   (.h1 - .h6) on the <h2> in the markup — never overridden here. */
+
+/* First section after hero — clean panel that rises over the sticky image */
+#patient {
+  position: relative;
+  z-index: 5;
+  background-color: var(--color-bg);
+}
+
+.section--accent {
+  background-color: var(--color-bg-accent);
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-text-light);
+}
+
+.section--dark p {
+  color: #999999;
+}
+
+.section--refined {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 80% 40%,
+      rgba(242, 239, 233, 0.5) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #FFFFFF 0%,
+      #F7F5F3 35%,
+      #F5F2EE 50%,
+      #F7F5F3 65%,
+      #FFFFFF 100%
+    );
+}
+
+.section--narrow .container {
+  max-width: 760px;
+}
+
+.section__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-128);
+}
+
+.section__header--light h2,
+.section__header--light .section__label {
+  color: var(--color-text-light);
+}
+
+.section__header--light p {
+  color: #888888;
+}
+
+/* Type comes from the global `.eyebrow, .section__label` rule;
+   this only carries layout + colour. */
+.section__label {
+  display: block;
+  color: var(--color-accent);
+  margin-bottom: var(--space-8);
+}
+
+/* Dark sections: the eyebrow colour is softer and the empty space
+   below it reads as a larger void on a dark surface. Tighten the
+   eyebrow → heading gap one step so the lockup *reads* as tight as
+   it does on light sections. (Optical correction — see design-system.html.) */
+.section--dark .section__label {
+  color: var(--color-accent-soft);
+  margin-bottom: var(--space-4);
+}
+
+.section__header h2 {
+  margin-bottom: var(--space-16);
+}
+
+/* .section__desc / .section__lead removed — markup uses a plain <p>
+   (default body type) or the .lead + .text-text classes. Type comes
+   from typography.scss; nothing is overridden here. */

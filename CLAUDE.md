@@ -1,25 +1,3 @@
-MedRad Clinics Website Redesign
-
-Goal:
-Create a modern, high-trust medical website that separates:
-- Patient experience
-- Education center
-- Interactive tools
-
-Key features to preserve:
-- Assess Your Risk
-- Ask Dr. E
-- Teaching Files
-- Case Gallery
-- Procedures / Tests
-
-Focus:
-- Clean UX structure
-- Strong hierarchy
-- Conversion-first layout
-- Trust and authority
-
-
 Design System (src/ build) — STRICT RULES
 
 The src/ build has a token-based design system. These files are the
@@ -43,6 +21,10 @@ Rules:
   SCSS for a section when a class can do it. Remove styles that aren't needed.
 - Section partials (src/sections/**) must NOT define custom colour, spacing,
   or typography. They compose existing tokens / utility classes only.
+- Headings/text get their size from the element + typography.scss. Never
+  override font-size in a section (e.g. `.section--x h2 { font-size }`) and
+  never reuse an old custom size. If a different size is genuinely needed,
+  put a type class (.h1-.h6, .lead) on the element in the markup.
 - Do NOT add or change a token (new colour, new spacing step, type change)
   without explicitly asking the user first.
 - If a section seems to need a value that isn't in the tokens, ask — do not

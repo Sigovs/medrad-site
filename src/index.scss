@@ -9,10 +9,10 @@
 // --- Mixins (breakpoints emits no CSS) ---
 @use 'styles/breakpoints';
 
-// --- Reset + foundation + forms ---
+// --- Reset + base layout + forms ---
 @use 'styles/reset';         // browser normalisation
-@use 'styles/foundation';    // :root (layout, legacy space, type tokens),
-                             // section base, responsive, utilities
+@use 'styles/section';       // .section layout system
+@use 'styles/responsive';    // shared component media queries
 @use 'styles/forms';         // form controls + buttons — styled by element
 
 // --- Typography (font() mixin + global type scale) ---

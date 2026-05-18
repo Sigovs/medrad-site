@@ -12,12 +12,12 @@ $pageTitle = 'Typography — MedRad Clinics';
 
   <style>
     /* Page-local layout for the specimen table */
-    .type-table { width: 100%; border-collapse: collapse; margin-top: var(--space-lg); }
+    .type-table { width: 100%; border-collapse: collapse; margin-top: var(--space-32); }
     .type-table th,
     .type-table td {
       text-align: left;
       vertical-align: middle;
-      padding: var(--space-md) var(--space-sm);
+      padding: var(--space-32) var(--space-16);
       border-bottom: 1px solid var(--color-border);
     }
     .type-table thead th {
@@ -40,7 +40,7 @@ $pageTitle = 'Typography — MedRad Clinics';
     .type-sample { color: var(--color-text); }
   </style>
 
-  <main class="container" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
+  <main class="container" style="padding-top: var(--space-128); padding-bottom: var(--space-128);">
 
     <p class="eyebrow" style="color: var(--color-accent);">Design System</p>
     <h1>Typography</h1>

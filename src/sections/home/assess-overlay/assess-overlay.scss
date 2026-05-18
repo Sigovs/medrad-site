@@ -102,7 +102,7 @@
   width: 100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: var(--space-2xl) var(--container-pad) var(--space-3xl);
+  padding: var(--space-128) var(--container-pad) var(--space-128);
 }
 
 .assess-inner--narrow {
@@ -117,7 +117,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-8);
 }
 
 .assess-heading {
@@ -126,7 +126,7 @@
   font-weight: 600;
   color: var(--color-text);
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-16);
 }
 
 .assess-intro {
@@ -134,7 +134,7 @@
   color: var(--color-text-muted);
   line-height: 1.75;
   max-width: 520px;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-64);
 }
 
 /* Condition list */
@@ -240,8 +240,8 @@
 
 /* Step 2 — questionnaire header */
 .assess-q-header {
-  margin-bottom: var(--space-2xl);
-  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-128);
+  padding-bottom: var(--space-32);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -307,7 +307,7 @@
   font-weight: 400;
   color: var(--color-text);
   line-height: 1.45;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-64);
   max-width: 540px;
 }
 
@@ -363,7 +363,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-64);
   transition: color var(--duration) var(--ease);
 }
 
@@ -385,7 +385,7 @@
   display: flex;
   gap: 0.625rem;
   align-items: center;
-  padding: var(--space-xl) 0;
+  padding: var(--space-64) 0;
 }
 
 .assess-loading span {
@@ -407,7 +407,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-accent);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-16);
 }
 
 .assess-result__level {
@@ -417,14 +417,14 @@
   color: var(--color-text);
   line-height: 1.1;
   letter-spacing: -0.02em;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-32);
 }
 
 .assess-result__body {
   font-size: var(--fs-body) !important;
   color: var(--color-text-muted) !important;
   line-height: 1.8 !important;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-32);
   max-width: 500px;
 }
 
@@ -432,9 +432,9 @@
   font-size: var(--fs-caption);
   color: var(--color-text-dim);
   line-height: 1.65;
-  padding-top: var(--space-md);
+  padding-top: var(--space-32);
   border-top: 1px solid var(--color-border);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-64);
   max-width: 500px;
 }
 
@@ -442,7 +442,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-sm);
+  gap: var(--space-16);
 }
 
 .assess-result__restart {

@@ -4,6 +4,20 @@
 // Composed from tokens only. Buttons + form controls -> forms.scss.
 // ============================================================
 
+// --- Layout tokens -------------------------------------------
+:root {
+  --container-max: 1140px;
+  --container-pad: 24px;
+  --nav-height:    120px;
+}
+
+/* --- Layout tokens ---------------------------------------- */
+:root {
+  --container-max: 1140px;
+  --container-pad: 1.5rem;
+  --nav-height:    120px;
+}
+
 /* --- Container -------------------------------------------- */
 .container {
   width: 100%;
@@ -79,3 +93,64 @@
 .text-left   { text-align: left; }
 .text-center { text-align: center; }
 .text-right  { text-align: right; }
+// --- Utilities (moved from foundation) --------------------
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* ============================================================
+   Reduced-motion preference
+   Keep opacity + color fades that aid comprehension.
+   Strip position/transform movement that can trigger motion sickness.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Neutralize translate/scale hover lifts */
+  .proc-card:hover,
+  .edu-preview__card:hover,
+  .contact-path:hover,
+  .expect-step:hover,
+  .btn--primary:hover,
+  .btn--ghost:hover {
+    transform: none;
+  }
+
+  /* Dropdowns: fade only, no scale */
+  .nav__dropdown {
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 160ms linear;
+  }
+  .nav__dropdown.is-open {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Cap long content transitions */
+  .va-list a,
+  .tc-case__link,
+  .proc-card,
+  .edu-preview__card,
+  .contact-path,
+  .expect-step,
+  .article-row,
+  .proc-cat-item {
+    transition-duration: 160ms !important;
+  }
+}
+
+

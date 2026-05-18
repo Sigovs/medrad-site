@@ -47,7 +47,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-xs);
+  gap: var(--space-8);
   padding: 12px 28px;
   border-radius: var(--radius-sm);
   border: 1.5px solid transparent;
@@ -75,7 +75,7 @@ textarea {
 // Arrow inside a btn — shifts right on hover
 .btn__arrow {
   display: inline-block;
-  margin-left: var(--space-2xs);
+  margin-left: var(--space-4);
   transition: transform var(--duration) var(--ease-out);
   will-change: transform;
 }

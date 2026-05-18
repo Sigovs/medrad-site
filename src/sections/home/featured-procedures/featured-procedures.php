@@ -6,7 +6,7 @@
     <div class="section__header" data-parallax="float">
       <p class="section__label">Featured Procedures</p>
       <h2>What we treat</h2>
-      <p class="section__lead">Minimally invasive, image-guided procedures for conditions that were once managed only with open surgery. Shorter recovery. Fewer risks. The same clinical outcomes.</p>
+      <p class="lead text-text">Minimally invasive, image-guided procedures for conditions that were once managed only with open surgery. Shorter recovery. Fewer risks. The same clinical outcomes.</p>
     </div>
     <div class="procs-featured procs-featured--hero">
 

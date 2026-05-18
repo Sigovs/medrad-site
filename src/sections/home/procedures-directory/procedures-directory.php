@@ -5,7 +5,7 @@
   <div class="container">
     <div class="section__header" data-parallax="float">
       <h2>All procedure categories</h2>
-      <p class="section__desc">Our complete range of interventional radiology procedures, organized by clinical category.</p>
+      <p>Our complete range of interventional radiology procedures, organized by clinical category.</p>
     </div>
     <div class="proc-cats">
       <a href="all-procedures.html#arterial" class="proc-cat-item">
