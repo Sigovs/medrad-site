@@ -10,7 +10,7 @@
 // Preview specimen:  /typography.php
 // ============================================================
 @use 'sass:map';
-@use 'breakpoints' as *;   // desktop() mixin — see shared/breakpoints.scss
+@use 'breakpoints' as *;   // desktop() mixin
 
 // --- Font families -------------------------------------------
 $fonts: (

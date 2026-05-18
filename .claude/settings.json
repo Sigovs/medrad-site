@@ -25,7 +25,10 @@
       "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; php -l \"C:\\\\____WORK\\\\MEDRAD\\\\medrad-site\\\\src\\\\typography.php\" 2>&1 | Select-Object -Last 1; try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/typography.php' -UseBasicParsing; \"typography.php -> $\\($r.StatusCode\\), has table: $\\($r.Content -match 'type-table'\\)\" } catch { \"FAIL: $_\" })",
       "Bash(git rm *)",
       "Bash(git -c core.autocrlf=false commit -m 'Refine typography module; stop tracking compiled CSS' -m '- typography.scss: one element + one reusable class per rule *)",
-      "Bash(git -c core.autocrlf=false commit -m 'Add colour, spacing & breakpoint token system + utility classes' -m '- colors.scss: palette map, color\\(\\) fn, :root vars, .text-/.bg-/.border- utilities *)"
+      "Bash(git -c core.autocrlf=false commit -m 'Add colour, spacing & breakpoint token system + utility classes' -m '- colors.scss: palette map, color\\(\\) fn, :root vars, .text-/.bg-/.border- utilities *)",
+      "Bash(git mv *)",
+      "PowerShell(foreach \\($u in @\\('/','/index.php','/styles.css','/preview/','/preview/typography.php','/preview/colors.php','/preview/spacing.php'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\) \\($\\($r.Content.Length\\)b\\)\" } catch { \"$u -> FAIL\" } })",
+      "Bash(git -c core.autocrlf=false commit -m 'Restructure src/: styles/ folder + per-section folders' -m '- styles/ holds the global styles flat \\(breakpoints, colors, spacing, *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

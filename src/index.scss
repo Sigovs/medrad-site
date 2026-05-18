@@ -8,36 +8,36 @@
 // ============================================================
 
 // --- Tokens / mixins (breakpoints emits no CSS) ---
-@use 'shared/breakpoints';
+@use 'styles/breakpoints';
 
 // --- Foundation (globals: reset, container, buttons,
 //     section base, card, shared responsive, utilities) ---
-@use 'shared/foundation';
+@use 'styles/foundation';
 
 // --- Typography (font() mixin + global type scale) ---
-@use 'shared/typography';
+@use 'styles/typography';
 
 // --- Shared partials ---
 @use 'shared/header';
 @use 'shared/footer';
 
 // --- Home sections ---
-@use 'home/hero';
-@use 'home/trust-strip';
-@use 'home/featured-procedures';
-@use 'home/visual-break';
-@use 'home/procedures-directory';
-@use 'home/diagnostic-imaging';
-@use 'home/interactive-tool';
-@use 'home/reviews';
-@use 'home/treatment-cases';
-@use 'home/specialists';
-@use 'home/contact';
-@use 'home/assess-overlay';
+@use 'sections/home/hero/hero';
+@use 'sections/home/trust-strip/trust-strip';
+@use 'sections/home/featured-procedures/featured-procedures';
+@use 'sections/home/visual-break/visual-break';
+@use 'sections/home/procedures-directory/procedures-directory';
+@use 'sections/home/diagnostic-imaging/diagnostic-imaging';
+@use 'sections/home/interactive-tool/interactive-tool';
+@use 'sections/home/reviews/reviews';
+@use 'sections/home/treatment-cases/treatment-cases';
+@use 'sections/home/specialists/specialists';
+@use 'sections/home/contact/contact';
+@use 'sections/home/assess-overlay/assess-overlay';
 
 // --- Colour + spacing: :root tokens AND utility classes ---
 // Loaded last so the .text-*/.bg-*/.p-*/.m-* utilities win the
 // cascade over component rules. :root tokens resolve regardless
 // of position.
-@use 'shared/colors';
-@use 'shared/spacing';
+@use 'styles/colors';
+@use 'styles/spacing';

@@ -12,23 +12,23 @@ $pageTitle = 'MedRad Clinics — Interventional Radiology & Image-Guided Treatme
 
   <?php include __DIR__ . '/shared/header.php'; ?>
 
-  <?php include __DIR__ . '/home/hero.php'; ?>
-  <?php include __DIR__ . '/home/trust-strip.php'; ?>
-  <?php include __DIR__ . '/home/featured-procedures.php'; ?>
-  <?php include __DIR__ . '/home/visual-break.php'; ?>
-  <?php include __DIR__ . '/home/procedures-directory.php'; ?>
-  <?php include __DIR__ . '/home/diagnostic-imaging.php'; ?>
-  <?php include __DIR__ . '/home/interactive-tool.php'; ?>
-  <?php include __DIR__ . '/home/reviews.php'; ?>
-  <?php include __DIR__ . '/home/treatment-cases.php'; ?>
-  <?php include __DIR__ . '/home/specialists.php'; ?>
-  <?php include __DIR__ . '/home/contact.php'; ?>
+  <?php include __DIR__ . '/sections/home/hero/hero.php'; ?>
+  <?php include __DIR__ . '/sections/home/trust-strip/trust-strip.php'; ?>
+  <?php include __DIR__ . '/sections/home/featured-procedures/featured-procedures.php'; ?>
+  <?php include __DIR__ . '/sections/home/visual-break/visual-break.php'; ?>
+  <?php include __DIR__ . '/sections/home/procedures-directory/procedures-directory.php'; ?>
+  <?php include __DIR__ . '/sections/home/diagnostic-imaging/diagnostic-imaging.php'; ?>
+  <?php include __DIR__ . '/sections/home/interactive-tool/interactive-tool.php'; ?>
+  <?php include __DIR__ . '/sections/home/reviews/reviews.php'; ?>
+  <?php include __DIR__ . '/sections/home/treatment-cases/treatment-cases.php'; ?>
+  <?php include __DIR__ . '/sections/home/specialists/specialists.php'; ?>
+  <?php include __DIR__ . '/sections/home/contact/contact.php'; ?>
 
   <?php include __DIR__ . '/shared/footer.php'; ?>
 
-  <?php include __DIR__ . '/home/assess-overlay.php'; ?>
+  <?php include __DIR__ . '/sections/home/assess-overlay/assess-overlay.php'; ?>
 
-  <?php include __DIR__ . '/home/page-scripts.php'; ?>
+  <?php include __DIR__ . '/sections/home/page-scripts/page-scripts.php'; ?>
 
 </body>
 </html>
