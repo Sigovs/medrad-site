@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php --version)",
+      "Bash(scoop --version)",
+      "Bash(choco --version)",
+      "Bash(npm --version)",
+      "Bash(sass --version)",
+      "Bash(winget --version)",
+      "PowerShell(Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression)",
+      "Bash(npm install *)",
+      "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; scoop install php 2>&1 | Select-Object -Last 20)",
+      "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; php --version)",
+      "Bash(mkdir -p src/shared src/home)",
+      "Bash(cp styles.css src/shared/base.scss)",
+      "Bash(cp styles-v2.css src/shared/base-v2.scss)",
+      "Bash(sass src/index.scss src/styles.css)",
+      "PowerShell($env:Path = \"$env:USERPROFILE\\\\scoop\\\\shims;$env:Path\"; Start-Process php -ArgumentList '-S','localhost:8000','-t','.' -WorkingDirectory 'C:\\\\____WORK\\\\MEDRAD\\\\medrad-site' -WindowStyle Hidden; Start-Sleep -Seconds 2; try { $r = Invoke-WebRequest -Uri 'http://localhost:8000/src/index.php' -UseBasicParsing; \"STATUS: $\\($r.StatusCode\\)\"; \"LENGTH: $\\($r.Content.Length\\) bytes\"; \"HAS <footer>: $\\($r.Content -match '<footer'\\)\"; \"HAS hero: $\\($r.Content -match 'entry__headline'\\)\"; \"PHP errors: $\\(if \\($r.Content -match 'Fatal error|Warning:|Notice:'\\) {'FOUND'} else {'none'}\\)\" } catch { \"ERROR: $_\" })",
+      "PowerShell(foreach \\($u in @\\('/src/styles.css','/assets/images/logo.svg','/script.js','/assets/images/aboutek.png'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing -Method Head; \"$u  ->  $\\($r.StatusCode\\)\" } catch { \"$u  ->  FAIL $\\($_.Exception.Response.StatusCode.value__\\)\" } })",
+      "PowerShell($css = \\(Invoke-WebRequest -Uri 'http://localhost:8000/src/styles.css' -UseBasicParsing\\).Content; \"reviews-summary__stars svg: $\\(if \\($css -match 'reviews-summary__stars svg'\\) {'present'} else {'MISSING'}\\)\"; \"review-card__stars svg: $\\(if \\($css -match 'review-card__stars svg'\\) {'present'} else {'MISSING'}\\)\"; \"reviews-section: $\\(if \\($css -match '\\\\.reviews-section'\\) {'present'} else {'MISSING'}\\)\")",
+      "Bash(sed -n '170,172p;246,250p' src/shared/foundation.scss)",
+      "Bash(sed -i '171,248d' src/shared/foundation.scss)",
+      "Bash(sed -n '167,173p' src/shared/foundation.scss)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"
+    ]
+  }
+}
