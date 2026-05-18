@@ -28,7 +28,12 @@
       "Bash(git -c core.autocrlf=false commit -m 'Add colour, spacing & breakpoint token system + utility classes' -m '- colors.scss: palette map, color\\(\\) fn, :root vars, .text-/.bg-/.border- utilities *)",
       "Bash(git mv *)",
       "PowerShell(foreach \\($u in @\\('/','/index.php','/styles.css','/preview/','/preview/typography.php','/preview/colors.php','/preview/spacing.php'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\) \\($\\($r.Content.Length\\)b\\)\" } catch { \"$u -> FAIL\" } })",
-      "Bash(git -c core.autocrlf=false commit -m 'Restructure src/: styles/ folder + per-section folders' -m '- styles/ holds the global styles flat \\(breakpoints, colors, spacing, *)"
+      "Bash(git -c core.autocrlf=false commit -m 'Restructure src/: styles/ folder + per-section folders' -m '- styles/ holds the global styles flat \\(breakpoints, colors, spacing, *)",
+      "Bash(sed -i \"s#/shared/head\\\\.php#/shared/head/head.php#g; s#/shared/header\\\\.php#/shared/header/header.php#g; s#/shared/footer\\\\.php#/shared/footer/footer.php#g\" src/index.php)",
+      "Bash(sed -i \"s#/../shared/head\\\\.php#/../shared/head/head.php#g; s#src/shared/#src/styles/#g\" src/preview/index.php src/preview/typography.php src/preview/colors.php src/preview/spacing.php)",
+      "Bash(~/scoop/shims/php -l src/index.php)",
+      "PowerShell(foreach \\($u in @\\('/','/styles.css','/preview/','/preview/typography.php','/preview/colors.php','/preview/spacing.php'\\)\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:8000$u\" -UseBasicParsing; \"$u -> $\\($r.StatusCode\\)\" } catch { \"$u -> FAIL\" } })",
+      "Bash(git -c core.autocrlf=false commit -m 'Organize shared/ into per-component folders; fix preview page links' -m '- shared/<name>/<name>.php\\(.scss\\) — head, header, footer each in own folder *)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Sigoff\\.claude\\projects\\c------WORK-MEDRAD-medrad-site\\memory"

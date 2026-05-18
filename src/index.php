@@ -7,10 +7,10 @@ $pageTitle = 'MedRad Clinics — Interventional Radiology & Image-Guided Treatme
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include __DIR__ . '/shared/head.php'; ?>
+<?php include __DIR__ . '/shared/head/head.php'; ?>
 <body>
 
-  <?php include __DIR__ . '/shared/header.php'; ?>
+  <?php include __DIR__ . '/shared/header/header.php'; ?>
 
   <?php include __DIR__ . '/sections/home/hero/hero.php'; ?>
   <?php include __DIR__ . '/sections/home/trust-strip/trust-strip.php'; ?>
@@ -24,7 +24,7 @@ $pageTitle = 'MedRad Clinics — Interventional Radiology & Image-Guided Treatme
   <?php include __DIR__ . '/sections/home/specialists/specialists.php'; ?>
   <?php include __DIR__ . '/sections/home/contact/contact.php'; ?>
 
-  <?php include __DIR__ . '/shared/footer.php'; ?>
+  <?php include __DIR__ . '/shared/footer/footer.php'; ?>
 
   <?php include __DIR__ . '/sections/home/assess-overlay/assess-overlay.php'; ?>
 

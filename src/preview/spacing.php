@@ -1,7 +1,7 @@
 <?php
 /**
  * Spacing + breakpoints preview / specimen page.
- * Source of truth: src/shared/spacing.scss, src/shared/breakpoints.scss
+ * Source of truth: src/styles/spacing.scss, src/styles/breakpoints.scss
  */
 $pageTitle = 'Spacing — MedRad Clinics';
 
@@ -16,7 +16,7 @@ $breakpoints = [
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include __DIR__ . '/../shared/head.php'; ?>
+<?php include __DIR__ . '/../shared/head/head.php'; ?>
 <body>
 
   <style>
@@ -47,7 +47,7 @@ $breakpoints = [
     <p class="eyebrow" style="color: var(--color-accent);">Design System</p>
     <h1>Spacing &amp; Breakpoints</h1>
     <p class="lead">A geometric spacing scale &mdash; 4px base, then each step doubles up to 256.
-      Defined in <code>src/shared/spacing.scss</code>.</p>
+      Defined in <code>src/styles/spacing.scss</code>.</p>
 
     <h3 style="margin-top: var(--space-xl);">Spacing scale</h3>
     <table class="ds-table">
@@ -73,7 +73,7 @@ $breakpoints = [
       e.g. <code>class="p-16 p-32-tablet p-64-desktop"</code>.</small></p>
 
     <h3 style="margin-top: var(--space-2xl);">Breakpoints</h3>
-    <p>Every <code>@media</code> query lives in <code>src/shared/breakpoints.scss</code> &mdash;
+    <p>Every <code>@media</code> query lives in <code>src/styles/breakpoints.scss</code> &mdash;
       components call the mixin rather than writing raw queries.</p>
     <table class="ds-table">
       <thead>

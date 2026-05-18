@@ -1,7 +1,7 @@
 <?php
 /**
  * Colour preview / specimen page.
- * Source of truth: src/shared/colors.scss
+ * Source of truth: src/styles/colors.scss
  */
 $pageTitle = 'Colours — MedRad Clinics';
 
@@ -26,7 +26,7 @@ $palette = [
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include __DIR__ . '/../shared/head.php'; ?>
+<?php include __DIR__ . '/../shared/head/head.php'; ?>
 <body>
 
   <style>
@@ -65,7 +65,7 @@ $palette = [
 
     <p class="eyebrow" style="color: var(--color-accent);">Design System</p>
     <h1>Colours</h1>
-    <p class="lead">The MedRad palette. Defined once in <code>src/shared/colors.scss</code> —
+    <p class="lead">The MedRad palette. Defined once in <code>src/styles/colors.scss</code> —
       available as <code>var(--color-*)</code> and the SCSS <code>color()</code> function.</p>
 
     <table class="ds-table">

@@ -18,8 +18,8 @@
 @use 'styles/typography';
 
 // --- Shared partials ---
-@use 'shared/header';
-@use 'shared/footer';
+@use 'shared/header/header';
+@use 'shared/footer/footer';
 
 // --- Home sections ---
 @use 'sections/home/hero/hero';

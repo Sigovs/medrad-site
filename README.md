@@ -52,10 +52,10 @@ src/
 ├── styles.css             compiled output (do not edit by hand, gitignored)
 ├── assets/                junction → ../assets
 ├── script.js              hard link → ../script.js
-├── shared/                shared layout partials
-│   ├── head.php
-│   ├── header.php   header.scss
-│   └── footer.php   footer.scss
+├── shared/                shared layout partials — one folder each
+│   ├── head/              head.php
+│   ├── header/            header.php + header.scss
+│   └── footer/            footer.php + footer.scss
 ├── styles/                global styles — flat
 │   ├── breakpoints.scss   resolution mixins
 │   ├── colors.scss        palette + colour utilities

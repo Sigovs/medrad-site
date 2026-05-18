@@ -13,7 +13,7 @@ $previews = [
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include __DIR__ . '/../shared/head.php'; ?>
+<?php include __DIR__ . '/../shared/head/head.php'; ?>
 <body>
 
   <style>
@@ -34,7 +34,7 @@ $previews = [
     <p class="eyebrow" style="color: var(--color-accent);">MedRad Clinics</p>
     <h1>Design System</h1>
     <p class="lead">Living specimen pages for the design tokens &mdash; each generated straight
-      from the SCSS source under <code>src/shared/</code>.</p>
+      from the SCSS source under <code>src/styles/</code>.</p>
 
     <ul class="ds-list">
       <?php foreach ($previews as [$href, $title, $desc]): ?>
