@@ -80,9 +80,6 @@
   position: absolute;
   bottom: 18%;
   right: -10px;
-  font-family: var(--font-body);
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
   color: rgba(255, 255, 255, 0.9);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(16px);
@@ -100,7 +97,6 @@
     right: auto;
     bottom: auto;
     margin-top: var(--space-16);
-    font-size: var(--fs-tag);
   }
 }
 
@@ -118,21 +114,13 @@
   will-change: opacity;
 }
 
-/* Hero eyebrow — eyebrow pattern, light variant for the dark hero.
-   margin-bottom = airy eyebrow→heading gap (hero / page openings). */
+/* Hero eyebrow — light colour variant for the dark hero. */
 .entry__label {
-  font-family: var(--font-body);
-  font-size: var(--fs-tag);
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: rgba(255, 255, 255, 0.55);
   margin-bottom: var(--space-32);
 }
 
 .entry__headline {
-  font-family: var(--font-display);
-  line-height: var(--lh-display);
   margin: 0;
 }
 
@@ -142,16 +130,14 @@
 
 /* Display lines — the visual anchor of the page */
 .entry__line--xl {
-  font-size: var(--fs-display);
-  font-weight: var(--fw-regular);
+  font-size: clamp(56px, 7vw, 112px);
+  font-weight: 400;
   color: var(--color-white);
   letter-spacing: -0.03em;
 }
 
 /* Italic standfirst — lead paragraph, sits below the headline */
 .entry__line--sub {
-  font-size: var(--fs-lead);
-  font-weight: var(--fw-regular);
   font-style: italic;
   color: rgba(255, 255, 255, 0.62);
   margin-top: 1.75rem;
@@ -165,9 +151,8 @@
   align-items: center;
   gap: var(--space-8);
   margin-top: var(--space-32);
-  font-family: var(--font-body);
-  font-size: var(--fs-tag);
-  font-weight: var(--fw-medium);
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text);
@@ -281,6 +266,19 @@
 }
 
 
+@media (max-width: 900px) {
+  .entry {
+    height: auto;
+    min-height: 680px;
+  }
+
+  .entry__content {
+    height: auto;
+    min-height: 680px;
+    padding-top: calc(var(--nav-height) + 12vh);
+  }
+}
+
 /* ============================================================
    MOBILE HERO — full-bleed portrait + name pill + single CTA
    Layout (per reference): text top → portrait fills lower half
@@ -315,7 +313,6 @@
   .entry__line--sub { pointer-events: auto; }
 
   .entry__label {
-    font-size: var(--fs-tag);
     margin-bottom: var(--space-16);
   }
 
@@ -381,8 +378,6 @@
     -webkit-backdrop-filter: blur(8px);
     padding: var(--space-8) var(--space-16);
     border-radius: 999px;
-    font-size: var(--fs-caption);
-    font-weight: var(--fw-medium);
     white-space: nowrap;
     box-shadow: var(--shadow-md);
     top: auto !important;

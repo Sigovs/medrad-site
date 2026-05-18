@@ -9,7 +9,6 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: var(--fs-body);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -37,12 +36,12 @@ ul {
 }
 
 button {
-  font-family: var(--font-body);
+  font-family: inherit;
   cursor: pointer;
   border: none;
   background: none;
 }
 
 input, textarea, select {
-  font-family: var(--font-body);
+  font-family: inherit;
 }

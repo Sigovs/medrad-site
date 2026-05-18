@@ -12,7 +12,6 @@
 // --- Reset + base layout + forms ---
 @use 'styles/reset';         // browser normalisation
 @use 'styles/section';       // .section layout system
-@use 'styles/responsive';    // shared component media queries
 @use 'styles/forms';         // form controls + buttons — styled by element
 
 // --- Typography (font() mixin + global type scale) ---

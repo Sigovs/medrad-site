@@ -25,9 +25,9 @@
               <img src="assets/images/Our Specialist_about.png" alt="Dr. Kenneth U. Ekechukwu" />
             </div>
             <div class="dr-slide__text">
-              <h3 class="dr-slide__name">Dr. Kenneth U. Ekechukwu, MD, MPH</h3>
-              <p class="dr-slide__title">Founder &middot; Interventional Radiologist</p>
-              <p class="dr-slide__credentials">Board Certified &middot; Fellowship-Trained</p>
+              <h3 class="dr-slide__name"><strong>Dr. Kenneth U. Ekechukwu, MD, MPH</strong></h3>
+              <p class="dr-slide__title p2">Founder &middot; Interventional Radiologist</p>
+              <p class="dr-slide__credentials p2">Board Certified &middot; Fellowship-Trained</p>
               <p class="dr-slide__bio">Fellowship-trained interventional radiologist with over 18 years of clinical practice. Particular focus on vascular interventions, embolotherapy, and interventional oncology. Every patient is seen, assessed, and treated personally.</p>
               <div class="dr-slide__actions">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>
@@ -41,9 +41,9 @@
               <img src="assets/images/margaret_img.png" alt="Dr. Margaret L. Whitfield" />
             </div>
             <div class="dr-slide__text">
-              <h3 class="dr-slide__name">Dr. Margaret L. Whitfield, MD, PhD</h3>
-              <p class="dr-slide__title">Director of Vascular Imaging</p>
-              <p class="dr-slide__credentials">Board Certified &middot; Dual-Trained, IR + Vascular Medicine</p>
+              <h3 class="dr-slide__name"><strong>Dr. Margaret L. Whitfield, MD, PhD</strong></h3>
+              <p class="dr-slide__title p2">Director of Vascular Imaging</p>
+              <p class="dr-slide__credentials p2">Board Certified &middot; Dual-Trained, IR + Vascular Medicine</p>
               <p class="dr-slide__bio">Dr. Whitfield leads the practice's complex vascular access program. Her clinical interest centers on hemodialysis access salvage and limb-preservation work in chronic peripheral arterial disease.</p>
               <div class="dr-slide__actions">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>
@@ -57,9 +57,9 @@
               <img src="assets/images/marcus_img.png" alt="Dr. Marcus T. Ridgeway" />
             </div>
             <div class="dr-slide__text">
-              <h3 class="dr-slide__name">Dr. Marcus T. Ridgeway, DO, MSc</h3>
-              <p class="dr-slide__title">Lead Interventional Oncologist</p>
-              <p class="dr-slide__credentials">Board Certified &middot; Sub-Fellowship in Interventional Oncology</p>
+              <h3 class="dr-slide__name"><strong>Dr. Marcus T. Ridgeway, DO, MSc</strong></h3>
+              <p class="dr-slide__title p2">Lead Interventional Oncologist</p>
+              <p class="dr-slide__credentials p2">Board Certified &middot; Sub-Fellowship in Interventional Oncology</p>
               <p class="dr-slide__bio">Dr. Ridgeway focuses on percutaneous tumor ablation, transarterial chemoembolization, and selective internal radiation therapy. Directs the practice's multidisciplinary tumor board collaboration.</p>
               <div class="dr-slide__actions">
                 <a href="#contact" class="btn btn--ghost">Schedule a Consultation</a>

@@ -26,8 +26,6 @@
 
 /* Category kicker — eyebrow pattern, card-scale */
 .case-card__cat {
-  font-size: var(--fs-tag);
-  font-weight: var(--fw-semibold);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-accent-soft);
@@ -35,23 +33,17 @@
 }
 
 .case-card h4 {
-  font-size: var(--fs-body);
   color: var(--color-text-light);
   margin-bottom: var(--space-8);
-  line-height: var(--lh-ui);
 }
 
 .case-card p {
-  font-size: var(--fs-body-sm);
   color: #777777;
-  line-height: var(--lh-body);
   flex: 1;
   margin-bottom: var(--space-32);
 }
 
 .case-card__link {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
   color: var(--color-accent-soft);
   margin-top: auto;
   display: inline-block;

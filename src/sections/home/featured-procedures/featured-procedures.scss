@@ -30,15 +30,12 @@
 }
 
 .procedure-item h4 {
-  font-size: var(--fs-body);
   margin-bottom: var(--space-8);
   color: var(--color-text);
 }
 
 .procedure-item p {
-  font-size: var(--fs-body-sm);
   margin-bottom: var(--space-16);
-  line-height: 1.65;
 }
 
 /* --- Featured Procedures ---------------------------------- */
@@ -108,35 +105,22 @@
 /* Category kicker — eyebrow pattern, card-scale.
    margin-bottom = tight eyebrow→title gap (cards / section headers). */
 .proc-card__cat {
-  font-size: var(--fs-tag) !important;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-accent) !important;
   margin-bottom: var(--space-8) !important;
-  line-height: var(--lh-ui);
 }
 
-/* Card title — keeps an explicit weight (section h1–h3 are --fw-regular).
-   margin-bottom = card-level title→body gap (--space-xs, matches other cards). */
-.proc-card h3 {
-  font-size: 1.1875rem;
-  font-weight: var(--fw-semibold);
+/* Card title — h5 type rule handles font/size; only layout overrides here. */
+.proc-card h5 {
   color: var(--color-text);
   margin-bottom: var(--space-8);
-  line-height: var(--lh-ui);
 }
 
 .proc-card p {
-  font-size: var(--fs-body-sm);
-  line-height: var(--lh-body);
   flex: 1;
   margin-bottom: var(--space-32);
 }
 
 .proc-card__link {
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
   color: var(--color-accent);
   margin-top: auto;
   display: inline-block;
@@ -211,11 +195,9 @@
 }
 
 .proc-card--hero h3 {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
-  font-weight: var(--fw-semibold);
+  font-size: clamp(27px, 2.6vw, 34px);
+  font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: var(--lh-heading);
   color: var(--color-text);
   margin: 0;
 }
@@ -225,8 +207,6 @@
 }
 
 .proc-card--hero p {
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
   color: var(--color-text-muted);
   margin: 0;
   flex: 0;
@@ -245,22 +225,16 @@
 
 .proc-card--hero .proc-card__meta-k {
   display: block;
-  font-size: var(--fs-tag);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-text-dim);
   margin-bottom: var(--space-4);
 }
 
 .proc-card--hero .proc-card__meta-v {
-  font-family: var(--font-display);
-  font-size: var(--fs-body);
   color: var(--color-text);
 }
 
 .proc-card--hero .proc-card__link {
   margin-top: var(--space-8);
-  font-size: var(--fs-body-sm);
 }
 
 /* 3-up row of supporting procedures */
@@ -281,7 +255,7 @@
   margin-bottom: var(--space-8) !important;
 }
 
-.procs-featured__row .proc-card h3 {
+.procs-featured__row .proc-card h5 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   line-clamp: 2;
@@ -297,9 +271,7 @@
   line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  /* Tighten — kill flex stretch & loose line-height, drop the gap before the link */
   flex: none;
-  line-height: var(--lh-body);
   margin-bottom: var(--space-8) !important;
 }
 

@@ -4,17 +4,10 @@
 // Composed from tokens only. Buttons + form controls -> forms.scss.
 // ============================================================
 
-// --- Layout tokens -------------------------------------------
-:root {
-  --container-max: 1140px;
-  --container-pad: 24px;
-  --nav-height:    120px;
-}
-
 /* --- Layout tokens ---------------------------------------- */
 :root {
   --container-max: 1140px;
-  --container-pad: 1.5rem;
+  --container-pad: 24px;
   --nav-height:    120px;
 }
 
@@ -30,8 +23,8 @@
 
 /* --- Text link -------------------------------------------- */
 .text-link {
-  font-size: var(--fs-body-sm);
-  font-weight: var(--fw-medium);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--color-accent);
   text-decoration: none;
   transition: opacity var(--duration) var(--ease);

@@ -1,4 +1,4 @@
-<script src="script.js"></script>
+
 <script>
 /* ============================================================
    Hero Particle Field — lightweight canvas 2D

@@ -9,31 +9,31 @@
     </div>
     <div class="proc-cats">
       <a href="all-procedures.html#arterial" class="proc-cat-item">
-        <span class="proc-cat-item__name">Arterial Interventions</span>
+        <span class="proc-cat-item__name h6 font-display">Arterial Interventions</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#biopsies" class="proc-cat-item">
-        <span class="proc-cat-item__name">Biopsies</span>
+        <span class="proc-cat-item__name h6 font-display">Biopsies</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#drainages" class="proc-cat-item">
-        <span class="proc-cat-item__name">Drainages</span>
+        <span class="proc-cat-item__name h6 font-display">Drainages</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#embolotherapy" class="proc-cat-item">
-        <span class="proc-cat-item__name">Embolotherapy</span>
+        <span class="proc-cat-item__name h6 font-display">Embolotherapy</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#oncology" class="proc-cat-item">
-        <span class="proc-cat-item__name">Interventional Oncology</span>
+        <span class="proc-cat-item__name h6 font-display">Interventional Oncology</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#neuro" class="proc-cat-item">
-        <span class="proc-cat-item__name">Neurointerventions</span>
+        <span class="proc-cat-item__name h6 font-display">Neurointerventions</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
       <a href="all-procedures.html#venous" class="proc-cat-item">
-        <span class="proc-cat-item__name">Venous Interventions</span>
+        <span class="proc-cat-item__name h6 font-display">Venous Interventions</span>
         <svg class="proc-cat-item__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
       </a>
     </div>

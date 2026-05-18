@@ -12,22 +12,22 @@
       </div>
       <div class="cases-grid">
         <a href="treatment-cases.html#foreign-body-retrieval" class="case-card">
-          <p class="case-card__cat">Foreign Body Retrieval</p>
-          <h4>Retrieval of a Lost Guidewire from the IVC and Right Atrium</h4>
-          <p>Case demonstrating successful endovascular retrieval of a misplaced intravascular guidewire.</p>
-          <span class="case-card__link">View case &rarr;</span>
+          <p class="case-card__cat eyebrow">Foreign Body Retrieval</p>
+          <h4 class="p1">Retrieval of a Lost Guidewire from the IVC and Right Atrium</h4>
+          <p class="p2">Case demonstrating successful endovascular retrieval of a misplaced intravascular guidewire.</p>
+          <span class="case-card__link text-link">View case &rarr;</span>
         </a>
         <a href="treatment-cases.html#gastrointestinal" class="case-card">
-          <p class="case-card__cat">Gastrointestinal Interventions</p>
-          <h4>Percutaneous Gastrostomy</h4>
-          <p>Clinical case highlighting image-guided gastrostomy placement for enteral access.</p>
-          <span class="case-card__link">View case &rarr;</span>
+          <p class="case-card__cat eyebrow">Gastrointestinal Interventions</p>
+          <h4 class="p1">Percutaneous Gastrostomy</h4>
+          <p class="p2">Clinical case highlighting image-guided gastrostomy placement for enteral access.</p>
+          <span class="case-card__link text-link">View case &rarr;</span>
         </a>
         <a href="treatment-cases.html#peripheral-arterial" class="case-card">
-          <p class="case-card__cat">Peripheral Arterial Interventions</p>
-          <h4>Combining Atherectomy and Angioplasty to Heal Diabetic Foot Ulcer</h4>
-          <p>Case study demonstrating limb-salvage intervention through endovascular arterial treatment.</p>
-          <span class="case-card__link">View case &rarr;</span>
+          <p class="case-card__cat eyebrow">Peripheral Arterial Interventions</p>
+          <h4 class="p1">Combining Atherectomy and Angioplasty to Heal Diabetic Foot Ulcer</h4>
+          <p class="p2">Case study demonstrating limb-salvage intervention through endovascular arterial treatment.</p>
+          <span class="case-card__link text-link">View case &rarr;</span>
         </a>
       </div>
     </div>

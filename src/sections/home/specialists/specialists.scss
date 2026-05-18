@@ -26,15 +26,12 @@
 }
 
 .dr-block__credentials {
-  font-size: var(--fs-body-sm) !important;
   color: var(--color-accent) !important;
   font-style: italic;
   margin-bottom: var(--space-32) !important;
 }
 
 .dr-block__text p:not(.section__label):not(.dr-block__credentials) {
-  font-size: var(--fs-body-sm);
-  line-height: 1.75;
   margin-bottom: var(--space-32);
 }
 
@@ -60,8 +57,6 @@
 
 .dr-carousel__lede {
   color: var(--color-text-muted);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
   margin-top: var(--space-16);
 }
 
@@ -174,9 +169,9 @@
 }
 
 .dr-slide__initials {
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 6.5rem);
-  font-weight: var(--fw-semibold);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(64px, 9vw, 104px);
+  font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--color-accent);
   opacity: 0.5;
@@ -184,32 +179,24 @@
 }
 
 .dr-slide__name {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
-  font-weight: var(--fw-semibold);
   letter-spacing: -0.02em;
-  line-height: var(--lh-heading);
   color: var(--color-text);
   margin: 0 0 var(--space-8);
 }
 
 .dr-slide__title {
-  font-size: var(--fs-body-sm);
   color: var(--color-accent);
   margin: 0 0 0.35rem;
-  font-weight: var(--fw-medium);
+  font-weight: 500;
 }
 
 .dr-slide__credentials {
-  font-size: var(--fs-caption);
   color: var(--color-text-muted);
   margin: 0 0 var(--space-32);
 }
 
 .dr-slide__bio {
   color: var(--color-text-muted);
-  font-size: var(--fs-body);
-  line-height: var(--lh-body);
   margin: 0 0 var(--space-32);
   max-width: 56ch;
 }

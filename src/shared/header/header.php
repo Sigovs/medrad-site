@@ -19,7 +19,7 @@
           <a href="#" class="nav__dropdown-item">Vertebroplasty &amp; Kyphoplasty</a>
           <a href="#" class="nav__dropdown-item">Hemodialysis Access</a>
           <a href="#" class="nav__dropdown-item">Peripheral Arterial Disease (PAD)</a>
-          <a href="all-procedures.html" class="nav__dropdown-viewall">View All Procedures &rarr;</a>
+          <a href="all-procedures.html" class="nav__dropdown-viewall p2">View All Procedures &rarr;</a>
         </div>
       </div>
 

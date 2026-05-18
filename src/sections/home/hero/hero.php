@@ -9,13 +9,13 @@
   </div>
 
   <div class="entry__content" data-parallax="hero-txt">
-    <p class="entry__label">Interventional Radiology &amp; Image-Guided Treatment</p>
+    <p class="entry__label eyebrow">Interventional Radiology &amp; Image-Guided Treatment</p>
     <h1 class="entry__headline">
       <span class="entry__line entry__line--xl">Treatment,</span>
       <span class="entry__line entry__line--xl">not just</span>
       <span class="entry__line entry__line--xl">imaging.</span>
     </h1>
-    <p class="entry__line--sub">Minimally invasive procedures guided by precision imaging — no open surgery, faster recovery, same outcomes.</p>
+    <p class="entry__line--sub lead">Minimally invasive procedures guided by precision imaging — no open surgery, faster recovery, same outcomes.</p>
     <div class="entry__actions">
       <a href="#contact" class="btn btn--primary">Book Your Visit</a>
       <a href="#procedures" class="btn btn--ghost">Explore Procedures</a>
@@ -27,7 +27,7 @@
       <source media="(max-width: 768px)" srcset="assets/images/dr_m.png" />
       <img src="assets/images/aboutek.png" alt="" />
     </picture>
-    <span class="entry__hero-pill">Dr. Kenneth U. Ekechukwu, MD, MPH</span>
+    <span class="entry__hero-pill p2">Dr. Kenneth U. Ekechukwu, MD, MPH</span>
   </div>
 
 </section>

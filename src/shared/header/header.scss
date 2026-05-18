@@ -147,11 +147,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .nav__logo {
   display: inline-flex;
   align-items: center;
-  font-family: var(--font-display);
-  font-size: var(--fs-h5);
-  font-weight: var(--fw-semibold);
   color: var(--color-text);
-  letter-spacing: -0.02em;
   transition: color var(--duration) var(--ease);
 }
 
@@ -173,8 +169,6 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 }
 
 .nav__links a {
-  font-size: var(--fs-nav);
-  font-weight: var(--fw-medium);
   color: var(--color-text-muted);
   transition: color var(--duration) var(--ease);
   position: relative;
@@ -217,7 +211,6 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .nav__links a.nav__cta::after { display: none; }
 
 .nav__cta {
-  font-weight: var(--fw-medium) !important;
   color: var(--color-text) !important;
   border: 1.5px solid var(--color-border);
   padding: var(--space-8) var(--space-16);
@@ -281,9 +274,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  font-family: var(--font-body);
-  font-size: var(--fs-nav);
-  font-weight: var(--fw-medium);
+  font-weight: 500;
   color: var(--color-text-muted);
   background: none;
   border: none;
@@ -335,7 +326,6 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .nav__dropdown-item {
   display: block;
   padding: 0.55rem 1.25rem;
-  font-size: var(--fs-nav);
   color: var(--color-text-light);
   text-decoration: none;
   transition: color var(--duration) var(--ease),
@@ -356,8 +346,7 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 .nav__dropdown-viewall {
   display: block;
   padding: 0.65rem 1.25rem;
-  font-size: var(--fs-caption);
-  font-weight: var(--fw-medium);
+  font-weight: 500;
   color: var(--color-text-light);
   text-decoration: none;
   border-top: 1px solid rgba(232, 229, 223, 0.18);
@@ -368,6 +357,123 @@ body:not(.inner-page) .nav--scrolled .nav__toggle span {
 
 .nav__dropdown-viewall:hover {
   opacity: 0.72;
+}
+
+@media (max-width: 900px) {
+  .nav__inner {
+    padding: 0 var(--container-pad);
+  }
+}
+
+@media (max-width: 640px) {
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(42, 40, 37, 0.96);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-y: auto;
+    color: #ffffff;
+  }
+
+  .nav__links.nav__links--open {
+    display: flex;
+  }
+
+  .nav__links > a,
+  .nav__links > .nav__dropdown-wrap {
+    width: 100%;
+  }
+
+  .nav__links > a {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    padding: 0.85rem 0;
+    line-height: 1.3;
+  }
+
+  .nav__links > a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav__dropdown-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav__dropdown-trigger svg {
+    color: #ffffff;
+  }
+
+  .nav__dropdown {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0.75rem 0 0.75rem 1rem;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    display: none;
+  }
+
+  .nav__dropdown.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav__dropdown-item {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.7rem 0;
+  }
+
+  .nav__dropdown-item:hover {
+    color: #ffffff;
+  }
+
+  .nav__dropdown-viewall {
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .nav__cta.nav__cta--filled {
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    padding: 0.9rem 1.5rem !important;
+    margin-top: var(--space-32);
+    font-family: inherit !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm);
+    align-self: stretch;
+    text-align: center;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
 }
 
 /* Filled Schedule Appointment CTA */

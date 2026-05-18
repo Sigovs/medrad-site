@@ -7,12 +7,12 @@
     <header class="reviews-head">
       <div>
         <p class="section__label">Patient Reviews</p>
-        <h2 class="reviews-head__title">What patients say.</h2>
+        <h2 class="reviews-head__title h3">What patients say.</h2>
       </div>
 
       <div class="reviews-summary">
         <div class="reviews-summary__rating">
-          <span class="reviews-summary__num">4.9</span>
+          <span class="reviews-summary__num font-display">4.9</span>
           <div class="reviews-summary__stars" aria-label="4.9 out of 5 stars">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -21,8 +21,8 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
           </div>
         </div>
-        <p class="reviews-summary__meta">Based on <strong>87 reviews</strong> &middot; <span class="reviews-summary__google">Google</span></p>
-        <a class="reviews-summary__cta" href="contact.html#reviews">
+        <p class="reviews-summary__meta p2">Based on <strong>87 reviews</strong> &middot; <span class="reviews-summary__google">Google</span></p>
+        <a class="reviews-summary__cta text-link" href="contact.html#reviews">
           See all reviews <span aria-hidden="true">&rarr;</span>
         </a>
       </div>
@@ -40,8 +40,8 @@
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#5A7BA0;">SM</div>
             <div>
-              <p class="review-card__name">Sarah M.</p>
-              <p class="review-card__sub">Local Guide &middot; 12 reviews</p>
+              <p class="review-card__name p2">Sarah M.</p>
+              <p class="review-card__sub p2">Local Guide &middot; 12 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -52,17 +52,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">3 weeks ago</span>
+            <span class="review-card__date p2">3 weeks ago</span>
           </div>
-          <p class="review-card__text">Dr. Ekechukwu and his team performed my UFE procedure last spring. The entire process was thorough &mdash; every question answered, every step explained. I was back to normal activity within two days.</p>
+          <p class="review-card__text p2">Dr. Ekechukwu and his team performed my UFE procedure last spring. The entire process was thorough &mdash; every question answered, every step explained. I was back to normal activity within two days.</p>
         </article>
 
         <article class="review-card">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#7B8FA8;">RC</div>
             <div>
-              <p class="review-card__name">Robert C.</p>
-              <p class="review-card__sub">8 reviews</p>
+              <p class="review-card__name p2">Robert C.</p>
+              <p class="review-card__sub p2">8 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -73,17 +73,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">1 month ago</span>
+            <span class="review-card__date p2">1 month ago</span>
           </div>
-          <p class="review-card__text">After years of leg pain from peripheral arterial disease, I finally found relief here. The angioplasty was quick and recovery was much faster than I expected. Genuinely caring staff.</p>
+          <p class="review-card__text p2">After years of leg pain from peripheral arterial disease, I finally found relief here. The angioplasty was quick and recovery was much faster than I expected. Genuinely caring staff.</p>
         </article>
 
         <article class="review-card">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#8A9BAE;">LR</div>
             <div>
-              <p class="review-card__name">Linda R.</p>
-              <p class="review-card__sub">Local Guide &middot; 24 reviews</p>
+              <p class="review-card__name p2">Linda R.</p>
+              <p class="review-card__sub p2">Local Guide &middot; 24 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -94,17 +94,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">2 months ago</span>
+            <span class="review-card__date p2">2 months ago</span>
           </div>
-          <p class="review-card__text">I came in for a percutaneous biopsy. Dr. Ekechukwu took the time to walk me through the procedure and what the imaging showed. Felt like I was treated as a person, not a chart number.</p>
+          <p class="review-card__text p2">I came in for a percutaneous biopsy. Dr. Ekechukwu took the time to walk me through the procedure and what the imaging showed. Felt like I was treated as a person, not a chart number.</p>
         </article>
 
         <article class="review-card">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#6E8499;">JK</div>
             <div>
-              <p class="review-card__name">James K.</p>
-              <p class="review-card__sub">3 reviews</p>
+              <p class="review-card__name p2">James K.</p>
+              <p class="review-card__sub p2">3 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -115,17 +115,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true" class="is-empty"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">3 months ago</span>
+            <span class="review-card__date p2">3 months ago</span>
           </div>
-          <p class="review-card__text">Excellent clinical outcome with my hemodialysis access creation. The wait time at the front desk was a bit long, but the procedural team made up for it with their professionalism.</p>
+          <p class="review-card__text p2">Excellent clinical outcome with my hemodialysis access creation. The wait time at the front desk was a bit long, but the procedural team made up for it with their professionalism.</p>
         </article>
 
         <article class="review-card">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#5C7891;">PW</div>
             <div>
-              <p class="review-card__name">Patricia W.</p>
-              <p class="review-card__sub">17 reviews</p>
+              <p class="review-card__name p2">Patricia W.</p>
+              <p class="review-card__sub p2">17 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -136,17 +136,17 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">4 months ago</span>
+            <span class="review-card__date p2">4 months ago</span>
           </div>
-          <p class="review-card__text">Came here on referral from my OB-GYN for fibroid embolization. Dr. Ekechukwu's expertise is evident &mdash; and he genuinely cares. Best decision I made was choosing this clinic.</p>
+          <p class="review-card__text p2">Came here on referral from my OB-GYN for fibroid embolization. Dr. Ekechukwu's expertise is evident &mdash; and he genuinely cares. Best decision I made was choosing this clinic.</p>
         </article>
 
         <article class="review-card">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#7E94A8;">DH</div>
             <div>
-              <p class="review-card__name">David H.</p>
-              <p class="review-card__sub">Local Guide &middot; 41 reviews</p>
+              <p class="review-card__name p2">David H.</p>
+              <p class="review-card__sub p2">Local Guide &middot; 41 reviews</p>
             </div>
           </header>
           <div class="review-card__rating">
@@ -157,9 +157,9 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
             </div>
-            <span class="review-card__date">6 months ago</span>
+            <span class="review-card__date p2">6 months ago</span>
           </div>
-          <p class="review-card__text">Outstanding interventional radiology practice. Dr. E explains complex procedures in plain language. The facility is modern and the staff is consistently professional.</p>
+          <p class="review-card__text p2">Outstanding interventional radiology practice. Dr. E explains complex procedures in plain language. The facility is modern and the staff is consistently professional.</p>
         </article>
 
       </div>
