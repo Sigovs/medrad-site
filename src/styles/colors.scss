@@ -72,8 +72,14 @@ $colors: (
 // --- Utility classes -----------------------------------------
 // One set per colour:  .text-<name>  .bg-<name>  .border-<name>
 @each $name in map.keys($colors) {
-  $n: "" + $name;  // coerce to string — the `white` key is a colour keyword
-  .text-#{$n}   { color: var(--color-#{$n}); }
-  .bg-#{$n}     { background-color: var(--color-#{$n}); }
-  .border-#{$n} { border-color: var(--color-#{$n}); }
+    $n: #{$name}; /* coerce to string */
+
+    .text-#{$n}             { color: var(--color-#{$n}); }
+    .hover\:text-#{$n}:hover { color: var(--color-#{$n}); }
+
+    .bg-#{$n}               { background-color: var(--color-#{$n}); }
+    .hover\:bg-#{$n}:hover   { background-color: var(--color-#{$n}); }
+
+    .border-#{$n}           { border-color: var(--color-#{$n}); }
+    .hover\:border-#{$n}:hover { border-color: var(--color-#{$n}); }
 }

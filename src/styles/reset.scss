@@ -17,8 +17,6 @@ body {
      shared/typography.scss — the single source of truth for type. */
   background-color: var(--color-bg);
   text-rendering: optimizeLegibility;
-  /* Reserve space at the bottom for the fixed navigator strip */
-  padding-bottom: 80px;
 }
 
 img, svg {
