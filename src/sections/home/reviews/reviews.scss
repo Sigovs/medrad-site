@@ -4,11 +4,6 @@
    Reviews — Google-style rating summary + cards
    ============================================================ */
 
-.reviews-section {
-  padding-top: var(--space-128);
-  padding-bottom: var(--space-128);
-}
-
 .reviews-head {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, auto);
@@ -86,10 +81,7 @@
 }
 
 /* Surface (white / border / radius / transition) comes from the
-   shared .card recipe; this only sets card-specific padding. */
-.review-card {
-  padding: var(--space-32);
-}
+   shared .card recipe; padding lives on the element via .p-32. */
 
 @media (hover: hover) and (pointer: fine) {
   .review-card:hover {

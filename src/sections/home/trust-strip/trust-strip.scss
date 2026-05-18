@@ -3,21 +3,12 @@
 
 /* --- Trust Strip — warm graphite dark surface --------------- */
 .trust-strip {
-  padding: var(--space-64) 0;
   position: relative;
   z-index: 5;
-  background-color: var(--color-surface-dark);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.trust-strip__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-}
-
 .trust-strip__item {
-  text-align: center;
-  padding: var(--space-16) var(--space-32);
   border-right: 1px solid rgba(255, 255, 255, 0.08);
 }
 

@@ -36,7 +36,7 @@
 
       <div class="reviews-pager__viewport" id="reviewsViewport">
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#5A7BA0;">SM</div>
             <div>
@@ -57,7 +57,7 @@
           <p class="review-card__text p2">Dr. Ekechukwu and his team performed my UFE procedure last spring. The entire process was thorough &mdash; every question answered, every step explained. I was back to normal activity within two days.</p>
         </article>
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#7B8FA8;">RC</div>
             <div>
@@ -78,7 +78,7 @@
           <p class="review-card__text p2">After years of leg pain from peripheral arterial disease, I finally found relief here. The angioplasty was quick and recovery was much faster than I expected. Genuinely caring staff.</p>
         </article>
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#8A9BAE;">LR</div>
             <div>
@@ -99,7 +99,7 @@
           <p class="review-card__text p2">I came in for a percutaneous biopsy. Dr. Ekechukwu took the time to walk me through the procedure and what the imaging showed. Felt like I was treated as a person, not a chart number.</p>
         </article>
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#6E8499;">JK</div>
             <div>
@@ -120,7 +120,7 @@
           <p class="review-card__text p2">Excellent clinical outcome with my hemodialysis access creation. The wait time at the front desk was a bit long, but the procedural team made up for it with their professionalism.</p>
         </article>
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#5C7891;">PW</div>
             <div>
@@ -141,7 +141,7 @@
           <p class="review-card__text p2">Came here on referral from my OB-GYN for fibroid embolization. Dr. Ekechukwu's expertise is evident &mdash; and he genuinely cares. Best decision I made was choosing this clinic.</p>
         </article>
 
-        <article class="review-card">
+        <article class="review-card p-32">
           <header class="review-card__head">
             <div class="review-card__avatar" style="background:#7E94A8;">DH</div>
             <div>

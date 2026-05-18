@@ -8,14 +8,14 @@
       <h2>What we treat</h2>
       <p class="lead text-text">Minimally invasive, image-guided procedures for conditions that were once managed only with open surgery. Shorter recovery. Fewer risks. The same clinical outcomes.</p>
     </div>
-    <div class="procs-featured procs-featured--hero">
+    <div class="procs-featured procs-featured--hero flex flex-col gap-32">
 
       <!-- Hero card: signature procedure (image + text) -->
       <a href="procedure-ufe.html" class="proc-card proc-card--hero">
         <div class="proc-card__media">
           <img src="assets/images/Uterine1.jpg" alt="" />
         </div>
-        <div class="proc-card__body">
+        <div class="proc-card__body flex flex-col gap-8">
           <p class="proc-card__cat eyebrow">Signature Procedure &middot; Embolotherapy</p>
           <h3>Uterine Fibroid Embolization</h3>
           <p>Heavy periods. Pelvic pain. <strong>Without surgery.</strong> UFE shrinks fibroids by blocking their blood supply &mdash; preserving the uterus and avoiding general anaesthesia.</p>
@@ -29,7 +29,7 @@
       </a>
 
       <!-- 3-up row of supporting procedures -->
-      <div class="procs-featured__row">
+      <div class="procs-featured__row grid grid-3 gap-32">
         <a href="#" class="proc-card">
           <span class="material-symbols-outlined proc-card__icon" aria-hidden="true">accessibility_new</span>
           <p class="proc-card__cat eyebrow">Neurointerventions</p>

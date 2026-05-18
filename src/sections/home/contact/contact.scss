@@ -78,11 +78,6 @@
   gap: var(--space-8);
 }
 
-.contact-path__form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-8);
-}
 
 .contact-path__form--wide .form__input {
   text-align: left;
@@ -207,19 +202,8 @@
 
 
 
-/* === Contact paths (moved from atoms.scss — contact-section-specific) === */
-.contact-paths {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-32);
-}
-
+/* === Contact paths === */
 .contact-path {
-  display: flex;
-  flex-direction: column;
-  padding: var(--space-64) var(--space-32);
-  text-align: center;
-  align-items: center;
   position: relative;
   background: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -269,9 +253,6 @@
 }
 
 .contact-path__form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
   width: 100%;
 }
 
