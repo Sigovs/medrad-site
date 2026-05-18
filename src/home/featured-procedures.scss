@@ -1,0 +1,372 @@
+// Home — Featured Procedures (.procs-featured / .proc-card)
+
+/* --- Procedures Grid -------------------------------------- */
+.procedures__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.procedure-item {
+  padding: var(--space-lg);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration) var(--ease);
+}
+
+.procedure-item:hover {
+  background-color: var(--color-bg-accent);
+}
+
+.procedure-item:nth-child(3n) {
+  border-right: none;
+}
+
+.procedure-item:nth-last-child(-n+3) {
+  border-bottom: none;
+}
+
+.procedure-item h4 {
+  font-size: var(--fs-body);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text);
+}
+
+.procedure-item p {
+  font-size: var(--fs-body-sm);
+  margin-bottom: var(--space-sm);
+  line-height: 1.65;
+}
+
+/* --- Featured Procedures ---------------------------------- */
+#procedures {
+  position: relative;
+  z-index: 5;
+  background-color: var(--color-bg);
+}
+
+.procs-section__decor {
+  position: absolute;
+  right: 0;
+  top: 55%;
+  transform: translateX(50%) translateY(-50%);
+  width: 90%;
+  max-width: 1100px;
+  height: auto;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.procs-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 640px) {
+  .procs-section__decor {
+    width: 80%;
+    right: -20%;
+    opacity: 0.3;
+  }
+}
+
+.procs-featured {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.proc-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-bg);
+  text-decoration: none;
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration) var(--ease);
+}
+
+.proc-card:nth-child(2n) {
+  border-right: none;
+}
+
+.proc-card:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.proc-card:hover {
+  background-color: var(--color-bg-accent);
+}
+
+/* Category kicker — eyebrow pattern, card-scale.
+   margin-bottom = tight eyebrow→title gap (cards / section headers). */
+.proc-card__cat {
+  font-size: var(--fs-tag) !important;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent) !important;
+  margin-bottom: var(--space-xs) !important;
+  line-height: var(--lh-ui);
+}
+
+/* Card title — keeps an explicit weight (section h1–h3 are --fw-regular).
+   margin-bottom = card-level title→body gap (--space-xs, matches other cards). */
+.proc-card h3 {
+  font-size: 1.1875rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+  line-height: var(--lh-ui);
+}
+
+.proc-card p {
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body);
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.proc-card__link {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  margin-top: auto;
+  display: inline-block;
+  transition: transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .proc-card:hover .proc-card__link {
+    transform: translateX(4px);
+  }
+}
+
+
+/* ============================================================
+   Featured Procedures — hero card variant
+   UFE as a wide hero (image left + text right), then a 3-up
+   row of supporting procedures below.
+   ============================================================ */
+
+/* Drop the original 2x2-grid border treatment */
+.procs-featured--hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+}
+
+/* Each card inside the hero variant gets its own card border */
+.procs-featured--hero .proc-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+}
+
+.procs-featured--hero .proc-card:nth-child(2n) {
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.procs-featured--hero .proc-card:nth-last-child(-n+2) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Hero card layout: image left, text right */
+.proc-card--hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  align-items: center;
+}
+
+.proc-card--hero .proc-card__media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-bg-accent);
+}
+
+.proc-card--hero .proc-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.proc-card--hero .proc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.proc-card--hero h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 2.6vw, 2.15rem);
+  font-weight: var(--fw-semibold);
+  letter-spacing: -0.02em;
+  line-height: var(--lh-heading);
+  color: var(--color-text);
+  margin: 0;
+}
+
+.proc-card--hero .proc-card__cat {
+  margin-bottom: 0.1rem !important;
+}
+
+.proc-card--hero p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text-muted);
+  margin: 0;
+  flex: 0;
+}
+
+/* Meta strip — Time / Setting / Recovery */
+.proc-card--hero .proc-card__meta {
+  list-style: none;
+  padding: var(--space-sm) 0;
+  margin: var(--space-xs) 0 var(--space-2xs);
+  display: flex;
+  gap: var(--space-xl);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.proc-card--hero .proc-card__meta-k {
+  display: block;
+  font-size: var(--fs-tag);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: var(--space-2xs);
+}
+
+.proc-card--hero .proc-card__meta-v {
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  color: var(--color-text);
+}
+
+.proc-card--hero .proc-card__link {
+  margin-top: var(--space-xs);
+  font-size: var(--fs-body-sm);
+}
+
+/* 3-up row of supporting procedures */
+.procs-featured__row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-md);
+}
+
+.procs-featured__row .proc-card {
+  background: #ffffff;
+}
+
+/* Unify alignment across the 3 supporting cards regardless of
+   variable title / description lengths — title clamps to 2 lines,
+   description clamps to 3, link auto-pushes to the bottom. */
+.procs-featured__row .proc-card .proc-card__cat {
+  margin-bottom: var(--space-xs) !important;
+}
+
+.procs-featured__row .proc-card h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+  margin-bottom: var(--space-xs) !important;
+}
+
+.procs-featured__row .proc-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* Tighten — kill flex stretch & loose line-height, drop the gap before the link */
+  flex: none;
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-xs) !important;
+}
+
+/* Tighter padding so content groups visually instead of floating in space */
+.procs-featured__row .proc-card {
+  padding: var(--space-lg) var(--space-md);
+}
+
+/* Link sits right after the paragraph — no auto-push to bottom */
+.procs-featured__row .proc-card .proc-card__link {
+  margin-top: 0;
+}
+
+/* Line-icon at the top of each supporting card */
+.proc-card__icon {
+  font-size: 24px !important;
+  line-height: 1;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+  align-self: flex-start;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+@media (max-width: 900px) {
+  .proc-card--hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+  .procs-featured__row {
+    grid-template-columns: 1fr;
+  }
+  .proc-card--hero .proc-card__meta {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+}
+
+
+/* ============================================================
+   Hover for the Featured Procedures cards (hero + 3-up).
+   Placed outside any @media gate so cascade can't kill it.
+   ============================================================ */
+.procs-featured--hero .proc-card {
+  transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 320ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 320ms ease,
+              background-color 320ms ease;
+}
+
+.procs-featured__row .proc-card:hover {
+  transform: translateY(-4px);
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Slight lift on the hero card too, but less (heavier object) */
+.proc-card--hero:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Hover-color shift on the supporting card icons */
+.procs-featured__row .proc-card:hover .proc-card__icon {
+  color: var(--color-text);
+}
+
+

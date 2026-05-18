@@ -1,0 +1,82 @@
+// Shared — Site footer
+
+/* --- Footer ----------------------------------------------- */
+.footer {
+  background-color: var(--color-text);
+  color: var(--color-text-light);
+  padding: var(--space-2xl) 0 var(--space-lg);
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer__logo {
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-semibold);
+  color: var(--color-white);
+  margin-bottom: var(--space-xs);
+  line-height: 1;
+}
+
+.footer__logo span {
+  color: var(--color-accent-soft);
+}
+
+.footer__logo img {
+  display: block;
+  height: 43px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.footer__tagline {
+  font-size: var(--fs-body-sm);
+  color: #B27D4C;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Type comes from the global `.eyebrow, .footer__heading` rule;
+   this only carries layout + colour. */
+.footer__heading {
+  color: #666666;
+  margin-bottom: var(--space-sm);
+}
+
+.footer__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.footer__col a {
+  font-size: var(--fs-body-sm);
+  color: #888888;
+  text-decoration: none;
+  transition: color var(--duration) var(--ease);
+}
+
+.footer__col a:hover {
+  color: var(--color-text-light);
+}
+
+.footer__bottom {
+  border-top: 1px solid var(--color-border-dark);
+  padding-top: var(--space-lg);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer__bottom p {
+  font-size: var(--fs-caption);
+  color: #555555;
+}
+

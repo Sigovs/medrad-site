@@ -1,0 +1,60 @@
+// Home — Full Procedures Directory (.proc-cats)
+
+/* --- All Procedures Categories ---------------------------- */
+.proc-cats {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+}
+
+.proc-cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-lg);
+  background-color: var(--color-bg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--duration) var(--ease);
+}
+
+.proc-cat-item:last-child {
+  border-bottom: none;
+}
+
+.proc-cat-item:hover {
+  background-color: var(--color-text);
+}
+
+.proc-cat-item__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h6);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color var(--duration) var(--ease);
+}
+
+.proc-cat-item:hover .proc-cat-item__name {
+  color: var(--color-text-light);
+}
+
+.proc-cat-item__arrow {
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: color var(--duration) var(--ease),
+              transform var(--duration) var(--ease);
+}
+
+.proc-cat-item:hover .proc-cat-item__arrow {
+  color: var(--color-text-light);
+  transform: translateX(4px);
+}
+
+.proc-cats__cta {
+  text-align: center;
+  padding-top: var(--space-md);
+}
+
+

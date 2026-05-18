@@ -1,0 +1,33 @@
+// ============================================================
+// MedRad Clinics — Homepage stylesheet bundle
+// Compile:  sass src/index.scss src/styles.css
+// Watch:    sass --watch src/index.scss:src/styles.css
+//
+// Single source of truth — one partial per section, no v1/v2.
+// foundation = globals; partials @use'd after so their rules win.
+// ============================================================
+
+// --- Foundation (globals: vars, reset, container, buttons,
+//     section base, card, shared responsive, utilities) ---
+@use 'shared/foundation';
+
+// --- Typography (font() mixin + global type scale) ---
+@use 'shared/typography';
+
+// --- Shared partials ---
+@use 'shared/header';
+@use 'shared/footer';
+
+// --- Home sections ---
+@use 'home/hero';
+@use 'home/trust-strip';
+@use 'home/featured-procedures';
+@use 'home/visual-break';
+@use 'home/procedures-directory';
+@use 'home/diagnostic-imaging';
+@use 'home/interactive-tool';
+@use 'home/reviews';
+@use 'home/treatment-cases';
+@use 'home/specialists';
+@use 'home/contact';
+@use 'home/assess-overlay';

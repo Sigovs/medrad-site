@@ -1,0 +1,5 @@
+# Linked dev paths under src/ — not source files.
+# src/assets   = directory junction → ../assets
+# src/script.js = hard link        → ../script.js
+src/assets
+src/script.js

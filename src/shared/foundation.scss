@@ -1,0 +1,853 @@
+// Foundation — variables, reset, typography, container, buttons, section base, card, shared responsive, utilities
+
+/* ============================================================
+   MedRad Clinics — styles.css
+   Design: editorial, minimal, premium, calm
+   ============================================================ */
+
+/* --- Custom Properties ------------------------------------ */
+:root {
+  /* ── Colour — refined editorial-medical palette ──────────
+     Warm off-white canvas · warm graphite darks · one muted
+     mineral blue-gray accent · restrained warm neutrals.
+     Specimen + contrast: design-system.html */
+
+  /* Surfaces — light */
+  --color-bg:           #F8F7F5;  /* warm off-white canvas */
+  --color-bg-accent:    #F2EFE9;  /* soft warm surface */
+  --color-sand:         #ECE4D6;  /* warm parchment — layered surfaces, soft cards */
+  --color-stone:        #D6CFC3;  /* warm stone — tags, dividers, hover fills */
+
+  /* Surfaces — dark (single warm undertone, progressively lifted) */
+  --color-text:         #14130F;  /* warm near-black — text, buttons, footer */
+  --color-bg-dark:      #1F1D19;  /* warm soft-black — full-bleed dark sections */
+  --color-surface-dark: #2A2825;  /* warm graphite — lifted dark: nav, dropdown */
+
+  /* Text */
+  --color-text-muted:   #56534C;  /* warm grey — body copy, captions */
+  --color-text-dim:     #8B867D;  /* warm dim — meta, fine print (large text only) */
+  --color-text-light:   #E8E5DF;  /* warm light — text on dark surfaces */
+
+  /* Accent — muted mineral blue-gray */
+  --color-accent:       #4A5F70;  /* links, eyebrows, focus */
+  --color-accent-soft:  #7E94A4;  /* lighter accent — on dark surfaces */
+
+  /* Lines */
+  --color-border:       #E2DED8;  /* warm hairline border */
+  --color-border-dark:  #2A2824;  /* warm border on dark */
+
+  --color-white:        #FFFFFF;
+
+  /* ── Typography system ────────────────────────────────────
+     Single source of truth. Specimen: design-system.html
+     Font families */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-icon:    'Material Symbols Outlined';
+
+  /* Type scale — display + headings */
+  --fs-display: clamp(56px, 7vw, 112px);
+  --fs-h1:      clamp(44px, 5vw, 76px);
+  --fs-h2:      clamp(34px, 4vw, 56px);
+  --fs-h3:      clamp(28px, 3vw, 40px);
+  --fs-h4:      clamp(22px, 2vw, 28px);
+  --fs-h5:      20px;
+  --fs-h6:      17px;
+
+  /* Type scale — body + UI */
+  --fs-lead:    clamp(19px, 1.6vw, 24px);
+  --fs-body-lg: 18px;
+  --fs-body:    16px;
+  --fs-body-sm: 14px;
+  --fs-caption: 13px;
+  --fs-tag:     12px;
+  --fs-nav:     14px;
+  --fs-cta:     14px;
+
+  /* Line heights */
+  --lh-display: 0.95;
+  --lh-heading: 1.08;
+  --lh-body:    1.65;
+  --lh-ui:      1.25;
+
+  /* Font weights — only weights that are actually loaded.
+     Inter: 300/400/500/600 · Playfair Display: 400/600.
+     No 700 token: neither family loads it (would render faux-bold). */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  /* Spacing — 8px-based scale (rem, scales with user font size).
+     Snap one-off values to the nearest step; avoid arbitrary spacing. */
+  --space-2xs:  0.25rem;  /*  4px */
+  --space-xs:   0.5rem;   /*  8px */
+  --space-sm:   1rem;     /* 16px */
+  --space-md:   1.5rem;   /* 24px */
+  --space-lg:   2.5rem;   /* 40px */
+  --space-xl:   4rem;     /* 64px */
+  --space-2xl:  6rem;     /* 96px */
+  --space-3xl:  8rem;     /* 128px */
+
+  /* Layout */
+  --container-max: 1140px;
+  --container-pad: 1.5rem;
+  --nav-height:    120px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Elevation — one 3-step shadow scale + focus ring.
+     sm = resting surface · md = raised / hover · lg = focal / overlay. */
+  --shadow-sm:    0 6px 24px -10px rgba(0, 0, 0, 0.05);
+  --shadow-md:    0 12px 32px -16px rgba(0, 0, 0, 0.10);
+  --shadow-lg:    0 18px 38px -16px rgba(0, 0, 0, 0.18);
+  --shadow-focus: 0 0 0 3px rgba(61, 90, 128, 0.10);
+
+  /* Transitions */
+  --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration: 220ms;
+  --duration-press: 140ms;
+  --duration-hover: 200ms;
+}
+
+/* --- Reset & Base ----------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: var(--fs-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /* Type (font, size, line-height, colour, smoothing) lives in
+     shared/typography.scss — the single source of truth for type. */
+  background-color: var(--color-bg);
+  text-rendering: optimizeLegibility;
+  /* Reserve space at the bottom for the fixed navigator strip */
+  padding-bottom: 80px;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: var(--font-body);
+}
+
+/* --- Container -------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+/* --- Buttons ---------------------------------------------- */
+/* Type (size/weight/line-height) comes from the global
+   `button, .btn, .cta` rule in the typography system. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-body);
+  padding: 0.75rem 1.75rem;  /* deliberate component padding — between --space-xs/sm */
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  transition: background var(--duration) var(--ease),
+              color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background-color: var(--color-text);
+  color: var(--color-white);
+  border-color: var(--color-text);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+/* Arrow inside a btn — shifts right on hover */
+.btn__arrow {
+  display: inline-block;
+  margin-left: var(--space-2xs);
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--primary:hover {
+    background-color: var(--color-surface-dark);
+    border-color: var(--color-surface-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn--ghost:hover {
+    background-color: var(--color-text);
+    color: var(--color-white);
+    border-color: var(--color-text);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn:hover .btn__arrow {
+    transform: translateX(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn__arrow { transition: none; }
+}
+
+.btn--full {
+  width: 100%;
+}
+
+.text-link {
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-medium);
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: opacity var(--duration) var(--ease);
+}
+
+.text-link:hover {
+  opacity: 0.7;
+}
+
+/* --- Section Base ----------------------------------------- */
+.section {
+  padding: var(--space-3xl) 0;
+}
+
+/* Section levels — a page shouldn't set every section at one volume.
+   .section--major leads (larger heading, room for a lead line);
+   .section--minor recedes (tighter block, smaller heading); plain
+   .section is the standard middle. See design-system.html. */
+.section--major .section__header h2 {
+  font-size: var(--fs-h1);
+}
+
+.section--minor {
+  padding: var(--space-2xl) 0;
+}
+
+.section--minor .section__header h2 {
+  font-size: var(--fs-h3);
+}
+
+/* First section after hero — clean panel that rises over the sticky image */
+#patient {
+  position: relative;
+  z-index: 5;
+  background-color: var(--color-bg);
+}
+
+.section--accent {
+  background-color: var(--color-bg-accent);
+}
+
+.section--dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.section--dark h2,
+.section--dark h3,
+.section--dark h4 {
+  color: var(--color-text-light);
+}
+
+.section--dark p {
+  color: #999999;
+}
+
+.section--refined {
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 80% 40%,
+      rgba(242, 239, 233, 0.5) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #FFFFFF 0%,
+      #F7F5F3 35%,
+      #F5F2EE 50%,
+      #F7F5F3 65%,
+      #FFFFFF 100%
+    );
+}
+
+.section--narrow .container {
+  max-width: 760px;
+}
+
+.section__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.section__header--light h2,
+.section__header--light .section__label {
+  color: var(--color-text-light);
+}
+
+.section__header--light p {
+  color: #888888;
+}
+
+/* Type comes from the global `.eyebrow, .section__label` rule;
+   this only carries layout + colour. */
+.section__label {
+  display: block;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+/* Dark sections: the eyebrow colour is softer and the empty space
+   below it reads as a larger void on a dark surface. Tighten the
+   eyebrow → heading gap one step so the lockup *reads* as tight as
+   it does on light sections. (Optical correction — see design-system.html.) */
+.section--dark .section__label {
+  color: var(--color-accent-soft);
+  margin-bottom: var(--space-2xs);
+}
+
+.section__header h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.section__desc {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+/* Lead — the focus paragraph under a major heading: one step up in
+   size, full-strength text colour (vs the muted .section__desc).
+   Used sparingly — it marks the page's primary section. */
+.section__lead {
+  font-size: var(--fs-lead);
+  color: var(--color-text);
+  line-height: var(--lh-body);
+}
+
+
+/* ============================================================
+   Card — the canonical white surface: thin border, rounded.
+   Add .card--interactive for the standard hover-lift.
+   .review-card and .contact-path build on this shared recipe.
+   (.proc-card is a borderless grid cell and .case-card is a
+   dark card — deliberately separate components, not cards here.)
+   ============================================================ */
+.card,
+.review-card,
+.contact-path {
+  background: var(--color-white);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--radius-md);
+  transition: transform var(--duration-hover) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out),
+              border-color var(--duration-hover) var(--ease-out),
+              background-color var(--duration) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card--interactive:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+.contact-paths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.contact-path {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.contact-path__icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-bg-accent);
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+/* Removed override — all icons now share the beige-circle + accent style */
+
+.contact-path__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-path__desc {
+  font-size: var(--fs-body-sm);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+
+.contact-path__action {
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color var(--duration) var(--ease);
+}
+
+.contact-path__action:hover {
+  color: var(--color-accent);
+}
+
+.contact-path__meta {
+  font-size: var(--fs-tag);
+  color: var(--color-text-dim);
+  margin-top: var(--space-xs);
+}
+
+.contact-path__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+}
+
+.contact-path__form .form__input {
+  text-align: center;
+}
+
+.contact-path__form .contact-path__textarea {
+  text-align: left;
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+  line-height: 1.5;
+  padding-top: 0.6rem;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.contact-path__form .btn {
+  margin-top: var(--space-xs);
+}
+
+.contact-path__btn {
+  margin-top: auto;
+}
+
+.contact-path .form__success {
+  flex-direction: column;
+  text-align: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm);
+}
+
+@media (max-width: 900px) {
+  .contact-paths {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+/* --- Responsive ------------------------------------------- */
+@media (max-width: 1024px) {
+  .hero {
+    padding-left: var(--container-pad);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --space-3xl: 5rem;
+    --space-2xl: 4rem;
+  }
+
+  .nav__inner {
+    padding: 0 var(--container-pad);
+  }
+
+  .entry {
+    height: auto;
+    min-height: 680px;
+  }
+
+  .entry__content {
+    height: auto;
+    min-height: 680px;
+    padding-top: calc(var(--nav-height) + 12vh);
+  }
+
+  .procedures__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .procedure-item:nth-child(3n) {
+    border-right: 1px solid var(--color-border);
+  }
+
+  .procedure-item:nth-child(2n) {
+    border-right: none;
+  }
+
+  .procedure-item:nth-last-child(-n+3) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .procedure-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .split--reverse {
+    direction: ltr;
+  }
+
+  .split--reverse .split__widget {
+    order: -1;
+  }
+
+  .contact__block {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .trust__stats {
+    gap: var(--space-xl);
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --space-3xl: 4rem;
+    --space-2xl: 3rem;
+    --space-xl: 2.5rem;
+  }
+
+  /* Mobile hero */
+  .entry {
+    height: auto;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .entry__content {
+    height: auto;
+    min-height: auto;
+    max-width: 100%;
+    padding-top: calc(var(--nav-height) + 6vh);
+    padding-bottom: var(--space-xl);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .entry__hero-image {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+  }
+
+  .entry__hero-image img {
+    height: auto;
+    width: 70%;
+    max-width: 360px;
+  }
+
+  .entry__media {
+    display: block;
+  }
+
+  .nav__links {
+    display: none;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(42, 40, 37, 0.96);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    overflow-y: auto;
+    color: #ffffff;
+  }
+
+  .nav__links.nav__links--open {
+    display: flex;
+  }
+
+  .nav__links > a,
+  .nav__links > .nav__dropdown-wrap {
+    width: 100%;
+  }
+
+  .nav__links > a {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    padding: 0.85rem 0;
+    line-height: 1.3;
+  }
+
+  .nav__links > a:hover {
+    color: var(--color-accent);
+  }
+
+  .nav__dropdown-trigger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav__dropdown-trigger svg {
+    color: #ffffff;
+  }
+
+  .nav__dropdown {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0.75rem 0 0.75rem 1rem;
+    opacity: 1 !important;
+    pointer-events: all !important;
+    display: none;
+  }
+
+  .nav__dropdown.is-open {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .nav__dropdown-item {
+    font-size: var(--fs-body);
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.7rem 0;
+  }
+
+  .nav__dropdown-item:hover {
+    color: #ffffff;
+  }
+
+  .nav__dropdown-viewall {
+    color: var(--color-accent);
+    font-size: 0.95rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .nav__cta.nav__cta--filled {
+    border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
+    padding: 0.9rem 1.5rem !important;
+    margin-top: var(--space-md);
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: var(--radius-sm);
+    align-self: stretch;
+    text-align: center;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
+
+  .procedures__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .procedure-item {
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border) !important;
+  }
+
+  .procedure-item:last-child {
+    border-bottom: none !important;
+  }
+
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+
+  .trust__stats {
+    flex-direction: column;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .assessment-options {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --- Utility ---------------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+/* ============================================================
+   Reduced-motion preference
+   Keep opacity + color fades that aid comprehension.
+   Strip position/transform movement that can trigger motion sickness.
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Neutralize translate/scale hover lifts */
+  .proc-card:hover,
+  .edu-preview__card:hover,
+  .contact-path:hover,
+  .expect-step:hover,
+  .btn--primary:hover,
+  .btn--ghost:hover {
+    transform: none;
+  }
+
+  /* Dropdowns: fade only, no scale */
+  .nav__dropdown {
+    transform: translateX(-50%) translateY(0);
+    transition: opacity 160ms linear;
+  }
+  .nav__dropdown.is-open {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* Cap long content transitions */
+  .va-list a,
+  .tc-case__link,
+  .proc-card,
+  .edu-preview__card,
+  .contact-path,
+  .expect-step,
+  .article-row,
+  .proc-cat-item {
+    transition-duration: 160ms !important;
+  }
+}
+
+

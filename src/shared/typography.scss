@@ -1,0 +1,117 @@
+// ============================================================
+// Typography — single source of truth for type.
+//
+// font($family, $size, $line-height, $weight) mixin + global
+// element/utility type rules. Values mirror the homepage design
+// tokens in foundation.scss :root.
+//
+// Preview specimen:  /typography.php
+// ============================================================
+@use 'sass:map';
+
+// --- Font families -------------------------------------------
+$fonts: (
+  display: ('Playfair Display', Georgia, serif),        // editorial headings
+  body:    ('Inter', system-ui, -apple-system, sans-serif),
+);
+
+// --- Responsive breakpoint -----------------------------------
+$bp-desktop: 1024px;
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) { @content; }
+}
+
+// --- font(family, size, line-height, weight) -----------------
+// `family` is a key of $fonts (display | body) — or a raw stack.
+@mixin font($family, $size, $line-height, $weight) {
+  @if map.has-key($fonts, $family) {
+    font-family: map.get($fonts, $family);
+  } @else {
+    font-family: $family;
+  }
+  font-size: $size;
+  line-height: $line-height;
+  font-weight: $weight;
+}
+
+// --- Base ----------------------------------------------------
+html, body {
+  @include font(body, 16px, 1.65, 400);
+  color: var(--color-text);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'pnum' on;
+}
+
+// --- Headings — Playfair display tier ------------------------
+h1, .h1 {
+  @include font(display, 44px, 0.95, 400);
+  letter-spacing: -0.03em;
+  @include desktop { @include font(display, 76px, 0.95, 400); }
+}
+
+h2, .h2 {
+  @include font(display, 34px, 1.08, 400);
+  letter-spacing: -0.03em;
+  @include desktop { @include font(display, 56px, 1.08, 400); }
+}
+
+h3, .h3 {
+  @include font(display, 28px, 1.08, 400);
+  letter-spacing: -0.03em;
+  @include desktop { @include font(display, 40px, 1.08, 400); }
+}
+
+// --- Headings — Inter functional tier ------------------------
+h4, .h4 {
+  @include font(body, 22px, 1.08, 600);
+  @include desktop { @include font(body, 28px, 1.08, 600); }
+}
+
+h5, .h5 { @include font(body, 20px, 1.25, 600); }
+h6, .h6 { @include font(body, 17px, 1.25, 600); }
+
+// --- Body copy -----------------------------------------------
+p, .p1 {
+  @include font(body, 16px, 1.65, 400);
+  color: var(--color-text-muted);
+}
+
+// Lead / standfirst paragraph
+.lead, .p-lead {
+  @include font(body, 19px, 1.5, 400);
+  @include desktop { @include font(body, 24px, 1.5, 400); }
+}
+
+// Small / caption / fine print
+.p2, small, .caption, .text-small {
+  @include font(body, 13px, 1.25, 400);
+}
+
+// --- Labels — eyebrow / kicker / tag -------------------------
+.eyebrow, .kicker, .tag, .section__label, .footer__heading {
+  @include font(body, 12px, 1.25, 600);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// --- Quote ---------------------------------------------------
+blockquote {
+  @include font(display, 28px, 1.08, 400);
+  @include desktop { @include font(display, 40px, 1.08, 400); }
+}
+
+// --- UI text -------------------------------------------------
+nav, .nav-link {
+  @include font(body, 14px, 1.25, 500);
+}
+
+button, .btn, .cta, .cta-text {
+  @include font(body, 14px, 1.25, 600);
+}
+
+// --- Inline emphasis -----------------------------------------
+// Fonts load up to weight 600 only — bold maps to 600 (no faux-bold).
+b, strong { font-weight: 600; }
+i, em     { font-style: italic; }

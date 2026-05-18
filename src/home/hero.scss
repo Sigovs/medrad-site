@@ -1,0 +1,427 @@
+// Home — Hero (.entry)
+
+/* --- Entry (above-the-fold) -------------------------------- */
+.entry {
+  position: relative;
+  height: 1080px;
+  overflow: hidden;
+  background-color: var(--color-bg-dark);
+}
+
+/* Full-bleed image — covers the entire hero */
+.entry__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+}
+
+.entry__media-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #614935;
+  background-image: linear-gradient(
+    125deg,
+    rgba(58, 48, 40, 1)    0%,
+    rgba(90, 74, 60, 0.95) 30%,
+    rgba(130, 108, 88, 0.9) 60%,
+    rgba(71, 55, 38, 0.85) 100%
+  );
+  will-change: transform;
+  transform-origin: center center;
+}
+
+/* Left-to-right scrim — keeps text legible on the left */
+.entry__media-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    rgba(20, 16, 12, 0.78) 0%,
+    rgba(20, 16, 12, 0.48) 40%,
+    rgba(20, 16, 12, 0.08) 72%,
+    rgba(20, 16, 12, 0.00) 100%
+  );
+}
+
+/* Hero particle canvas */
+.entry__particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Hero image — fixed size, anchored bottom-right, clips on small screens */
+.entry__hero-image {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  z-index: 2;
+  pointer-events: auto;
+  cursor: default;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.entry__hero-image:hover {
+  transform: translateX(30px);
+}
+
+.entry__hero-image img {
+  height: 880px;
+  width: auto;
+  display: block;
+}
+
+.entry__hero-pill {
+  position: absolute;
+  bottom: 18%;
+  right: -10px;
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: 50px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .entry__hero-pill {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: var(--space-sm);
+    font-size: var(--fs-tag);
+  }
+}
+
+
+/* Text — overlaid on top of the full-bleed image */
+.entry__content {
+  position: relative;
+  z-index: 2;
+  height: 1080px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-top: calc(var(--nav-height) + 18vh);
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  will-change: opacity;
+}
+
+/* Hero eyebrow — eyebrow pattern, light variant for the dark hero.
+   margin-bottom = airy eyebrow→heading gap (hero / page openings). */
+.entry__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: var(--space-md);
+}
+
+.entry__headline {
+  font-family: var(--font-display);
+  line-height: var(--lh-display);
+  margin: 0;
+}
+
+.entry__line {
+  display: block;
+}
+
+/* Display lines — the visual anchor of the page */
+.entry__line--xl {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-regular);
+  color: var(--color-white);
+  letter-spacing: -0.03em;
+}
+
+/* Italic standfirst — lead paragraph, sits below the headline */
+.entry__line--sub {
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-regular);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.62);
+  margin-top: 1.75rem;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+/* Single text-based CTA — not a button */
+.entry__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-lg);
+  font-family: var(--font-body);
+  font-size: var(--fs-tag);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--space-2xs);
+  transition: border-color var(--duration) var(--ease);
+}
+
+.entry__cta:hover {
+  border-color: var(--color-text);
+}
+
+/* ── Universal scroll-reveal ──────────────────────────────────
+   Fade-up on scroll entry. Stagger via --stagger-i (set by JS).
+   Duration: 0.5s  |  Easing: ease-out  |  Stagger: 80ms
+─────────────────────────────────────────────────────────────── */
+.will-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.will-reveal.revealed {
+  animation: reveal-up 0.5s cubic-bezier(0, 0, 0.2, 1)
+             calc(var(--stagger-i, 0) * 80ms) both;
+}
+
+/* ── Left-slide reveal (hero text only) ───────────────────── */
+.will-reveal--left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.will-reveal--left.revealed {
+  animation: reveal-left 0.6s cubic-bezier(0, 0, 0.2, 1)
+             calc(var(--stagger-i, 0) * 130ms) both;
+}
+
+[data-parallax="float"] {
+  will-change: transform;
+}
+
+/* ── Hover micro-interactions ─────────────────────────────── */
+
+/* Cards: gentle lift */
+.proc-card,
+.edu-preview__card,
+.expect-step,
+.article-row,
+.proc-cat-item {
+  transition: transform var(--duration-hover) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out),
+              background-color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .proc-card:hover,
+  .edu-preview__card:hover,
+  .expect-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
+  }
+
+}
+
+/* Buttons: restrained scale + fast press feedback */
+.btn {
+  transition: background var(--duration) var(--ease),
+              color var(--duration) var(--ease),
+              border-color var(--duration) var(--ease),
+              transform var(--duration-press) var(--ease-out),
+              box-shadow var(--duration-hover) var(--ease-out);
+}
+
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+
+/* --- Hero: dual CTA actions ------------------------------- */
+.entry__actions {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+/* Ghost button inverted for dark hero */
+.entry__actions .btn--ghost {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.entry__actions .btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   MOBILE HERO — full-bleed portrait + name pill + single CTA
+   Layout (per reference): text top → portrait fills lower half
+   → name pill centered over portrait → "Book Your Visit" pinned
+   to viewport bottom.
+   ============================================================ */
+@media (max-width: 768px) {
+
+  .entry {
+    height: auto;
+    min-height: 100svh;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: block;
+  }
+
+  /* Content fills the entire hero so we can pin the sub + CTA to the bottom */
+  .entry__content {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    height: auto;
+    min-height: 0;
+    max-width: 100%;
+    padding: calc(var(--nav-height) + 1.25rem) 1.25rem 1.25rem;
+    text-align: left;
+    pointer-events: none;
+  }
+
+  .entry__content > *,
+  .entry__line--sub { pointer-events: auto; }
+
+  .entry__label {
+    font-size: var(--fs-tag);
+    margin-bottom: var(--space-sm);
+  }
+
+  .entry__headline { margin: 0; }
+
+  /* Rejoin the 3 desktop lines into one flowing block — wraps to ~2 lines */
+  .entry__line--xl {
+    display: inline;
+    font-size: clamp(2.5rem, 12vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .entry__line--xl::after { content: ' '; }
+  .entry__line--xl:last-of-type::after { content: ''; }
+
+  /* Subline hidden on mobile — headline + portrait + CTA only */
+  .entry__line--sub {
+    display: none;
+  }
+
+  /* Doctor portrait — full-bleed, centered, fades into bg at top */
+  .entry__hero-image {
+    display: flex !important;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    z-index: 2;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .entry__hero-image img,
+  .entry__hero-image picture {
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+    object-position: center bottom;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+            mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+  }
+
+  /* Name pill — sits above the subline + CTA stack at the bottom */
+  .entry__hero-pill {
+    display: inline-block !important;
+    position: absolute;
+    bottom: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+    background: rgba(255, 255, 255, 0.94);
+    color: var(--color-text);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: 999px;
+    font-size: var(--fs-caption);
+    font-weight: var(--fw-medium);
+    white-space: nowrap;
+    box-shadow: var(--shadow-md);
+    top: auto !important;
+    right: auto !important;
+  }
+
+  /* CTA pinned to the bottom of the hero */
+  .entry__actions {
+    position: absolute;
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    margin: 0;
+    z-index: 5;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    width: auto;
+  }
+
+  /* Hide the secondary "Explore Procedures" button — single CTA only */
+  .entry__actions .btn--ghost { display: none !important; }
+
+  .entry__actions .btn--primary {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+    font-size: 0.95rem;
+    background: var(--color-text);
+    border-color: var(--color-text);
+    color: var(--color-white);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@media (max-width: 380px) {
+  .entry__line--xl { font-size: 2.2rem; }
+  .entry__hero-image { max-height: 55vh; }
+}
+
+

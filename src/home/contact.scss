@@ -1,0 +1,215 @@
+// Home — Get in Touch (.contact-header / .contact-paths / forms)
+
+/* --- Contact Block ---------------------------------------- */
+.contact__block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: start;
+}
+
+.contact__text .section__label {
+  margin-bottom: var(--space-xs);
+}
+
+.contact__text h2 {
+  margin-bottom: var(--space-md);
+}
+
+.contact__text p {
+  font-size: var(--fs-body-sm);
+  line-height: 1.75;
+}
+
+/* --- Contact Paths (three-card layout) -------------------- */
+.contact-header {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.contact-header h2 {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-sm);
+}
+
+.contact-header__desc {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  line-height: var(--lh-body);
+}
+
+/* Stacked variant: 2 cards on top, 3rd full-width below */
+.contact-paths--stacked {
+  grid-template-columns: 1fr 1fr !important;
+}
+
+.contact-paths--stacked .contact-path--wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr);
+  gap: var(--space-2xl);
+  align-items: center;
+  text-align: left;
+  padding: var(--space-xl) var(--space-2xl);
+  /* Focal: solid white + soft lifted shadow */
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-paths--stacked .contact-path--wide .contact-path__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-xs);
+}
+
+.contact-paths--stacked .contact-path--wide .contact-path__icon {
+  margin-bottom: var(--space-xs);
+}
+
+.contact-paths--stacked .contact-path--wide .contact-path__title {
+  font-size: 1.5rem;
+}
+
+.contact-paths--stacked .contact-path--wide .contact-path__desc {
+  margin-bottom: 0;
+  max-width: 38ch;
+}
+
+/* Wide form: name+email on one row, then textarea, then button */
+.contact-path__form--wide {
+  width: 100%;
+  gap: var(--space-xs);
+}
+
+.contact-path__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+
+.contact-path__form--wide .form__input {
+  text-align: left;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.contact-path__textarea--lg {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.contact-path__form--wide .btn--primary {
+  align-self: flex-start;
+  padding-left: 1.75rem;
+  padding-right: 1.75rem;
+}
+
+@media (max-width: 760px) {
+  .contact-paths--stacked {
+    grid-template-columns: 1fr !important;
+  }
+  .contact-paths--stacked .contact-path--wide {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    text-align: center;
+  }
+  .contact-paths--stacked .contact-path--wide .contact-path__intro {
+    align-items: center;
+  }
+  .contact-paths--stacked .contact-path--wide .contact-path__desc {
+    max-width: 100%;
+  }
+  .contact-path__form-row {
+    grid-template-columns: 1fr;
+  }
+  .contact-path__form--wide .btn--primary {
+    width: 100%;
+    align-self: stretch;
+  }
+}
+
+/* --- Form ------------------------------------------------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.form__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: var(--fs-body);
+  color: var(--color-text);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: border-color var(--duration) var(--ease),
+              box-shadow var(--duration) var(--ease);
+}
+
+.form__input:focus {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-focus);
+}
+
+.form__input::placeholder {
+  color: var(--color-text-dim);
+}
+
+.form__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form__success {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: rgba(74, 95, 112, 0.08);
+  border: 1px solid rgba(74, 95, 112, 0.2);
+  border-radius: var(--radius-sm);
+  color: var(--color-accent);
+}
+
+.form__success p {
+  font-size: var(--fs-body);
+  color: var(--color-accent) !important;
+  margin: 0;
+}
+
+/* ============================================================
+   12 — Get in Touch — softer card stroke + smoother hover
+   Overrides the shared .contact-path styles for index2 only.
+   ============================================================ */
+.contact-path {
+  border-color: rgba(0, 0, 0, 0.06);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 420ms cubic-bezier(0.16, 1, 0.3, 1),
+              background 320ms ease;
+}
+
+/* Hover styles now live in styles.css so contact.html shares them */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-path {
+    transition: border-color 240ms ease, background 240ms ease;
+  }
+  .contact-path:hover {
+    transform: none;
+  }
+}
+
+
