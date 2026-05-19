@@ -6,7 +6,7 @@
 
     <div class="contact-header text-center mb-128">
       <p class="section__label">Get in Touch</p>
-      <h2>Choose how you&rsquo;d like to connect.</h2>
+      <h2 class="mt-8 mb-16">Choose how you&rsquo;d like to connect.</h2>
       <p class="contact-header__desc text-text-muted">Referrals accepted from all physicians. Self-referral available for select procedures.</p>
     </div>
 
@@ -33,7 +33,7 @@
         <form class="contact-path__form flex flex-col gap-8 w-full" id="contactForm">
           <input class="form__input" type="text" placeholder="Your name" required />
           <input class="form__input" type="tel" placeholder="Phone number" required />
-          <button type="submit" class="btn btn--primary btn--full">Request Callback</button>
+          <button type="submit" class="btn btn--primary btn--full mt-8">Request Callback</button>
         </form>
         <div class="form__success" id="formSuccess" style="display:none;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 11l3 3L22 4"/><circle cx="12" cy="12" r="10"/></svg>
@@ -43,12 +43,12 @@
 
       <!-- Path 3: Ask Dr. E (consolidated form, wide focal card) -->
       <div class="contact-path contact-path--wide">
-        <div class="contact-path__intro">
-          <div class="contact-path__icon flex items-center justify-center bg-bg-accent text-accent mb-32">
+        <div class="contact-path__intro flex flex-col items-start gap-8">
+          <div class="contact-path__icon flex items-center justify-center bg-bg-accent text-accent mb-8">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           </div>
           <h3 class="contact-path__title h5 font-display text-text mb-8">Ask Dr. E</h3>
-          <p class="contact-path__desc p2 text-text-muted mb-32 flex-1">Not ready to book? Ask a question about your imaging, your report, or what to expect &mdash; we typically reply within one business day.</p>
+          <p class="contact-path__desc p2 text-text-muted m-0 flex-1">Not ready to book? Ask a question about your imaging, your report, or what to expect &mdash; we typically reply within one business day.</p>
         </div>
         <form class="contact-path__form contact-path__form--wide flex flex-col gap-8 w-full" id="askdreForm" novalidate>
           <div class="contact-path__form-row grid grid-2 gap-8">
@@ -57,7 +57,7 @@
           </div>
           <input class="form__input" type="tel" placeholder="Phone (optional)" autocomplete="tel" inputmode="tel" />
           <textarea class="form__input contact-path__textarea contact-path__textarea--lg" placeholder="Your question" rows="5" required></textarea>
-          <button type="submit" class="btn btn--primary">Send</button>
+          <button type="submit" class="btn btn--primary mt-8">Send</button>
         </form>
       </div>
 

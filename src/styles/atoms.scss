@@ -33,12 +33,36 @@
 .self-center { align-self: center; }
 .self-end    { align-self: flex-end; }
 
+/* border */
+.border   { border: 1px solid; }
+.border-t { border-top: 1px solid; }
+.border-b { border-bottom: 1px solid; }
+.border-r { border-right: 1px solid; }
+.border-l { border-left: 1px solid; }
+
+/* position / z-index */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0  { inset: 0; }
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-2 { z-index: 2; }
+.z-5 { z-index: 5; }
+
 /* misc layout */
 .overflow-hidden     { overflow: hidden; }
 .w-full              { width: 100%; }
 .pointer-events-none { pointer-events: none; }
 .flex-shrink-0       { flex-shrink: 0; }
 .mx-auto             { margin-left: auto; margin-right: auto; }
+.mt-auto             { margin-top: auto; }
+.ml-auto             { margin-left: auto; }
+
+/* text */
+.no-underline { text-decoration: none; }
+.uppercase    { text-transform: uppercase; }
+.italic       { font-style: italic; }
+.list-none    { list-style: none; }
 
 /* --- Text link -------------------------------------------- */
 .text-link {

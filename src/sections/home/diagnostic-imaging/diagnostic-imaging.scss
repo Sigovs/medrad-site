@@ -32,14 +32,6 @@
   margin-top: -50px; /* remove empty whitespace above head */
 }
 
-.dx-imaging__inner {
-  align-self: center;
-  padding: var(--space-64) 0;
-}
-
-.dx-imaging__head {
-  margin: 0 0 var(--space-32);
-}
 
 .dx-imaging__card {
   background: rgba(255, 255, 255, 0.55);
@@ -63,45 +55,14 @@
 
 .dx-imaging__icon {
   font-size: 36px !important;
-  color: var(--color-accent);
   line-height: 1;
   margin: 0 0 0.25rem;
-  align-self: flex-start;
   font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
 
-.dx-imaging__body {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.dx-imaging__status {
-  color: var(--color-accent);
-  margin: 0;
-}
-
-.dx-imaging__card h3 {
-  letter-spacing: -0.02em;
-  color: var(--color-text);
-  margin: 0;
-}
 
 .dx-imaging__card p {
-  color: var(--color-text-muted);
-  margin: 0;
   max-width: 56ch;
-}
-
-.dx-imaging__cta {
-  align-self: flex-start;
-  margin-top: var(--space-8);
-}
-
-.dx-imaging__note {
-  margin: var(--space-32) 0 0;
-  color: var(--color-text-muted);
-  font-style: italic;
 }
 
 .dx-imaging__note a {

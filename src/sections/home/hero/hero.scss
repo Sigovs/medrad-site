@@ -117,11 +117,6 @@
 /* Hero eyebrow — light colour variant for the dark hero. */
 .entry__label {
   color: rgba(255, 255, 255, 0.55);
-  margin-bottom: var(--space-32);
-}
-
-.entry__headline {
-  margin: 0;
 }
 
 .entry__line {
@@ -133,7 +128,6 @@
   font-size: clamp(56px, 7vw, 112px);
   font-weight: 400;
   color: var(--color-white);
-  letter-spacing: -0.03em;
 }
 
 /* Italic standfirst — lead paragraph, sits below the headline */
@@ -153,7 +147,6 @@
   margin-top: var(--space-32);
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text);
   text-decoration: none;
@@ -244,14 +237,6 @@
 
 
 /* --- Hero: dual CTA actions ------------------------------- */
-.entry__actions {
-  display: flex;
-  gap: var(--space-32);
-  align-items: center;
-  margin-top: var(--space-32);
-  flex-wrap: wrap;
-}
-
 /* Ghost button inverted for dark hero */
 .entry__actions .btn--ghost {
   color: var(--color-white);
@@ -323,7 +308,6 @@
     display: inline;
     font-size: clamp(2.5rem, 12vw, 3.4rem);
     line-height: 1.05;
-    letter-spacing: -0.02em;
   }
 
   .entry__line--xl::after { content: ' '; }
@@ -360,7 +344,7 @@
     margin: 0 auto;
     object-fit: contain;
     object-position: center bottom;
-    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
+    -webkit-mask-image: -webkit-linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
             mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 100%);
   }
 

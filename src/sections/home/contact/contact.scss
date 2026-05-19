@@ -8,14 +8,6 @@
   align-items: start;
 }
 
-.contact__text .section__label {
-  margin-bottom: var(--space-8);
-}
-
-.contact__text h2 {
-  margin-bottom: var(--space-32);
-}
-
 
 /* --- Contact Paths (three-card layout) -------------------- */
 .contact-header {
@@ -23,10 +15,6 @@
   margin: 0 auto;
 }
 
-.contact-header h2 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-16);
-}
 
 /* Stacked variant: 2 cards on top, 3rd full-width below */
 .contact-paths--stacked {
@@ -47,23 +35,12 @@
   box-shadow: var(--shadow-md);
 }
 
-.contact-paths--stacked .contact-path--wide .contact-path__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-8);
-}
-
-.contact-paths--stacked .contact-path--wide .contact-path__icon {
-  margin-bottom: var(--space-8);
-}
 
 .contact-paths--stacked .contact-path--wide .contact-path__title {
   font-size: 24px;
 }
 
 .contact-paths--stacked .contact-path--wide .contact-path__desc {
-  margin-bottom: 0;
   max-width: 38ch;
 }
 
@@ -183,12 +160,8 @@
   border-radius: 50%;
 }
 
-.contact-path__desc {
-  flex: 1;
-}
 
 .contact-path__action {
-  letter-spacing: -0.01em;
   transition: color var(--duration) var(--ease);
 }
 
@@ -207,13 +180,6 @@
   padding-right: 14px;
 }
 
-.contact-path__form .btn {
-  margin-top: var(--space-8);
-}
-
-.contact-path__btn {
-  margin-top: auto;
-}
 
 .contact-path .form__success {
   flex-direction: column;

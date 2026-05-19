@@ -6,8 +6,8 @@
     <div class="split">
       <div class="split__text">
         <p class="section__label">Interactive Tool</p>
-        <h2>Assess Your Risk</h2>
-        <p>Answer a few short questions about your health history and symptoms. Our tool provides a structured, evidence-based summary — not a diagnosis, but a starting point for an informed conversation with your physician.</p>
+        <h2 class="mb-16">Assess Your Risk</h2>
+        <p class="mb-32">Answer a few short questions about your health history and symptoms. Our tool provides a structured, evidence-based summary — not a diagnosis, but a starting point for an informed conversation with your physician.</p>
         <a href="#" class="btn btn--primary" id="startAssessment">Begin Assessment</a>
       </div>
       <div class="split__widget">

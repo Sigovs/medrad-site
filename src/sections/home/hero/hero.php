@@ -9,14 +9,14 @@
   </div>
 
   <div class="entry__content" data-parallax="hero-txt">
-    <p class="entry__label eyebrow">Interventional Radiology &amp; Image-Guided Treatment</p>
-    <h1 class="entry__headline">
+    <p class="entry__label eyebrow mb-32">Interventional Radiology &amp; Image-Guided Treatment</p>
+    <h1 class="entry__headline m-0">
       <span class="entry__line entry__line--xl">Treatment,</span>
       <span class="entry__line entry__line--xl">not just</span>
       <span class="entry__line entry__line--xl">imaging.</span>
     </h1>
     <p class="entry__line--sub lead">Minimally invasive procedures guided by precision imaging — no open surgery, faster recovery, same outcomes.</p>
-    <div class="entry__actions">
+    <div class="entry__actions flex items-center gap-32 mt-32 flex-wrap">
       <a href="#contact" class="btn btn--primary">Book Your Visit</a>
       <a href="#procedures" class="btn btn--ghost">Explore Procedures</a>
     </div>

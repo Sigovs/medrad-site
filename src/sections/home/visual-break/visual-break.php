@@ -1,7 +1,7 @@
 <!-- ============================================================
      05 — Visual Break (parallax full-bleed video)
      ============================================================ -->
-<section class="visual-break" aria-hidden="true">
+<section class="visual-break bg-bg-dark" aria-hidden="true">
   <video class="visual-break__bg visual-break__bg--video"
          autoplay muted loop playsinline preload="auto"
          poster="assets/images/visual%20brake_img.jpg">

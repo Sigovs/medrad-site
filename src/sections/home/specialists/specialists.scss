@@ -165,14 +165,12 @@
   font-family: 'Playfair Display', Georgia, serif;
   font-size: clamp(64px, 9vw, 104px);
   font-weight: 600;
-  letter-spacing: -0.04em;
   color: var(--color-accent);
   opacity: 0.5;
   user-select: none;
 }
 
 .dr-slide__name {
-  letter-spacing: -0.02em;
   color: var(--color-text);
   margin: 0 0 var(--space-8);
 }
