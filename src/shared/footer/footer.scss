@@ -15,62 +15,31 @@
 }
 
 .footer__logo {
-  color: var(--color-white);
-  margin-bottom: var(--space-8);
   line-height: 1;
 }
 
-.footer__logo span {
-  color: var(--color-accent-soft);
-}
-
 .footer__logo img {
-  display: block;
   height: 43px;
   width: auto;
-  margin: 0 auto;
 }
 
 .footer__tagline {
   color: #B27D4C;
-  font-style: italic;
-  text-align: center;
 }
 
 /* Type comes from the global `.eyebrow, .footer__heading` rule;
-   this only carries layout + colour. */
+   this only carries colour. */
 .footer__heading {
-  color: #666666;
-  margin-bottom: var(--space-16);
-}
-
-.footer__col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
+  color: var(--color-text-dim);
 }
 
 .footer__col a {
-  color: #888888;
-  text-decoration: none;
+  color: var(--color-text-dim);
   transition: color var(--duration) var(--ease);
 }
 
 .footer__col a:hover {
   color: var(--color-text-light);
-}
-
-.footer__bottom {
-  border-top: 1px solid var(--color-border-dark);
-  padding-top: var(--space-32);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-32);
-  flex-wrap: wrap;
-}
-
-.footer__bottom p {
-  color: #555555;
 }
 
 @media (max-width: 1024px) {
@@ -94,4 +63,3 @@
     gap: var(--space-8);
   }
 }
-

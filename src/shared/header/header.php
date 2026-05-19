@@ -3,13 +3,13 @@
      ============================================================ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="/" class="nav__logo"><img src="assets/images/logo.svg" alt="MedRad Clinics" /></a>
+    <a href="/" class="nav__logo inline-flex items-center"><img class="block" src="assets/images/logo.svg" alt="MedRad Clinics" /></a>
 
-    <nav class="nav__links" id="navLinks">
+    <nav class="nav__links flex items-center gap-32" id="navLinks">
       <a href="about.html">About</a>
 
       <div class="nav__dropdown-wrap" id="navProcDropWrap">
-        <button class="nav__dropdown-trigger" id="navProcTrigger"
+        <button class="nav__dropdown-trigger inline-flex items-center" id="navProcTrigger"
                 aria-expanded="false" aria-haspopup="true" aria-controls="navProcDropdown">
           Procedures
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
